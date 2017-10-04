@@ -32,6 +32,7 @@
 			    <li class="upper"><a href="#">komite audit</a></li>
 			    <li class="upper"><a href="#">mwa unsur mahasiswa</a></li>
 			</ul>
+		  </li>
           <li class="upper"><a href="">sk & peraturan</a></li>
           <li class="upper"><a href="">program kerja</a></li>
           <li class="upper"><a href="">berita</a></li>

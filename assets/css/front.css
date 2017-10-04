@@ -5,8 +5,17 @@ body {
 .bgimg1 {
 	height:500px; 
 	background: url(../images/bg.jpg); 
-	background-repeat: 
-	no-repeat; 
+	background-repeat: no-repeat; 
+	background-position: center; 
+	background-attachment: fixed; 
+	background-size: cover;
+	opacity: .7;
+}
+
+.bgimg2 {
+	height:500px; 
+	background: url(../images/bg2.jpg); 
+	background-repeat: no-repeat; 
 	background-position: center; 
 	background-attachment: fixed; 
 	background-size: cover;
@@ -26,7 +35,9 @@ body {
 
 .navbar-fixed-top .navbar-collapse {
     max-height: 340px;
+    width: 100%;
     float: right;
+    background: rgb(1, 75, 99);
 }
 
 .scrolled {
@@ -41,7 +52,6 @@ ul.nav li a {
 
 ul.nav li a:hover {
 	background: rgb(255,223,0);
-
 	color: rgb(1, 75, 99);
 	font-weight: bolder;
 }
@@ -58,7 +68,7 @@ ul.nav li:focus {
 div.caption {
     position: absolute;
     left: 0;
-    top: 20%;
+    top: 10%;
     width: 100%;
     text-align: center;
     color: rgb(1, 75, 99);
