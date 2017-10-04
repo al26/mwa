@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.carousel.min.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.theme.default.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/front.css')?>">
 
 </head>
@@ -22,7 +24,7 @@
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
           <li class="upper"><a href="">beranda</a></li>
           <li class="dropdown upper">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">profil <b class="caret"></b></a>
@@ -58,6 +60,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/d99c7e5fb9.js"></script>
+<script src="<?=base_url('assets/js/owl.carousel.min.js');?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $(window).on("scroll",function(){
@@ -92,8 +96,32 @@ $(document).ready(function(){
     }  // End if
   });
 
-
+  var owl = $("#owl-demo");
+	 
+  owl.owlCarousel({
+  	responsiveClass:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:4
+        }
+    }
+  });
+ 
+  // Custom Navigation Events
+  $(".next").click(function(){
+    owl.trigger('next.owl.carousel');
+  })
+  $(".prev").click(function(){
+    owl.trigger('prev.owl.carousel');
+  })
 });
+
 </script>
 </body>
 </html>
