@@ -4,7 +4,8 @@
   <title><?=$title?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap.min.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/font-awesome.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.carousel.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.theme.default.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/front.css')?>">
@@ -48,7 +49,7 @@
 <?php $this->load->view('frontend/beranda'); ?>
 
 
-<div class="row">
+<div class="row footer">
 	<footer class="container">
 		
 	</footer>
@@ -58,9 +59,8 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://use.fontawesome.com/d99c7e5fb9.js"></script>
+<script src="<?=base_url('assets/js/jquery-3.2.1.min.js')?>"></script>
+<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 <script src="<?=base_url('assets/js/owl.carousel.min.js');?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -72,10 +72,18 @@ $(document).ready(function(){
     else{
       $(".navbar").removeClass("scrolled");
     }
+
+    $timeline_block.each(function(){
+		if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+			$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+		}
+	});
+
+
   });
 
   // Add smooth scrolling on all links inside the navbar
-  $("#myNavbar a").on('click', function(event) {
+  $("#myScrollspy a").on('click', function(event) {
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
       // Prevent default anchor click behavior
@@ -120,6 +128,11 @@ $(document).ready(function(){
   $(".prev").click(function(){
     owl.trigger('prev.owl.carousel');
   })
+
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+  });
+
 });
 
 </script>

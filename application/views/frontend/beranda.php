@@ -1,4 +1,14 @@
-<div class="bgimg1"></div>
+<div class="row">
+    <nav class="col-sm-12" id="myScrollspy">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#desc" data-toggle="tooltip" data-placement="right" title="Deskripsi"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
+        <li><a href="#recent" data-toggle="tooltip" data-placement="right" title="Berita"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
+        <li><a href="#section3"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
+      </ul>
+    </nav>
+</div>
+
+<div id="desc" class="bgimg1"></div>
 <div class="caption">
 		<img src="<?=base_url('assets/images/undip.png')?>" width="200"><br>
 		<span class="border upper text-center"><p>majelis wali amanat<br>universitas diponegoro</p></span>
@@ -11,7 +21,10 @@
 		</p>
 	</div>
 </div>
-<div class="section-title text-center text-title upper">
+<!-- <div class="no-content bg-silver"></div> -->
+<!-- <div class="no-content bg-aqua"></div> -->
+<div class="bgimg2"></div>
+<div id="recent" class="section-title text-center text-title upper">
 	<p>berita terbaru</p>
 </div>
 <hr class="line">
@@ -41,4 +54,7 @@
 	</div>
 	<br>
 </div>
-<div class="bgimg2"></div>
+<div class="bgimg1"></div>
+<div class="suggestion">
+	
+</div>

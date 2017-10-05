@@ -16,7 +16,7 @@ body {
 }
 
 .bgimg2 {
-	height:200px; 
+	height:100px; 
 	background: url(../images/bg2.jpg); 
 	background-repeat: no-repeat; 
 	background-position: center; 
@@ -153,13 +153,14 @@ hr.line {
 
 .thumb-container {
   background: #2c7873;
-  border: 5px solid #fff;
-  border-radius: 5px;
+  /*border: 1px solid #2c7873;*/
+  border-radius: 5px 5px 0 0;
   height: 250px;
 }
 
 .title-container {
   background: #fff;
+  /*border: 2px solid #2c7873;*/
   padding-top: 3%;
   color: #2c7873;
   height: 70px;
@@ -206,4 +207,46 @@ hr.line {
 a.btn.prev, a.btn.next {
 	background: #07575b;
 	color: #ecf0f1;
+}
+
+ul.nav-pills {
+  top: 30%;
+  position: fixed;
+  z-index: 1000;
+}
+
+ul.nav-pills li a {
+	color: #000;
+	font-size: 30px;
+	background: transparent;
+	opacity: .8;
+}
+
+ul.nav-pills li a:hover, ul.nav-pills li a:focus, ul.nav-pills li a:hover:focus {
+	background: transparent;
+	opacity: 1;
+	font-weight: bolder;
+	color: #000;
+}
+
+.no-content {
+	height: 800px;
+}
+
+.bg-aqua {
+	background: #07575b;
+}
+
+.bg-silver {
+    background: #ecf0f1;
+}
+
+.suggestion {
+	min-height: 200px;
+	background: #CFB53B;
+}
+
+.footer {
+	min-height: 450px;
+	background: #07575b;
 }
