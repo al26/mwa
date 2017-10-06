@@ -1,8 +1,7 @@
 body {
-      /*position: relative; */
-      overflow-x: hidden;
-      margin: 0;
-      background: #ecf0f1;
+    overflow-x: hidden;
+    margin: 0;
+    background: #ecf0f1;
 }
 
 .bgimg1 {
@@ -43,31 +42,29 @@ body {
 }
 
 .navbar-toggle span.icon-bar {
-	/*background-color: rgb(255,223,0);*/
 	background-color: #CFB53B;
 }
 
 .navbar-fixed-top .navbar-collapse {
     max-height: 340px;
     width: 100%;
-    /*background: rgb(1, 75, 99);*/
 }
 
 .scrolled {
-	height: 50px;
-    /*background: rgb(1, 75, 99);*/
+	height: 60px;
     background: #07575b;
 }
 
+a.navbar-brand {padding: 10px 0;}
+
 ul.nav li a {
-	/*color: rgb(255,223,0);*/
 	color: #CFB53B;
 	font-weight: bolder;
+	height: 60px;
+	padding-top: 20px;
 }
 
 ul.nav li a:hover, ul.nav li a:focus:hover {
-	/*background: rgb(255,223,0);*/
-	/*color: rgb(1, 75, 99);*/
 	background: #CFB53B;
 	color: #07575b;
 	font-weight: bolder;
@@ -75,19 +72,16 @@ ul.nav li a:hover, ul.nav li a:focus:hover {
 
 ul.nav li a:focus {
 	background: transparent;
-	/*color: rgb(255,223,0);*/
 	color: #CFB53B;
 	font-weight: bolder;	
 }
 
 .nav .open>a, .nav .open>a:focus {
     background-color: transparent;
-    /*color: rgb(255,223,0);*/
     color: #CFB53B;
 }
 
 ul.dropdown-menu {
-	/*background: rgb(1, 75, 99); */
 	background: #07575b;
 }
 
@@ -104,7 +98,6 @@ div.caption {
     top: 18%;
     width: 100%;
     text-align: center;
-    /*color: rgb(1, 75, 99);*/
     color: #07575b;
 }
 
@@ -120,7 +113,6 @@ div.caption span.border, div.caption2 span.border {
 }
 
 .desc {
-	/*background-color: rgb(1, 75, 99);*/
 	background-color: #07575b;
 	color: #fff;
 	margin: 0;
@@ -152,27 +144,22 @@ hr.line2 {
 
 .latest-news {
 	position: relative;
-	/*background: #003b46;*/
 	margin: 0;
 }
 
 .col-post {
-	/*display: inline-block;*/
-	/*float: none;*/
 	margin: 2%;
 	box-shadow: 3px 3px 5px #2c7873;
 }
 
 .thumb-container {
   background: #2c7873;
-  /*border: 1px solid #2c7873;*/
   border-radius: 5px 5px 0 0;
   height: 250px;
 }
 
 .title-container {
   background: #fff;
-  /*border: 2px solid #2c7873;*/
   padding-top: 3%;
   color: #2c7873;
   height: 70px;
@@ -188,7 +175,6 @@ hr.line2 {
 .section-title {
 	min-height: 80px;
 	background: transparent;
-	/*color: #07575b;*/
 	padding-top: 40px;
 	margin: 0;
 }
@@ -197,19 +183,11 @@ hr.line2 {
 .color-aqua {color: #07575b;}
 
 #owl-demo .item{
-  /*background: #3fbf79;*/
-  /*padding: 30px 0px;*/
   margin: 20px;
-  /*color: #FFF;*/
-  /*-webkit-border-radius: 3px;*/
-  /*-moz-border-radius: 3px;*/
-  /*border-radius: 3px;*/
-  /*text-align: center;*/
 }
 .customNavigation{
   text-align: center;
 }
-/*use styles below to disable ugly selection*/
 .customNavigation a{
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -228,11 +206,12 @@ ul.nav-pills {
   top: 30%;
   position: fixed;
   z-index: 1000;
+  left: .1%;
 }
 
 ul.nav-pills li a {
 	color: #000;
-	font-size: 30px;
+	font-size: 25px;
 	background: transparent;
 	opacity: .8;
 }

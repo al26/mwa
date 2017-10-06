@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><?=$title?></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap.min.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/font-awesome.min.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.carousel.min.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.theme.default.min.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/front.css')?>">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/blog_layout.css')?>">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="0">
+
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="<?=base_url()?>">
+        	<img class="img-responsive" src="<?=base_url('assets/images/logo.png');?>" width="210">
+        </a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="upper"><a href="">beranda</a></li>
+          <li class="dropdown upper">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">profil <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+			  	<li class="upper"><a href="#">penjelasan umum</a></li>
+			    <li class="upper"><a href="#">personalia</a></li>
+			    <li class="upper"><a href="#">komite audit</a></li>
+			    <li class="upper"><a href="#">mwa unsur mahasiswa</a></li>
+			</ul>
+		  </li>
+          <li class="upper"><a href="">sk & peraturan</a></li>
+          <li class="upper"><a href="">program kerja</a></li>
+          <li class="upper"><a href="<?=base_url('berita')?>">berita</a></li>
+          <li class="upper"><a href="">kotak saran</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

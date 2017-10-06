@@ -1,5 +1,5 @@
 <!-- <div class="row"> -->
-<div class="row">
+<div class="row hidden-sm hidden-xs">
     <nav class="col-sm-12" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#desc" data-toggle="tooltip" data-placement="right" title="Deskripsi"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>

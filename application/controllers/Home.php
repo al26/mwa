@@ -6,7 +6,10 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Beranda';
-		$this->load->view('templates/frontend', $data);
+		// $data['view'] = 'beranda';
+		$this->load->view('templates/header', $data);
+		$this->load->view('frontend/beranda', $data);
+		$this->load->view('templates/footer', $data);
 	}
 
 }
