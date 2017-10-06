@@ -3,7 +3,7 @@
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#desc" data-toggle="tooltip" data-placement="right" title="Deskripsi"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
         <li><a href="#recent" data-toggle="tooltip" data-placement="right" title="Berita"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
-        <li><a href="#section3"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
+        <li><a href="#suggestion"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
       </ul>
     </nav>
 </div>
@@ -23,8 +23,8 @@
 </div>
 <!-- <div class="no-content bg-silver"></div> -->
 <!-- <div class="no-content bg-aqua"></div> -->
-<div class="bgimg2"></div>
-<div id="recent" class="section-title text-center text-title upper">
+<div id="recent" class="bgimg2"></div>
+<div class="section-title text-center text-title upper color-aqua">
 	<p>berita terbaru</p>
 </div>
 <hr class="line">
@@ -54,7 +54,9 @@
 	</div>
 	<br>
 </div>
-<div class="bgimg1"></div>
-<div class="suggestion">
-	
+<div id="suggestion" class="bgimg3"></div>
+<div class="suggestion text-center">
+	<br>
+	<a class="btn btn-lg btn-aspirasi upper"><i class="fa fa-paper-plane" aria-hidden="true"></i> sampaikan aspirasimu</a>
 </div>
+<div class="bgimg3"></div>

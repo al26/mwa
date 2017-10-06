@@ -25,6 +25,16 @@ body {
 	opacity: .7;
 }
 
+.bgimg3 {
+	height:50px; 
+	background: url(../images/bg.jpg); 
+	background-repeat: no-repeat; 
+	background-position: center; 
+	background-attachment: fixed; 
+	background-size: cover;
+	opacity: .7;
+}
+
 .navbar {
 	background: transparent;
 	height: 100px;
@@ -97,16 +107,6 @@ div.caption {
     color: #07575b;
 }
 
-div.caption2 {
-    position: absolute;
-    left: 0;
-    top: 61%;
-    width: 100%;
-    text-align: center;
-    /*color: rgb(1, 75, 99);*/
-    color: #07575b;
-}
-
 div.caption img {
 	margin-bottom: 3%;
 }
@@ -134,6 +134,17 @@ hr.line {
     border: 0;
     border-radius: 5px;
     border-top: 5px solid #07575b;
+    margin: 1em 35%;
+    padding: 0;
+}
+
+hr.line2 {
+    display: block;
+    height: 1px;
+    width: 30%;
+    border: 0;
+    border-radius: 5px;
+    border-top: 5px solid #ecf0f1;
     margin: 1em 35%;
     padding: 0;
 }
@@ -176,10 +187,13 @@ hr.line {
 .section-title {
 	min-height: 80px;
 	background: transparent;
-	color: #07575b;
+	/*color: #07575b;*/
 	padding-top: 40px;
 	margin: 0;
 }
+
+.color-silver {color: #ecf0f1;}
+.color-aqua {color: #07575b;}
 
 #owl-demo .item{
   /*background: #3fbf79;*/
@@ -242,11 +256,42 @@ ul.nav-pills li a:hover, ul.nav-pills li a:focus, ul.nav-pills li a:hover:focus 
 }
 
 .suggestion {
-	min-height: 200px;
+	min-height: 130px;
 	background: #CFB53B;
+	padding-top: 1%;
 }
 
 .footer {
-	min-height: 450px;
+	min-height: 400px;
 	background: #07575b;
+}
+
+a.btn-aspirasi {
+	background: transparent;
+	color: #07575b;
+	border: 2px solid #07575b;
+	border-radius: 3px;
+	font-weight: bolder;
+	font-size: 30px;
+}
+
+a.btn-aspirasi:hover {
+	background: #07575b;
+	color: #CFB53B;
+}
+
+.contact-icon {
+	border: 5px solid #ecf0f1;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	font-size: 55px;
+	padding: 8px;
+	margin: 0 auto;
+}
+
+.notice {
+	min-height: 50px;
+	font-weight: bolder;
+	padding-top: 1.5%;
 }

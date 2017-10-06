@@ -48,12 +48,46 @@
 
 <?php $this->load->view('frontend/beranda'); ?>
 
-
+<footer>
 <div class="row footer">
-	<footer class="container">
-		
-	</footer>
+	<div class="container text-center">
+		<div class="section-title text-title upper color-silver">
+			<p>kontak kami</p>
+		</div>
+		<hr class="line2">
+		<br><br>
+		<div class="row text-center">
+			<div class="col-md-3 col-sm-2 col-xs-1">
+				<div class="contact-icon"><i class="fa fa-home color-silver" aria-hidden="true"></i></div>
+				<div class="section-title text-title upper color-silver">
+					<p>kantor mwa</p>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-2 col-xs-1">
+				<div class="contact-icon"><i class="fa fa-envelope color-silver" aria-hidden="true"></i></div>
+				<div class="section-title text-title upper color-silver">
+					<p>mail@mwa.undip.ac.id</p>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-2 col-xs-1">
+				<div class="contact-icon"><i class="fa fa-phone color-silver" aria-hidden="true"></i></div>
+				<div class="section-title text-title upper color-silver">
+					<p>1234567890</p>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-2 col-xs-1">
+				<div class="contact-icon"><i class="fa fa-fax color-silver" aria-hidden="true"></i></div>
+				<div class="section-title text-title upper color-silver">
+					<p>0987654321</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<div class="bg-silver notice">
+	<p class="upper text-center"><i class="fa fa-copyright" aria-hidden="true"></i> <?= date("Y");?> mwa undip. all right reserved</p>
+</div>
+</footer>
 
 
 
