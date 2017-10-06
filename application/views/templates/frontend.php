@@ -46,7 +46,9 @@
   </div>
 </nav>    
 
+<section class="row">
 <?php $this->load->view('frontend/beranda'); ?>
+</section>
 
 <footer>
 <div class="row footer">
@@ -56,28 +58,28 @@
 		</div>
 		<hr class="line2">
 		<br><br>
-		<div class="row text-center">
+		<div class="row text-center col-md-12 col-sm-12 col-xs-12">
 			<div class="col-md-3 col-sm-2 col-xs-1">
-				<div class="contact-icon"><i class="fa fa-home color-silver" aria-hidden="true"></i></div>
-				<div class="section-title text-title upper color-silver">
+				<div class="contact-icon"><i class="fa fa-home color-silver" aria-hidden="true"></i></div><br>
+				<div class="text-bolder upper color-silver centered">
 					<p>kantor mwa</p>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-2 col-xs-1">
-				<div class="contact-icon"><i class="fa fa-envelope color-silver" aria-hidden="true"></i></div>
-				<div class="section-title text-title upper color-silver">
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="contact-icon"><i class="fa fa-envelope color-silver" aria-hidden="true"></i></div><br>
+				<div class="text-bolder upper color-silver centered">
 					<p>mail@mwa.undip.ac.id</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-2 col-xs-1">
-				<div class="contact-icon"><i class="fa fa-phone color-silver" aria-hidden="true"></i></div>
-				<div class="section-title text-title upper color-silver">
+				<div class="contact-icon"><i class="fa fa-phone color-silver" aria-hidden="true"></i></div><br>
+				<div class="text-bolder upper color-silver centered">
 					<p>1234567890</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-2 col-xs-1">
-				<div class="contact-icon"><i class="fa fa-fax color-silver" aria-hidden="true"></i></div>
-				<div class="section-title text-title upper color-silver">
+				<div class="contact-icon"><i class="fa fa-fax color-silver" aria-hidden="true"></i></div><br>
+				<div class="text-bolder upper color-silver centered">
 					<p>0987654321</p>
 				</div>
 			</div>

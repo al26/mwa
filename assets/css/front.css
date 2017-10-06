@@ -96,6 +96,7 @@ ul.dropdown-menu {
 .text-justify {text-align: justify-all;}
 .text-indent {text-indent: 50px;}
 .text-title {font-size: 1.5em; font-weight: bolder;}
+.text-bolder {font-weight: bolder;}
 
 div.caption {
     position: absolute;
@@ -258,11 +259,11 @@ ul.nav-pills li a:hover, ul.nav-pills li a:focus, ul.nav-pills li a:hover:focus 
 .suggestion {
 	min-height: 130px;
 	background: #CFB53B;
-	padding-top: 1%;
+	padding-top: 1.5%;
 }
 
 .footer {
-	min-height: 400px;
+	min-height: 375px;
 	background: #07575b;
 }
 
@@ -272,7 +273,7 @@ a.btn-aspirasi {
 	border: 2px solid #07575b;
 	border-radius: 3px;
 	font-weight: bolder;
-	font-size: 30px;
+	font-size: 20px;
 }
 
 a.btn-aspirasi:hover {
@@ -283,10 +284,10 @@ a.btn-aspirasi:hover {
 .contact-icon {
 	border: 5px solid #ecf0f1;
 	border-radius: 50%;
-	width: 100px;
-	height: 100px;
-	font-size: 55px;
-	padding: 8px;
+	width: 80px;
+	height: 80px;
+	font-size: 45px;
+	padding: 5px;
 	margin: 0 auto;
 }
 
@@ -295,3 +296,5 @@ a.btn-aspirasi:hover {
 	font-weight: bolder;
 	padding-top: 1.5%;
 }
+
+.centered {margin: 0 auto;}

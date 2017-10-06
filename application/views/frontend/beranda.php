@@ -1,9 +1,10 @@
+<!-- <div class="row"> -->
 <div class="row">
     <nav class="col-sm-12" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#desc" data-toggle="tooltip" data-placement="right" title="Deskripsi"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
         <li><a href="#recent" data-toggle="tooltip" data-placement="right" title="Berita"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
-        <li><a href="#suggestion"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
+        <li><a href="#suggestion" data-toggle="tooltip" data-placement="right" title="Aspirasi"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
       </ul>
     </nav>
 </div>
@@ -57,6 +58,7 @@
 <div id="suggestion" class="bgimg3"></div>
 <div class="suggestion text-center">
 	<br>
-	<a class="btn btn-lg btn-aspirasi upper"><i class="fa fa-paper-plane" aria-hidden="true"></i> sampaikan aspirasimu</a>
+	<a class="btn btn-md btn-aspirasi upper"><i class="fa fa-paper-plane" aria-hidden="true"></i> sampaikan aspirasimu</a>
 </div>
 <div class="bgimg3"></div>
+<!-- </div> -->
