@@ -12,10 +12,15 @@ class Admin extends CI_Controller {
         }
     }
     public function index(){
-        $this->load->view('admin/layout');
+        $data['sidebar']="admin/sidebar";
+        $this->load->view('admin/layout',$data);
+    }
+    public function view_post(){
+        $data['sidebar']="admin/sidebar";
+        $this->load->view('admin/view_post',$data);
     }
     public function add_post(){}
-    public function view_post(){}
+    
     public function new_file(){}
     public function view_file(){}
     public function add_category(){}

@@ -80,3 +80,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login']='auth';
 $route['admin']='admin/index';
 $route['logout']='auth/destroy';
+$route['post']='admin/view_post';
+$route['new-post']='admin/add_post';
