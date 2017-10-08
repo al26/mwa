@@ -1,41 +1,32 @@
 <footer class="">
 <div class="footer">
 	<div class="container text-center">
-		<div class="section-title text-title upper color-silver">
+		<div class="section-title text-title text-upper color-silver">
 			<p>kontak kami</p>
 		</div>
-		<hr class="line2">
-		<br><br>
-		<div class="row text-center col-md-12 col-sm-12 col-xs-12">
-			<div class="col-md-3 col-sm-2 col-xs-1">
-				<div class="contact-icon"><i class="fa fa-home color-silver" aria-hidden="true"></i></div><br>
-				<div class="text-bolder upper color-silver centered">
-					<p>kantor mwa</p>
-				</div>
+		<hr class="line line-silver">
+		<div class="row text-center contact">
+			<div class="col-md-3 col-sm-6 col-xs-12 contact-container">
+				<i class="fa fa-home color-silver contact-icon" aria-hidden="true"></i><br>
+				<p class="text-bolder text-upper color-silver">Jalan Prof. Soedarto, SH Tembalang, Semarang</p>
 			</div>
-			<div class="col-md-3 col-sm-12 col-xs-12">
-				<div class="contact-icon"><i class="fa fa-envelope color-silver" aria-hidden="true"></i></div><br>
-				<div class="text-bolder upper color-silver centered">
-					<p>mail@mwa.undip.ac.id</p>
-				</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 contact-container">
+				<i class="fa fa-envelope color-silver contact-icon" aria-hidden="true"></i><br>
+				<p class="text-bolder text-upper color-silver">mwa@live.undip.ac.id</p>
 			</div>
-			<div class="col-md-3 col-sm-2 col-xs-1">
-				<div class="contact-icon"><i class="fa fa-phone color-silver" aria-hidden="true"></i></div><br>
-				<div class="text-bolder upper color-silver centered">
-					<p>1234567890</p>
-				</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 contact-container">
+				<i class="fa fa-phone color-silver contact-icon" aria-hidden="true"></i><br>
+				<p class="text-bolder text-upper color-silver">+62 247 692 263 2</p>
 			</div>
-			<div class="col-md-3 col-sm-2 col-xs-1">
-				<div class="contact-icon"><i class="fa fa-fax color-silver" aria-hidden="true"></i></div><br>
-				<div class="text-bolder upper color-silver centered">
-					<p>0987654321</p>
-				</div>
+			<div class="col-md-3 col-sm-6 col-xs-12 contact-container">
+				<i class="fa fa-fax color-silver contact-icon" aria-hidden="true"></i><br>
+				<p class="text-bolder text-upper color-silver">+62 247 692 263 2</p>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="bg-silver notice">
-	<p class="upper text-center"><i class="fa fa-copyright" aria-hidden="true"></i> <?= date("Y");?> mwa undip | all right reserved</p>
+<div class="bg-silver copyright">
+	<p class="text-upper text-center no-margin no-padding"><i class="fa fa-copyright" aria-hidden="true"></i> <?= date("Y");?> mwa undip | all right reserved</p>
 </div>
 </footer>
 
@@ -48,15 +39,15 @@
 <script src="<?=base_url('assets/js/owl.carousel.min.js');?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-  $(window).on("scroll",function(){
-    var wn = $(window).scrollTop();
-    if(wn > 120){
-      $(".navbar").addClass("scrolled");
-    }
-    else{
-      $(".navbar").removeClass("scrolled");
-    }
-	});
+ //  $(window).on("scroll",function(){
+ //    var wn = $(window).scrollTop();
+ //    if(wn > 120){
+ //      $(".navbar").addClass("scrolled");
+ //    }
+ //    else{
+ //      $(".navbar").removeClass("scrolled");
+ //    }
+	// });
 
   // Add smooth scrolling on all links inside the navbar
   $("#myScrollspy a").on('click', function(event) {
@@ -88,7 +79,7 @@ $(document).ready(function(){
         0:{
             items:1
         },
-        600:{
+        400:{
             items:2
         },
         1000:{

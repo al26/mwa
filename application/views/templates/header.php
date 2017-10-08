@@ -26,23 +26,49 @@
         	<img class="img-responsive" src="<?=base_url('assets/images/logo.png');?>" width="210">
         </a>
     </div>
-    <div>
+    <div class="hidden-sm">
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li class="upper"><a href="">beranda</a></li>
-          <li class="dropdown upper">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">profil <b class="caret"></b></a>
-			<ul class="dropdown-menu">
-			  	<li class="upper"><a href="#">penjelasan umum</a></li>
-			    <li class="upper"><a href="#">personalia</a></li>
-			    <li class="upper"><a href="#">komite audit</a></li>
-			    <li class="upper"><a href="#">mwa unsur mahasiswa</a></li>
-			</ul>
-		  </li>
-          <li class="upper"><a href="">sk & peraturan</a></li>
-          <li class="upper"><a href="">program kerja</a></li>
-          <li class="upper"><a href="<?=base_url('berita')?>">berita</a></li>
-          <li class="upper"><a href="">kotak saran</a></li>
+          <li class="text-upper"><a href="">beranda</a></li>
+          <li class="dropdown text-upper">
+      			<a href="#" class="dropdown-toggle" data-toggle="dropdown">profil <b class="caret"></b></a>
+      			<ul class="dropdown-menu">
+      			  	<li class="text-upper"><a href="#">penjelasan umum</a></li>
+      			    <li class="text-upper"><a href="#">personalia</a></li>
+      			    <li class="text-upper"><a href="#">komite audit</a></li>
+      			    <li class="text-upper"><a href="#">mwa unsur mahasiswa</a></li>
+      			</ul>
+    		  </li>
+          <li class="text-upper"><a href="">sk & peraturan</a></li>
+          <li class="text-upper"><a href="">program kerja</a></li>
+          <li class="text-upper"><a href="<?=base_url('berita')?>">berita</a></li>
+          <li class="text-upper"><a href="">kotak saran</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="visible-sm">
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="text-upper"><a href="">beranda</a></li>
+          <li class="dropdown text-upper">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">profil <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li class="text-upper"><a href="#">penjelasan umum</a></li>
+                <li class="text-upper"><a href="#">personalia</a></li>
+                <li class="text-upper"><a href="#">komite audit</a></li>
+                <li class="text-upper"><a href="#">mwa unsur mahasiswa</a></li>
+            </ul>
+          </li>
+          <li class="text-upper"><a href="<?=base_url('berita')?>">berita</a></li>
+          <li class="text-upper"><a href="">kotak saran</a></li>
+          <li class="dropdown text-upper">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">lainnya <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li class="text-upper"><a href="">sk & peraturan</a></li>
+                <li class="text-upper"><a href="">program kerja</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
