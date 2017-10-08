@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('admin_model');
+        $this->load->helper('text');
         if($this->session->user_id == false){
             redirect('login');
         }
@@ -17,9 +18,13 @@ class Admin extends CI_Controller {
     }
     public function view_post(){
         $data['sidebar']="admin/sidebar";
+        $data['data']=$this->admin_model->get_post();
         $this->load->view('admin/view_post',$data);
     }
-    public function add_post(){}
+    public function add_post(){
+        $data['sidebar']="admin/sidebar";
+        $this->load->view('admin/new_post',$data);
+    }
     
     public function new_file(){}
     public function view_file(){}

@@ -24,6 +24,16 @@ class Admin_model extends CI_Model {
     public function is_logged_in(){
         return $this->session->userdata('user_id') != False;
     }
-    
+    public function get_post(){
+        $this->db->select('*');
+        $this->db->from('post');
+        $this->db->join('category', 'post.category = category.id');
+        $query = $this->db->get();
+        if($query->num_rows()>=0){
+            return $query->result_array();
+        }else{
+            return false;
+        }
+    }
     
 }
