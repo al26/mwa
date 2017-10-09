@@ -1,10 +1,10 @@
 <h2><?= $single_post->title ?></h2>
 <h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($single_post->created_at), 'l, j F Y g:i A'); ?> in<a class="btn btn-link btn-sm"><?=$single_post->name; ?></a></h5>
 <br>
-<div class="row">
-  <img src="<?= ($single_post->image !== NULL) ? base_url('assets/images/post/').$single_post->image : base_url('assets/images/post/noimage.png'); ?>" class="media-object post_image" align="left">
-  <p><?=$single_post->body; ?></p>
-</div>
+<!-- <div class="row post-container"> -->
+  <img src="<?= ($single_post->image !== NULL) ? base_url('assets/images/post/').$single_post->image : base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left"><br>
+  <p class="text-justify"><?=$single_post->body; ?></p>
+<!-- </div> -->
 <!-- comment -->
 <div class="row">
 <div class="container comment-box col-sm-12">

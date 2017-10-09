@@ -34,17 +34,17 @@
 	        return $this->pagination->create_links();
 		}
 	
-		public function index($page = NULL)
+		public function index($category, $page = NULL)
 		{
 			// for pagination
-			$url = base_url('berita');
+			$url = base_url('berita/kategori/').$category;
 			$per_page = 5;
-			$total = $this->post_model->getPostCount();
+			$total = $this->post_model->getPostCount($category);
 
 	        $data['pagination'] = $this->makePagination($url, $per_page, $total);
-	        $data['recent_posts'] = $this->post_model->getPostPagination($per_page, $page);
-
-	        $data['title'] = 'Berita';
+	        $data['recent_posts'] = $this->post_model->getPostPagination($per_page, $page, $category);
+	        $data['body'] = 'berita';
+			$data['title'] = 'Berita | '.$category;
 			$data['view'] = 'blog_all';
 			$data['categories'] = $this->category_model->getCategories();
 			$this->load->view('templates/header', $data);	
@@ -57,12 +57,17 @@
 			$data['categories'] = $this->category_model->getCategories();
 			$data['single_post'] = $this->post_model->getPost($slug);
 			$data['view'] = 'blog_single';
-
+	        $data['title'] = ucwords(preg_replace("/-/"," ", $slug));
+	        $data['body'] = 'berita';
 			$this->load->view('templates/header', $data);	
 			$this->load->view('frontend/blog/blog_layout', $data);	
 			$this->load->view('templates/footer', $data);
 		}
-	
+		
+		public function inCategory($category)
+		{
+
+		}
 	}
 	
 	/* End of file Blog.php */

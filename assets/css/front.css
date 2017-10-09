@@ -63,9 +63,21 @@ a.btn-aspirasi:hover{background:#07575b;color:#CFB53B;}
 /*saran*/
 #bgsaran1{height:15em}
 #bgsaran2{height:27em}
-.form-saran-container{background:#fff;border-radius:5px;position:absolute;top:12%;left:10%;margin-bottom:2%;width:80%;border:3px solid #CFB53B;}
+.form-aspirasi-container{background:#fff;border-radius:5px;position:absolute;top:12%;left:10%;margin-bottom:2%;width:80%;border:3px solid #CFB53B;}
+.form-aspirasi{padding:10px;}
 
-
+/*berita*/
+body#berita{background:#fff}
+.category_list, .category_list a{list-style-type:none;padding:0;display:block;padding:5px 0;text-align:left;}
+.category_list a:hover{color:#ecf0f1;text-decoration:none;padding-left:10px;}
+.category_list a.btn-link.active{color:#ecf0f1;text-decoration:none;padding-left:10px;background:#07575b;}
+ul.category_list li:hover{background:#07575b;}
+.post_thumb{width:250px;justify-content:center;overflow:hidden;margin:5px auto;}
+.post_image{width:300px;justify-content:center;overflow:hidden;margin:5px auto;}
+.row.content{height:auto;}
+.main-content{min-height:560px;}
+.sidenav{height:auto;}
+.post-container{padding:5px}
 /*responsive*/
 @media only screen and (min-width:480px){
 /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */

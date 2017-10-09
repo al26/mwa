@@ -9,10 +9,9 @@
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.carousel.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.theme.default.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/front.css')?>">
-  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/blog_layout.css')?>">
 
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="0">
+<body id="<?=(isset($body)) ? strtolower($body) : '';?>" data-spy="scroll" data-target=".navbar" data-offset="0">
 
 <nav class="navbar navbar-fixed-top">
   <div class="container">
@@ -41,7 +40,7 @@
     		  </li>
           <li class="text-upper"><a href="">sk & peraturan</a></li>
           <li class="text-upper"><a href="">program kerja</a></li>
-          <li class="text-upper"><a href="<?=base_url('berita')?>">berita</a></li>
+          <li class="text-upper"><a href="<?=base_url('berita/kategori/semua-berita')?>">berita</a></li>
           <li class="text-upper"><a href="<?=base_url('kotak-saran')?>">form aspirasi</a></li>
         </ul>
       </div>

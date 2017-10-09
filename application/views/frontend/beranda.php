@@ -45,7 +45,7 @@
 	</div>
 	<div class="customNavigation text-center">
 	  <a class="btn bg-aqua color-silver prev"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-	  <a href="" class="btn btn-default text-upper" style="border: 1px solid #07575b;">semua post</a>
+	  <a href="<?=base_url('berita/kategori/semua-berita')?>" class="btn btn-default text-upper" style="border: 1px solid #07575b;">semua berita</a>
 	  <a class="btn bg-aqua color-silver next"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 	</div>
 	<br>
