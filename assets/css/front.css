@@ -37,8 +37,7 @@ ul.dropdown-menu{background:#07575b;}
 .contact-icon{border:5px solid #ecf0f1;border-radius:50%;width:80px;height:80px;font-size:45px;padding:10px;margin-bottom:5%;}
 
 /*owl carousel*/
-#owl-demo .item{margin:20px;}
-.customNavigation{text-align:center;}
+#owl-demo .item{margin:10px;}
 .customNavigation a{-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 
 /*beranda*/
@@ -51,15 +50,22 @@ div.caption span.border{color:#000;font-size:1.3em;letter-spacing:2px;font-weigh
 .desc{color:#fff;margin:0;padding-top:30px;min-height:200px;}
 .section-title{min-height:80px;background:transparent;padding-top:40px;margin:0;}
 .latest-news{position:relative;margin:0;}
-.col-post{margin:2%;box-shadow: 3px 3px 5px #2c7873;}
-.posthumb-container{background: #2c7873;border-radius: 5px 5px 0 0;height:250px;}
-.title-container{background:#fff;padding-top:3%;color:#2c7873;height:70px;border-bottom:5px solid #2c7873;border-bottom-right-radius:5px;border-bottom-left-radius:5px;}
+.posthumb-container{background: #2c7873;border-radius: 5px 5px 0 0;height:250px;box-shadow: 3px 3px 5px #2c7873;}
+.posthumb{max-width:250px;margin:0 auto;}
+.title-container{background:#fff;padding-top:3%;color:#2c7873;height:70px;border-bottom:5px solid #2c7873;border-bottom-right-radius:5px;border-bottom-left-radius:5px;box-shadow: 3px 3px 5px #2c7873;}
 ul.nav-pills{top:30%;position:fixed;z-index:1000;left:.1%;}
 ul.nav-pills li a{color:#000;font-size:25px;background:transparent;opacity:.8;}
 ul.nav-pills li a:hover, ul.nav-pills li a:focus, ul.nav-pills li a:hover:focus{background:transparent;opacity:1;font-weight:bolder;color:#000;}
 .suggestion{min-height:85px;background:#CFB53B;}
 a.btn-aspirasi{background:transparent;color:#07575b;border:2px solid #07575b;border-radius:3px;font-weight:bolder;font-size:20px;}
 a.btn-aspirasi:hover{background:#07575b;color:#CFB53B;}
+
+/*saran*/
+#bgsaran1{height:300px}
+#bgsaran2{height:500px}
+.form-saran-container{background:#fff;border-radius:5px;min-height:600px;position:absolute;top:10%;left:10%;width:80%;border:3px solid #CFB53B;}
+
+
 
 /*responsive*/
 @media only screen and (min-width:480px){
@@ -86,6 +92,13 @@ ul.nav li a:focus,.nav .open>a,.nav .open>a:focus{background:transparent;color:#
 }
 @media (min-width:961px){ 
 /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+
+/*owl-carousel*/
+div.owl-item{max-width: 270px;}
+
+/*beranda*/
+.col-post{max-width: 250px;}
+
 }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
 @media (min-width:1281px) { /* hi-res laptops and desktops */ }

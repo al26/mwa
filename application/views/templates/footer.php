@@ -30,9 +30,16 @@
 </div>
 </footer>
 
-
-
-
+<?php 
+  if (isset($recent_posts)) {
+    $owl_items = count($recent_posts);
+    if ($owl_items > 4) {
+      $owl_items = 4;
+    }   
+  } else {
+    $owl_items = 4;
+  }
+?>
 
 <script src="<?=base_url('assets/js/jquery-3.2.1.min.js')?>"></script>
 <script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
@@ -72,7 +79,8 @@ $(document).ready(function(){
   });
 
   var owl = $("#owl-demo");
-	 
+	var owl_items = <?php echo json_encode($owl_items); ?>
+
   owl.owlCarousel({
   	responsiveClass:true,
     responsive:{
@@ -83,7 +91,7 @@ $(document).ready(function(){
             items:2
         },
         1000:{
-            items:4
+            items:owl_items
         }
     }
   });
