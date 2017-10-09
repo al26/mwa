@@ -39,8 +39,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Text Editors
-        <small>Advanced form element</small>
+        Artikel
+        <small>Buat Artikel Baru</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -57,76 +57,67 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
+              <h3 class="box-title">Judul Artikel</h3>
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
+<!-- form begin -->
+            <?php echo form_open_multipart('input_post'); ?>
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Judul</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukan Judul">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Slug</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukan Slug">
+                  <input type="text" name="judul" class="form-control" id="exampleInputEmail1" placeholder="Masukan Judul">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Foto</label>
-                  <input type="file" id="exampleInputFile">
+                  <input type="file" name="foto" id="exampleInputFile" required>
                 </div>
               </div>
-            </form>
           </div>
-          <!-- /.box -->
         </div>
-        <!--/.col (left) -->
-        <!-- right column -->
         <div class="col-md-6">
           <div class="box box-warning">
             <div class="box-body">
-              <form role="form">
                 <div class="form-group">
                   <label>Kategori</label>
-                  <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+                  <select class="form-control" name="kategori">
+                    <option value="">Pilih Kategori</option>
+                    <?php if(isset($data)){ ?>
+                    <?php foreach ($data as $data1) {?>
+                    <option value="<?php echo $data1['id']; ?>"><?php echo $data1['name']; ?></option>
+                    <?php }} ?>
                   </select>
                 </div>
-
-
-              </form>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>
-        <!--/.col (right) -->
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title">CK Editor
-                <small>Advanced and full of features</small>
+              <h3 class="box-title">Isi Artikel
               </h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body pad">
-              <form>
-                    <textarea id="editor1" name="editor1" rows="10" cols="80">
-                                           
+                    <textarea id="editor1" name="isi" rows="10" cols="80">     
                     </textarea>
-              </form>
             </div>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
           </div>
         </div>
-        <!-- /.col-->
       </div>
-      <!-- ./row -->
+      <div class="row">
+      <div class="col-md-12">
+        <?php if(isset($error_input)){ ?>
+        <?php echo "<div class='alert alert-danger'> ".$error_input. "</div>";?>
+        <?php } ?>
+      </div>
+      </div>
+
+<?php echo form_close(); ?>
+<!-- form end -->
     </section>
     <!-- /.content -->
   </div>

@@ -35,5 +35,24 @@ class Admin_model extends CI_Model {
             return false;
         }
     }
+    public function get_category(){
+        $this->db->select('*');
+        $this->db->from('category');
+        $query = $this->db->get();
+        if($query->num_rows()>=0)
+        {
+            return $query->result_array();
+        }else{
+            return false;
+        }
+    }
+    public function input_post($data){
+        $query = $this->db->insert('post',$data);
+        if($query==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
 }
