@@ -71,6 +71,10 @@
                   <label for="exampleInputPassword1">Slug</label>
                   <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Masukan Slug">
                 </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">Foto</label>
+                  <input type="file" id="exampleInputFile">
+                </div>
               </div>
             </form>
           </div>
@@ -83,7 +87,7 @@
             <div class="box-body">
               <form role="form">
                 <div class="form-group">
-                  <label>Categori</label>
+                  <label>Kategori</label>
                   <select class="form-control">
                     <option>option 1</option>
                     <option>option 2</option>
