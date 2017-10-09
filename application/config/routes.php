@@ -56,3 +56,33 @@ $route['berita/(:any)'] = 'blog/view/$1';
 $route['kotak-saran'] = 'frontend/saran';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$route['login']='auth';
+$route['admin']='admin/index';
+$route['logout']='auth/destroy';
+$route['post']='admin/view_post';
+$route['new-post']='admin/add_post';
