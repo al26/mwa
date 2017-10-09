@@ -16,7 +16,7 @@ class Admin extends CI_Controller {
         $data['sidebar']="admin/sidebar";
         $this->load->view('admin/layout',$data);
     }
-
+####################################################For Post Only################################################################# 
     public function view_post(){
         $data['sidebar']="admin/sidebar";
         $data['data']=$this->admin_model->get_post();
@@ -97,6 +97,87 @@ class Admin extends CI_Controller {
             }
         }
     }
+
+    public function get_edit_post($id=null){
+        $data['sidebar']="admin/sidebar";
+        $data['data_post']=$this->admin_model->get_post_update($id);
+        $data['data']=$this->admin_model->get_category();
+        $this->load->view('admin/edit_post',$data);
+    }
+    public function verif_edit_post($id){
+        $this->form_validation->set_rules('judul','Judul','trim|xss_clean|required');
+        $this->form_validation->set_rules('isi','Isi','trim|xss_clean|required');
+        $this->form_validation->set_rules('kategori','Kategori','trim|xss_clean|required');
+        
+            $judul=$this->input->post('judul');
+            $isi=$this->input->post('isi');
+            $kategori=$this->input->post('kategori');
+
+            
+            $config['upload_path']      = './assets/img/';
+            $config['allowed_types']    = 'jpg|jpeg|png|PNG';
+            $config['max_size']         = 2000048;
+            $config['overwrite']        = TRUE;
+
+            $config['file_name'] = url_title($judul);
+            $this->upload->initialize($config);
+
+                if($this->upload->do_upload('foto')){
+                    $upload_data = $this->upload->data(); 
+                    $file_name = $upload_data['file_name'];
+                    
+                    $config2['image_library'] = 'gd2';
+                    $config2['source_image'] = $this->upload->upload_path.$this->upload->file_name;
+                    $config2['maintain_ratio'] = TRUE;
+                    $config2['width'] = 200;
+                    $config2['height'] = 350;
+                    
+                    $this->load->library('image_lib',$config2);
+                    $this->image_lib->clear();
+                    $this->image_lib->initialize($config2);
+                    $this->image_lib->resize();
+
+                }else{
+                    $data['sidebar']="admin/sidebar";
+                    $data['error_input']="Foto Gagal diUpload";
+                    $data['data']=$this->admin_model->get_category();
+                    $this->load->view('admin/new_post',$data);
+                }
+                $slug = $this->seoUrl($judul);
+                $data_post =array (
+                'title'=>$judul,
+                'body'=>$isi,
+                'slug'=>$slug,
+                'category'=>$kategori,
+                'image'=>$file_name
+                );
+        if($this->form_validation->run()==false){
+            $data['error_input']=validation_errors();
+            $data['sidebar']="admin/sidebar";
+            $data['data_post']=$this->admin_model->get_post_update($id);
+            $data['data']=$this->admin_model->get_category();
+            $this->load->view('admin/edit_post',$data);
+        }else{
+            $query = $this->admin_model->update_post($id,$data_post);
+            if($query==true){
+                
+                $data['message']="post berhasil diupdate";
+                $data['sidebar']="admin/sidebar";
+                $data['data']=$this->admin_model->get_post();
+                $this->load->view('admin/view_post',$data);
+            }else{
+                $data['message']="post Gagal diupdate";
+                $data['sidebar']="admin/sidebar";
+                $data['data']=$this->admin_model->get_post();
+                $this->load->view('admin/view_post',$data);
+            }
+        }
+    }
+##################################################End OF Post######################################################################
+    public function new_file(){}
+    public function view_file(){}
+    public function add_category(){}
+    public function new_category(){}
         function seoUrl($string) {
             //Lower case everything
             // $string = strtolower($string);
@@ -109,9 +190,6 @@ class Admin extends CI_Controller {
             return $string;
         }
     
-    public function new_file(){}
-    public function view_file(){}
-    public function add_category(){}
-    public function new_category(){}
+   
     
 }
