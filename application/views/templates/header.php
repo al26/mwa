@@ -42,7 +42,7 @@
           <li class="text-upper"><a href="">sk & peraturan</a></li>
           <li class="text-upper"><a href="">program kerja</a></li>
           <li class="text-upper"><a href="<?=base_url('berita')?>">berita</a></li>
-          <li class="text-upper"><a href="<?=base_url('kotak-saran')?>">kotak saran</a></li>
+          <li class="text-upper"><a href="<?=base_url('kotak-saran')?>">form aspirasi</a></li>
         </ul>
       </div>
     </div>
@@ -61,7 +61,7 @@
             </ul>
           </li>
           <li class="text-upper"><a href="<?=base_url('berita')?>">berita</a></li>
-          <li class="text-upper"><a href="<?=base_url('kotak-saran')?>">kotak saran</a></li>
+          <li class="text-upper"><a href="<?=base_url('kotak-saran')?>">form aspirasi</a></li>
           <li class="dropdown text-upper">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">lainnya <b class="caret"></b></a>
             <ul class="dropdown-menu">
