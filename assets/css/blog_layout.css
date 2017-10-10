@@ -1,13 +1,4 @@
-.category_list, .category_list a {list-style-type: none; padding: 0;}
-.post_thumb {width: 150px; justify-content: center; overflow: hidden;}
-.post_image {width: 300px; justify-content: center; overflow: hidden;}
-.row.content {height: auto;}
-.turquoise-bg {background: #1abc9c; border: none;}
-.turquoise-bg .navbar-nav li a, .navbar-brand{color: #ecf0f1;}
-.turquoise-bg .navbar-nav li a:hover{color: #1abc9c; background: #ecf0f1; }
-.main-content {min-height: 560px;}
-.sidenav {height: auto;}
-.btn-link, .btn-link:hover {color: #1abc9c;}
+
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {

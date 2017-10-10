@@ -9,13 +9,19 @@ class Post_model extends CI_Model {
 		return $this->db->get_where('post', array('slug' => $slug ))->row();
 	}
 
-	public function getPostCount()
+	public function getPostCount($category)
 	{
-		$this->db->from('post');
+		if ($category !== 'semua-berita') {
+			$this->db->where('category', $category);
+			$this->db->from('post');
+		} else {
+			$this->db->from('post');
+		}
+		
 		return $this->db->count_all_results();
 	}
 
-	public function getPostPagination($num, $page) 
+	public function getPostPagination($num, $page, $category) 
 	{
 		if($page > 1){
 	      $offset = ($page-1)*$num;
@@ -23,8 +29,15 @@ class Post_model extends CI_Model {
 	      $offset = 0;
 	    }
 
-	    $this->db->order_by('created_at', 'desc');
-		$this->db->join('category', 'post.category = category.id', 'left');
+	    if ($category !== 'semua-berita') {
+	    	$this->db->order_by('created_at', 'desc');
+			$this->db->join('category', 'post.category = category.id', 'left');
+			$this->db->where('category.name', $category);
+		} else {
+			$this->db->order_by('created_at', 'desc');
+			$this->db->join('category', 'post.category = category.id', 'left');
+		}
+
 		return $this->db->get('post', $num, $offset)->result();
 	}
 
