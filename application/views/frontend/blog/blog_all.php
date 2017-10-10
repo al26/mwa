@@ -4,7 +4,7 @@
 <?php foreach ($recent_posts as $post) : ?>
 <div class="post-container">
 <h2 class="no-margin"><?= $post->title ?></h2>
-<h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($post->created_at), 'l, j F Y g:i A'); ?> in<a class="btn btn-link btn-sm"><?=$post->name; ?></a></h5>
+<h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($post->created_at), 'l, j F Y g:i A'); ?> in<a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').$post->name;?>"><?=$post->name; ?></a></h5>
 <br>
 <!-- <div class="media"> -->
   <!-- <div class="post-container"> -->

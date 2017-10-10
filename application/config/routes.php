@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'frontend';
+$route['profil/personalia'] = 'frontend/personalia';
 $route['berita/kategori/(:any)'] = 'blog/index/$1';
 $route['berita/kategori/(:any)/(:num)'] = 'blog/index/$1/$2';
 $route['berita/(:any)'] = 'blog/view/$1';

@@ -1,5 +1,5 @@
 <h2><?= $single_post->title ?></h2>
-<h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($single_post->created_at), 'l, j F Y g:i A'); ?> in<a class="btn btn-link btn-sm"><?=$single_post->name; ?></a></h5>
+<h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($single_post->created_at), 'l, j F Y g:i A'); ?> in<a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').$single_post->name;?>"><?=$single_post->name; ?></a></h5>
 <br>
 <!-- <div class="row post-container"> -->
   <img src="<?= ($single_post->image !== NULL) ? base_url('assets/images/post/').$single_post->image : base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left"><br>

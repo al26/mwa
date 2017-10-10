@@ -13,6 +13,16 @@ class Frontend extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function personalia()
+	{
+		$data['title'] = 'Personalia';
+		$data['body'] = 'personalia';
+		$this->load->view('templates/header', $data);
+		$this->load->view('frontend/personalia', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+
 	public function saran()
 	{
 		$data['title'] = 'Kotak Saran';
