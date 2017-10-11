@@ -39,7 +39,7 @@
       			    <li class="text-upper"><a href="#">mwa unsur mahasiswa</a></li>
       			</ul>
     		  </li>
-          <li class="text-upper"><a href="">sk & peraturan</a></li>
+          <li class="text-upper"><a href="<?=base_url('sk-peraturan')?>">sk &amp; peraturan</a></li>
           <li class="text-upper"><a href="">program kerja</a></li>
           <li class="text-upper"><a href="<?=base_url('berita/kategori/semua-berita')?>">berita</a></li>
           <li class="text-upper"><a href="<?=base_url('kotak-saran')?>">form aspirasi</a></li>
@@ -65,7 +65,7 @@
           <li class="dropdown text-upper">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">lainnya <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li class="text-upper"><a href="">sk & peraturan</a></li>
+                <li class="text-upper"><a href="<?=base_url('sk-peraturan')?>">sk &amp; peraturan</a></li>
                 <li class="text-upper"><a href="">program kerja</a></li>
             </ul>
           </li>

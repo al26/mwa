@@ -1,6 +1,6 @@
 <br><br><br>
 <div class="container">
-    <div class="row">
+    <!-- <div class="row"> -->
         <div class="heading-title text-center">
             <div class="section-title text-center text-title text-upper color-aqua">
 				<p>personalia mwa undip</p>
@@ -34,7 +34,7 @@
         </div>
         <?php endfor; ?>
 
-    </div>
+    <!-- </div> -->
 
 </div>
 <br><br>

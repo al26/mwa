@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'frontend';
 $route['profil/personalia'] = 'frontend/personalia';
+$route['sk-peraturan'] = 'frontend/skp';
 $route['berita/kategori/(:any)'] = 'blog/index/$1';
 $route['berita/kategori/(:any)/(:num)'] = 'blog/index/$1/$2';
 $route['berita/(:any)'] = 'blog/view/$1';
