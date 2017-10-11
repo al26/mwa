@@ -88,3 +88,6 @@ $route['admin']='admin/index';
 $route['logout']='auth/destroy';
 $route['post']='admin/view_post';
 $route['new-post']='admin/add_post';
+$route['input_post']='admin/verif_post';
+$route['update-post/(:num)']='admin/get_edit_post/$1';
+$route['input_update/(:num)']='admin/verif_edit_post/$1';

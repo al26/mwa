@@ -27,7 +27,7 @@ class Admin_model extends CI_Model {
     public function get_post(){
         $this->db->select('*');
         $this->db->from('post');
-        $this->db->join('category', 'post.category = category.id');
+        $this->db->join('category', 'post.category = category.id_category');
         $query = $this->db->get();
         if($query->num_rows()>=0){
             return $query->result_array();
@@ -35,5 +35,48 @@ class Admin_model extends CI_Model {
             return false;
         }
     }
+    public function get_category(){
+        $this->db->select('*');
+        $this->db->from('category');
+        $query = $this->db->get();
+        if($query->num_rows()>=0)
+        {
+            return $query->result_array();
+        }else{
+            return false;
+        }
+    }
+    public function input_post($data){
+        $query = $this->db->insert('post',$data);
+        if($query==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function get_post_update($id){
+        $where = array(
+            'id'=>$id
+            );
+        $query = $this->db->get_where('post',$where);
+        if($query->num_rows()>0)
+        {
+            return $query->result_array();
+        }else{
+            return false;
+        }
+    }
+    public function update_post($id,$data){
+        $where = array(
+            'id'=>$id
+            );
+        $query = $this->db->update('post',$data,$where);
+        if($query==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     
 }

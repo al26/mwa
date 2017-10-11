@@ -60,11 +60,17 @@
               <h3 class="box-title">Judul Artikel</h3>
             </div>
 <!-- form begin -->
-            <?php echo form_open_multipart('input_post'); ?>
+            <?php if(isset($data_post)){ ?>
+            <?php foreach($data_post as $data_edit){ ?>
+            <?php echo form_open_multipart('input_update/'.$data_edit['id']); ?>
+            
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Judul</label>
-                  <input type="text" name="judul" class="form-control" id="exampleInputEmail1" placeholder="Masukan Judul">
+                  <input type="text" name="judul" value="<?php echo $data_edit['title'];  ?>" class="form-control" id="exampleInputEmail1" placeholder="Masukan Judul">
+                </div>
+                <div class="form-group">
+                  <img src="<?php echo base_url('assets/img/');echo $data_edit['image']; ?>" alt="<?php echo $data_edit['image'] ?>" style="width:304px;height:228px;">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Foto</label>
@@ -82,7 +88,7 @@
                     <option value="">Pilih Kategori</option>
                     <?php if(isset($data)){ ?>
                     <?php foreach ($data as $data1) {?>
-                    <option value="<?php echo $data1['id']; ?>"><?php echo $data1['name']; ?></option>
+                    <option value="<?php echo $data1['id_category']; ?>" <?php if($data_edit['category']==$data1['id_category']){echo "selected";} ?>><?php echo $data1['name']; ?></option>
                     <?php }} ?>
                   </select>
                 </div>
@@ -99,8 +105,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body pad">
-                    <textarea id="editor1" name="isi" rows="10" cols="80">     
-                    </textarea>
+                    <textarea id="editor1" name="isi" rows="10" cols="80"><?php echo $data_edit['body']; ?></textarea>
             </div>
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -115,7 +120,7 @@
         <?php } ?>
       </div>
       </div>
-
+    <?php }} ?>
 <?php echo form_close(); ?>
 <!-- form end -->
     </section>
