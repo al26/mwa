@@ -89,3 +89,5 @@ $route['new-post']='admin/add_post';
 $route['input_post']='admin/verif_post';
 $route['update-post/(:num)']='admin/get_edit_post/$1';
 $route['input_update/(:num)']='admin/verif_edit_post/$1';
+$route['detail-post/(:num)']='admin/get_detail_post/$1';
+$route['hapus-post/(:num)']='admin/delete_post/$1';

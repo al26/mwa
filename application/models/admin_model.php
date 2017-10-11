@@ -77,6 +77,17 @@ class Admin_model extends CI_Model {
             return false;
         }
     }
+    public function delete_post($id){
+        $where = array(
+            'id' => $id
+            );
+        $query = $this->db->delete('post',$where);
+        if($query==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     
 }
