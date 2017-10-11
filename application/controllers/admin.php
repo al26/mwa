@@ -173,11 +173,34 @@ class Admin extends CI_Controller {
             }
         }
     }
+    public function get_detail_post($id=null){
+        $data['sidebar']="admin/sidebar";
+        $data['data_post']=$this->admin_model->get_post_update($id);
+        $data['data']=$this->admin_model->get_category();
+        $this->load->view('admin/detail_post',$data);
+    }
+    public function delete_post($id){
+        $query = $this->admin_model->delete_post($id);
+        if($query==true){
+            $data['sidebar']="admin/sidebar";
+            $data['message']="post Berhasil dihapus";
+            $data['data']=$this->admin_model->get_post();
+            $this->load->view('admin/view_post',$data);
+        }else{
+            $data['sidebar']="admin/sidebar";
+            $data['message']="post Gagal dihapus";
+            $data['data']=$this->admin_model->get_post();
+            $this->load->view('admin/view_post',$data);
+        }
+    }
 ##################################################End OF Post######################################################################
-    public function new_file(){}
-    public function view_file(){}
+##################################################Begin Category###################################################################
+    public function view_category(){}
     public function add_category(){}
-    public function new_category(){}
+##################################################End Category#####################################################################
+    public function view_file(){}
+    public function new_file(){}
+    
         function seoUrl($string) {
             //Lower case everything
             // $string = strtolower($string);
