@@ -1,10 +1,11 @@
-<div id="bgsaran1" class="bg-aqua"></div>
-<div id="bgsaran2" class="bg-silver"></div>
+<!-- <div id="bgsaran1" class="bg-aqua"></div> -->
+<!-- <div id="bgsaran2" class="bg-silver"></div> -->
+<br><br>
 <div class="form-aspirasi-container">
 	<div class="section-title text-center text-title text-upper color-aqua">
 		<p>form aspirasi</p>
 	</div>
-	<hr class="line line-aqua">
+	<hr class="line line-aqua"><br>
 	<!-- <div class="container"> -->
 	<form class="form-horizontal form-aspirasi">
 	  <div class="form-group">
@@ -17,6 +18,12 @@
 	    <label class="control-label col-sm-2 col-md-1 color-aqua" for="email">Email <span class="text-danger">*</span></label>
 	    <div class="col-sm-10 col-md-11">
 	      <input type="email" class="form-control" name="email" placeholder="Email Aktif Kamu">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="control-label col-sm-2 col-md-1 color-aqua" for="topik">Topik <span class="text-danger">*</span></label>
+	    <div class="col-sm-10 col-md-11">
+	      <input type="email" class="form-control" name="topik" placeholder="Topik Bahasan">
 	    </div>
 	  </div>
 	  <div class="form-group">

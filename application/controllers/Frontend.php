@@ -22,10 +22,19 @@ class Frontend extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function skp()
+	{
+		$data['title'] = 'SK & Peraturan';
+		$data['body'] = 'skp';
+		$this->load->view('templates/header', $data);
+		$this->load->view('frontend/skperaturan', $data);
+		$this->load->view('templates/footer', $data);
+	}
 
 	public function saran()
 	{
 		$data['title'] = 'Kotak Saran';
+		$data['body'] = 'aspirasi';
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/saran', $data);
 		$this->load->view('templates/footer', $data);

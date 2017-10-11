@@ -7,6 +7,7 @@ body{overflow-x:hidden;margin:0;background:#ecf0f1;}
 .text-justify{text-align:justify-all;}
 .text-indent{text-indent:50px;}
 .text-title{font-size:1.3em;font-weight:bolder;}
+.text-subtitle{font-size:1em;font-weight:bolder;}
 .text-bolder{font-weight:bolder;}
 .bg-aqua{background:#07575b;}
 .bg-silver{background:#ecf0f1;}
@@ -18,7 +19,7 @@ body{overflow-x:hidden;margin:0;background:#ecf0f1;}
 .no-padding{padding:0}
 .color-silver{color:#ecf0f1;}
 .color-aqua{color:#07575b;}
-
+.btn-link:hover{text-decoration:none;}
 /*header*/
 .navbar{background: #07575b;border:0;}
 .navbar > .container {padding:0;}
@@ -63,9 +64,14 @@ a.btn-aspirasi{background:transparent;color:#07575b;border:2px solid #07575b;bor
 a.btn-aspirasi:hover{background:#07575b;color:#CFB53B;}
 
 /*saran*/
+body#aspirasi{background: #fff;
+    background: -webkit-linear-gradient(#07575b, #fff); 
+    background: -o-linear-gradient(#07575b, #fff);
+    background: -moz-linear-gradient(#07575b, #fff);
+    background: linear-gradient(#07575b, #fff); }
 #bgsaran1{height:15em}
 #bgsaran2{height:27em}
-.form-aspirasi-container{background:#fff;border-radius:5px;position:absolute;top:12%;left:10%;margin-bottom:2%;width:80%;border:3px solid #CFB53B;}
+.form-aspirasi-container{background:#fff;border-radius:5px;margin: 5% 10%;width:80%;border:2px solid #CFB53B;}
 .form-aspirasi{padding:10px;}
 
 /*berita*/
@@ -82,7 +88,6 @@ ul.category_list li:hover{background:#07575b;}
 .post-container{padding:5px}
 
 /*personalia*/
-
 body#personalia{background:#fff;line-height:1.5;color:#07575b;font-size:15px;font-weight:400;}
 .heading-title{margin-bottom:50px;}
 .p-top-30{padding-top:30px;}
@@ -101,6 +106,41 @@ body#personalia{background:#fff;line-height:1.5;color:#07575b;font-size:15px;fon
 .team-title{position:static;padding:20px 0;display:inline-block;letter-spacing:2px;width:100%;}
 .team-title h4{margin-bottom:0px;display:block;text-transform:uppercase;}
 .team-title span{font-size:12px;text-transform:uppercase;color:#CFB53B;letter-spacing:1px;}
+
+/*sk&peraturan*/
+body#skp{background: #fff}
+.panel-group .panel {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #ecf0f1;
+}
+
+.panel-default > .panel-heading {
+    padding: 0;
+    border-radius: 0;
+    color: #07575b;
+    background-color:#ecf0f1;
+    border-color:#ecf0f1;
+}
+
+.panel-title {
+    font-size: 14px;
+}
+
+.panel-title > a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.more-less {
+    float: right;
+    color: #07575b;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color:#ecf0f1;
+}
 
 
 /*responsive*/

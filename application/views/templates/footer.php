@@ -96,7 +96,7 @@ $(document).ready(function(){
     }
   });
  
-  // Custom Navigation Events
+  // Custom Navigation Events owl carousel
   $(".next").click(function(){
     owl.trigger('next.owl.carousel');
   })
@@ -108,6 +108,16 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
   });
 
+  // acordion
+  function toggleIcon(e) {
+    $(e.target)
+        .prev('.panel-heading')
+        .find(".more-less")
+        .toggleClass('glyphicon-plus glyphicon-minus');
+    }
+    $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+    $('.panel-group').on('shown.bs.collapse', toggleIcon);
+    
 });
 
 </script>
