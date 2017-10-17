@@ -81,7 +81,7 @@ body#berita{background:#fff}
 .category_list a.btn-link.active{color:#ecf0f1;text-decoration:none;padding-left:10px;background:#07575b;}
 ul.category_list li:hover{background:#07575b;}
 .post_thumb{width:250px;justify-content:center;overflow:hidden;margin:5px auto;}
-.post_image{width:300px;justify-content:center;overflow:hidden;margin:5px auto;}
+.post_image{justify-content:center;overflow:hidden;margin:5px auto;}
 .row.content{height:auto;}
 .main-content{min-height:560px;}
 .sidenav{height:auto;}
