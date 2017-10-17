@@ -27,7 +27,7 @@ class Admin_model extends CI_Model {
     public function get_post(){
         $this->db->select('*');
         $this->db->from('post');
-        $this->db->join('category', 'post.category = category.id');
+        $this->db->join('category', 'post.category = category.id_category');
         $query = $this->db->get();
         if($query->num_rows()>=0){
             return $query->result_array();
@@ -36,6 +36,4 @@ class Admin_model extends CI_Model {
         }
     }
 
-    
-    
 }

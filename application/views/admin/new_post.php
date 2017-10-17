@@ -38,9 +38,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
   <section class="content-header">
-      <h1>
-        Add New Post
-      </h1>
+      <h1>Buat Artikel Baru</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Forms</a></li>
@@ -78,6 +76,7 @@
           <?php endforeach; ?>
         </select><span class="dropdown-wrapper" aria-hidden="true"></span>
     </div>
+
   </div>
   <div class="form-group">
     <label class="control-label col-sm-3 col-md-2 color-aqua" for="exampleInputFile">Upload File(s)</label>
