@@ -214,5 +214,30 @@ class Admin extends CI_Controller {
         }
     
    
-    
+#################################################Begin of Message#################################################################
+public function message(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_email']="admin/sidebar-email";
+    $data['tabel']="admin/message/inbox-messages";
+    $this->load->view('admin/mailbox',$data);
+}
+public function sent_message(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_email']="admin/sidebar-email";
+    $data['tabel']="admin/message/sent-message";
+    $this->load->view('admin/mailbox',$data);
+}
+public function Drafts_message(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_email']="admin/sidebar-email";
+    $data['tabel']="admin/message/draft-message";
+    $this->load->view('admin/mailbox',$data);
+}
+public function Trash_message(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_email']="admin/sidebar-email";
+    $data['tabel']="admin/message/trash-message";
+    $this->load->view('admin/mailbox',$data);   
+}
+###################################################End of Message################################################################# 
 }
