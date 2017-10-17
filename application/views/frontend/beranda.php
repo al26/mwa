@@ -29,25 +29,32 @@
 </div>
 <hr class="line line-aqua">
 <div class="latest-news">
-	<div class="container text-center">
-	<div id="owl-demo" class="owl-carousel">
-	<?php foreach ($recent_posts as $recent_post) : ?>
-	<div class="item col-post">
-		<div class="posthumb-container">
-			<img class="posthumb" src="<?=base_url('assets/images/post/').$recent_post->image;?>">
+	<?php if (!empty($recent_posts)) : ?>
+		<div class="container text-center">
+		<div id="owl-demo" class="owl-carousel">
+		<?php foreach ($recent_posts as $recent_post) : ?>
+		<?php $thumb = explode(",",$recent_post->image); ?>
+		<div class="item col-post">
+			<div class="posthumb-container">
+				<img class="posthumb" src="<?=base_url('assets/images/post/').$thumb[0];?>">
+			</div>
+			<div class="title-container text-justify">
+				<a href="<?=base_url('berita/'.$recent_post->slug);?>" class="btn btn-link no-margin" style="padding: 0 5px;"><?=$recent_post->title?></a>
+			</div>
 		</div>
-		<div class="title-container text-justify">
-			<a href="<?=base_url('berita/'.$recent_post->slug);?>" class="btn btn-link no-margin" style="padding: 0 5px;"><?=$recent_post->title?></a>
+		<?php endforeach; ?>
 		</div>
-	</div>
-	<?php endforeach; ?>
-	</div>
-	</div>
-	<div class="customNavigation text-center">
-	  <a class="btn bg-aqua color-silver prev"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-	  <a href="<?=base_url('berita/kategori/semua-berita')?>" class="btn btn-default text-upper" style="border: 1px solid #07575b;">semua berita</a>
-	  <a class="btn bg-aqua color-silver next"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-	</div>
+		</div>
+		<div class="customNavigation text-center">
+		  <a class="btn bg-aqua color-silver prev"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+		  <a href="<?=base_url('berita/kategori/semua-berita')?>" class="btn btn-default text-upper" style="border: 1px solid #07575b;">semua berita</a>
+		  <a class="btn bg-aqua color-silver next"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+		</div>
+	<?php else : ?>
+		<div class="section-title text-center text-title text-upper color-aqua">
+			<p>Belum ada berita</p>
+		</div>
+	<?php endif; ?>
 	<br>
 </div>
 <div id="suggestion" class="bgimg3"></div>

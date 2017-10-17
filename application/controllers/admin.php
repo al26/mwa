@@ -24,7 +24,7 @@ class Admin extends CI_Controller {
     }
     public function add_post(){
         $data['sidebar']="admin/sidebar";
-        $data['data']=$this->admin_model->get_category();
+        $data['categories'] = $this->category_model->getCategories();
         $this->load->view('admin/new_post',$data);
     }
     public function verif_post(){

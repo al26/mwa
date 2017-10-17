@@ -5,19 +5,24 @@ class Post_model extends CI_Model {
 
 	public function getPost($slug = FALSE)
 	{	
-		$this->db->join('category', 'post.category = category.id', 'left');
-		return $this->db->get_where('post', array('slug' => $slug ))->row();
+		$this->db->where('post.slug', $slug);
+		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->order_by('created_at', 'desc');
+		return $this->db->get('post')->row();
 	}
 
 	public function getPostCount($category)
 	{
-		if ($category !== 'semua-berita') {
-			$this->db->where('category', $category);
-			$this->db->from('post');
-		} else {
-			$this->db->from('post');
-		}
-		
+		if ($category !== 'semua-berita') {	
+			$this->db->where('category.name', $category);
+			
+		} 
+		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->order_by('created_at', 'desc');
+		$this->db->from('post');
+
 		return $this->db->count_all_results();
 	}
 
@@ -29,22 +34,23 @@ class Post_model extends CI_Model {
 	      $offset = 0;
 	    }
 
-	    if ($category !== 'semua-berita') {
-	    	$this->db->order_by('created_at', 'desc');
-			$this->db->join('category', 'post.category = category.id', 'left');
+	    if ($category !== 'semua-berita') {	
 			$this->db->where('category.name', $category);
-		} else {
-			$this->db->order_by('created_at', 'desc');
-			$this->db->join('category', 'post.category = category.id', 'left');
-		}
-
+			
+		} 
+		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->order_by('created_at', 'desc');
 		return $this->db->get('post', $num, $offset)->result();
 	}
 
-	public function createPost()
+	public function createPost($data)
 	{
-
+		$query = $this->db->insert('post', $data);
+		return $query ? TRUE : FALSE;
 	}
+
+	
 }
 
 /* End of file Post.php */

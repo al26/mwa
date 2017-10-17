@@ -40,7 +40,6 @@ class Frontend extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-}
+	
 
-/* End of file Home.php */
-/* Location: ./application/controllers/Home.php */
+}

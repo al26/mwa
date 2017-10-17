@@ -1,8 +1,19 @@
 <h2><?= $single_post->title ?></h2>
-<h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($single_post->created_at), 'l, j F Y g:i A'); ?> in<a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').$single_post->name;?>"><?=$single_post->name; ?></a></h5>
+<h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($single_post->created_at), 'l, j F Y g:i A'); ?> in <?php $categories = explode(",",$single_post->category); 
+  if (!empty($categories)) { 
+    foreach ($categories as $c) : ?>
+          <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').$c;?>"><?=$c; ?></a>
+<?php  endforeach; } ?></h5>
 <br>
 <!-- <div class="row post-container"> -->
-  <img src="<?= ($single_post->image !== NULL) ? base_url('assets/images/post/').$single_post->image : base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left"><br>
+  <?php $images = explode(",",$single_post->image); 
+  if (!empty($images)) { 
+     foreach ($images as $i) : ?>
+        <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image img-responsive" align="left">
+<?php   endforeach; } else { ?>
+        <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image img-responsive" align="left">
+<?php }?>
+  <br>
   <p class="text-justify"><?=$single_post->body; ?></p>
 <!-- </div> -->
 <!-- comment -->
