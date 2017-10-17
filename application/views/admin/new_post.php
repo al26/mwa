@@ -64,7 +64,7 @@
   <div class="form-group">
 	<label class="control-label col-sm-3 col-md-2 color-aqua" for="body">Post Body <span class="text-danger">*</span></label>
 	<div class="col-sm-8 col-md-9">
-	  <textarea class="form-control" rows="6" name="body" required><?=$this->session->flashdata('body');?></textarea>
+	  <textarea id="editor1" class="form-control" rows="10" cols="80" name="body" required><?=$this->session->flashdata('body');?></textarea>
 	</div>
   </div>
   <div class="form-group">
@@ -124,9 +124,12 @@
 <script src="<?php echo base_url('assets'); ?>/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets'); ?>/dist/js/demo.js"></script>
+<!-- CK Editor -->
+<script src="<?php echo base_url('assets');?>/bower_components/ckeditor/ckeditor.js"></script>
 <!-- page script -->
 <script>
   $(function () {
+    CKEDITOR.replace('editor1');
   	$('.select2').select2();
 
     $('#example1').DataTable()

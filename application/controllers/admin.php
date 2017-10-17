@@ -16,10 +16,10 @@ class Admin extends CI_Controller {
         $data['sidebar']="admin/sidebar";
         $this->load->view('admin/layout',$data);
     }
-####################################################For Post Only################################################################# 
+##############################For Post Only################################# 
     public function view_post(){
         $data['sidebar']="admin/sidebar";
-        $data['data']=$this->admin_model->get_post();
+        $data['data']=$this->post_model->getAllPosts();
         $this->load->view('admin/view_post',$data);
     }
     public function add_post(){

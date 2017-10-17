@@ -8,6 +8,7 @@ class Post_model extends CI_Model {
 		$this->db->where('post.slug', $slug);
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
 		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->group_by('post.id');
 		$this->db->order_by('created_at', 'desc');
 		return $this->db->get('post')->row();
 	}
@@ -40,8 +41,18 @@ class Post_model extends CI_Model {
 		} 
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
 		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->group_by('post.id');
 		$this->db->order_by('created_at', 'desc');
 		return $this->db->get('post', $num, $offset)->result();
+	}
+
+	public function getAllPosts()
+	{
+		$this->db->select('post.id, post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->group_by('post.id');
+		$this->db->order_by('created_at', 'desc');
+		return $this->db->get('post')->result();	
 	}
 
 	public function createPost($data)
