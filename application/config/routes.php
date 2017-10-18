@@ -52,3 +52,6 @@ $route['Inbox']='admin/message';
 $route['Sent']='admin/sent_message';
 $route['Drafts']='admin/Drafts_message';
 $route['Trash']='admin/Trash_message';
+$route['read_message/(:num)']='admin/read_message/$1';
+
+$route['editor']='admin/filesize';

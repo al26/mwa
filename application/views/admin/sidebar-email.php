@@ -13,7 +13,7 @@
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
                 <li><a href="<?php echo base_url('Inbox'); ?>"><i class="fa fa-inbox"></i> Inbox
-                  <span class="label label-primary pull-right">12</span></a></li>
+                  <span class="label label-primary pull-right"><?php if(isset($count)) {echo $count;}?></span></a></li>
                 <li><a href="<?php echo base_url('Sent'); ?>"><i class="fa fa-envelope-o"></i> Sent</a></li>
                 <li><a href="<?php echo base_url('Drafts'); ?>"><i class="fa fa-file-text-o"></i> Drafts</a></li>
                 <li><a href="<?php echo base_url('Trash'); ?>"><i class="fa fa-trash-o"></i> Trash</a></li>

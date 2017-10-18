@@ -19,8 +19,7 @@
                 </button>
                 <div class="btn-group">
                   <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+                  
                 </div>
                 <!-- /.btn-group -->
                 <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
@@ -37,15 +36,16 @@
               <div class="table-responsive mailbox-messages">
                 <table class="table table-hover table-striped">
                   <tbody>
+                  <?php foreach ($data as $datas) {?>
                   <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
+                    <td><input type="checkbox" value="<?php echo $datas->id; ?>"></td>
+                    <td class="mailbox-name"><a href="<?php echo base_url('read_message/').$datas->id; ?>"><?php echo $datas->name; ?></a></td>
+                    <td class="mailbox-subject"><b><?php echo $datas->subject; ?></b> - <?php echo word_limiter($datas->message,4);  ?>
                     </td>
                     <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                     <td class="mailbox-date">15 days ago</td>
                   </tr>
+                  <?php } ?>
                   </tbody>
                 </table>
                 <!-- /.table -->
@@ -60,8 +60,6 @@
                 </button>
                 <div class="btn-group">
                   <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
                 </div>
                 <!-- /.btn-group -->
                 <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>

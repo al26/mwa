@@ -216,28 +216,44 @@ class Admin extends CI_Controller {
    
 #################################################Begin of Message#################################################################
 public function message(){
+    $data['count'] = $this->messages_model->countMessage();
     $data['sidebar']="admin/sidebar";
     $data['sidebar_email']="admin/sidebar-email";
     $data['tabel']="admin/message/inbox-messages";
+    $data['data']=$this->messages_model->getAllMessage();
     $this->load->view('admin/mailbox',$data);
 }
 public function sent_message(){
+    $data['count'] = $this->messages_model->countMessage();
     $data['sidebar']="admin/sidebar";
     $data['sidebar_email']="admin/sidebar-email";
     $data['tabel']="admin/message/sent-message";
     $this->load->view('admin/mailbox',$data);
 }
 public function Drafts_message(){
+    $data['count'] = $this->messages_model->countMessage();
     $data['sidebar']="admin/sidebar";
     $data['sidebar_email']="admin/sidebar-email";
     $data['tabel']="admin/message/draft-message";
     $this->load->view('admin/mailbox',$data);
 }
 public function Trash_message(){
+    $data['count'] = $this->messages_model->countMessage();
     $data['sidebar']="admin/sidebar";
     $data['sidebar_email']="admin/sidebar-email";
     $data['tabel']="admin/message/trash-message";
     $this->load->view('admin/mailbox',$data);   
 }
+public function read_message($id){
+    $data['count'] = $this->messages_model->countMessage();
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_email']="admin/sidebar-email";
+    $data['tabel']="admin/message/read-mail";
+    $data['data']=$this->messages_model->getAllMessage_read($id);
+    $this->load->view('admin/mailbox',$data);  
+}
 ###################################################End of Message################################################################# 
+public function filesize(){
+    $this->load->view('admin/filesize');
+}
 }

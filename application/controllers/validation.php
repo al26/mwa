@@ -96,7 +96,6 @@ class Validation extends CI_Controller {
 		redirect('kotak-saran');
 			
 	}
-
 	public function create_post(){
 
 		$this->form_validation->set_rules('title','Title','xss_clean|trim|required');

@@ -10,7 +10,7 @@
   if (!empty($images)) { 
      foreach ($images as $i) : ?>
         <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image img-responsive" align="left">
-<?php   endforeach; } else { ?>
+    <?php   endforeach; } else { ?>
         <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image img-responsive" align="left">
 <?php }?>
   <br>

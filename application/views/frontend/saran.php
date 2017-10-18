@@ -36,7 +36,8 @@
 	  <div class="form-group">
 		<label class="control-label col-sm-3 col-md-2 color-aqua" for="message">Aspirasi <span class="text-danger">*</span></label>
 		<div class="col-sm-8 col-md-9">
-		  <textarea class="form-control" rows="6" name="message" required><?=$this->session->flashdata('message');?></textarea>
+		  <!-- <textarea class="form-control" rows="6" name="message" required><?=$this->session->flashdata('message');?></textarea> -->
+		  <textarea class="textarea" rows="6" name="message" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required><?=$this->session->flashdata('message');?></textarea>
 		</div>
 	  </div>
 	  <div class="form-group">

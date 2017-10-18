@@ -323,8 +323,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> View All Message</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Add New file</a></li>
+            <li><a href="<?php echo base_url('message');?>"><i class="fa fa-circle-o"></i> View All Message</a></li>
+            
           </ul>
         </li>
       </ul>

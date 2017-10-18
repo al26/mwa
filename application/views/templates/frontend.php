@@ -100,6 +100,7 @@
 <script src="<?=base_url('assets/js/jquery-3.2.1.min.js')?>"></script>
 <script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 <script src="<?=base_url('assets/js/owl.carousel.min.js');?>"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
   $(window).on("scroll",function(){
