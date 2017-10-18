@@ -33,9 +33,9 @@
           <li class="dropdown text-upper">
       			<a href="#" class="dropdown-toggle" data-toggle="dropdown">profil <b class="caret"></b></a>
       			<ul class="dropdown-menu">
-      			  	<li class="text-upper"><a href="#">penjelasan umum</a></li>
+      			  	<li class="text-upper"><a href="<?=base_url('profil/penjelasan-umum')?>">penjelasan umum</a></li>
       			    <li class="text-upper"><a href="<?=base_url('profil/personalia')?>">personalia</a></li>
-      			    <li class="text-upper"><a href="#">komite audit</a></li>
+      			    <li class="text-upper"><a href="<?=base_url('profil/komite-audit')?>">komite audit</a></li>
       			    <li class="text-upper"><a href="#">mwa unsur mahasiswa</a></li>
       			</ul>
     		  </li>
@@ -54,9 +54,9 @@
           <li class="dropdown text-upper">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">profil <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li class="text-upper"><a href="#">penjelasan umum</a></li>
+                <li class="text-upper"><a href="<?=base_url('profil/penjelasan-umum')?>">penjelasan umum</a></li>
                 <li class="text-upper"><a href="<?=base_url('profil/personalia')?>">personalia</a></li>
-                <li class="text-upper"><a href="#">komite audit</a></li>
+                <li class="text-upper"><a href="<?=base_url('profil/komite-audit')?>">komite audit</a></li>
                 <li class="text-upper"><a href="#">mwa unsur mahasiswa</a></li>
             </ul>
           </li>
