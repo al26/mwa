@@ -16,11 +16,10 @@ class Messages_model extends CI_Model {
 
 	public function getAllMessage()
 	{
-		$where = array(
-			'status'=>'not read yet'
-			);
-		$this->db->order_by('received_at', 'desc');
-		return $this->db->get_where('messages',$where)->result();
+		
+		$this->db->order_by('status','DESC');
+		$this->db->order_by('received_at', 'DESC');
+		return $this->db->get('messages',10)->result();
 	}	
 	public function getAllMessage_read($id)
 	{
