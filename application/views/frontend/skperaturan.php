@@ -17,7 +17,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title color-aqua">
-                    <a role="button" data-toggle="collapse" data-parent="<?='#accordionsk'.$s->year;?>" href="<?='#collapsesk'.$s->year;?>" aria-expanded="true" aria-controls="<?='collapsesk'.$s->year;?>">
+                    <a role="button" data-toggle="collapse" data-parent="#accordionsk" href="<?='#collapsesk'.$s->year;?>" aria-expanded="true" aria-controls="<?='collapsesk'.$s->year;?>">
                         <i class="more-less glyphicon glyphicon-plus"></i>
                         Surat Keputusan MWA Tahun <?=$s->year;?>
                     </a>
