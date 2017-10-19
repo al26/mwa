@@ -216,28 +216,71 @@ class Admin extends CI_Controller {
    
 #################################################Begin of Message#################################################################
 public function message(){
+    $data['count'] = $this->messages_model->countMessage();
     $data['sidebar']="admin/sidebar";
     $data['sidebar_email']="admin/sidebar-email";
     $data['tabel']="admin/message/inbox-messages";
-    $this->load->view('admin/mailbox',$data);
-}
-public function sent_message(){
-    $data['sidebar']="admin/sidebar";
-    $data['sidebar_email']="admin/sidebar-email";
-    $data['tabel']="admin/message/sent-message";
+    $data['data']=$this->messages_model->getAllMessage();
     $this->load->view('admin/mailbox',$data);
 }
 public function Drafts_message(){
+    $data['count'] = $this->messages_model->countMessage();
     $data['sidebar']="admin/sidebar";
     $data['sidebar_email']="admin/sidebar-email";
     $data['tabel']="admin/message/draft-message";
+    $data['data']=$this->messages_model->getAllDraftMessage();
     $this->load->view('admin/mailbox',$data);
 }
 public function Trash_message(){
+    $data['count'] = $this->messages_model->countMessage();
     $data['sidebar']="admin/sidebar";
     $data['sidebar_email']="admin/sidebar-email";
     $data['tabel']="admin/message/trash-message";
+    $data['data']=$this->messages_model->getTrashMessage();
     $this->load->view('admin/mailbox',$data);   
 }
+public function read_message($id){
+    $data['count'] = $this->messages_model->countMessage();
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_email']="admin/sidebar-email";
+    $data['tabel']="admin/message/read-mail";
+    $data['data']=$this->messages_model->getAllMessage_read($id);
+    $this->load->view('admin/mailbox',$data);  
+}
+public function read_message_hapus($id){
+    $data['count'] = $this->messages_model->countMessage();
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_email']="admin/sidebar-email";
+    $data['tabel']="admin/message/read-delete";
+    $data['data']=$this->messages_model->getAllMessage_read($id);
+    $this->load->view('admin/mailbox',$data);  
+}
+public function Save($id){
+    $query = $this->messages_model->SentToDraft($id);
+    if($query==true){
+        redirect('Drafts');  
+    }else{
+        redirect('Inbox');
+    }
+}
+public function sendTrash($id){
+    $query = $this->messages_model->goTrash($id);
+    if($query==true){
+        redirect('Trash');  
+    }else{
+        redirect('Trash');
+    }  
+}
+public function permanetDelete($id){
+    $query = $this->messages_model->deleteTrash($id);
+    if($query==true){
+        redirect('Trash');  
+    }else{
+        redirect('Trash');
+    } 
+}
 ###################################################End of Message################################################################# 
+public function filesize(){
+    $this->load->view('admin/filesize');
+}
 }

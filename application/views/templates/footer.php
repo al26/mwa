@@ -44,7 +44,15 @@
 <script src="<?=base_url('assets/js/jquery-3.2.1.min.js')?>"></script>
 <script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 <script src="<?=base_url('assets/js/owl.carousel.min.js');?>"></script>
+<script src="<?php echo base_url('assets');?>/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo base_url('assets');?>/bower_components/ckeditor/ckeditor.js"></script>
+<script src="<?php echo base_url('assets');?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
 <script type="text/javascript">
+$(function () {
+    $('.textarea').wysihtml5()
+  })
+  
 $(document).ready(function(){
  //  $(window).on("scroll",function(){
  //    var wn = $(window).scrollTop();

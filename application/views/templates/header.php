@@ -9,6 +9,10 @@
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.carousel.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.theme.default.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/front.css')?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets');?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets');?>/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets');?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>

@@ -54,3 +54,10 @@ $route['Inbox']='admin/message';
 $route['Sent']='admin/sent_message';
 $route['Drafts']='admin/Drafts_message';
 $route['Trash']='admin/Trash_message';
+$route['read_message/(:num)']='admin/read_message/$1';
+$route['Save/(:num)']='admin/Save/$1';
+$route['Delete/(:num)']='admin/sendTrash/$1';
+$route['read_message_hapus/(:num)']='admin/read_message_hapus/$1';
+$route['Delete-Permanent/(:num)']='admin/permanetDelete/$1';
+
+$route['editor']='admin/filesize';
