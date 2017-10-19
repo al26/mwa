@@ -5,17 +5,17 @@
           <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').$c;?>"><?=$c; ?></a>
 <?php  endforeach; } ?></h5>
 <br>
-<!-- <div class="row post-container"> -->
+<div class="container">
   <?php $images = explode(",",$single_post->image); 
   if (!empty($images)) { 
      foreach ($images as $i) : ?>
-        <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image img-responsive" align="left">
-    <?php   endforeach; } else { ?>
-        <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image img-responsive" align="left">
+        <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image" align="left">
+<?php   endforeach; } else { ?>
+        <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left">
 <?php }?>
   <br>
-  <p class="text-justify"><?=$single_post->body; ?></p>
-<!-- </div> -->
+  <p class="container text-justify"><?=$single_post->body; ?></p>
+</div>
 <!-- comment -->
 <div class="row">
 <div class="container comment-box col-sm-12">
