@@ -46,8 +46,20 @@ class Frontend extends CI_Controller {
 	{
 		$data['title'] = 'SK & Peraturan';
 		$data['body'] = 'skp';
+		$data['sk'] = $this->skp_model->getSKYear();
+		$data['peraturan'] = $this->skp_model->getPeraturanYear();
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/skperaturan', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	public function proker()
+	{
+		$data['title'] = 'Program Kerja';
+		$data['body'] = 'pk';
+		$data['proker'] = $this->proker_model->getAllProker();
+		$this->load->view('templates/header', $data);
+		$this->load->view('frontend/program-kerja', $data);
 		$this->load->view('templates/footer', $data);
 	}
 

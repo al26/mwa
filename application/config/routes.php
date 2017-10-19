@@ -6,6 +6,7 @@ $route['profil/penjelasan-umum'] = 'frontend/penjelasan_umum';
 $route['profil/personalia'] = 'frontend/personalia';
 $route['profil/komite-audit'] = 'frontend/komite_audit';
 $route['sk-peraturan'] = 'frontend/skp';
+$route['program-kerja'] = 'frontend/proker';
 $route['berita/kategori/(:any)'] = 'blog/index/$1';
 $route['berita/kategori/(:any)/(:num)'] = 'blog/index/$1/$2';
 $route['berita/(:any)'] = 'blog/view/$1';

@@ -120,7 +120,8 @@ body#skp{background:#fff}
 .panel-title > a{display:block;padding:15px;text-decoration:none;}
 .more-less{float:right;color:#07575b;}
 .panel-default > .panel-heading + .panel-collapse > .panel-body{border-top-color:#ecf0f1;}
-
+/*program kerja*/
+body#pk{background:#fff}
 
 /*responsive*/
 @media only screen and (min-width:480px){
