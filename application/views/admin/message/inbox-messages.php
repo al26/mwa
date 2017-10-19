@@ -32,13 +32,17 @@
                 <!-- /.pull-right -->
               </div>
               <div class="table-responsive mailbox-messages">
-                <table class="table table-hover table-striped">
+                <table class="table table-hover ">
                   <tbody>
                   <?php foreach ($data as $datas) {?>
-                  <tr>
+                      <?php if($datas->status == "read"){ ?>
+                      <tr class="active"> 
+                      <?php }else{?>
+                        <tr>
+                        <?php } ?>
                     <td><input type="checkbox" value="<?php echo $datas->id; ?>"></td>
                     <td class="mailbox-name"><a href="<?php echo base_url('read_message/').$datas->id; ?>"><?php echo $datas->name; ?></a></td>
-                    <td class="mailbox-subject"><b><?php echo $datas->subject; ?></b> - <?php echo word_limiter($datas->message,4);  ?>
+                    <td class="mailbox-subject"><b><?php echo $datas->subject; ?></b> - <?php echo strip_tags(word_limiter($datas->message,4));  ?>
                     </td>
                     <td class="mailbox-date"><?= $datas->received_at;?></td>
                   </tr>
