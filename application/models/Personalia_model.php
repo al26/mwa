@@ -8,8 +8,15 @@ class Personalia_model extends CI_Model {
 		$this->db->insert('personalia', $data);
 	}	
 
-	public function getAllPersonalia()
+	public function getAllPersonaliaMWA()
 	{
+		$this->db->where('is_ka', 'no');
+		return $this->db->get('personalia')->result();
+	}
+
+	public function getAllPersonaliaKA()
+	{
+		$this->db->where('is_ka', 'yes');
 		return $this->db->get('personalia')->result();
 	}
 

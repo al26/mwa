@@ -65,22 +65,25 @@
                   <th>Judul</th>
                   <th>Isi</th>
                   <th>Kategori</th>
+                  <th>Image</th>
                   <th>Created at</th>
-                  <th>CSS grade</th>
+                  <th>Opsi</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($data as $data2 ) {?>
+                <?php foreach ($data as $k => $post ) {?>
+                <?php //die(print_r($post)); ?>
                 <tr>
-                  <td><?php echo $data2['title']; ?></td>
-                  <td><?php echo word_limiter($data2['body'],10); ?></td>
-                  <td><?php echo $data2['name']; ?></td>
-                  <td><?php echo $data2['created_at'];?></td>
-                  <td><a href="<?php echo base_url('hapus-post/').$data2['id'];?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Post"><i class="fa fa-trash bigicon"></i></a>
+                  <td><?=(strlen($post->title) > 20) ? substr($post->title,0,20).'...' : $post->title;?></td>
+                  <td><?=word_limiter($post->body,5);?></td>
+                  <td><?=(strlen($post->category) > 20) ? substr($post->category,0,20).'...' : $post->category;?></td>
+                  <td><?=(strlen($post->image) > 20) ? substr($post->image,0,20).'...' : $post->image;?></td>
+                  <td><?=$post->created_at;?></td>
+                  <td><a href="<?php echo base_url('hapus-post/').$post->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Post"><i class="fa fa-trash bigicon"></i></a>
                   &nbsp;&nbsp;&nbsp;
-                  <a href="<?php echo base_url('update-post/').$data2['id'];?>" class="btn btn-primary" data-toggle="tooltip" title="Update Post"><i class="fa fa-upload bigicon"></i></a>
+                  <a href="<?php echo base_url('update-post/').$post->id;?>" class="btn btn-primary" data-toggle="tooltip" title="Update Post"><i class="fa fa-upload bigicon"></i></a>
                   &nbsp;&nbsp;&nbsp;
-                  <a href="<?php echo base_url('detail-post/').$data2['id'];?>" class="btn btn-info" data-toggle="tooltip" title="Detail Post"><i class="fa fa-info-circle bigicon"></i></a></td>
+                  <a href="<?php echo base_url('detail-post/').$post->id;?>" class="btn btn-info" data-toggle="tooltip" title="Detail Post"><i class="fa fa-info-circle bigicon"></i></a></td>
                 </tr>
                 <?php } ?>
                 </tbody>
@@ -89,8 +92,9 @@
                   <th>Judul</th>
                   <th>Isi</th>
                   <th>Kategori</th>
+                  <th>Image</th>
                   <th>Created at</th>
-                  <th>CSS grade</th>
+                  <th>Opsi</th>
                 </tr>
                 </tfoot>
               </table>

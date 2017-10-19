@@ -6,14 +6,14 @@
 				<p>personalia mwa undip</p>
 			</div>
 			<hr class="line line-aqua">
-            <p class="p-top-30 half-txt color-aqua text-justify">MWA Undip aliquam ornare massa a pulvinar malesuada. In in lacinia tortor. Vestibulum efficitur sollicitudin ipsum a volutpat. Quisque sollicitudin non lectus vitae pellentesque. Morbi ultricies posuere sapien. Aliquam erat volutpat. Donec sollicitudin dui enim, ut facilisis mauris interdum ut. In dui tellus, vulputate luctus vehicula eget, convallis vel nisl. Nulla ante erat, mattis at dolor nec, faucibus commodo orci. </p>
+            <p class="p-top-30 half-txt color-aqua text-justify">Majelis Wali Amanat (MWA) merupakan organ tertinggi Universitas dari 3 organ Undip sesuai Pasal 27, PP No. 52 tahun 2015 yaitu MWA, Rektor dan Senat Akademik. MWA mewakili kepentingan Pemerintah, Masyarakat, dan Universitas itu sendiri, yang bertanggung-jawab kepada Menteri dan mengemban tugas mem-berdayakan Universitas dalam menjalankan misi untuk mewujudkan visinya. MWA menetapkan, memberi pertimbangan pelaksanaan kebijakan umum, dan melaksanakan pengawasan di bidang nonakademik (Pasal 30, ayat 1g; Pasal 74, ayat 4 , PP No. 52 Tahun 2015). </p>
         </div>
 
-        <?php for ($i=0; $i < 9; $i++) : ?> 
+        <?php foreach ($personalia as $p) : ?> 
         <div class="col-md-4 col-sm-4">
             <div class="team-member">
                 <div class="team-img">
-                    <img src="<?=(isset($foto)) ? base_url('assets/images/personalia/').$foto : base_url('assets/images/personalia/noimage.jpg');?>" alt="team member" class="img-responsive">
+                    <img src="<?=($p->foto !== null) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" alt="team member" class="img-responsive">
                 </div>
                 <div class="team-hover">
                     <div class="desk">
@@ -28,11 +28,11 @@
                 </div>
             </div>
             <div class="team-title">
-                <h4>Nama</h4>
-                <span>Jabatan</span>
+                <h4><?=$p->nama?></h4>
+                <span><?=$p->jabatan?></span>
             </div>
         </div>
-        <?php endfor; ?>
+        <?php endforeach; ?>
 
     <!-- </div> -->
 

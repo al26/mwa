@@ -14,20 +14,20 @@
 <?php  endforeach; } ?></h5>
 <br>
 <!-- <div class="media"> -->
-  <!-- <div class="post-container"> -->
+  <div class="container">
   	<?php $images = explode(",",$post->image); 
 	  if (!empty($images)) { 
 	     foreach ($images as $i) : ?>
-	        <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image img-responsive" align="left">
+	        <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image" align="left">
 	<?php   endforeach; } else { ?>
-	        <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image img-responsive" align="left">
+	        <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left">
 	<?php }?>
     <br>
-  <!-- </div>
-  <div class="paragraph"> -->
+  </div>
+  <div class="container">
     <p class="text-justify"><?= word_limiter($post->body, 50); ?></p>
     <a href="<?=base_url('berita/'.$post->slug);?>" class="btn bg-aqua color-silver">Read More</a>
-  <!-- </div> -->
+  </div>
 </div>
 <hr>
 <?php endforeach; ?>
