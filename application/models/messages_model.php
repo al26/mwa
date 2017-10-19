@@ -50,6 +50,63 @@ class Messages_model extends CI_Model {
           }
 
 	}
+	public function SentToDraft($id){
+		$where = array(
+			'id'=>$id
+			);
+		$data = array(
+			'save'=>1,
+			'hapus'=>0
+			);
+		$query = $this->db->update('messages',$data,$where);
+		if($query){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getAllDraftMessage(){
+		$where = array(
+			'save'=>1,
+			'status'=>'read',
+			'hapus'=>0
+			);
+		$this->db->order_by('received_at', 'desc');
+		return $this->db->get_where('messages',$where)->result();
+	}
+	public function goTrash($id){
+		$where = array(
+			'id'=>$id
+			);
+		$data = array(
+			'hapus'=>1
+			);
+		$query = $this->db->update('messages',$data,$where);
+		if($query){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getTrashMessage(){
+		$where = array(
+			'status'=>'read',
+			'hapus'=>1
+			);
+		$this->db->order_by('received_at', 'desc');
+		return $this->db->get_where('messages',$where)->result();
+	}
+	public function deleteTrash($id){
+		$where = array(
+			'id'=>$id
+			);
+		$query = $this->db->delete('messages',$where);
+		if($query){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public function getMessage($hash)
 	{
 		return $this->db->get_where('messages', array('hash' => $hash))->row();

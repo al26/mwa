@@ -1,7 +1,7 @@
 <div class="col-md-9">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Read Mail</h3>
+              <h3 class="box-title">Read Message From Trash</h3>
               
                 
               
@@ -57,7 +57,7 @@
               <div class="pull-right">
                 <a href="<?= base_url('Save/').$datas->id;?>" type="button" class="btn btn-default"><i class="fa fa-save"></i> Save</a>
               </div>
-              <a href="<?= base_url('Delete/').$datas->id;?>" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</a>
+              <a href="<?= base_url('Delete-Permanent/').$datas->id;?>" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</a>
             </div>
             <?php } ?>
             </div>
