@@ -1,11 +1,11 @@
 <br><br><br>
-<div class="container">
+<div class="container profil">
     <div class="heading-title text-center">
         <div class="section-title text-center text-title text-upper color-aqua">
 			<p>penjelasan umum</p>
 		</div>
 		<hr class="line line-aqua">
-        <p class="p-top-30 color-aqua text-justify">MWA Undip aliquam ornare massa a pulvinar malesuada. In in lacinia tortor. Vestibulum efficitur sollicitudin ipsum a volutpat. Quisque sollicitudin non lectus vitae pellentesque. Morbi ultricies posuere sapien. Aliquam erat volutpat. Donec sollicitudin dui enim, ut facilisis mauris interdum ut. In dui tellus, vulputate luctus vehicula eget, convallis vel nisl. Nulla ante erat, mattis at dolor nec, faucibus commodo orci. </p>
+        <p class="p-top-30 color-aqua text-indent text-justify">Majelis Wali Amanat (MWA) merupakan organ tertinggi Universitas dari 3 organ Undip sesuai Pasal 27, PP No. 52 tahun 2015 yaitu MWA, Rektor dan Senat Akademik. MWA mewakili kepentingan Pemerintah, Masyarakat, dan Universitas itu sendiri, yang bertanggung-jawab kepada Menteri dan mengemban tugas mem-berdayakan Universitas dalam menjalankan misi untuk mewujudkan visinya. MWA menetapkan, memberi pertimbangan pelaksanaan kebijakan umum, dan melaksanakan pengawasan di bidang nonakademik (Pasal 30, ayat 1g; Pasal 74, ayat 4 , PP No. 52 Tahun 2015).</p>
     </div>
 
     <div class="text-subtitle text-upper color-aqua">

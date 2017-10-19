@@ -36,7 +36,7 @@
 		<?php $thumb = explode(",",$recent_post->image); ?>
 		<div class="item col-post">
 			<div class="posthumb-container">
-				<img class="posthumb" src="<?=base_url('assets/images/post/').$thumb[0];?>">
+				<img class="posthumb" src="<?= ($thumb !== null) ? base_url('assets/images/post/').$thumb[0] : base_url('assets/images/post/noimage.png') ;?>">
 			</div>
 			<div class="title-container text-justify">
 				<a href="<?=base_url('berita/'.$recent_post->slug);?>" class="btn btn-link no-margin" style="padding: 0 5px;"><?=$recent_post->title?></a>

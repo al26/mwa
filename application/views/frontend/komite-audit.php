@@ -1,5 +1,5 @@
 <br><br><br>
-<div class="container">
+<div class="container profil">
     <!-- <div class="row"> -->
         <div class="heading-title text-center">
             <div class="section-title text-center text-title text-upper color-aqua">
