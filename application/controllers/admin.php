@@ -272,6 +272,7 @@ public function sendTrash($id){
     }  
 }
 public function permanetDelete($id){
+    
     $query = $this->messages_model->deleteTrash($id);
     if($query==true){
         redirect('Trash');  
@@ -280,6 +281,28 @@ public function permanetDelete($id){
     } 
 }
 ###################################################End of Message################################################################# 
+###################################################Begin of Comment################################################################# 
+public function comment(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/inbox-comment";
+    $this->load->view('admin/comment',$data);
+}
+public function inbox_comment(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/inbox-comment";
+    $data['data']=$this->comment_model->get_comment();
+    $this->load->view('admin/comment',$data);
+}
+public function read_comment($id){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/read-comment";
+    $data['data']=$this->comment_model->getAllComment_read($id);
+    $this->load->view('admin/comment',$data); 
+}
+###################################################End of Comment################################################################# 
 public function filesize(){
     $this->load->view('admin/filesize');
 }

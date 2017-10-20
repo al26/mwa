@@ -52,7 +52,7 @@ class Validation extends CI_Controller {
 					$_FILES['attachment']['tmp_name'] = $files['tmp_name'][$k];
 					$_FILES['attachment']['error']    = $files['error'][$k];
 					$_FILES['attachment']['size']     = $files['size'][$k];
-					
+					// chmod($path = ,0755);
 					$config['upload_path'] 		= './assets/uploaded_files/attachments';
 					$config['allowed_types'] 	= 'jpg|jpeg|pdf|png|doc|docx|xls|xlsx|ppt|pptx|txt|rtf|rar|zip';
 					$config['max_size'] 		= 2048;
@@ -63,6 +63,7 @@ class Validation extends CI_Controller {
 					$this->upload->initialize($config);
 					if ($this->upload->do_upload('attachment')) {
 						$data = $this->upload->data();
+						chmod($data['upload_data']['full_path'], 0755);
 						$file[$k] =  $data['file_name'];
 					} else {
 						$msg['err_msg'] = $this->upload->display_errors();
@@ -173,6 +174,28 @@ class Validation extends CI_Controller {
         
         $this->session->set_flashdata($msg);
         redirect('new-post');
+    }
+    public function new_comment($slug){
+    	$this->form_validation->set_rules('nama','Nama','xss_clean|trim');
+		$this->form_validation->set_rules('email','Email','xss_clean|trim|valid_email');
+		$this->form_validation->set_rules('comment','comment','xss_clean|trim');
+			
+			if($this->form_validation->run()==false){
+				$msg['err_msg'] = "An error occurred. Please try again.";
+			}else{
+				$hash = md5(uniqid(time(), true));
+				$data = array(
+					'nama'=>$this->input->post('nama'),
+					'email'=>$this->input->post('email'),
+					'comment'=>$this->input->post('comment'),
+					'hash'=>$hash
+					);
+				$query = $this->comment_model->input_post($data);
+				$msg['scss_msg'] = "Success add new comment";
+				
+			}
+		$this->session->set_flashdata($msg);
+		redirect('berita/'.$slug);
     }
 
 

@@ -19,21 +19,29 @@
 <!-- comment -->
 <div class="row">
 <div class="container comment-box col-sm-12">
+   <?php 
+    if (!empty($this->session->flashdata('err_msg'))) {
+      echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+    } elseif (!empty($this->session->flashdata('scss_msg'))) {
+      echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+    } 
+    ?>
   <h2>Add Comments</h2>
-  <form>
+  <?=form_open('new_comment/'.$single_post->slug); ?>
 	  <div class="form-group">
 	    <label for="email">Email address:</label>
-	    <input type="email" class="form-control comenters" id="email">
+	    <input type="email" class="form-control comenters" name="email" id="email" required>
 	  </div>
+    <div class="form-group">
+      <label for="email">Name :</label>
+      <input type="text" class="form-control comenters" name="nama" required>
+    </div>
 	  <div class="form-group">
-	    <label for="pwd">Password:</label>
-	    <input type="password" class="form-control comment-text" id="pwd">
-	  </div>
-	  <div class="checkbox">
-	    <label><input type="checkbox"> Remember me</label>
+	    <label for="pwd">Comment :</label>
+	    <textarea name="comment" class="form-control comment-text" required style="width: 100%; height: 150px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
 	  </div>
 	  <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+  <?= form_close(); ?>
   <hr>
   <div class="media">
     <div class="media-left">
