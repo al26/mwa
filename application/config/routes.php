@@ -17,8 +17,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-
-
+$route['page/edit/(:num)'] = 'admin/edit_page/$1';
+$route['edit-beranda'] = 'validation/edit_beranda';
 
 
 

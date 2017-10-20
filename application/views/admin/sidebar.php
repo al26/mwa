@@ -327,6 +327,32 @@
             
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-file"></i> <span>Pengaturan Halaman</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url('page/edit/1');?>"><i class="fa fa-circle-o"></i> Beranda</a></li>
+            <li class="treeview menu-open">
+                <a href=""><i class="fa fa-circle-o"></i> Profil
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu" style="display: block;">
+                  <li><a href="<?=base_url('page/edit/2');?>"><i class="fa fa-circle-o"></i> Penjelasan Umum</a></li>
+                  <li><a href="<?=base_url('page/edit/3');?>"><i class="fa fa-circle-o"></i> Personalia</a></li>
+                  <li><a href="<?=base_url('page/edit/4');?>"><i class="fa fa-circle-o"></i> Komite Audit</a></li>
+                  <li><a href="<?=base_url('page/edit/5');?>"><i class="fa fa-circle-o"></i> MWA UM</a></li>
+                </ul>
+            </li>
+            <li><a href="<?=base_url('page/edit/6');?>"><i class="fa fa-circle-o"></i> SK &amp; Peraturan</a></li>
+            <li><a href="<?=base_url('page/edit/7');?>"><i class="fa fa-circle-o"></i> Program Kerja</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

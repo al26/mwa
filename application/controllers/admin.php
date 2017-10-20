@@ -283,4 +283,15 @@ public function permanetDelete($id){
 public function filesize(){
     $this->load->view('admin/filesize');
 }
+
+##### Begin Pages #####
+public function edit_page($id)
+{
+    $data['sidebar']="admin/sidebar";
+    $data['data'] = $this->pages_model->getPage($id); 
+    $data['personalia'] = $this->personalia_model->getAllPersonaliaMWA();
+    $data['ka'] = $this->personalia_model->getAllPersonaliaKA();
+    $this->load->view('admin/pages/'.$id, $data);
+}
+
 }

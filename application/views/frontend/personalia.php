@@ -3,10 +3,10 @@
     <!-- <div class="row"> -->
         <div class="heading-title text-center">
             <div class="section-title text-center text-title text-upper color-aqua">
-				<p>personalia mwa undip</p>
+				<p><?=$page->title;?></p>
 			</div>
 			<hr class="line line-aqua">
-            <p class="p-top-30 half-txt color-aqua text-justify">MWA Undip aliquam ornare massa a pulvinar malesuada. In in lacinia tortor. Vestibulum efficitur sollicitudin ipsum a volutpat. Quisque sollicitudin non lectus vitae pellentesque. Morbi ultricies posuere sapien. Aliquam erat volutpat. Donec sollicitudin dui enim, ut facilisis mauris interdum ut. In dui tellus, vulputate luctus vehicula eget, convallis vel nisl. Nulla ante erat, mattis at dolor nec, faucibus commodo orci.</p>
+            <p class="p-top-30 half-txt color-aqua text-justify"><?=$page->description;?></p>
         </div>
 
         <?php foreach ($personalia as $p) : ?> 
