@@ -99,6 +99,11 @@ class Messages_model extends CI_Model {
 		$where = array(
 			'id'=>$id
 			);
+		$get = $this->db->get_where('messages',$where)->row();
+			$myfile = $get->attachments;
+			// chmod(base_url('/assets/uploaded_files/attachments/'), 0755);
+			unlink(base_url('/assets/uploaded_files/attachments/').$myfile);
+			
 		$query = $this->db->delete('messages',$where);
 		if($query){
 			return true;

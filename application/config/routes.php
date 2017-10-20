@@ -61,4 +61,7 @@ $route['Delete/(:num)']='admin/sendTrash/$1';
 $route['read_message_hapus/(:num)']='admin/read_message_hapus/$1';
 $route['Delete-Permanent/(:num)']='admin/permanetDelete/$1';
 
-$route['editor']='admin/filesize';
+$route['new_comment/(:any)']='validation/new_comment/$1';
+$route['comment']='admin/inbox_comment';
+$route['inbox-comment']='admin/inbox_comment';
+$route['read_comment/(:any)']='admin/read_comment/$1';

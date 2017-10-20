@@ -329,12 +329,14 @@
         </li>
         <li class="treeview">
           <a href="#">
+
             <i class="fa fa-file"></i> <span>Pengaturan Halaman</span>
+
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
+          <ul class="treeview-menu">          
             <li><a href="<?=base_url('page/edit/1');?>"><i class="fa fa-circle-o"></i> Beranda</a></li>
             <li class="treeview menu-open">
                 <a href=""><i class="fa fa-circle-o"></i> Profil
@@ -353,6 +355,19 @@
             <li><a href="<?=base_url('page/edit/7');?>"><i class="fa fa-circle-o"></i> Program Kerja</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+              <i class="fa fa-comments"></i> <span>Comment</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">          
+           <li><a href="<?php echo base_url('comment');?>"><i class="fa fa-circle-o"></i> View All Comment</a></li>  
+          </ul>
+        </li>
+           
+           
       </ul>
     </section>
     <!-- /.sidebar -->
