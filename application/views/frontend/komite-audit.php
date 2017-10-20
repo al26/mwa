@@ -1,12 +1,12 @@
 <br><br><br>
-<div class="container">
+<div class="container profil">
     <!-- <div class="row"> -->
         <div class="heading-title text-center">
             <div class="section-title text-center text-title text-upper color-aqua">
-				<p>komite audit</p>
+				<p><?=$page->title;?></p>
 			</div>
 			<hr class="line line-aqua">
-            <p class="p-top-30 half-txt color-aqua text-justify">Komite Audit ( KA ) adalah perangkat MWA yang melaksanakan tugas membantu MWA dalam melakukan fungsi pengawasan di bidang non akademik terhadap penyelenggaraan Undip. Mengawasi proses audit internal dan eksternal atas penyelenggaraan Undip di bidang non akademik, Menilai hasil audit internal maupun eksternal untuk disampaikan kepada MWA, Melakukan pengawasan penyelenggaraan sistem akuntansi, evaluasi sistem pengendalian internal, dan audit atas laporan keuangan </p>
+            <p class="p-top-30 half-txt color-aqua text-justify"><?=$page->description;?></p>
         </div>
         <div class="section-title text-center text-title text-upper color-aqua">
 			<p>personalia komite audit</p>

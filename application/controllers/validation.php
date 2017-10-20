@@ -9,11 +9,6 @@ class Validation extends CI_Controller {
         // $this->form_validation->set_error_delimiters('<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>', '</div>');
     }
 
-	public function index()
-	{
-		
-	}
-
 	public function send_message()
 	{
 		$this->form_validation->set_rules('name','Nama','xss_clean|trim|required');
@@ -198,6 +193,44 @@ class Validation extends CI_Controller {
 		redirect('berita/'.$slug);
     }
 
+
+
+    public function edit_beranda()
+    {
+    	$this->form_validation->set_rules('title','Title','xss_clean|trim|required');
+		$this->form_validation->set_rules('desc','Description','xss_clean|trim|required');
+
+        $id = $this->input->post('id');
+        $title = $this->input->post('title');
+        $desc = $this->input->post('desc');
+        
+        if($this->form_validation->run() === FALSE) 
+        {
+            $msg['err_msg'] = validation_errors();
+            $repopulate = array(
+                'title' => $title,
+                'desc' => $decs
+            );
+            $this->session->set_flashdata($repopulate);
+        } 
+        else
+        {
+        	$data = array(
+                'title' => $title,
+                'desc' => $desc
+            );
+            $inserted = $this->pages_model->updatePage($id, $data);
+
+            if ($inserted === TRUE) {
+                $msg['scss_msg'] = "Success update page Beranda";
+            } else {                
+                $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+        }
+
+        $this->session->set_flashdata($msg);
+        redirect('page/edit/'.$id);
+    }
 
 }
 

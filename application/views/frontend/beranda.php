@@ -15,10 +15,7 @@
 </div>
 <div class="desc bg-aqua">
 	<div class="container">
-		<p class="text text-justify text-indent">
-		Majelis Wali Amanat (MWA) merupakan organ tertinggi Universitas dari 3 organ Undip sesuai Pasal 27, PP No. 52 tahun 2015 yaitu MWA, Rektor dan Senat Akademik. MWA mewakili kepentingan Pemerintah, Masyarakat, dan Universitas itu sendiri, yang bertanggung-jawab kepada Menteri dan mengemban tugas mem-berdayakan Universitas dalam menjalankan misi untuk mewujudkan visinya.</p>
-		<p class="text text-justify text-indent">MWA menetapkan, memberi pertimbangan pelaksanaan kebijakan umum, dan melaksanakan pengawasan di bidang nonakademik (Pasal 30, ayat 1g; Pasal 74, ayat 4 , PP No. 52 Tahun 2015).
-		</p>
+		<p class="text text-justify text-indent"><?=$page->description;?></p>
 	</div>
 </div>
 <!-- <div class="no-content bg-silver"></div> -->
@@ -36,7 +33,7 @@
 		<?php $thumb = explode(",",$recent_post->image); ?>
 		<div class="item col-post">
 			<div class="posthumb-container">
-				<img class="posthumb" src="<?=base_url('assets/images/post/').$thumb[0];?>">
+				<img class="posthumb" src="<?= (!empty($recent_post->image)) ? base_url('assets/images/post/').$thumb[0] : base_url('assets/images/post/noimage.png') ;?>">
 			</div>
 			<div class="title-container text-justify">
 				<a href="<?=base_url('berita/'.$recent_post->slug);?>" class="btn btn-link no-margin" style="padding: 0 5px;"><?=$recent_post->title?></a>

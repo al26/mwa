@@ -3,10 +3,10 @@
     <!-- <div class="row"> -->
         <div class="heading-title text-center">
             <div class="section-title text-center text-title text-upper color-aqua">
-				<p>surat keputusan dan peraturan mwa undip</p>
+				<p><?=$page->title;?></p>
 			</div>
 			<hr class="line line-aqua">
-            <p class="p-top-30 color-aqua text-justify">MWA Undip aliquam ornare massa a pulvinar malesuada. In in lacinia tortor. Vestibulum efficitur sollicitudin ipsum a volutpat. Quisque sollicitudin non lectus vitae pellentesque. Morbi ultricies posuere sapien. Aliquam erat volutpat. Donec sollicitudin dui enim, ut facilisis mauris interdum ut. In dui tellus, vulputate luctus vehicula eget, convallis vel nisl. Nulla ante erat, mattis at dolor nec, faucibus commodo orci. </p>
+            <p class="p-top-30 color-aqua text-justify"><?=$page->description;?></p>
         </div>
 
         <div class="text-subtitle text-upper color-aqua">
@@ -17,7 +17,7 @@
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title color-aqua">
-                    <a role="button" data-toggle="collapse" data-parent="<?='#accordionsk'.$s->year;?>" href="<?='#collapsesk'.$s->year;?>" aria-expanded="true" aria-controls="<?='collapsesk'.$s->year;?>">
+                    <a role="button" data-toggle="collapse" data-parent="#accordionsk<?=$s->year;?>" href="<?='#collapsesk'.$s->year;?>" aria-expanded="true" aria-controls="<?='collapsesk'.$s->year;?>">
                         <i class="more-less glyphicon glyphicon-plus"></i>
                         Surat Keputusan MWA Tahun <?=$s->year;?>
                     </a>

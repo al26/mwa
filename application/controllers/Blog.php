@@ -44,7 +44,8 @@
 	        $data['pagination'] = $this->makePagination($url, $per_page, $total);
 	        $data['recent_posts'] = $this->post_model->getPostPagination($per_page, $page, $category);
 	        $data['body'] = 'berita';
-			$data['title'] = 'Berita | '.$category;
+			$page['title'] = 'Berita | '.$category;
+			$data['page'] = (object)$page;
 			$data['view'] = 'blog_all';
 			$data['categories'] = $this->category_model->getCategories();
 			$this->load->view('templates/header', $data);	
@@ -57,7 +58,8 @@
 			$data['categories'] = $this->category_model->getCategories();
 			$data['single_post'] = $this->post_model->getPost($slug);
 			$data['view'] = 'blog_single';
-	        $data['title'] = ucwords(preg_replace("/-/"," ", $slug));
+	        $page['title'] = ucwords(preg_replace("/-/"," ", $slug));
+	        $data['page'] = (object)$page;
 	        $data['body'] = 'berita';
 			$this->load->view('templates/header', $data);	
 			$this->load->view('frontend/blog/blog_layout', $data);	
