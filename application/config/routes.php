@@ -67,8 +67,10 @@ $route['inbox-comment']='admin/inbox_comment';
 $route['read_comment/(:any)']='admin/read_comment/$1';
 $route['reply/(:any)']='admin/reply_comment/$1';
 $route['do_reply/(:any)']='validation/reply_comment/$1';
-
+$route['ViewReply/(:num)']='admin/ViewReply/$1';
 $route['AllReply']='admin/AllReply';
 $route['Deletecomment/(:any)']='admin/Delete_comment/$1';
 $route['TrashComment']='admin/Trash_Comment';
+$route['DeleteReply/(:any)']='admin/DeleteReply/$1';
+
 

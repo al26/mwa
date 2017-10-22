@@ -318,6 +318,13 @@ public function AllReply(){
     // die();
     $this->load->view('admin/comment',$data);   
 }
+public function ViewReply($id){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/view-Reply-comment";
+    $data['data']=$this->comment_model->getDataReplyComment($id);
+    $this->load->view('admin/comment',$data); 
+}
 public function Delete_comment($hash){
     $query = $this->comment_model->goTrash($hash);
     if($query==true){
@@ -333,7 +340,14 @@ public function Trash_Comment(){
     $data['data']=$this->comment_model->getCommentTrash();
     $this->load->view('admin/comment',$data); 
 }
-
+public function DeleteReply($hash){
+    $query = $this->comment_model->goDeleteReply($hash);
+    if($query==true){
+        redirect('AllReply');  
+    }else{
+        redirect('AllReply');
+    }
+}
 ###################################################End of Comment################################################################# 
 public function filesize(){
     $this->load->view('admin/filesize');

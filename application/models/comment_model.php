@@ -68,6 +68,24 @@ class Comment_model extends CI_Model {
 		);
 		return $this->db->get_where('comment',$where, 10)->result();
 	}
+	public function goDeleteReply($id){
+		$where = array(
+			'id_reply'=>$id
+		);
+		$Delete = $this->db->delete('reply',$where);
+		if($Delete==true){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getDataReplyComment($id){
+		$where = array(
+			'id_reply'=>$id
+		);
+		$this->db->join('comment', 'comment.hash = reply.id_comment', 'inner');
+		return $this->db->get_where('reply',$where)->result();
+	}
 }
 
 

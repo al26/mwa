@@ -39,6 +39,7 @@
                     <th>Subject</th>
                     <th>Email</th>
                     <th>Date publish</th>
+                    <th>Action</th>
                   </tr>
 
                   <?php $no=0; foreach ($data as $datas) {?>
@@ -49,7 +50,10 @@
                     <td class="mailbox-subject"><?php echo strip_tags(word_limiter($datas->comment,4));  ?></td>
                     <td class="mailbox-date"><?= $datas->email;?></td> 
                     <td class="mailbox-date"><?= $datas->time_publish;?> </td> 
-                    
+                    <td>
+                      <a href="<?= base_url('DeletePermanently/').$datas->hash;?>" type="button" data-toggle="tooltip" data-placement="top" title="Delete Permanently" class="btn btn-danger"><i class="fa fa-trash-o"></i> </a>
+                      <a href="<?= base_url('RestorageComment/').$datas->hash;?>" type="button" data-toggle="tooltip" data-placement="top" title="Restorage Comment"  class="btn btn-default"><i class="fa fa-reply"></i> </a>
+                    </td>
                   </tr>
 
                   <?php } ?>
