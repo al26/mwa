@@ -170,7 +170,7 @@ class Validation extends CI_Controller {
         $this->session->set_flashdata($msg);
         redirect('new-post');
     }
-    public function new_comment($slug){
+    public function new_comment($slug,$id){
     	$this->form_validation->set_rules('nama','Nama','xss_clean|trim');
 		$this->form_validation->set_rules('email','Email','xss_clean|trim|valid_email');
 		$this->form_validation->set_rules('comment','comment','xss_clean|trim');
@@ -183,7 +183,9 @@ class Validation extends CI_Controller {
 					'nama'=>$this->input->post('nama'),
 					'email'=>$this->input->post('email'),
 					'comment'=>$this->input->post('comment'),
-					'hash'=>$hash
+					'hash'=>$hash,
+					'hash_post'=>$id,
+					'hapus'=>0
 					);
 				$query = $this->comment_model->input_post($data);
 				$msg['scss_msg'] = "Success add new comment";

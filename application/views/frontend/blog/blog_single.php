@@ -27,7 +27,7 @@
     } 
     ?>
   <h2>Add Comments</h2>
-  <?=form_open('new_comment/'.$single_post->slug); ?>
+  <?=form_open('new_comment/'.$single_post->slug.'/'.$single_post->hash); ?>
 	  <div class="form-group">
 	    <label for="email">Email address:</label>
 	    <input type="email" class="form-control comenters" name="email" id="email" required>

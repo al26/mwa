@@ -13,7 +13,7 @@
                 <li><a href="<?php echo base_url('inbox-comment'); ?>"><i class="fa fa-inbox"></i> Inbox Comments
                   <span class="label label-primary pull-right"><?php if(isset($count)) {echo $count;}?></span></a></li>
                 <li><a href="<?php echo base_url('AllReply'); ?>"><i class="fa fa-file-text-o"></i> All Reply Comment</a></li>
-                <li><a href="<?php echo base_url('Trash'); ?>"><i class="fa fa-trash-o"></i> Trash Comment</a></li>
+                <li><a href="<?php echo base_url('TrashComment'); ?>"><i class="fa fa-trash-o"></i> Trash Comment</a></li>
               </ul>
             </div>
             <!-- /.box-body -->

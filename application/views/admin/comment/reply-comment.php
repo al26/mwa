@@ -52,12 +52,7 @@
               <div class="pull-right">
                 <button type="submit" class="btn btn-default"><i class="fa fa-reply"></i> Reply</button>
               </div>
-              <?php echo form_close(); ?>
-            <?php if(isset($data)){ ?>
-            <?php foreach ($data as $datas) { ?>
-              <a href="<?= base_url('Delete/').$datas['id'];?>" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</a>
-            <?php }} ?>
-               
+              <?php echo form_close(); ?>   
             </div>
             
             </div>

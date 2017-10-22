@@ -13,7 +13,10 @@ class Comment_model extends CI_Model {
 		
 	}
 	public function get_comment(){
-		return $this->db->get('comment')->result();
+		$where = array(
+			'hapus'=>0
+		);
+		return $this->db->get_where('comment',$where,10)->result();
 	}
 	public function getAllComment_read($id){
 		$where =array(
@@ -40,8 +43,32 @@ class Comment_model extends CI_Model {
 	public function getCommentReply(){
 		$this->db->select('*');
 		$this->db->from('reply');
-		$this->db->join('comment', 'reply.id_comment = comment.hash', 'right');
+		$this->db->join('comment', 'reply.id_comment = comment.hash', 'inner');
 		return $this->db->get()->result();
 	}
+	public function goTrash($hash){
+		$data = array(
+			'hapus'=>1
+		);
+		$where = array(
+			'hash'=>$hash
+		);
+		$update = $this->db->update('comment', $data ,$where);
+		if($update == true){
+			return true;
+		}else{
+			return false;
+		}
+			
+	}
+	public function getCommentTrash(){
 
+		$where = array(
+			'hapus'=>1
+		);
+		return $this->db->get_where('comment',$where, 10)->result();
+	}
 }
+
+
+

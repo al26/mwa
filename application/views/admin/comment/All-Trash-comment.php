@@ -1,7 +1,7 @@
 <div class="col-md-9">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Inbox Comment</h3>
+              <h3 class="box-title">Trash Comment</h3>
 
               <div class="box-tools pull-right">
               </div>
@@ -34,25 +34,24 @@
                 <table class="table table-hover ">
                   <tbody>
                   <tr>
-                    <th>Sender</th>
+                    <th>No</th>
+                    <th>Name</th>
                     <th>Subject</th>
-                    <th>Date Reply</th>
-                    <th>Action Reply</th>
+                    <th>Email</th>
+                    <th>Date publish</th>
                   </tr>
-                   <?php foreach ($data as $datas) {?>
 
+                  <?php $no=0; foreach ($data as $datas) {?>
+                  <?php $no++; ?> 
                   <tr>
-
+                    <td class="mailbox"><?php echo $no; ?></td>  
+                    <td class="mailbox-name"><?php echo $datas->nama; ?></td>  
+                    <td class="mailbox-subject"><?php echo strip_tags(word_limiter($datas->comment,4));  ?></td>
+                    <td class="mailbox-date"><?= $datas->email;?></td> 
+                    <td class="mailbox-date"><?= $datas->time_publish;?> </td> 
                     
-                    <td class="mailbox-name"><a href="<?php echo base_url('read_comment/').$datas->hash; ?>"><?php echo $datas->nama; ?></a></td>
-                    <td class="mailbox-subject"> - <?php echo strip_tags(word_limiter($datas->reply,4));  ?>
-                    </td>
-                    <td class="mailbox-date"><?= $datas->timestamp;?></td>
-                    <td>
-                        <a href="<?= base_url('DeleteReply/').$datas->hash;?>" type="button" data-toggle="tooltip" data-placement="top" title="Delete Replay" class="btn btn-default"><i class="fa fa-trash-o"></i> </a>
-                        <a href="<?= base_url('UpdateReply/').$datas->hash;?>" type="button" data-toggle="tooltip" data-placement="top" title="Update Replay"  class="btn btn-default"><i class="fa fa-upload"></i> </a>
-                    </td>
                   </tr>
+
                   <?php } ?>
                   </tbody>
                 </table>

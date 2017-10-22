@@ -11,10 +11,9 @@
             <div class="box-body no-padding">
               <div class="mailbox-controls">
                 <!-- Check all button -->
-                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                </button>
+                
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                  
                   
                 </div>
                 <!-- /.btn-group -->
@@ -34,9 +33,13 @@
               <div class="table-responsive mailbox-messages">
                 <table class="table table-hover ">
                   <tbody>
+                    <tr>
+                    <th>Sender</th>
+                    <th>Subject</th>
+                    <th>Date Comment</th>
+                  </tr>
                    <?php foreach ($data as $datas) {?>
                   <tr>
-                    <td><input type="checkbox" value="<?php echo $datas->id; ?>"></td>
                     <td class="mailbox-name"><a href="<?php echo base_url('read_comment/').$datas->hash; ?>"><?php echo $datas->nama; ?></a></td>
                     <td class="mailbox-subject"> - <?php echo strip_tags(word_limiter($datas->comment,4));  ?>
                     </td>

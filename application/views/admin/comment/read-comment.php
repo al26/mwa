@@ -2,16 +2,11 @@
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Read Comment</h3>
-              
-                
-              
               <div class="box-tools pull-right">
                 <a href="#" class="btn btn-box-tool" data-toggle="tooltip" title="Previous"><i class="fa fa-chevron-left"></i></a>
                 <a href="#" class="btn btn-box-tool" data-toggle="tooltip" title="Next"><i class="fa fa-chevron-right"></i></a>
               </div>
             </div>
-            <!-- /.box-header -->
-           
             <?php if(isset($data)){ ?>
             <?php foreach ($data as $datas) { ?>
             <div class="box-body no-padding">
@@ -35,7 +30,7 @@
               <div class="pull-right">
                 <a href="<?= base_url('reply/').$datas['hash'];?>" type="button" class="btn btn-default"><i class="fa fa-reply"></i> Reply</a>
               </div>
-              <a href="<?= base_url('Delete/').$datas['id'];?>" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</a>
+              <a href="<?= base_url('Deletecomment/').$datas['hash'];?>" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</a>
                <?php }} ?>
             </div>
             
