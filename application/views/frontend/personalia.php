@@ -9,21 +9,34 @@
             <p class="p-top-30 half-txt color-aqua text-justify"><?=$page->description;?></p>
         </div>
 
-        <?php foreach ($personalia as $p) : ?> 
+        <?php foreach ($personalia as $p) : ?>
         <div class="col-md-4 col-sm-4">
             <div class="team-member">
                 <div class="team-img">
-                    <img src="<?=($p->foto !== null) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" alt="team member" class="img-responsive">
+                    <img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" alt="team member" class="img-responsive">
                 </div>
                 <div class="team-hover">
                     <div class="desk">
-                        <h4>Judul caption</h4>
-                        <p>bio singkat</p>
+                        <h4><?=$p->nama;?></h4>
+                        <p><?=$p->jabatan;?></p>
+                        <p><?=$p->unsur;?></p>
                     </div>
                     <div class="s-link">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <?php if (!empty($p->telp)) : ?>
+                            <a href="<?='tel:'.$p->telp;?>"><i class="fa fa-phone"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($p->email)) : ?>
+                            <a href="<?='mailto:'.$p->email;?>"><i class="fa fa-envelope"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($p->facebook)) : ?>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($p->twitter)) : ?>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($p->instagram)) : ?>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

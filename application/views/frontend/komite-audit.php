@@ -3,40 +3,49 @@
     <!-- <div class="row"> -->
         <div class="heading-title text-center">
             <div class="section-title text-center text-title text-upper color-aqua">
-				<p><?=$page->title;?></p>
-			</div>
-			<hr class="line line-aqua">
+                <p><?=$page->title;?></p>
+            </div>
+            <hr class="line line-aqua">
             <p class="p-top-30 half-txt color-aqua text-justify"><?=$page->description;?></p>
         </div>
-        <div class="section-title text-center text-title text-upper color-aqua">
-			<p>personalia komite audit</p>
-		</div>
-		<hr class="line line-aqua">
-		<br>
-        <?php for ($i=0; $i < 9; $i++) : ?> 
+
+        <?php foreach ($ka as $p) : ?>
         <div class="col-md-4 col-sm-4">
             <div class="team-member">
                 <div class="team-img">
-                    <img src="<?=(isset($foto)) ? base_url('assets/images/personalia/').$foto : base_url('assets/images/personalia/noimage.jpg');?>" alt="team member" class="img-responsive">
+                    <img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" alt="team member" class="img-responsive">
                 </div>
                 <div class="team-hover">
                     <div class="desk">
-                        <h4>Judul caption</h4>
-                        <p>bio singkat</p>
+                        <h4><?=$p->nama;?></h4>
+                        <p><?=$p->jabatan;?></p>
+                        <p><?=$p->unsur;?></p>
                     </div>
                     <div class="s-link">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <?php if (!empty($p->telp)) : ?>
+                            <a href="<?='tel:'.$p->telp;?>"><i class="fa fa-phone"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($p->email)) : ?>
+                            <a href="<?='mailto:'.$p->email;?>"><i class="fa fa-envelope"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($p->facebook)) : ?>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($p->twitter)) : ?>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($p->instagram)) : ?>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
             <div class="team-title">
-                <h4>Nama</h4>
-                <span>Jabatan</span>
+                <h4><?=$p->nama?></h4>
+                <span><?=$p->jabatan?></span>
             </div>
         </div>
-        <?php endfor; ?>
+        <?php endforeach; ?>
 
     <!-- </div> -->
 

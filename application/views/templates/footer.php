@@ -7,7 +7,23 @@
     <!-- <hr class="line line-silver"> -->
     <div class="row contact">
       <div class="col-md-4 col-sm-6 col-xs-12">
-        
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="2"><p class="text-title color-silver no-margin">Media Sosial</p></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:0"><img src="<?=base_url('assets/images/instagram.png')?>" style="width:40px; padding:5px;"></td>
+              <td style="padding:0"><p class="text-left no-margin no-padding"><a class="color-silver btn btn-link btn-md" href="#">Ikuti Kami di Instagram</a></p></td>
+            </tr>
+            <tr>
+              <td style="padding:0"><img src="<?=base_url('assets/images/line.png')?>" style="width:40px; padding:5px;"></td>
+              <td style="padding:0"><p class="text-left no-margin no-padding"><a class="color-silver btn btn-link btn-md" href="#">OA Line MWA UM Undip</a></p></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="col-md-4 col-sm-6 col-xs-12">
         <table class="table">
@@ -57,6 +73,7 @@
 <div class="copyright">
   <p class="text-upper text-center no-margin no-padding color-aqua text-bolder"><i class="fa fa-copyright" aria-hidden="true"></i> <?= date("Y");?> mwa undip | all right reserved</p>
 </div>
+<a id="scroll" href="javascript:void(0);" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left" style="display:none;"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </footer>
 
 <?php 
@@ -136,15 +153,30 @@ $(document).ready(function(){
   });
   // acordion
   function toggleIcon(e) {
-    $(e.target)
-        .prev('.panel-heading')
-        .find(".more-less")
-        .toggleClass('glyphicon-plus glyphicon-minus');
-    }
-    $('.panel-group').on('hidden.bs.collapse', toggleIcon);
-    $('.panel-group').on('shown.bs.collapse', toggleIcon);
+  $(e.target)
+      .prev('.panel-heading')
+      .find(".more-less")
+      .toggleClass('glyphicon-plus glyphicon-minus');
+  }
+  $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+  $('.panel-group').on('shown.bs.collapse', toggleIcon);
     
 });
+
+$(document).ready(function(){
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 100){
+            $('#scroll').fadeIn();
+        }else{
+            $('#scroll').fadeOut();
+        }
+    });
+    $('#scroll').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+});
+
 </script>
 </body>
 </html>

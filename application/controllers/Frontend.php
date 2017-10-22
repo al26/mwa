@@ -42,6 +42,15 @@ class Frontend extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function mwa_um()
+	{
+		$data['page'] = $this->pages_model->getPage(5);
+		$data['body'] = 'profil';
+		$this->load->view('templates/header', $data);
+		$this->load->view('frontend/mwaum', $data);
+		$this->load->view('templates/footer', $data);	
+	}
+
 	public function skp()
 	{
 		$data['page'] = $this->pages_model->getPage(6);

@@ -14,8 +14,8 @@
 		<span class="border text-upper text-center"><p>majelis wali amanat<br>universitas diponegoro</p></span>
 </div>
 <div class="desc bg-aqua">
-	<div class="container">
-		<p class="text text-justify text-indent"><?=$page->description;?></p>
+	<div class="container text text-justify">
+		<?=$page->description;?>
 	</div>
 </div>
 <!-- <div class="no-content bg-silver"></div> -->

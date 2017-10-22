@@ -14,7 +14,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('edit-beranda');?>">
+          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('edit-page/').$data->id;?>">
             <input type="hidden" name="id" value="<?=$data->id;?>" required>
             <div class="form-group">
               <label class="control-label col-sm-3 col-md-2 color-aqua" for="title">Title <span class="text-danger">*</span></label>
@@ -25,7 +25,7 @@
             <div class="form-group">
             <label class="control-label col-sm-3 col-md-2 color-aqua" for="body">Description <span class="text-danger">*</span></label>
             <div class="col-sm-8 col-md-9">
-        <textarea class="textarea" rows="6" name="jenis_kegiatan" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required><?=(!empty($data->description)) ? $data->description : $this->session->flashdata('desc');?></textarea>
+        <textarea class="textarea" rows="6" name="desc" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required><?=(!empty($data->description)) ? $data->description : $this->session->flashdata('desc');?></textarea>
             </div>
             </div>
             <div class="form-group"> 
@@ -59,7 +59,7 @@
                 <h4 class="modal-title">Tambah Data SK</h4>
               </div>
               <div class="modal-body col-xs-12">
-                <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kirim-pesan');?>">
+                <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kelola-skp/add/sk');?>">
                 <div class="form-group" style="margin: 0">
                   <label class="control-label">Nomor <span class="text-danger">*</span></label>
                   <div class=""> 
@@ -81,7 +81,7 @@
                 <div class="form-group" style="margin: 0">
                   <label class="control-label">Upload File</label>
                 <div class="">
-                    <input class="form-control" type="file" name="fotoskp">
+                    <input class="form-control" type="file" name="fileskp">
                 </div>
                 </div>
                 <br>
@@ -137,7 +137,8 @@
                     <h4 class="modal-title">Update Data SK</h4>
                   </div>
                   <div class="modal-body col-xs-12">
-                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kirim-pesan');?>">
+                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kelola-skp/update/sk');?>">
+                      <input type="hidden" name="id" value="<?=$p->id;?>">
                       <div class="form-group">
                         <label class="control-label">Nomor <span class="text-danger">*</span></label>
                         <div class=""> 
@@ -147,7 +148,7 @@
                       <div class="form-group">
                         <label class="control-label">Tanggal <span class="text-danger">*</span></label>
                         <div class="">
-                          <input type="text" class="form-control" name="tanggal" id="datepicker">
+                          <input type="text" class="form-control" name="tanggal" id="datepicker" value="<?=date("d/m/Y",strtotime($p->tanggal));?>">
                         </div>
                       </div>
                       <div class="form-group">
@@ -159,7 +160,7 @@
                       <div class="form-group">
                         <label class="control-label">Upload File</label>
                       <div class="">
-                          <input class="form-control" type="file" name="fotoskp">
+                          <input class="form-control" type="file" name="fileskp">
                       </div>
                       </div>
                       <div class="form-group"> 
@@ -215,7 +216,7 @@
                 <h4 class="modal-title">Tambah Data Peraturan</h4>
               </div>
               <div class="modal-body col-xs-12">
-                <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kirim-pesan');?>">
+                <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kelola-skp/add/peraturan');?>">
                 <div class="form-group" style="margin: 0">
                   <label class="control-label">Nomor <span class="text-danger">*</span></label>
                   <div class=""> 
@@ -237,7 +238,7 @@
                 <div class="form-group" style="margin: 0">
                   <label class="control-label">Upload File</label>
                 <div class="">
-                    <input class="form-control" type="file" name="fotoskp">
+                    <input class="form-control" type="file" name="fileskp">
                 </div>
                 </div>
                 <br>
@@ -291,7 +292,8 @@
                     <h4 class="modal-title">Update Data Peraturan</h4>
                   </div>
                   <div class="modal-body col-xs-12">
-                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kirim-pesan');?>">
+                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kelola-skp/update/peraturan');?>">
+                      <input type="hidden" name="id" value="<?=$p->id;?>">
                       <div class="form-group">
                         <label class="control-label">Nomor <span class="text-danger">*</span></label>
                         <div class=""> 
@@ -301,7 +303,7 @@
                       <div class="form-group">
                         <label class="control-label">Tanggal <span class="text-danger">*</span></label>
                         <div class="">
-                          <input type="text" class="form-control" name="tanggal" id="datepicker">
+                          <input type="text" class="form-control" name="tanggal" id="datepicker" value="<?=date("d/m/Y",strtotime($p->tanggal));?>">
                         </div>
                       </div>
                       <div class="form-group">
@@ -313,7 +315,7 @@
                       <div class="form-group">
                         <label class="control-label">Upload File</label>
                       <div class="">
-                          <input class="form-control" type="file" name="fotoskp">
+                          <input class="form-control" type="file" name="fileskp">
                       </div>
                       </div>
                       <div class="form-group"> 
