@@ -1,4 +1,12 @@
+
 <div class="col-md-9">
+            <?php 
+              if (!empty($this->session->flashdata('err_msg'))) {
+                echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+              } elseif (!empty($this->session->flashdata('scss_msg'))) {
+                echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+              } 
+              ?>
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Read Comment</h3>
@@ -11,7 +19,7 @@
               </div>
             </div>
             <!-- /.box-header -->
-           
+             
             <?php if(isset($data)){ ?>
             <?php foreach ($data as $datas) { ?>
             <div class="box-body no-padding">
@@ -25,18 +33,31 @@
                 <div class="btn-group"></div>
               </div>
               <div class="mailbox-read-message">
-                <?php echo $datas['comment']; ?>
+                <?php echo strip_tags(word_limiter($datas['comment'],4));?>
               </div>
               <!-- /.mailbox-read-message -->
             </div>
                
+              <div class="box-body">
+              <div class="form-group">
+                <input class="form-control" readonly value="<?php echo $datas['nama']; ?>"></div>
+              <?php }} ?>
+              <?php echo form_open('do_reply/'.$datas['hash']);  ?>
+              <div class="form-group">
+                    <textarea id="compose-textarea" name="reply" required class="form-control" style="height: 300px"></textarea>
+              </div>
+            </div>
               </ul>
               <div class="box-footer">
               <div class="pull-right">
-                <a href="<?= base_url('reply/').$datas['hash'];?>" type="button" class="btn btn-default"><i class="fa fa-reply"></i> Reply</a>
+                <button type="submit" class="btn btn-default"><i class="fa fa-reply"></i> Reply</button>
               </div>
+              <?php echo form_close(); ?>
+            <?php if(isset($data)){ ?>
+            <?php foreach ($data as $datas) { ?>
               <a href="<?= base_url('Delete/').$datas['id'];?>" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</a>
-               <?php }} ?>
+            <?php }} ?>
+               
             </div>
             
             </div>

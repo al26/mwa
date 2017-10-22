@@ -232,6 +232,76 @@ class Validation extends CI_Controller {
         redirect('page/edit/'.$id);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function reply_comment($hash){
+    	$this->form_validation->set_rules('reply','Reply','xss_clean|trim');
+
+    	if($this->form_validation->run() == FALSE)
+    	{
+            $msg['err_msg'] =  "An error disini. Please try again.";
+	    } 
+	    else
+	    {			
+			$idComment = $hash;
+			$data = array(
+				'id_comment'=>$idComment,
+				'reply'=>$this->input->post('reply')
+				);
+			$inserted = $this->comment_model->ReplyComment($data);
+
+			if ($inserted === TRUE) {
+                $msg['scss_msg'] = "Success Reply Comment";
+            } else {                
+                $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+			
+		}
+			$this->session->set_flashdata($msg);
+			redirect('reply/'.$hash);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 /* End of file validation.php */

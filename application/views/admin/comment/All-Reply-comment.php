@@ -38,7 +38,7 @@
                   <tr>
                     <td><input type="checkbox" value="<?php echo $datas->id; ?>"></td>
                     <td class="mailbox-name"><a href="<?php echo base_url('read_comment/').$datas->hash; ?>"><?php echo $datas->nama; ?></a></td>
-                    <td class="mailbox-subject"> - <?php echo strip_tags(word_limiter($datas->comment,4));  ?>
+                    <td class="mailbox-subject"> - <?php echo strip_tags(word_limiter($datas->reply,4));  ?>
                     </td>
                     <td class="mailbox-date"><?= $datas->time_publish;?></td>
                   </tr>

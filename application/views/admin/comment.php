@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets');?>/dist/css/skins/_all-skins.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url('assets');?>/plugins/iCheck/flat/blue.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets');?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -85,7 +86,13 @@
 <!-- iCheck -->
 <script src="<?php echo base_url('assets');?>/plugins/iCheck/icheck.min.js"></script>
 <!-- Page Script -->
+<script src="<?php echo base_url('assets');?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
 <script>
+  $(function () {
+    //Add text editor
+    $("#compose-textarea").wysihtml5();
+  });
   $(function () {
     //Enable iCheck plugin for checkboxes
     //iCheck for checkbox and radio inputs

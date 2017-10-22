@@ -65,3 +65,7 @@ $route['new_comment/(:any)']='validation/new_comment/$1';
 $route['comment']='admin/inbox_comment';
 $route['inbox-comment']='admin/inbox_comment';
 $route['read_comment/(:any)']='admin/read_comment/$1';
+$route['reply/(:any)']='admin/reply_comment/$1';
+$route['do_reply/(:any)']='validation/reply_comment/$1';
+
+$route['AllReply']='admin/AllReply';

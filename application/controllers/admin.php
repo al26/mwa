@@ -302,6 +302,23 @@ public function read_comment($id){
     $data['data']=$this->comment_model->getAllComment_read($id);
     $this->load->view('admin/comment',$data); 
 }
+public function reply_comment($hash){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/reply-comment";
+    $data['data']=$this->comment_model->getDataComment_reply($hash);
+    $this->load->view('admin/comment',$data); 
+}
+public function AllReply(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/All-Reply-comment";
+    $data['data']=$this->comment_model->getCommentReply();
+    // var_dump($data['data']);
+    // die();
+    $this->load->view('admin/comment',$data);   
+}
+
 ###################################################End of Comment################################################################# 
 public function filesize(){
     $this->load->view('admin/filesize');
