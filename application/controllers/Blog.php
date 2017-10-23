@@ -47,7 +47,7 @@
 			$page['title'] = 'Berita | '.$category;
 			$data['page'] = (object)$page;
 			$data['view'] = 'blog_all';
-			$data['categories'] = $this->category_model->getCategories();
+			$data['categories'] = $this->Category_model->getCategories();
 			$this->load->view('templates/header', $data);	
 			$this->load->view('frontend/blog/blog_layout', $data);	
 			$this->load->view('templates/footer', $data);	
@@ -55,7 +55,7 @@
 
 		public function view($slug)
 		{
-			$data['categories'] = $this->category_model->getCategories();
+			$data['categories'] = $this->Category_model->getCategories();
 			$data['single_post'] = $this->post_model->getPost($slug);
 			$data['view'] = 'blog_single';
 	  		$page['title'] = ucwords(preg_replace("/-/"," ", $slug));

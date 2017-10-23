@@ -269,6 +269,77 @@ class Validation extends CI_Controller {
       }
       $this->session->set_flashdata($msg);redirect('AllReply/');
     }
+    public function add_category(){
+        
+        $this->form_validation->set_rules('nama', 'Kategori', 'trim|xss_clean');
+          if($this->form_validation->run()==false){
+            $msg['err_msg'] =  "An error occurred. Please try again.";
+          }else{
+            $data = array('name'=>$this->input->post('nama'));
+            $inserted = $this->Category_model->addCategory($data);
+            if ($inserted === TRUE) {
+              $msg['scss_msg'] = "Success Update Reply Comment";
+            } 
+            else {
+              $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+          }
+          $this->session->set_flashdata($msg);redirect('viewCategory');
+    }
+    public function Update_Kategori($id){
+     
+        $this->form_validation->set_rules('nama', 'Kategori', 'trim|xss_clean');
+          if($this->form_validation->run()==false){
+            $msg['err_msg'] =  "An error occurred. Please try again.";
+          }else{
+            $data = array('name'=>$this->input->post('nama'));
+            $inserted = $this->Category_model->updateCategory($id,$data);
+            if ($inserted === TRUE) {
+              $msg['scss_msg'] = "Success Update Reply Comment";
+            } 
+            else {
+              $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+          }
+          $this->session->set_flashdata($msg);redirect('viewCategory');   
+    }
+    public function tambah_PK($id){
+        $this->form_validation->set_rules('nomor', 'Kategori', 'trim|xss_clean');
+        $this->form_validation->set_rules('jenis_kegiatan', 'Kategori', 'trim|xss_clean');
+          if($this->form_validation->run()==false){
+            $msg['err_msg'] =  "An error occurred. Please try again.";
+          }else{
+            $data = array('judul_program'=>$this->input->post('judul'),'jenis_kegiatan'=>$this->input->post('aspirasi'));
+            $inserted = $this->proker_model->addProker($data);
+            if ($inserted === TRUE) {
+              $msg['scss_msg'] = "Success Add Proker";
+            } 
+            else {
+              $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+          }
+          $this->session->set_flashdata($msg);
+          redirect($this->input->server('HTTP_REFERER'));  
+    }
+    public function update_proker($id)
+    {
+        $this->form_validation->set_rules('judul_program', 'Judul', 'trim|xss_clean');
+        $this->form_validation->set_rules('jenis_kegiatan', 'Jenis Kegiatan', 'trim|xss_clean');
+          if($this->form_validation->run()==false){
+            $msg['err_msg'] =  "An error occurred. Please try again.";
+          }else{
+            $data = array('judul_program'=>$this->input->post('judul_program'),'jenis_kegiatan'=>$this->input->post('jenis_kegiatan'));
+            $inserted = $this->proker_model->UpdateProker($id,$data);
+            if ($inserted === TRUE) {
+              $msg['scss_msg'] = "Success Update Proker";
+            } 
+            else {
+              $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+          }
+          $this->session->set_flashdata($msg);
+          redirect($this->input->server('HTTP_REFERER')); 
+    }
 
 
 
@@ -297,7 +368,7 @@ class Validation extends CI_Controller {
 
 
 
-}
+
 
 
 

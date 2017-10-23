@@ -22,7 +22,9 @@ $route['page/edit/(:num)'] = 'admin/edit_page/$1';
 $route['edit-page/(:num)'] = 'validation/update_page/$1';
 $route['kelola-personalia/(:any)/(:num)'] = 'validation/kelolaPersonalia/$1/$2';
 $route['kelola-skp/(:any)/(:any)'] = 'validation/kelolaSKP/$1/$2';
-
+$route['tambahPK'] = 'validation/tambah_PK/';
+$route['HapusPK/(:num)'] = 'admin/Hapus_PK/$1';
+$route['UpdateProker/(:num)'] = 'validation/update_proker/$1';
 
 
 
@@ -42,7 +44,7 @@ $route['kelola-skp/(:any)/(:any)'] = 'validation/kelolaSKP/$1/$2';
 
  
 
-
+$route['hapus-sk-peraturan/(:num)']='admin/hapusSKPeraturan/$1';
 $route['login']='auth';
 $route['admin']='admin/index';
 $route['logout']='auth/destroy';
@@ -79,4 +81,7 @@ $route['UpdateReply/(:any)']='admin/UpdateReply/$1';
 $route['doUpdateReply/(:num)']='validation/doUpdate_Reply/$1';
 $route['DeletePermanently/(:any)']='admin/Delete_Permanently/$1';
 $route['RestorageComment/(:any)']='admin/Restorage_Comment/$1';
-
+$route['viewCategory']='admin/view_Category/';
+$route['addCategory']='validation/add_category';
+$route['DeleteKategori/(:num)']='admin/Delete_Kategori/$1';
+$route['UpdateKategori/(:num)']='validation/Update_Kategori/$1';
