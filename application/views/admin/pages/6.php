@@ -1,11 +1,12 @@
 <section class="content">
+  <div class="col-xs-12">
   <?php 
   if (!empty($this->session->flashdata('err_msg'))) {
-    echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+    echo '<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
   } elseif (!empty($this->session->flashdata('scss_msg'))) {
-    echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-  } 
-  ?>
+    echo '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+  } ?>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
@@ -117,7 +118,7 @@
             <tr>
               <td><?=$no;?></td>
               <td><?=(strlen($p->nomor) > 20) ? substr($p->nomor,0,20).'...' : $p->nomor;?></td>
-              <td><?=date("d/m/Y",strtotime($p->tanggal));?></td>
+              <td><?=$p->tanggal;?></td>
               <td><?=(strlen($p->tentang) > 20) ? substr($p->tentang,0,20).'...' : $p->tentang;?></td>
               <td><a href="<?=base_url('assets/uploaded_files/skp/'.$p->file);?>" target="_blank"><img src="<?=base_url('assets/images/pdf.png');?>" style="width:35px"></a></td>
               <td><a href="<?php echo base_url('hapus-post/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i></a>
@@ -273,7 +274,7 @@
             <tr>
               <td><?=$no;?></td>
               <td><?=(strlen($p->nomor) > 20) ? substr($p->nomor,0,20).'...' : $p->nomor;?></td>
-              <td><?=date("d/m/Y",strtotime($p->tanggal));?></td>
+              <td><?=$p->tanggal;?></td>
               <td><?=(strlen($p->tentang) > 20) ? substr($p->tentang,0,20).'...' : $p->tentang;?></td>
               <td><a href="<?=base_url('assets/uploaded_files/skp/'.$p->file);?>" target="_blank"><img src="<?=base_url('assets/images/pdf.png');?>" style="width:35px"></a></td>
               <td><a href="<?php echo base_url('hapus-post/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i></a>

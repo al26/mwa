@@ -297,72 +297,6 @@ class Validation extends CI_Controller {
 
 
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function kelolaPersonalia($aksi,$ka)
     {
     	$this->form_validation->set_rules('nama','Nama','xss_clean|trim');
@@ -426,7 +360,7 @@ class Validation extends CI_Controller {
 				}
 			}
 			
-        	$data = array(
+        	$dataAdd = array(
                 'nama' => $nama,
                 'jabatan' => $jabatan,
                 'unsur' => $unsur,
@@ -438,6 +372,21 @@ class Validation extends CI_Controller {
                 'is_ka' => $is_ka,
                 'foto' => $foto
             );
+
+            $dataUpdate = array(
+                'nama' => $nama,
+                'jabatan' => $jabatan,
+                'unsur' => $unsur,
+                'email' => $email,
+                'telp' => $telp,
+                'facebook' => $fb,
+                'twitter' => $twit,
+                'instagram' => $ig,
+                'is_ka' => $is_ka
+            );
+
+            $data = (!empty($foto)) ? $dataAdd : $dataUpdate;
+
             $inserted = ($aksi === 'add') ? $this->personalia_model->addPersonalia($data) : $this->personalia_model->updatePersonalia($id, $data);
 
             if ($inserted === TRUE) {
@@ -475,7 +424,7 @@ class Validation extends CI_Controller {
         } 
         else
         {
-			$filename = url_title($nomor.'-'.$tentang, 'dash', TRUE);
+			$filename = url_title($kategori.'-'.$nomor.'-'.$tentang, 'dash', TRUE);
 			$file = '';
 			$full_path = '';
 			if (!empty($_FILES['fileskp']['name'])) {
@@ -500,19 +449,30 @@ class Validation extends CI_Controller {
 			}
 			
 			// die(var_dump(date("d/m/Y",strtotime($tanggal))));
-
-        	$data = array(
+            // $parts = explode("/", $tanggal);
+            // $date = implode("-", array_reverse($parts, true));
+            // die(var_dump(date("Y-m-d",strtotime($date))));
+        	$dataAdd = array(
                 'nomor' => $nomor,
-                'tanggal' => date("d/m/Y",strtotime($tanggal)),
+                'tanggal' => $tanggal,
                 'tentang' => $tentang,
                 'file' => $file,
                 'kategori' => $kategori
             );
 
+            $dataUpdate = array(
+                'nomor' => $nomor,
+                'tanggal' => $tanggal,
+                'tentang' => $tentang,
+                'kategori' => $kategori
+            );
+
+            $data = (!empty($file)) ? $dataAdd : $dataUpdate;
+
             $inserted = ($aksi === 'add') ? $this->skp_model->addSKP($data) : $this->skp_model->updateSKP($id, $data);
 
             if ($inserted === TRUE) {
-                $msg['scss_msg'] = "Success update page Personalia";
+                $msg['scss_msg'] = "Success update page $kategori";
             } else {                
                 $msg['err_msg'] = "An error occurred. Please try again.";
             }
@@ -521,5 +481,44 @@ class Validation extends CI_Controller {
         $this->session->set_flashdata($msg);
         redirect($this->input->server('HTTP_REFERER'));
     }
+
+    public function kelolaProker($aksi)
+    {
+        $this->form_validation->set_rules('judul','Nomor','xss_clean|trim');
+        $this->form_validation->set_rules('jenis_kegiatan','Tanggal','xss_clean|trim');
+
+        $id = $this->input->post('id');
+        $judul = $this->input->post('judul');
+        $jenis_kegiatan = $this->input->post('jenis_kegiatan');
+
+        if($this->form_validation->run() === FALSE) 
+        {
+            $msg['err_msg'] = validation_errors();
+            $repopulate = array(
+                'judul' => $judul,
+                'jenis_kegiatan' => $jenis_kegiatan
+            );
+            $this->session->set_flashdata($repopulate);
+        } 
+        else
+        {
+            $data = array(
+                'judul_program' => $judul,
+                'jenis_kegiatan' => $jenis_kegiatan
+            );
+
+            $inserted = ($aksi === 'add') ? $this->proker_model->addProker($data) : $this->proker_model->updateProker($id, $data);
+
+            if ($inserted === TRUE) {
+                $msg['scss_msg'] = "Success update page $kategori";
+            } else {                
+                $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+        }
+
+        $this->session->set_flashdata($msg);
+        redirect($this->input->server('HTTP_REFERER'));
+    }
+
 
 }

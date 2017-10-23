@@ -6,7 +6,9 @@
 				<p><?=$page->title;?></p>
 			</div>
 			<hr class="line line-aqua">
-            <p class="p-top-30 half-txt color-aqua text-justify"><?=$page->description;?></p>
+            <?php if (!empty($page->description)) : ?>
+            <div class="p-top-30 half-txt color-aqua text-justify"><?=$page->description;?></div>
+        <?php endif; ?>
         </div>
 
         <?php foreach ($personalia as $p) : ?>

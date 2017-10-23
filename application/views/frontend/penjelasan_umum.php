@@ -5,7 +5,9 @@
 			<p><?=$page->title;?></p>
 		</div>
 		<hr class="line line-aqua">
-        <p class="p-top-30 color-aqua text-indent text-justify"><?=$page->description;?></p>
+        <?php if (!empty($page->description)) : ?>
+        <div class="p-top-30 color-aqua text-indent text-justify"><?=$page->description;?></div>
+        <?php endif; ?>
     </div>
 
     <div class="text-subtitle text-upper color-aqua">

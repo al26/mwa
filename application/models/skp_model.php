@@ -26,31 +26,31 @@ class Skp_model extends CI_Model {
 		return $this->db->get('sk_peraturan')->result();
 	}
 
-	public function getSKYear()
+	public function getSKDate()
 	{
 		$this->db->where('kategori', 'sk');
-		$this->db->select('YEAR(tanggal) AS year');
+		$this->db->select('tanggal');
 		$this->db->distinct();
 		return $this->db->get('sk_peraturan')->result();
 	}
 
-	public function getPeraturanYear()
+	public function getPeraturanDate()
 	{
 		$this->db->where('kategori', 'peraturan');
-		$this->db->select('YEAR(tanggal) AS year');
+		$this->db->select('tanggal');
 		$this->db->distinct();
 		return $this->db->get('sk_peraturan')->result();
 	}
 
 	public function getSKByYear($year)
 	{
-		$where = "kategori = 'sk' AND tanggal LIKE '$year%'";
+		$where = "kategori = 'sk' AND tanggal LIKE '%$year'";
 		return $this->db->get_where('sk_peraturan', $where)->row();
 	}
 
 	public function getPeraturanByYear($year)
 	{
-		$where = "kategori = 'peraturan' AND tanggal LIKE '$year%'";
+		$where = "kategori = 'peraturan' AND tanggal LIKE '%$year'";
 		return $this->db->get_where('sk_peraturan', $where)->row();
 	}	
 

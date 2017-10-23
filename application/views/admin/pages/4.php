@@ -45,7 +45,7 @@
     <div class="col-xs-12 ">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Daftar Personalia MWA</h3>
+          <h3 class="box-title">Daftar Personalia Komite Audit</h3>
           <span data-toggle="tooltip" title="Tambah Data" data-placement="left" class="pull-right"><a role="button" href="#tambahprs" class="btn btn-primary" data-toggle="modal"><i class="fa fa-plus bigicon"></i></a></span>
         </div>
         <!-- Modal -->
@@ -147,7 +147,7 @@
               <td><?=(strlen($p->nama) > 20) ? substr($p->nama,0,20).'...' : $p->nama;?></td>
               <td><?=(strlen($p->jabatan) > 20) ? substr($p->jabatan,0,20).'...' : $p->jabatan;?></td>
               <td><?=(strlen($p->unsur) > 20) ? substr($p->unsur,0,100).'...' : $p->unsur;?></td>
-              <td><img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" class="media-object" style="width:60px"></td>
+              <td><a href="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : '#'?>" target="_blank"><img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" class="media-object" style="width:60px"></a></td>
               <td><a href="<?php echo base_url('hapus-post/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i></a>
               &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editprs<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
