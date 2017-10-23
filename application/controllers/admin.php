@@ -195,20 +195,44 @@ class Admin extends CI_Controller {
     }
 ##################################################End OF Post######################################################################
 ##################################################Begin Category###################################################################
-    public function view_category(){}
-    public function add_category(){}
+    public function view_Category(){
+        $data['sidebar']="admin/sidebar";
+        $data['data']=$this->Category_model->getCategories();
+        $this->load->view('admin/view_category',$data);
+    }
+    public function Delete_Kategori($id){
+        $delete = $this->Category_model->Delete_Kategori($id);
+        if ($delete == true) {
+            $msg['scss_msg'] = "Your Data Already Delete, Well Done..";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
+        
+        } else {
+            $msg['err_msg'] = "Sorry your Data Failed t Update,..";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
+        
+        }
+        
+    }
+    
+
 ##################################################End Category#####################################################################
     public function view_file(){}
-    public function new_file(){}
+    public function hapusSKPeraturan($id){
+    $delete = $this->skp_model->deleteSKP($id);
+        if($delete==true){
+            $msg['scss_msg'] = "Your Data Already Updated, Well Done..";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
+        }else{
+            $msg['err_msg'] = "Sorry your Data Failed t Update,..";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
+        }
+    }
     
         function seoUrl($string) {
-            //Lower case everything
-            // $string = strtolower($string);
-            //Make alphanumeric (removes all other characters)
-            // $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
-            //Clean up multiple dashes or whitespaces
-            // $string = preg_replace("/[\s-]+/", " ", $string);
-            //Convert whitespaces and underscore to dash
             $string = preg_replace("/[\s_]/", "-", $string);
             return $string;
         }

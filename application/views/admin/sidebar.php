@@ -299,20 +299,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> View All Category</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Add New Category</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-file"></i> <span>Peraturan File</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> View All file</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Add New file</a></li>
+            <li><a href="<?=base_url('viewCategory') ?>"><i class="fa fa-circle-o"></i> View All Category</a></li>
           </ul>
         </li>
         <li class="treeview">
