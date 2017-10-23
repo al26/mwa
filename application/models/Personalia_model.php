@@ -5,7 +5,8 @@ class Personalia_model extends CI_Model {
 
 	public function addPersonalia($data) 
 	{
-		$this->db->insert('personalia', $data);
+		$query = $this->db->insert('personalia', $data);
+		return $query ? TRUE : FALSE;
 	}	
 
 	public function getAllPersonaliaMWA()
@@ -22,7 +23,8 @@ class Personalia_model extends CI_Model {
 
 	public function updatePersonalia($id, $data)
 	{
-		$this->db->update('personalia', $data, array('id' => $id));
+		$query = $this->db->update('personalia', $data, array('id' => $id));
+		return $query ? TRUE : FALSE;
 	}
 
 	public function deletePersonalia($id)

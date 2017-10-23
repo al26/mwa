@@ -14,6 +14,18 @@ class Skp_model extends CI_Model {
 		return $this->db->get('sk_peraturan')->result();
 	}
 
+	public function getAllSK()
+	{
+		$this->db->where('kategori', 'sk');
+		return $this->db->get('sk_peraturan')->result();
+	}
+
+	public function getAllPeraturan()
+	{
+		$this->db->where('kategori', 'peraturan');
+		return $this->db->get('sk_peraturan')->result();
+	}
+
 	public function getSKYear()
 	{
 		$this->db->where('kategori', 'sk');

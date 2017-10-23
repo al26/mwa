@@ -5,6 +5,7 @@ $route['default_controller'] = 'frontend';
 $route['profil/penjelasan-umum'] = 'frontend/penjelasan_umum';
 $route['profil/personalia'] = 'frontend/personalia';
 $route['profil/komite-audit'] = 'frontend/komite_audit';
+$route['profil/mwa-um'] = 'frontend/mwa_um';
 $route['sk-peraturan'] = 'frontend/skp';
 $route['program-kerja'] = 'frontend/proker';
 $route['berita/kategori/(:any)'] = 'blog/index/$1';
@@ -18,7 +19,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['page/edit/(:num)'] = 'admin/edit_page/$1';
-$route['edit-beranda'] = 'validation/edit_beranda';
+$route['edit-page/(:num)'] = 'validation/update_page/$1';
+$route['kelola-personalia/(:any)/(:num)'] = 'validation/kelolaPersonalia/$1/$2';
+$route['kelola-skp/(:any)/(:any)'] = 'validation/kelolaSKP/$1/$2';
 
 
 

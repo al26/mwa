@@ -49,11 +49,11 @@ class Auth extends CI_Controller {
         
         'img_path'=>'./assets/captcha/',
         'img_url'=> base_url('/assets/captcha/'),
-        'img_width'=>220,
+        'img_width'=>320,
         'img_height'=>80,
         'expiration'=>7200,
-        'word_length'=>4,
-        'font_size'=>14
+        'word_length'=>6,
+        'font_size'=>30
         );
         
         $data_captcha = create_captcha($data);

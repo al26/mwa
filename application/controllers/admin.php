@@ -387,7 +387,12 @@ public function edit_page($id)
     $data['data'] = $this->pages_model->getPage($id); 
     $data['personalia'] = $this->personalia_model->getAllPersonaliaMWA();
     $data['ka'] = $this->personalia_model->getAllPersonaliaKA();
+    $data['sk'] = $this->skp_model->getAllSK();
+    $data['peraturan'] = $this->skp_model->getAllPeraturan();
+    $data['proker'] = $this->proker_model->getAllProker();
+    $this->load->view('admin/pages/h', $data);
     $this->load->view('admin/pages/'.$id, $data);
+    $this->load->view('admin/pages/f', $data);
 }
 
 }

@@ -13,6 +13,7 @@ class Pages_model extends CI_Model {
 	{
 		$this->db->where('id', $id);
 		$query = $this->db->update('pages', $data);
+		return $query ? TRUE : FALSE;
 	}
 }
 

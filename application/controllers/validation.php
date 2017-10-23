@@ -197,12 +197,12 @@ class Validation extends CI_Controller {
 
 
 
-    public function edit_beranda()
+    public function update_page($id)
     {
-    	$this->form_validation->set_rules('title','Title','xss_clean|trim|required');
-		$this->form_validation->set_rules('desc','Description','xss_clean|trim|required');
+    	$this->form_validation->set_rules('title','Title','xss_clean|trim');
+		$this->form_validation->set_rules('desc','Description','xss_clean|trim');
 
-        $id = $this->input->post('id');
+        // $id = $this->input->post('id');
         $title = $this->input->post('title');
         $desc = $this->input->post('desc');
         
@@ -219,7 +219,7 @@ class Validation extends CI_Controller {
         {
         	$data = array(
                 'title' => $title,
-                'desc' => $desc
+                'description' => $desc
             );
             $inserted = $this->pages_model->updatePage($id, $data);
 
@@ -233,21 +233,6 @@ class Validation extends CI_Controller {
         $this->session->set_flashdata($msg);
         redirect('page/edit/'.$id);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function reply_comment($hash){
     	$this->form_validation->set_rules('reply','Reply','xss_clean|trim');
@@ -267,22 +252,23 @@ class Validation extends CI_Controller {
 		}
 			$this->session->set_flashdata($msg);redirect('reply/'.$hash);
     }
-public function doUpdate_Reply($id){
-	$this->form_validation->set_rules('reply', 'Content', 'trim|xss_clean');
-	if($this->form_validation->run()==false){
-		$msg['err_msg'] =  "An error occurred. Please try again.";
-	}else{
-		$data = array('reply'=>$this->input->post('reply'));
-		$inserted = $this->comment_model->UpdateReplyComment($data,$id);
-		if ($inserted === TRUE) {
-			$msg['scss_msg'] = "Success Update Reply Comment";
-		} 
-		else {
-			$msg['err_msg'] = "An error occurred. Please try again.";
-		}
-	}
-	$this->session->set_flashdata($msg);redirect('AllReply/');
-}
+  
+    public function doUpdate_Reply($id){
+      $this->form_validation->set_rules('reply', 'Content', 'trim|xss_clean');
+      if($this->form_validation->run()==false){
+        $msg['err_msg'] =  "An error occurred. Please try again.";
+      }else{
+        $data = array('reply'=>$this->input->post('reply'));
+        $inserted = $this->comment_model->UpdateReplyComment($data,$id);
+        if ($inserted === TRUE) {
+          $msg['scss_msg'] = "Success Update Reply Comment";
+        } 
+        else {
+          $msg['err_msg'] = "An error occurred. Please try again.";
+        }
+      }
+      $this->session->set_flashdata($msg);redirect('AllReply/');
+    }
 
 
 
@@ -313,5 +299,227 @@ public function doUpdate_Reply($id){
 
 }
 
-/* End of file validation.php */
-/* Location: ./application/controllers/validation.php */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function kelolaPersonalia($aksi,$ka)
+    {
+    	$this->form_validation->set_rules('nama','Nama','xss_clean|trim');
+		$this->form_validation->set_rules('jabatan','Jabatan','xss_clean|trim');
+		$this->form_validation->set_rules('unsur','Unsur','xss_clean|trim');
+		$this->form_validation->set_rules('email','Email','xss_clean|trim');
+		$this->form_validation->set_rules('telp','No. Telp','xss_clean|trim');
+		$this->form_validation->set_rules('fb','Akun Facebook','xss_clean|trim');
+		$this->form_validation->set_rules('twit','Akun Twitter','xss_clean|trim');
+		$this->form_validation->set_rules('ig','Akun Instagram','xss_clean|trim');
+
+        $id = $this->input->post('id') ;
+        $nama = $this->input->post('nama');
+        $jabatan = $this->input->post('jabatan');
+        $unsur = $this->input->post('unsur');
+        $email = $this->input->post('email');
+        $telp = $this->input->post('telp');
+        $fb = $this->input->post('fb');
+        $twit = $this->input->post('twit');
+        $ig = $this->input->post('ig');
+        $is_ka = ($ka == 1) ? 'yes' : 'no';
+
+        if($this->form_validation->run() === FALSE) 
+        {
+            $msg['err_msg'] = validation_errors();
+            $repopulate = array(
+                'nama' => $nama,
+                'jabatan' => $jabatan,
+                'unsur' => $unsur,
+                'email' => $email,
+                'telp' => $telp,
+                'fb' => $fb,
+                'twit' => $twit,
+                'ig' => $ig
+            );
+            $this->session->set_flashdata($repopulate);
+        } 
+        else
+        {
+			$filename = url_title(time().'-'.$nama, 'dash', TRUE);
+			$foto = '';
+			$full_path = '';
+			if (!empty($_FILES['fotopersonalia']['name'])) {
+				// chmod($path = ,0755);
+				$config['upload_path'] 		= './assets/images/personalia';
+				$config['allowed_types'] 	= 'jpg|jpeg|png';
+				$config['max_size'] 		= 2048;
+				$config['overwrite']		= FALSE;
+                $config['file_name'] 		= $filename;
+                $config['max_filename_increment'] = 50;
+
+				$this->upload->initialize($config);
+				if ($this->upload->do_upload('fotopersonalia')) {
+					$data = $this->upload->data();
+					chmod($data['full_path'], 0755);
+					$foto .=  $data['file_name'];
+					$full_path .= $data['full_path'];
+				} else {
+					unlink($full_path);
+					$msg['err_msg'] = $this->upload->display_errors();
+				}
+			}
+			
+        	$data = array(
+                'nama' => $nama,
+                'jabatan' => $jabatan,
+                'unsur' => $unsur,
+                'email' => $email,
+                'telp' => $telp,
+                'facebook' => $fb,
+                'twitter' => $twit,
+                'instagram' => $ig,
+                'is_ka' => $is_ka,
+                'foto' => $foto
+            );
+            $inserted = ($aksi === 'add') ? $this->personalia_model->addPersonalia($data) : $this->personalia_model->updatePersonalia($id, $data);
+
+            if ($inserted === TRUE) {
+            	$p = ($is_ka == 'yes') ? 'Komite Audit' : 'Personalia';
+                $msg['scss_msg'] = "Success update page ".$p;
+            } else {                
+                $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+        }
+
+        $this->session->set_flashdata($msg);
+        redirect($this->input->server('HTTP_REFERER'));
+    }
+
+    public function kelolaSKP($aksi, $kategori)
+    {
+    	$this->form_validation->set_rules('nomor','Nomor','xss_clean|trim');
+		$this->form_validation->set_rules('tanggal','Tanggal','xss_clean|trim');
+		$this->form_validation->set_rules('tentang','Tentang','xss_clean|trim');
+		
+        $id = $this->input->post('id') ;
+        $nomor = $this->input->post('nomor');
+        $tanggal = $this->input->post('tanggal');
+        $tentang = $this->input->post('tentang');
+
+        if($this->form_validation->run() === FALSE) 
+        {
+            $msg['err_msg'] = validation_errors();
+            $repopulate = array(
+                'nomor' => $nomor,
+                'tanggal' => $tanggal,
+                'tentang' => $tentang
+            );
+            $this->session->set_flashdata($repopulate);
+        } 
+        else
+        {
+			$filename = url_title($nomor.'-'.$tentang, 'dash', TRUE);
+			$file = '';
+			$full_path = '';
+			if (!empty($_FILES['fileskp']['name'])) {
+				// chmod($path = ,0755);
+				$config['upload_path'] 		= './assets/uploaded_files/skp';
+				$config['allowed_types'] 	= 'pdf';
+				$config['max_size'] 		= 1024 * 5;
+				$config['overwrite']		= FALSE;
+                $config['file_name'] 		= $filename;
+                $config['max_filename_increment'] = 50;
+
+				$this->upload->initialize($config);
+				if ($this->upload->do_upload('fileskp')) {
+					$data = $this->upload->data();
+					chmod($data['full_path'], 0755);
+					$file .=  $data['file_name'];
+					$full_path .= $data['full_path'];
+				} else {
+					unlink($full_path);
+					$msg['err_msg'] = $this->upload->display_errors();
+				}
+			}
+			
+			// die(var_dump(date("d/m/Y",strtotime($tanggal))));
+
+        	$data = array(
+                'nomor' => $nomor,
+                'tanggal' => date("d/m/Y",strtotime($tanggal)),
+                'tentang' => $tentang,
+                'file' => $file,
+                'kategori' => $kategori
+            );
+
+            $inserted = ($aksi === 'add') ? $this->skp_model->addSKP($data) : $this->skp_model->updateSKP($id, $data);
+
+            if ($inserted === TRUE) {
+                $msg['scss_msg'] = "Success update page Personalia";
+            } else {                
+                $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+        }
+
+        $this->session->set_flashdata($msg);
+        redirect($this->input->server('HTTP_REFERER'));
+    }
+
+}

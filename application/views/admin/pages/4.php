@@ -1,68 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Edit Page | <?=$data->title;?></title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-  <link rel="stylesheet" href="<?php echo base_url('assets/')?>/bower_components/select2/dist/css/select2.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/dist/css/skins/_all-skins.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-<?php $this->load->view($sidebar); ?>
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-  <section class="content-header">
-    <h1>Kostumisasi Halaman <?=ucwords($data->title)?></h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Forms</a></li>
-      <li class="active">General Elements</li>
-    </ol>
-  </section>
-
   <section class="content">
   <?php 
-	if (!empty($this->session->flashdata('err_msg'))) {
-		echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
-	} elseif (!empty($this->session->flashdata('scss_msg'))) {
-		echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-	} 
+  if (!empty($this->session->flashdata('err_msg'))) {
+    echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+  } elseif (!empty($this->session->flashdata('scss_msg'))) {
+    echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+  } 
   ?>
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Perbarui Informasi Umum Halaman <?=$data->title?></h3>
+          <h3 class="box-title">Perbarui Informasi Umum Halaman <?=ucwords($data->title);?></h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('edit-beranda');?>">
+          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('edit-page').$data->id;?>">
             <input type="hidden" name="id" value="<?=$data->id;?>" required>
             <div class="form-group">
               <label class="control-label col-sm-3 col-md-2 color-aqua" for="title">Title <span class="text-danger">*</span></label>
@@ -71,10 +23,10 @@
               </div>
             </div>
             <div class="form-group">
-          	<label class="control-label col-sm-3 col-md-2 color-aqua" for="body">Description <span class="text-danger">*</span></label>
-          	<div class="col-sm-8 col-md-9">
-          	  <textarea id="editor1" class="form-control" rows="10" cols="80" name="desc" required><?=(!empty($data->description)) ? $data->description : $this->session->flashdata('desc');?></textarea>
-          	</div>
+            <label class="control-label col-sm-3 col-md-2 color-aqua" for="body">Description <span class="text-danger">*</span></label>
+            <div class="col-sm-8 col-md-9">
+        <textarea class="textarea" rows="6" name="desc" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required><?=(!empty($data->description)) ? $data->description : $this->session->flashdata('desc');?></textarea>
+            </div>
             </div>
             <div class="form-group"> 
               <div class="col-sm-offset-3 col-md-offset-2 col-sm-10">
@@ -93,9 +45,90 @@
     <div class="col-xs-12 ">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Data Personalia</h3>
-          <span data-toggle="tooltip" title="Tambah Data" data-placement="left" class="pull-right"><a role="button" href="" class="btn btn-primary" data-toggle="collapse" aria-expanded="true" aria-controls=""><i class="fa fa-plus bigicon"></i></a></span>
+          <h3 class="box-title">Daftar Personalia MWA</h3>
+          <span data-toggle="tooltip" title="Tambah Data" data-placement="left" class="pull-right"><a role="button" href="#tambahprs" class="btn btn-primary" data-toggle="modal"><i class="fa fa-plus bigicon"></i></a></span>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="tambahprs" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Tambah Personalia</h4>
+              </div>
+              <div class="modal-body col-xs-12">
+                <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kelola-personalia/add/1');?>">
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label" for="name">Nama <span class="text-danger">*</span></label>
+                      <div class=""> 
+                        <input type="text" class="form-control" name="nama" placeholder="Nama" required>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Jabatan <span class="text-danger">*</span></label>
+                      <div class="">
+                        <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" required>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Unsur <span class="text-danger">*</span></label>
+                      <div class="">
+                        <input type="text" class="form-control" name="unsur" placeholder="Unsur" required>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Email</label>
+                      <div class="">
+                        <input type="email" class="form-control" name="email" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">No. Telp</label>
+                      <div class="">
+                        <input type="text" class="form-control" name="telp" placeholder="08xxxx">
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Facebook</label>
+                      <div class="">
+                        <input type="text" class="form-control" name="fb" placeholder="Akun Facebook">
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Twitter</label>
+                      <div class="">
+                        <input type="text" class="form-control" name="twit" placeholder="Akun Twitter">
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Instagram</label>
+                      <div class="">
+                        <input type="text" class="form-control" name="ig" placeholder="Akun Instagram">
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Upload Foto</label>
+                    <div class="">
+                        <input class="form-control" type="file" name="fotopersonalia">
+                        <small id="uploadHelp" class="form-text text-muted">ekstensi : .jpg, .jpeg, .png | maks : 2MB</small>
+                    </div>
+                    </div>
+                    <br>
+                    <div class="form-group" style="margin: 0"> 
+                      <div class="pull-right">
+                        <button type="submit" name="fileSubmit" class="btn btn-primary">Tambah Personalia</button>
+                      </div>
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive">
           <table id="example1" class="table table-bordered table-striped">
@@ -109,69 +142,105 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($ka as $k => $p ) {?>
+            <?php $no = 1; foreach ($ka as $k => $p ) { ?>
             <tr>
               <td><?=(strlen($p->nama) > 20) ? substr($p->nama,0,20).'...' : $p->nama;?></td>
-              <td><?=$p->jabatan;?></td>
-              <td><?=$p->unsur;?></td>
+              <td><?=(strlen($p->jabatan) > 20) ? substr($p->jabatan,0,20).'...' : $p->jabatan;?></td>
+              <td><?=(strlen($p->unsur) > 20) ? substr($p->unsur,0,100).'...' : $p->unsur;?></td>
               <td><img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" class="media-object" style="width:60px"></td>
               <td><a href="<?php echo base_url('hapus-post/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i></a>
               &nbsp;&nbsp;&nbsp;
-              <span data-toggle="tooltip" title="Update Data"><a role="button" href="#edit<?=$p->id;?>" class="btn btn-success" data-toggle="collapse" aria-expanded="true" aria-controls="edit<?=$p->id;?>"><i class="fa fa-upload bigicon"></i></a></span>
+              <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editprs<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
-            </tr>
             <tr>
-              <td colspan="5">
-                  <div id="edit<?=$p->id;?>" class="collapse">
-                    <form class="form-horizontal form-aspirasi" enctype="multipart/form-data" method="post" action="<?=base_url('kirim-pesan');?>">
-                    <?php 
-                    if (!empty($this->session->flashdata('err_msg'))) {
-                      echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
-                    } elseif (!empty($this->session->flashdata('scss_msg'))) {
-                      echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-                    } 
-                    ?>
-                    <div class="form-group">
-                      <label class="control-label col-sm-3 col-md-2 color-aqua" for="name">Nama <span class="text-danger">*</span></label>
-                      <div class="col-sm-8 col-md-9"> 
-                        <input type="text" class="form-control" name="nama" value="<?=$p->nama;?>" required>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label col-sm-3 col-md-2 color-aqua" for="email">Jabatan <span class="text-danger">*</span></label>
-                      <div class="col-sm-8 col-md-9">
-                        <input type="text" class="form-control" name="jabatan" value="<?=$p->jabatan;?>" required>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label col-sm-3 col-md-2 color-aqua" for="subject">Unsur <span class="text-danger">*</span></label>
-                      <div class="col-sm-8 col-md-9">
-                        <input type="text" class="form-control" name="unsur" value="<?=$p->unsur;?>" required>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label col-sm-3 col-md-2 color-aqua" for="exampleInputFile">Upload Foto</label>
-                    <div class="col-sm-8 col-md-9">
-                        <input class="form-control" type="file" name="foto" id="exampleInputFile">
-                    </div>
-                    </div>
-                    <div class="form-group"> 
-                      <div class="col-sm-offset-3 col-md-offset-2 col-sm-10">
-                        <button type="submit" name="fileSubmit" class="btn bg-aqua color-silver">Simpan Perubahan</button>
-                      </div>
-                    </div>
-                  </form>
+            <!-- Modal -->
+            <div class="modal fade" id="editprs<?=$p->id;?>" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Personalia</h4>
                   </div>
-              </td>
-            </tr>
-            <?php } ?>
+                  <div class="modal-body col-xs-12">
+                    <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('kelola-personalia/update/1');?>">
+                        <input type="hidden" name="id" value="<?=$p->id;?>">
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label" for="name">Nama <span class="text-danger">*</span></label>
+                          <div class=""> 
+                            <input type="text" class="form-control" name="nama" value="<?=$p->nama;?>" required>
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label">Jabatan <span class="text-danger">*</span></label>
+                          <div class="">
+                            <input type="text" class="form-control" name="jabatan" value="<?=$p->jabatan?>" required>
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label">Unsur <span class="text-danger">*</span></label>
+                          <div class="">
+                            <input type="text" class="form-control" name="unsur" value="<?=$p->unsur?>" required>
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label">Email</label>
+                          <div class="">
+                            <input type="email" class="form-control" name="email" value="<?=$p->email?>">
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label">No. Telp</label>
+                          <div class="">
+                            <input type="text" class="form-control" name="telp" value="<?=$p->telp?>">
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label">Facebook</label>
+                          <div class="">
+                            <input type="text" class="form-control" name="fb" value="<?=$p->facebook?>">
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label">Twitter</label>
+                          <div class="">
+                            <input type="text" class="form-control" name="twit" value="<?=$p->twitter?>">
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label">Instagram</label>
+                          <div class="">
+                            <input type="text" class="form-control" name="ig" value="<?=$p->instagram?>">
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin: 0">
+                          <label class="control-label">Upload Foto</label>
+                        <div class="">
+                            <input class="form-control" type="file" name="fotopersonalia">
+                            <small id="uploadHelp" class="form-text text-muted">ekstensi : .jpg, .jpeg, .png | maks : 2MB</small>
+                        </div>
+                        </div>
+                        <br>
+                        <div class="form-group" style="margin: 0"> 
+                          <div class="pull-right">
+                            <button type="submit" name="fileSubmit" class="btn btn-primary">Update Personalia</button>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                  <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                </div>
+              </div>
+            </div>
+            <?php $no++;} ?>
             </tbody>
             <tfoot>
             <tr>
-              <th>Nama</th>
-              <th>Jabatan</th>
-              <th>Unsur</th>
-              <th>Foto</th>
+              <th>#</th>
+              <th>Judul Program</th>
+              <th>Jenis Kegiatan</th>
               <th>Opsi</th>
             </tr>
             </tfoot>
@@ -184,57 +253,3 @@
     <!-- /.col -->
   </div>
 </section>
-</div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
-
-  
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="<?php echo base_url('assets'); ?>/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url('assets'); ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url('assets'); ?>/bower_components/select2/dist/js/select2.full.min.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url('assets'); ?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url('assets'); ?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="<?php echo base_url('assets'); ?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="<?php echo base_url('assets'); ?>/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url('assets'); ?>/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url('assets'); ?>/dist/js/demo.js"></script>
-<!-- CK Editor -->
-<script src="<?php echo base_url('assets');?>/bower_components/ckeditor/ckeditor.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    CKEDITOR.replace('editor1');
-  	$('.select2').select2();
-
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
-</body>
-</html>
