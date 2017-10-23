@@ -55,26 +55,17 @@
 
 		public function view($slug)
 		{
-			$hash = $this->post_model->getHashPost($slug);
-			$data['comment'] = $this->post_model->getCommentPost($hash);
-			$hash_post = $this->post_model->getReplyPost($hash);
-			// $data['reply']= $this->post_model->getReplyComment($hash_post);
 			$data['categories'] = $this->category_model->getCategories();
 			$data['single_post'] = $this->post_model->getPost($slug);
-			
-			
-			
-			
-			 // $query = $this->post_model->getReplyComment($hash_post);
-			 // die(print_r($query));
 			$data['view'] = 'blog_single';
-	        $page['title'] = ucwords(preg_replace("/-/"," ", $slug));
-	        $data['page'] = (object)$page;
-	        $data['body'] = 'berita';
+	  		$page['title'] = ucwords(preg_replace("/-/"," ", $slug));
+	  		$data['page'] = (object)$page;
+	  		$data['body'] = 'berita';
+	  		
 
-			$this->load->view('templates/header', $data);	
-			$this->load->view('frontend/blog/blog_layout', $data);	
-			$this->load->view('templates/footer', $data);
+			 $this->load->view('templates/header', $data);	
+			 $this->load->view('frontend/blog/blog_layout', $data);	
+			 $this->load->view('templates/footer', $data);
 		}
 		
 		public function inCategory($category)
