@@ -6,9 +6,11 @@
 				<p><?=$page->title;?></p>
 			</div>
 			<hr class="line line-aqua">
-            <p class="p-top-30 color-aqua text-justify"><?=$page->description;?></p>
+            <?php if (!empty($page->description)) : ?>
+            <div class="p-top-30 text color-aqua text-justify"><?=$page->description;?></div>
+            <?php endif; ?>
         </div>
-
+        <?php if (!empty($sk)): ?>
         <div class="text-subtitle text-upper color-aqua">
             <p>surat keputusan mwa undip</p>
         </div>
@@ -19,7 +21,7 @@
                 <h4 class="panel-title color-aqua">
                     <a role="button" data-toggle="collapse" data-parent="#accordionsk<?=$s->year;?>" href="<?='#collapsesk'.$s->year;?>" aria-expanded="true" aria-controls="<?='collapsesk'.$s->year;?>">
                         <i class="more-less glyphicon glyphicon-plus"></i>
-                        Surat Keputusan MWA Tahun <?=$s->year;?>
+                        Surat Keputusan MWA Tahun <?=$s->year?>
                     </a>
                 </h4>
             </div>
@@ -37,14 +39,15 @@
                     </thead>
                     <tbody>
                       <?php $data = $this->skp_model->getSKByYear($s->year); $no = 1;?>
+                      <?php foreach($data as $d): ?>
                       <tr>
                         <td><?=$no;?></td>
-                        <td><?=$data->nomor;?></td>
-                        <td><?=$data->tanggal;?></td>
-                        <td><?=$data->tentang;?></td>
-                        <td><a href="<?=base_url('assets/uploaded_files/skperaturan/').$data->file;?>" class="btn-link color-aqua" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download File</a></td>
+                        <td><?=$d->nomor;?></td>
+                        <td><?=$d->tanggal;?></td>
+                        <td><?=$d->tentang;?></td>
+                        <td><a href="<?=base_url('assets/uploaded_files/skp/').$d->file;?>" class="btn-link color-aqua" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download File</a></td>
                       </tr>
-                      <?php $no++;?>
+                      <?php $no++; endforeach;?>
                     </tbody>
                   </table>
                 </div>
@@ -52,6 +55,9 @@
         </div>
         <?php endforeach; ?>
         </div><!-- panel-group -->
+        <?php endif ?>
+
+        <?php if (!empty($peraturan)) { ?>
         <div class="text-subtitle text-upper color-aqua">
             <p>peraturan mwa undip</p>
         </div>
@@ -80,14 +86,15 @@
                     </thead>
                     <tbody>
                       <?php $dt = $this->skp_model->getPeraturanByYear($p->year); $no = 1; ?>
+                      <?php foreach($dt as $d): ?>
                       <tr>
                         <td><?=$no;?></td>
-                        <td><?=$dt->nomor;?></td>
-                        <td><?=$dt->tanggal;?></td>
-                        <td><?=$dt->tentang;?></td>
-                        <td><a href="<?=base_url('assets/uploaded_files/skperaturan/').$dt->file;?>" class="btn-link color-aqua" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download File</a></td>
+                        <td><?=$d->nomor;?></td>
+                        <td><?=$d->tanggal;?></td>
+                        <td><?=$d->tentang;?></td>
+                        <td><a href="<?=base_url('assets/uploaded_files/skp/').$d->file;?>" class="btn-link color-aqua" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download File</a></td>
                       </tr>
-                      <?php $no++; ?>
+                      <?php $no++; endforeach;?>
                     </tbody>
                   </table>
                 </div>
@@ -95,6 +102,7 @@
         </div>
         <?php endforeach; ?>
         </div><!-- panel-group -->
+        <?php } ?>
     <!-- </div> -->
 
 </div>

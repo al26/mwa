@@ -17,6 +17,7 @@ class Frontend extends CI_Controller {
 	{
 		$data['page'] = $this->pages_model->getPage(2);
 		$data['body'] = 'profil';
+	    $data['fk'] = $this->fk_model->get();
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/penjelasan_umum', $data);
 		$this->load->view('templates/footer', $data);
@@ -74,7 +75,8 @@ class Frontend extends CI_Controller {
 
 	public function saran()
 	{
-		$data['title'] = 'Kotak Saran';
+
+		$data['page'] = (object)array('title' => 'Kotak Saran');
 		$data['body'] = 'aspirasi';
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/saran', $data);

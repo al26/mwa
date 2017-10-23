@@ -13,11 +13,13 @@
 		<img src="<?=base_url('assets/images/undip.png')?>" width="200"><br>
 		<span class="border text-upper text-center"><p>majelis wali amanat<br>universitas diponegoro</p></span>
 </div>
+<?php if (!empty($page->description)) : ?>
 <div class="desc bg-aqua">
 	<div class="container text text-justify">
 		<?=$page->description;?>
 	</div>
 </div>
+<?php endif; ?>
 <!-- <div class="no-content bg-silver"></div> -->
 <!-- <div class="no-content bg-aqua"></div> -->
 <div id="recent" class="bgimg2"></div>

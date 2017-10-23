@@ -24,6 +24,18 @@
             </tr>
           </tbody>
         </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="2"><p class="text-title color-silver no-margin">Links</p></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:0"><p class="text-left no-margin no-padding"><a class="color-silver btn btn-link btn-md" href="https://www.undip.ac.id/" target="_blank">Website Undip</a></p></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="col-md-4 col-sm-6 col-xs-12">
         <table class="table">

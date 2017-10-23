@@ -1,11 +1,12 @@
   <section class="content">
+  <div class="col-xs-12">
   <?php 
-	if (!empty($this->session->flashdata('err_msg'))) {
-		echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
-	} elseif (!empty($this->session->flashdata('scss_msg'))) {
-		echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-	} 
-  ?>
+  if (!empty($this->session->flashdata('err_msg'))) {
+    echo '<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+  } elseif (!empty($this->session->flashdata('scss_msg'))) {
+    echo '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+  } ?>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
@@ -59,7 +60,7 @@
                 <h4 class="modal-title">Tambah Program Kerja</h4>
               </div>
               <div class="modal-body col-xs-12">
-                <form class="form-horizontal form-aspirasi" enctype="multipart/form-data" method="post" action="<?=base_url('tambahPK/');?>">
+                <form class="form-horizontal form-aspirasi" enctype="multipart/form-data" method="post" action="<?=base_url('kelola-proker/add');?>">
                   <div class="form-group" style="margin: 0">
                     <label class="control-label">Judul Program <span class="text-danger">*</span></label>
                     <div class=""> 
@@ -67,7 +68,7 @@
                     </div>
                   </div>
                   <div class="form-group" style="margin: 0">
-                    <label class="control-label">Aspirasi <span class="text-danger">*</span></label>
+                    <label class="control-label">Jenis Kegiatan<span class="text-danger">*</span></label>
                     <div class="">
                       <textarea class="textarea" rows="6" name="aspirasi" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                     </div>
@@ -141,18 +142,19 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Update Data Program Kerja</h4>
+                    <h4 class="modal-title">Update Program Kerja</h4>
                   </div>
                   <div class="modal-body col-xs-12">
-                    <form class="form-horizontal form-aspirasi" enctype="multipart/form-data" method="post" action="<?=base_url('UpdateProker/'.$p->id);?>">
+                    <form class="form-horizontal form-aspirasi" enctype="multipart/form-data" method="post" action="<?=base_url('kelola-proker/update');?>">
+                      <input type="hidden" name="id" value="<?=$p->id;?>">
                       <div class="form-group" style="margin: 0">
                         <label class="control-label">Judul Program <span class="text-danger">*</span></label>
                         <div class=""> 
-                          <input type="text" class="form-control" name="judul_program" value="<?=$p->judul_program?>" required>
+                          <input type="text" class="form-control" name="judul" value="<?=$p->judul_program?>" required>
                         </div>
                       </div>
                       <div class="form-group" style="margin: 0">
-                        <label class="control-label">Aspirasi <span class="text-danger">*</span></label>
+                        <label class="control-label">Jenis Kegiatan <span class="text-danger">*</span></label>
                         <div class="">
                           <textarea class="textarea" rows="6" name="jenis_kegiatan" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required><?=$p->jenis_kegiatan?></textarea>
                         </div>
