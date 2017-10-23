@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2017 at 07:09 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Oct 23, 2017 at 11:41 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -64,10 +62,28 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `nama`, `email`, `comment`, `hash`, `hash_post`, `hapus`, `time_publish`) VALUES
-(19, 'amien', 'amien@gmail.com', 'amien kurniawan', 'b2aac5063e17f4e9693cc0d7e54fb7e1', '', 1, '2017-10-22 15:23:43'),
-(20, 'amri', 'amri@gmail.com', 'amri lagi Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '4811d8517489da3ed0d029b7df02edaa', '007b213bd0f5d0c590f6ff9a3495028a', 1, '2017-10-22 16:17:53'),
-(21, 'amri', 'amri@gmail.com', 'amri lagi Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '4a1a0452464aedafb08274c4b474d464', '007b213bd0f5d0c590f6ff9a3495028a', 0, '2017-10-22 15:36:04'),
-(22, 'galih', 'amien@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.v Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'c95c4b9730d01ba319bf0262427df9d3', '007b213bd0f5d0c590f6ff9a3495028a', 1, '2017-10-22 15:40:08');
+(24, 'amien', 'amien@gmail.com', 'Nulla vestibulum massa at urna porta interdum. Nulla suscipit, dui a ullamcorper auctor, justo urna maximus purus, eu elementum velit nisl id tellus. Phasellus eget velit porttitor, cursus magna vel, egestas orci. Aliquam et nibh ac leo gravida semper. Phasellus non mattis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique, odio at pharetra vestibulum, eros velit fringilla ex, vitae feugiat leo sem vel augue. Etiam mollis in magna vel porta. Proin eget aliquam risus, id tincidunt elit. Phasellus ipsum sem, finibus placerat mauris et, semper feugiat mi. Phasellus sagittis eget velit eget accumsan. Nam aliquam risus sed eros laoreet faucibus. Mauris sed molestie lorem. Phasellus suscipit ligula vitae scelerisque facilisis. Nulla rutrum, augue et lobortis pharetra, diam velit varius ex, eget mattis nisi sem sed dolor.', '459bf36ba680fe3d9ebf324e6a363a7a', '007b213bd0f5d0c590f6ff9a3495028a', 0, '2017-10-22 19:52:41'),
+(25, 'amri', 'amri@gmail.com', 'vestibulum massa at urna porta interdum. Nulla suscipit, dui a ullamcorper auctor, justo urna maximus purus, eu elementum velit nisl id tellus. Phasellus eget velit porttitor, cursus magna vel, egestas orci. Aliquam et nibh ac leo gravida semper. Phasellus non mattis arcu', '2ac77443d2c8163e636c89f60a3de07d', '007b213bd0f5d0c590f6ff9a3495028a', 0, '2017-10-22 21:41:33'),
+(26, 'mantap', 'mantap@gmail.com', 'mantap', '79f839d85ebe9c2518729419c17a40c2', '9a45676a3fe9b962416a6e43753afeae', 0, '2017-10-23 02:58:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fungsi_kewenangan`
+--
+
+CREATE TABLE `fungsi_kewenangan` (
+  `id` int(11) NOT NULL,
+  `fungsi` text NOT NULL,
+  `kewenangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fungsi_kewenangan`
+--
+
+INSERT INTO `fungsi_kewenangan` (`id`, `fungsi`, `kewenangan`) VALUES
+(1, '<p>Berdasarkan pada Pasal 3 Peraturan MWA No.4 Tahun 2016, fungsi MWA adalah :\r\n    	</p><ol>\r\n    		<li>Melaksanakan Pengawasan Pengelolaan Undip dalam bidang non Akademik (Pasal 74, ayat 4 PP 52 Tahun 2015)</li>\r\n    		<li>Dalam melaksanakan fungsi Pengawasan sebagaimana dimaksud pada ayat 1, MWA melakukan fungsi legislasi dengan membuat peraturan-peraturan yang disebut Peraturan MWA.</li></ol><ol>\r\n    	</ol>\r\n	<p></p>', '<p>Berdasarkan pada Pasal 3 Peraturan MWA No.4 Tahun 2016, fungsi MWA adalah :\r\n    	</p><ol>\r\n    		<li>Menetapkan Peraturan MWA</li>\r\n			<li>Menetapkan kebijakan umum Undip dan mengawasi pelaksanaannya.</li>\r\n       		<li>Mengangkat dan memberhentikan Rektor</li>\r\n 	   		<li>Mengangkat dan memberhentikan Anggota KA</li>\r\n	   		<li>Mengangkat dan memberhentikan Anggota Kehormatan MWA</li>\r\n       		<li>Mengesahkan norma dan tolok ukur penyelenggaraan Undip.</li>\r\n       		<li>Mengesahkan rencana strategis, rencana operasional, dan anggaran tahunan</li>\r\n       		<li>Melaksanakan pengawasan dan pengendalian umum atas pengelolaan non akademik Undip</li>\r\n       		<li>Mengesahkan rencana induk pengembangan yang diusulkan oleh Rektor.</li>\r\n         	<li>Melakukan penilaian terhadap kinerja Rektor.</li>\r\n		 	<li>Membuat keputusan tertinggi terhadap permasalahan yang tidak dapat diselesaikan oleh Rektor dan SA.</li>\r\n         	<li>Membina jejaring dengan institusi dan / atau individu di luar Undip.</li>\r\n         	<li>Memberikan pertimbangan dan melakukan pengawasan dalam rangka mengembangkan kekayaan dan menjaga kesehatan keuangan; dan</li>\r\n         	<li>Bersama Rektor menyusun dan menyampaikan laporan tahunan kepada Menteri.</li>\r\n    	</ol>\r\n	<p></p>');
 
 -- --------------------------------------------------------
 
@@ -88,6 +104,13 @@ CREATE TABLE `messages` (
   `hapus` int(11) NOT NULL,
   `status` enum('read','not read yet','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `name`, `email`, `subject`, `message`, `attachments`, `received_at`, `hash`, `save`, `hapus`, `status`) VALUES
+(1, 'amien', 'amienthescene@yahoo.co.id', 'Peraturan yang jrimbet', '<p>\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n<br></p>', '231017-amien.jpg,231017-amien1.jpg', '2017-10-23 08:00:12', '600187347567063700589', 1, 0, 'read');
 
 -- --------------------------------------------------------
 
@@ -180,7 +203,7 @@ CREATE TABLE `proker` (
 
 INSERT INTO `proker` (`id`, `judul_program`, `jenis_kegiatan`) VALUES
 (1, 'KESEKRETARIATAN MWA', '<ul><li>Membentuk Kesekretariatan MWA : tempat, tenaga (staff), sarana, administrasi.</li><li>Tertib Administrasi</li><ul>'),
-(2, 'KOMUNIKASI', '<ul><li>Konsolidasi Internal Anggota MWA Studi banding</li><li>Membuat Web MWA</li><li>Sosialisasi</li></ul>');
+(2, 'KOMUNIKASI', '<ul><li>Konsolidasi Internal Anggota MWA Studi banding</li></ul><br><br>');
 
 -- --------------------------------------------------------
 
@@ -200,11 +223,10 @@ CREATE TABLE `reply` (
 --
 
 INSERT INTO `reply` (`id_reply`, `reply`, `id_comment`, `timestamp`) VALUES
-(8, '<p>balas ke adi</p>', 'dd2223bacbfb27555b8079b04d0c08a2', '2017-10-22 10:02:32'),
-(9, '<p>balas ke adi 2</p>', 'dd2223bacbfb27555b8079b04d0c08a2', '2017-10-22 10:03:18'),
-(10, '<p>test</p>', 'dd2223bacbfb27555b8079b04d0c08a2', '2017-10-22 11:45:18'),
-(11, '<p>test\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\r\n</p>', 'dd2223bacbfb27555b8079b04d0c08a2', '2017-10-22 15:40:21'),
-(12, '<p>test amri reply </p>\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida felis sit amet dignissim blandit. Cras tempor sapien id tortor iaculis elementum. Aenean tempor elementum rhoncus. Quisque in elementum risus. Donec eu porttitor felis, eget porta nibh. Maecenas pretium, ipsum ut volutpat condimentum, massa elit auctor est, a pellentesque lorem nisi quis metus. Nam nisi mi, dapibus eget nisi eget, aliquet ultricies mi. Pellentesque massa metus, feugiat vitae vehicula eu, dignissim eu orci. Suspendisse nec sapien lorem. Etiam tellus eros, sollicitudin viverra scelerisque in, rutrum sit amet mi. Etiam nec massa massa. In vitae ipsum hendrerit, maximus purus non, auctor nisl. Integer lobortis orci turpis, eu finibus quam malesuada malesuada. Praesent sollicitudin ex sit amet est tristique tristique. Suspendisse porttitor justo eget hendrerit placerat. Morbi pulvinar, tortor at interdum egestas, erat velit convallis odio, in ornare lorem nunc non mi.\r\n\r\nSed rutrum justo at velit venenatis, non eleifend velit vulputate. Phasellus a risus ut leo facilisis convallis. Vivamus euismod arcu non sem lobortis, ut convallis nibh dignissim. Donec cursus libero eget condimentum laoreet. Curabitur sed fringilla lorem. Nulla consequat, justo dapibus malesuada consequat, nibh lacus convallis lectus, quis vestibulum neque sapien quis ante. In at nisi aliquam, lacinia justo in, vehicula erat. Nunc pellentesque lectus a placerat sodales. Fusce egestas nulla lacinia, iaculis sapien et, consectetur turpis. Sed euismod vestibulum fermentum. Curabitur dolor massa, euismod nec orci vitae, tincidunt interdum felis. Fusce tellus odio, maximus vitae turpis sit amet, aliquet suscipit dui.\r\n\r\nDonec mollis metus in orci finibus, vel vehicula purus dictum. Maecenas sit amet nulla nec tellus maximus ornare sed sed dolor. Quisque gravida nulla a nibh ornare feugiat. Cras a sem augue. Suspendisse sollicitudin vitae ipsum et efficitur. Maecenas eget erat neque. Donec non dui vulputate est pulvinar sagittis. Aenean tristique, libero in maximus aliquet, dui nulla aliquam sapien, et fermentum magna mauris a metus. Nullam volutpat ultricies varius. Nunc sagittis ut nisi non fringilla. Nulla faucibus porta eleifend. In lobortis turpis et aliquet sodales. Etiam sit amet ante non purus blandit bibendum sed eget sem. Nullam a hendrerit lectus, a euismod metus.\r\n\r\nIn vitae dictum velit, non placerat sapien. Fusce imperdiet libero nec ante lobortis posuere. Vestibulum tristique maximus sapien, vitae egestas massa consectetur et. Suspendisse potenti. Proin efficitur et enim a tempor. Donec faucibus, velit at ullamcorper finibus, nisl justo hendrerit arcu, vitae ornare mauris ligula a nibh. Aenean sagittis sit amet justo sit amet commodo. Morbi vestibulum laoreet nisi ac lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id urna lorem. Nam id ligula pulvinar, pretium dui sed, posuere tellus. Etiam tristique tempus nisi, quis mattis ligula posuere consequat. Pellentesque laoreet in arcu nec scelerisque. Praesent sed consectetur augue. In vitae odio libero. Sed id lectus eros.\r\n\r\nVestibulum at tempor risus, faucibus vulputate diam. Cras aliquam dictum nulla nec porta. Quisque rutrum non leo nec ullamcorper. Sed hendrerit massa vel sollicitudin ornare. Integer molestie sapien eget velit vulputate, id consequat sapien bibendum. Cras in ullamcorper ipsum, vitae laoreet est. Quisque metus ipsum, cursus ac molestie eget, suscipit at massa. Integer lobortis placerat rutrum. Nulla est risus, mattis sit amet condimentum at, convallis sit amet nisl.', '4a1a0452464aedafb08274c4b474d464', '2017-10-22 17:08:34');
+(16, '<p>reply</p>', '459bf36ba680fe3d9ebf324e6a363a7a', '2017-10-22 20:57:17'),
+(18, '<p>enak sekali<small></small></p>', '79f839d85ebe9c2518729419c17a40c2', '2017-10-23 03:00:21'),
+(19, '<p>laparrrr</p>', '79f839d85ebe9c2518729419c17a40c2', '2017-10-23 03:00:42'),
+(20, '<p>\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n\r\n<br></p>', '459bf36ba680fe3d9ebf324e6a363a7a', '2017-10-23 08:03:19');
 
 -- --------------------------------------------------------
 
@@ -226,10 +248,8 @@ CREATE TABLE `sk_peraturan` (
 --
 
 INSERT INTO `sk_peraturan` (`id`, `kategori`, `nomor`, `tanggal`, `tentang`, `file`) VALUES
-(1, 'sk', '12 tahun 2017', '2017-10-10', 'baby shark', 'babyshark.pdf'),
-(2, 'sk', '13 tahun 2016', '2016-05-24', 'dady shark', 'dadyshark.pdf'),
-(3, 'peraturan', '12 tahun 2017', '2017-10-10', 'mommy shark', 'mommyshark.pdf'),
-(4, 'peraturan', '13 tahun 2016', '2016-05-24', 'grandma shark', 'grandmashark.pdf');
+(6, 'peraturan', '12', '0000-00-00', 'sdfa', '12-sdfa.pdf'),
+(7, 'sk', '12', '0000-00-00', '12', '12-12.pdf');
 
 -- --------------------------------------------------------
 
@@ -264,6 +284,12 @@ ALTER TABLE `category`
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `fungsi_kewenangan`
+--
+ALTER TABLE `fungsi_kewenangan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -322,57 +348,52 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT for table `fungsi_kewenangan`
+--
+ALTER TABLE `fungsi_kewenangan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `personalia`
 --
 ALTER TABLE `personalia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
 --
 -- AUTO_INCREMENT for table `proker`
 --
 ALTER TABLE `proker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `id_reply` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
+  MODIFY `id_reply` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `sk_peraturan`
 --
 ALTER TABLE `sk_peraturan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
