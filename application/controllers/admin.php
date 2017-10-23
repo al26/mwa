@@ -302,6 +302,79 @@ public function read_comment($id){
     $data['data']=$this->comment_model->getAllComment_read($id);
     $this->load->view('admin/comment',$data); 
 }
+public function reply_comment($hash){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/reply-comment";
+    $data['data']=$this->comment_model->getDataComment_reply($hash);
+    $this->load->view('admin/comment',$data); 
+}
+public function AllReply(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/All-Reply-comment";
+    $data['data']=$this->comment_model->getCommentReply();
+    // var_dump($data['data']);
+    // die();
+    $this->load->view('admin/comment',$data);   
+}
+public function ViewReply($id){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/view-Reply-comment";
+    $data['data']=$this->comment_model->getDataReplyComment($id);
+    $this->load->view('admin/comment',$data); 
+}
+public function Delete_comment($hash){
+    $query = $this->comment_model->goTrash($hash);
+    if($query==true){
+        redirect('TrashComment');  
+    }else{
+        redirect('TrashComment');
+    }  
+}
+public function Trash_Comment(){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/All-Trash-comment";
+    $data['data']=$this->comment_model->getCommentTrash();
+    $this->load->view('admin/comment',$data); 
+}
+public function DeleteReply($id){
+    $query = $this->comment_model->goDeleteReply($id);
+    if($query==true){
+        redirect('AllReply');  
+    }else{
+        redirect('AllReply');
+    }
+}
+public function UpdateReply($id){
+    $data['sidebar']="admin/sidebar";
+    $data['sidebar_comment']="admin/sidebar-comment";
+    $data['tabel']="admin/comment/update-reply-comment";
+    $data['data']=$this->comment_model->getDataReplyUpdate($id);
+    $this->load->view('admin/comment',$data); 
+}
+public function Delete_Permanently($hash){
+    $query = $this->comment_model->goDeleteComment($hash);
+    if($query==true){
+        redirect('TrashComment');  
+    }else{
+        redirect('TrashComment');
+    }
+}
+public function Restorage_Comment($hash){
+    $data = array(
+        'hapus'=>0
+    );
+    $query = $this->comment_model->goRestorageComment($data,$hash);
+    if($query==true){
+        redirect('inbox-comment');  
+    }else{
+        redirect('inbox-comment');
+    }
+}
+
 ###################################################End of Comment################################################################# 
 public function filesize(){
     $this->load->view('admin/filesize');

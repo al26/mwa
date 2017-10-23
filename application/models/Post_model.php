@@ -77,6 +77,43 @@ class Post_model extends CI_Model {
 		$query = $this->db->delete('post');
 		return $query ? TRUE : FALSE;
 	}
+	// public function getHashPost($slug){
+	// 	$where = array(
+	// 		'slug'=>$slug
+	// 	);
+	// 	$this->db->select('hash');
+	// 	$query = $this->db->get_where('post',$where);
+	// 	if ($query->num_rows()>=0) {
+	// 		return $query->result_array();
+	// 	} else {
+	// 		return false;
+	// 	}
+	//	}
+	public function getCommentPosh($hash){
+		
+		$where = array(
+			'hash_post' => $hash,
+			'hapus'=>0
+		);
+		return $this->db->get_where('comment',$where)->result_array();
+		
+		// $this->db->where('comment.hash_post',$h);
+		// $this->db->join('reply', 'reply.id_comment = comment.hash', 'left');
+		
+	}
+	public function getReplyPost($hash){
+		$where = array(
+			'hash_post'=>$hash
+		);
+		$query = $this->db->get('comment',$where)->row();
+		return $query->hash;
+	}
+	public function getReplyComment($hash2){
+		$where = array(
+			'id_comment' =>$hash2
+		);
+		return $this->db->get_where('reply', $where)->result_array();
+	} 
 }
 
 /* End of file Post.php */
