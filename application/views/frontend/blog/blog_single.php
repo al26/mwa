@@ -27,7 +27,7 @@
     } 
     ?>
   <h2>Add Comments</h2>
-  <?=form_open('new_comment/'.$single_post->slug); ?>
+  <?=form_open('new_comment/'.$single_post->slug.'/'.$single_post->hash); ?>
 	  <div class="form-group">
 	    <label for="email">Email address:</label>
 	    <input type="email" class="form-control comenters" name="email" id="email" required>
@@ -43,62 +43,39 @@
 	  <button type="submit" class="btn btn-default">Submit</button>
   <?= form_close(); ?>
   <hr>
+  <?php $hash = $single_post->hash;
+      $comment1 = $this->post_model->getCommentPosh($hash);
+   ?>
+  <?php if(isset($comment1)){?>
+      <?php foreach ($comment1 as $comment) {?>
   <div class="media">
-    <div class="media-left">
+  <div class="media-left">
+    
       <img src="<?= base_url('assets/images/post/noimage.png');?>" class="media-object" style="width:45px">
     </div>
     <div class="media-body">
-      <h4 class="media-heading">John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      
-      <!-- Nested media object -->
-      <div class="media">
-        <div class="media-left">
-          <img src="<?= base_url('assets/images/post/noimage.png');?>" class="media-object" style="width:45px">
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading">John Doe <small><i>Posted on February 20, 2016</i></small></h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-          <!-- Nested media object -->
-          <div class="media">
-            <div class="media-left">
-              <img src="<?= base_url('assets/images/post/noimage.png');?>" class="media-object" style="width:45px">
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">John Doe <small><i>Posted on February 21, 2016</i></small></h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-          </div>
+      <h4 class="media-heading"><?=$comment['nama']?> <small><i>Posted on <?= date('Y-m-d',strtotime($comment['time_publish']))?></i></small></h4>
+      <p><?=$comment['comment']?></p>
           
-        </div>
-        
-        <!-- Nested media object -->
+      <!-- Nested media object -->
+        <?php $hash2 = $comment['hash']?>
+        <?php $reply = $this->post_model->getReplyComment($hash2)?>
+        <?php if(!empty($reply)){ 
+          foreach($reply as $datas) {?>
         <div class="media">
           <div class="media-left">
             <img src="<?= base_url('assets/images/post/noimage.png');?>" class="media-object" style="width:45px">
           </div>
           <div class="media-body">
-            <h4 class="media-heading">Jane Doe <small><i>Posted on February 20, 2016</i></small></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h4 class="media-heading">Admin<small><i> Posted on <?=date('Y-m-d',strtotime($datas['timestamp']))?></i></small></h4>
+            <p><?=$datas['reply'] ?></p>
           </div>
         </div>
-        
-      </div>
+        <?php }} ?>
+      
     </div>
-    
-    <!-- Nested media object -->    
-    <div class="media">
-      <div class="media-left">
-        <img src="<?= base_url('assets/images/post/noimage.png');?>" class="media-object" style="width:45px">
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">Jane Doe <small><i>Posted on February 19, 2016</i></small></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-    </div>
-
   </div>
+   <?php }} ?>
 </div>
 </div>
 <br>

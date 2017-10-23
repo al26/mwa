@@ -170,7 +170,7 @@ class Validation extends CI_Controller {
         $this->session->set_flashdata($msg);
         redirect('new-post');
     }
-    public function new_comment($slug){
+    public function new_comment($slug,$id){
     	$this->form_validation->set_rules('nama','Nama','xss_clean|trim');
 		$this->form_validation->set_rules('email','Email','xss_clean|trim|valid_email');
 		$this->form_validation->set_rules('comment','comment','xss_clean|trim');
@@ -183,7 +183,9 @@ class Validation extends CI_Controller {
 					'nama'=>$this->input->post('nama'),
 					'email'=>$this->input->post('email'),
 					'comment'=>$this->input->post('comment'),
-					'hash'=>$hash
+					'hash'=>$hash,
+					'hash_post'=>$id,
+					'hapus'=>0
 					);
 				$query = $this->comment_model->input_post($data);
 				$msg['scss_msg'] = "Success add new comment";
@@ -231,6 +233,83 @@ class Validation extends CI_Controller {
         $this->session->set_flashdata($msg);
         redirect('page/edit/'.$id);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function reply_comment($hash){
+    	$this->form_validation->set_rules('reply','Reply','xss_clean|trim');
+
+    	if($this->form_validation->run() == FALSE)
+    	{
+            $msg['err_msg'] =  "An error occurred. Please try again.";
+	    } 
+	    else
+	    {			
+			$idComment = $hash;
+			$data = array('id_comment'=>$idComment,'reply'=>$this->input->post('reply'));
+			$inserted = $this->comment_model->ReplyComment($data);
+
+			if ($inserted === TRUE) {$msg['scss_msg'] = "Success Reply Comment";} 
+			else {$msg['err_msg'] = "An error occurred. Please try again.";}
+		}
+			$this->session->set_flashdata($msg);redirect('reply/'.$hash);
+    }
+public function doUpdate_Reply($id){
+	$this->form_validation->set_rules('reply', 'Content', 'trim|xss_clean');
+	if($this->form_validation->run()==false){
+		$msg['err_msg'] =  "An error occurred. Please try again.";
+	}else{
+		$data = array('reply'=>$this->input->post('reply'));
+		$inserted = $this->comment_model->UpdateReplyComment($data,$id);
+		if ($inserted === TRUE) {
+			$msg['scss_msg'] = "Success Update Reply Comment";
+		} 
+		else {
+			$msg['err_msg'] = "An error occurred. Please try again.";
+		}
+	}
+	$this->session->set_flashdata($msg);redirect('AllReply/');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

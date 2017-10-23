@@ -58,12 +58,14 @@
 			$data['categories'] = $this->category_model->getCategories();
 			$data['single_post'] = $this->post_model->getPost($slug);
 			$data['view'] = 'blog_single';
-	        $page['title'] = ucwords(preg_replace("/-/"," ", $slug));
-	        $data['page'] = (object)$page;
-	        $data['body'] = 'berita';
-			$this->load->view('templates/header', $data);	
-			$this->load->view('frontend/blog/blog_layout', $data);	
-			$this->load->view('templates/footer', $data);
+	  		$page['title'] = ucwords(preg_replace("/-/"," ", $slug));
+	  		$data['page'] = (object)$page;
+	  		$data['body'] = 'berita';
+	  		
+
+			 $this->load->view('templates/header', $data);	
+			 $this->load->view('frontend/blog/blog_layout', $data);	
+			 $this->load->view('templates/footer', $data);
 		}
 		
 		public function inCategory($category)
