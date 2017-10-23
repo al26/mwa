@@ -30,7 +30,8 @@ class Personalia_model extends CI_Model {
 	public function deletePersonalia($id)
 	{
 		$this->db->where('id', $id);
-		$this->db->delete('personalia');
+		$query = $this->db->delete('personalia');
+		return $query ? TRUE : FALSE;
 	}
 
 }

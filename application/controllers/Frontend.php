@@ -17,6 +17,7 @@ class Frontend extends CI_Controller {
 	{
 		$data['page'] = $this->pages_model->getPage(2);
 		$data['body'] = 'profil';
+	    $data['fk'] = $this->fk_model->get();
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/penjelasan_umum', $data);
 		$this->load->view('templates/footer', $data);
@@ -55,8 +56,8 @@ class Frontend extends CI_Controller {
 	{
 		$data['page'] = $this->pages_model->getPage(6);
 		$data['body'] = 'skp';
-		$data['sk'] = $this->skp_model->getSKDate();
-		$data['peraturan'] = $this->skp_model->getPeraturanDate();
+		$data['sk'] = $this->skp_model->getSKYear();
+		$data['peraturan'] = $this->skp_model->getPeraturanYear();
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/skperaturan', $data);
 		$this->load->view('templates/footer', $data);

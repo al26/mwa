@@ -1,11 +1,12 @@
   <section class="content">
+  <div class="col-xs-12">
   <?php 
   if (!empty($this->session->flashdata('err_msg'))) {
-    echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+    echo '<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
   } elseif (!empty($this->session->flashdata('scss_msg'))) {
-    echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-  } 
-  ?>
+    echo '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+  } ?>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
@@ -148,7 +149,7 @@
               <td><?=(strlen($p->jabatan) > 20) ? substr($p->jabatan,0,20).'...' : $p->jabatan;?></td>
               <td><?=(strlen($p->unsur) > 20) ? substr($p->unsur,0,100).'...' : $p->unsur;?></td>
               <td><a href="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : '#'?>" target="_blank"><img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" class="media-object" style="width:60px"></a></td>
-              <td><a href="<?php echo base_url('hapus-post/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i></a>
+              <td><span data-toggle="tooltip" title="Hapus Data"><a href="#delete<?=$p->id;?>" class="btn btn-danger" data-toggle="modal" role="button"><i class="fa fa-trash bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editprs<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
@@ -233,7 +234,30 @@
                   <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                 </div>
               </div>
+              </div>
             </div>
+            
+            <div class="modal fade" id="delete<?=$p->id;?>" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Hapus Data Personalia</h4>
+                    </div>
+                    <div class="modal-body col-xs-12">
+                      <p>Are You Sure Want To Delete <?=$p->nama;?> from Personalia ?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="modal-footer">
+                      <a href="<?php echo base_url('delete-personalia/').$p->id;?>" class="btn btn-danger"><i class="fa fa-trash bigicon"></i> Delete Data</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <?php $no++;} ?>
             </tbody>
             <tfoot>

@@ -26,18 +26,18 @@ class Skp_model extends CI_Model {
 		return $this->db->get('sk_peraturan')->result();
 	}
 
-	public function getSKDate()
+	public function getSKYear()
 	{
 		$this->db->where('kategori', 'sk');
-		$this->db->select('tanggal');
+		$this->db->select('YEAR(STR_TO_DATE(tanggal, "%d/%m/%Y")) as year');
 		$this->db->distinct();
 		return $this->db->get('sk_peraturan')->result();
 	}
 
-	public function getPeraturanDate()
+	public function getPeraturanYear()
 	{
 		$this->db->where('kategori', 'peraturan');
-		$this->db->select('tanggal');
+		$this->db->select('YEAR(STR_TO_DATE(tanggal, "%d/%m/%Y")) as year');
 		$this->db->distinct();
 		return $this->db->get('sk_peraturan')->result();
 	}
@@ -45,13 +45,13 @@ class Skp_model extends CI_Model {
 	public function getSKByYear($year)
 	{
 		$where = "kategori = 'sk' AND tanggal LIKE '%$year'";
-		return $this->db->get_where('sk_peraturan', $where)->row();
+		return $this->db->get_where('sk_peraturan', $where)->result();
 	}
 
 	public function getPeraturanByYear($year)
 	{
 		$where = "kategori = 'peraturan' AND tanggal LIKE '%$year'";
-		return $this->db->get_where('sk_peraturan', $where)->row();
+		return $this->db->get_where('sk_peraturan', $where)->result();
 	}	
 
 	public function updateSKP($id, $data)

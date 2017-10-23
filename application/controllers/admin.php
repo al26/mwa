@@ -390,9 +390,74 @@ public function edit_page($id)
     $data['sk'] = $this->skp_model->getAllSK();
     $data['peraturan'] = $this->skp_model->getAllPeraturan();
     $data['proker'] = $this->proker_model->getAllProker();
+    $data['fk'] = $this->fk_model->get();
     $this->load->view('admin/pages/h', $data);
     $this->load->view('admin/pages/'.$id, $data);
     $this->load->view('admin/pages/f', $data);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function delete_personalia($id)
+    {
+        $deleted = $this->personalia_model->deletePersonalia($id);
+        if ($deleted === TRUE) {
+            $msg['scss_msg'] = "Success delete data";
+        } else {                
+            $msg['err_msg'] = "An error occurred. Please try again.";
+        }
+
+        $this->session->set_flashdata($msg);
+        redirect($this->input->server('HTTP_REFERER'));
+    }
 
 }

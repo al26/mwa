@@ -448,10 +448,6 @@ class Validation extends CI_Controller {
 				}
 			}
 			
-			// die(var_dump(date("d/m/Y",strtotime($tanggal))));
-            // $parts = explode("/", $tanggal);
-            // $date = implode("-", array_reverse($parts, true));
-            // die(var_dump(date("Y-m-d",strtotime($date))));
         	$dataAdd = array(
                 'nomor' => $nomor,
                 'tanggal' => $tanggal,
@@ -484,8 +480,8 @@ class Validation extends CI_Controller {
 
     public function kelolaProker($aksi)
     {
-        $this->form_validation->set_rules('judul','Nomor','xss_clean|trim');
-        $this->form_validation->set_rules('jenis_kegiatan','Tanggal','xss_clean|trim');
+        $this->form_validation->set_rules('judul','Judul Program','xss_clean|trim');
+        $this->form_validation->set_rules('jenis_kegiatan','Jenis Kegiatan','xss_clean|trim');
 
         $id = $this->input->post('id');
         $judul = $this->input->post('judul');
@@ -520,5 +516,41 @@ class Validation extends CI_Controller {
         redirect($this->input->server('HTTP_REFERER'));
     }
 
+    public function kelolaFK()
+    {
+        $this->form_validation->set_rules('fungsi','Fungsi','xss_clean|trim');
+        $this->form_validation->set_rules('kewenangan','Kewenangan','xss_clean|trim');
 
+        $id = $this->input->post('id');
+        $fungsi = $this->input->post('fungsi');
+        $kewenangan = $this->input->post('kewenangan');
+
+        if($this->form_validation->run() === FALSE) 
+        {
+            $msg['err_msg'] = validation_errors();
+            $repopulate = array(
+                'kewenangan' => $kewenangan,
+                'fungsi' => $fungsi
+            );
+            $this->session->set_flashdata($repopulate);
+        } 
+        else
+        {
+            $data = array(
+                'fungsi' => $fungsi,
+                'kewenangan' => $kewenangan
+            );
+
+            $updated = $this->fk_model->update($id, $data);
+
+            if ($updated === TRUE) {
+                $msg['scss_msg'] = "Success update page Penjelasan Umum";
+            } else {                
+                $msg['err_msg'] = "An error occurred. Please try again.";
+            }
+        }
+
+        $this->session->set_flashdata($msg);
+        redirect($this->input->server('HTTP_REFERER'));
+    }
 }

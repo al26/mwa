@@ -23,6 +23,8 @@ $route['edit-page/(:num)'] = 'validation/update_page/$1';
 $route['kelola-personalia/(:any)/(:num)'] = 'validation/kelolaPersonalia/$1/$2';
 $route['kelola-skp/(:any)/(:any)'] = 'validation/kelolaSKP/$1/$2';
 $route['kelola-proker/(:any)'] = 'validation/kelolaProker/$1';
+$route['kelola-fk'] = 'validation/kelolaFK';
+$route['delete-personalia/(:num)'] = 'admin/delete_personalia/$1';
 
 
 
