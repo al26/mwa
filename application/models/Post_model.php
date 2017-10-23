@@ -77,6 +77,34 @@ class Post_model extends CI_Model {
 		$query = $this->db->delete('post');
 		return $query ? TRUE : FALSE;
 	}
+	public function getHashPost($slug){
+		$where = array(
+			'slug'=>$slug
+		);
+		$this->db->select('hash');
+		return $this->db->get_where('post',$where)->row_array();
+
+	}
+	public function getCommentPost($hash){
+		$where = array(
+			'hash_post' =>$hash
+		);
+		// $query = $this->db->get('comment')->result_array();
+		return $this->db->get('comment')->result_array();
+	}
+	public function getReplyPost($hash){
+		$where = array(
+			'hash_post'=>$hash
+		);
+		$query = $this->db->get('comment',$where)->row();
+		return $query->hash;
+	}
+	public function getReplyComment($hash_post){
+		$where = array(
+			'id_comment' =>$hash_post
+		);
+		return $this->db->get_where('reply', $where)->result_array();
+	} 
 }
 
 /* End of file Post.php */

@@ -22,38 +22,35 @@
              
             <?php if(isset($data)){ ?>
             <?php foreach ($data as $datas) { ?>
-
             <div class="box-body no-padding">
               <div class="mailbox-read-info">
                 <h3><?php echo $datas->nama; ?></h3>
                 <h5>From: <?php echo $datas->email;?>
-                <span class="mailbox-read-time pull-right"><?php echo $datas->timestamp; ?></span></h5>
+                <span class="mailbox-read-time pull-right"><?php echo $datas->time_publish; ?></span></h5>
               </div>
               <!-- /.mailbox-read-info -->
               <div class="mailbox-controls with-border text-center">
                 <div class="btn-group"></div>
               </div>
               <div class="mailbox-read-message">
-                <?php echo strip_tags(word_limiter($datas->comment,4));?>
+                <?php echo strip_tags(word_limiter($datas->comment,10));?>
               </div>
               <!-- /.mailbox-read-message -->
             </div>
                
               <div class="box-body">
               <div class="form-group">
-                <input class="form-control" disabled value="<?php echo $datas->nama; ?>"></div>
+                <input class="form-control" readonly value="<?php echo $datas->nama; ?>"></div>
               <?php }} ?>
-              <?php echo form_open('do_reply/'.$datas->hash);  ?>
+              <?php echo form_open('doUpdateReply/'.$datas->id_reply);  ?>
               <div class="form-group">
-                    <textarea id="compose-textarea" name="reply" disabled="true" class="form-control" style="height: 300px">
-                      <?php echo $datas->reply; ?>
-                    </textarea>
+                    <textarea id="compose-textarea" name="reply" required class="form-control" style="height: 300px"><?php echo $datas->reply; ?></textarea>
               </div>
             </div>
               </ul>
               <div class="box-footer">
               <div class="pull-right">
-                
+                <button type="submit" class="btn btn-default"><i class="fa fa-upload"></i> Update</button>
               </div>
               <?php echo form_close(); ?>   
             </div>

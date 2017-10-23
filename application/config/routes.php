@@ -37,7 +37,7 @@ $route['edit-beranda'] = 'validation/edit_beranda';
 
 
 
-
+ 
 
 
 $route['login']='auth';
@@ -72,5 +72,8 @@ $route['AllReply']='admin/AllReply';
 $route['Deletecomment/(:any)']='admin/Delete_comment/$1';
 $route['TrashComment']='admin/Trash_Comment';
 $route['DeleteReply/(:any)']='admin/DeleteReply/$1';
-
+$route['UpdateReply/(:any)']='admin/UpdateReply/$1';
+$route['doUpdateReply/(:num)']='validation/doUpdate_Reply/$1';
+$route['DeletePermanently/(:any)']='admin/Delete_Permanently/$1';
+$route['RestorageComment/(:any)']='admin/Restorage_Comment/$1';
 

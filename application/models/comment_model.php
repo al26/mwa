@@ -86,6 +86,46 @@ class Comment_model extends CI_Model {
 		$this->db->join('comment', 'comment.hash = reply.id_comment', 'inner');
 		return $this->db->get_where('reply',$where)->result();
 	}
+	public function getDataReplyUpdate($id){
+		$where = array(
+			'id_reply'=>$id
+		);
+		$this->db->join('comment', 'comment.hash = reply.id_comment', 'inner');
+		return $this->db->get_where('reply',$where)->result();
+	}
+	public function UpdateReplyComment($data,$id){
+		$where = array(
+			'id_reply'=>$id
+		);
+		$update = $this->db->update('reply',$data,$where);
+		if ($update==true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function goDeleteComment($hash){
+		$where = array(
+			'hash' => $hash 
+		);
+		$delete = $this->db->delete('comment',$where);
+		if ($delete == true) {
+			return true;
+		} else {
+			return false;
+		}	
+	}
+	public function goRestorageComment($data,$hash){
+		$where = array(
+			'hash'=>$hash
+		);
+		$delete = $this->db->update('comment',$data,$where);
+		if($delete==true){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }
 
 

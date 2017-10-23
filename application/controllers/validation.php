@@ -254,28 +254,35 @@ class Validation extends CI_Controller {
 
     	if($this->form_validation->run() == FALSE)
     	{
-            $msg['err_msg'] =  "An error disini. Please try again.";
+            $msg['err_msg'] =  "An error occurred. Please try again.";
 	    } 
 	    else
 	    {			
 			$idComment = $hash;
-			$data = array(
-				'id_comment'=>$idComment,
-				'reply'=>$this->input->post('reply')
-				);
+			$data = array('id_comment'=>$idComment,'reply'=>$this->input->post('reply'));
 			$inserted = $this->comment_model->ReplyComment($data);
 
-			if ($inserted === TRUE) {
-                $msg['scss_msg'] = "Success Reply Comment";
-            } else {                
-                $msg['err_msg'] = "An error occurred. Please try again.";
-            }
-			
+			if ($inserted === TRUE) {$msg['scss_msg'] = "Success Reply Comment";} 
+			else {$msg['err_msg'] = "An error occurred. Please try again.";}
 		}
-			$this->session->set_flashdata($msg);
-			redirect('reply/'.$hash);
+			$this->session->set_flashdata($msg);redirect('reply/'.$hash);
     }
-
+public function doUpdate_Reply($id){
+	$this->form_validation->set_rules('reply', 'Content', 'trim|xss_clean');
+	if($this->form_validation->run()==false){
+		$msg['err_msg'] =  "An error occurred. Please try again.";
+	}else{
+		$data = array('reply'=>$this->input->post('reply'));
+		$inserted = $this->comment_model->UpdateReplyComment($data,$id);
+		if ($inserted === TRUE) {
+			$msg['scss_msg'] = "Success Update Reply Comment";
+		} 
+		else {
+			$msg['err_msg'] = "An error occurred. Please try again.";
+		}
+	}
+	$this->session->set_flashdata($msg);redirect('AllReply/');
+}
 
 
 
