@@ -433,13 +433,16 @@ class Validation extends CI_Controller {
 				}
 			}
 			
+			// die(var_dump(date("d/m/Y",strtotime($tanggal))));
+
         	$data = array(
                 'nomor' => $nomor,
-                'tanggal' => "STR_TO_DATE($tanggal,'%Y-%m-%d')",
+                'tanggal' => date("d/m/Y",strtotime($tanggal)),
                 'tentang' => $tentang,
                 'file' => $file,
                 'kategori' => $kategori
             );
+
             $inserted = ($aksi === 'add') ? $this->skp_model->addSKP($data) : $this->skp_model->updateSKP($id, $data);
 
             if ($inserted === TRUE) {

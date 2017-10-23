@@ -148,7 +148,7 @@
                       <div class="form-group">
                         <label class="control-label">Tanggal <span class="text-danger">*</span></label>
                         <div class="">
-                          <input type="text" class="form-control" name="tanggal" id="datepicker" value="<?=date("d/m/Y",strtotime($p->tanggal));?>">
+                          <input type="text" class="form-control" name="tanggal" id="datepicker">
                         </div>
                       </div>
                       <div class="form-group">
