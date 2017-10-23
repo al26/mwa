@@ -70,7 +70,7 @@
                   <div class="form-group" style="margin: 0">
                     <label class="control-label">Jenis Kegiatan<span class="text-danger">*</span></label>
                     <div class="">
-                      <textarea class="textarea" rows="6" name="jenis_kegiatan" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                      <textarea class="textarea" rows="6" name="aspirasi" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                     </div>
                   </div>
                   <br>
@@ -104,11 +104,36 @@
               <td><?=$no;?></td>
               <td><?=(strlen($p->judul_program) > 100) ? substr($p->judul_program,0,100).'...' : $p->judul_program;?></td>
               <td><?=(strlen($p->jenis_kegiatan) > 100) ? substr($p->jenis_kegiatan,0,100).'...' : $p->jenis_kegiatan;?></td>
-              <td><a href="<?php echo base_url('hapus-post/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i></a>
+              <td>
+              <span data-toggle="tooltip" title="Hapus Data"><a role="button" href="#hapuspk<?=$p->id;?>" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editpk<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
             <tr>
+              <!-- Modal -->
+            <div class="modal fade" id="hapuspk<?=$p->id;?>" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update Data Program Kerja</h4>
+                  </div>
+                  <div class="modal-body col-xs-12">
+                    <p>Are You Sure Want To Delete This Proker?
+                      <br>Judul :&nbsp;<?=$p->judul_program; ?> 
+                    </p>
+                </div>
+                <div class="modal-footer">
+                  <div class="modal-footer">
+                    <a href="<?php echo base_url('HapusPK/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i> Delete Data</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
             <!-- Modal -->
             <div class="modal fade" id="editpk<?=$p->id;?>" role="dialog">
               <div class="modal-dialog">

@@ -35,13 +35,12 @@
               <?php $attch = explode(",",$datas->attachments);?>
               <?php if (!empty($attch)) { 
                     foreach ($attch as $i){ ?>
-                    <a href="<?=base_url('assets/uploaded_files/attachments/').$i;  ?>" class="mailbox-attachment-name"><?php echo $i; ?></a>
+                    <a target="_blank" href="<?=base_url('assets/uploaded_files/attachments/').$i;  ?>" class="mailbox-attachment-name"><?php echo $i; ?></a>
                     <span class="mailbox-attachment-size">
-                    <?php 
-                    $a = "assets/uploaded_files/attachments/".$i;
+                    <?php $a = "assets/uploaded_files/attachments/".$i;
                     echo number_format(filesize($a) / 1048576, 2) . ' MB';
                     ?>
-                    <a href="<?=base_url('assets/uploaded_files/attachments/').$i;  ?>" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
+                    <a target="_blank" href="<?=base_url('assets/uploaded_files/attachments/').$i;  ?>" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
                     </span>
                   <?php } }else{?>
                     <a href="#" class="mailbox-attachment-name">App Description.docx</a>

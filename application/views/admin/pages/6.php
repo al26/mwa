@@ -121,7 +121,8 @@
               <td><?=$p->tanggal;?></td>
               <td><?=(strlen($p->tentang) > 20) ? substr($p->tentang,0,20).'...' : $p->tentang;?></td>
               <td><a href="<?=base_url('assets/uploaded_files/skp/'.$p->file);?>" target="_blank"><img src="<?=base_url('assets/images/pdf.png');?>" style="width:35px"></a></td>
-              <td><a href="<?php echo base_url('hapus-post/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i></a>
+              <td>
+              <span data-toggle="tooltip" title="Delete Data"><a role="button" href="#delete<?=$p->id;?>" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editsk<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
@@ -178,7 +179,30 @@
                 
               </div>
             </div>
-
+            <!-- Modal Delete -->
+            <div class="modal fade" id="delete<?=$p->id;?>" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Data</h4>
+                  </div>
+                  <div class="modal-body col-xs-12">
+                    <p>Are You Sure Want To Delete This?
+                      <br><?=ucwords($p->kategori);?> 
+                      <br>Nomor :&nbsp;<?=$p->nomor; ?> 
+                      <br>About :&nbsp;<?=ucwords($p->tentang);?>
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="<?php echo base_url('hapus-sk-peraturan/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i> Delete Data</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
             <?php $no++;} ?>
             </tbody>
             <tfoot>
@@ -277,7 +301,9 @@
               <td><?=$p->tanggal;?></td>
               <td><?=(strlen($p->tentang) > 20) ? substr($p->tentang,0,20).'...' : $p->tentang;?></td>
               <td><a href="<?=base_url('assets/uploaded_files/skp/'.$p->file);?>" target="_blank"><img src="<?=base_url('assets/images/pdf.png');?>" style="width:35px"></a></td>
-              <td><a href="<?php echo base_url('hapus-post/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i></a>
+              <td>
+                <span data-toggle="tooltip" title="Delete Data"><a role="button" href="#delete<?=$p->id;?>" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash bigicon"></i></a></span>
+              &nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editp<?=$p->id;?>" class="btn btn-success" data-toggle="modal" aria-expanded="true" aria-controls="edit<?=$p->id;?>"><i class="fa fa-upload bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
@@ -328,6 +354,30 @@
                   </div>
                   <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <!-- Modal Delete -->
+            <div class="modal fade" id="delete<?=$p->id;?>" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Data</h4>
+                  </div>
+                  <div class="modal-body col-xs-12">
+                    <p>Are You Sure Want To Delete This?
+                      <br><?=ucwords($p->kategori);?> 
+                      <br>Nomor :&nbsp;<?=$p->nomor; ?> 
+                      <br>About :&nbsp;<?=ucwords($p->tentang);?>
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="<?php echo base_url('hapus-sk-peraturan/').$p->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"><i class="fa fa-trash bigicon"></i> Delete Data</a>
                   </div>
                 </div>
                 

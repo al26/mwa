@@ -136,4 +136,3 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array('post_model', 'category_model','attachments_model','messages_model', 'personalia_model', 'skp_model','proker_model','pages_model','comment_model','fk_model');
-
