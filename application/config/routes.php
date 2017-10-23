@@ -22,7 +22,9 @@ $route['page/edit/(:num)'] = 'admin/edit_page/$1';
 $route['edit-page/(:num)'] = 'validation/update_page/$1';
 $route['kelola-personalia/(:any)/(:num)'] = 'validation/kelolaPersonalia/$1/$2';
 $route['kelola-skp/(:any)/(:any)'] = 'validation/kelolaSKP/$1/$2';
-
+$route['tambahPK'] = 'validation/tambah_PK/';
+$route['HapusPK/(:num)'] = 'admin/Hapus_PK/$1';
+$route['UpdateProker/(:num)'] = 'validation/update_proker/$1';
 
 
 

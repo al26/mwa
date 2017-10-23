@@ -418,5 +418,20 @@ public function edit_page($id)
     $this->load->view('admin/pages/'.$id, $data);
     $this->load->view('admin/pages/f', $data);
 }
+##########################Begin Hapus Proker###########################################
+    public function Hapus_PK($id)
+    {
+        $query = $this->proker_model->Hapus_PK($id);
+        if ($query == true) {
+            $msg['scss_msg'] = "Success Delete Proker";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER'));  
+        } else {
+            $msg['err_msg'] = "An error occurred. Please try again.";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER'));  
+        }
+        
+    }
 
 }

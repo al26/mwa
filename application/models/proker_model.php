@@ -27,6 +27,11 @@ class Proker_model extends CI_Model {
 		$query = $this->db->delete('proker');
 		return $query ? TRUE : FALSE;
 	}
+	public function Hapus_PK($id){
+		$this->db->where('id', $id);
+		$query = $this->db->delete('proker');
+		return $query ? TRUE : FALSE;	
+	}
 
 }
 
