@@ -5,7 +5,9 @@ class Category_model extends CI_Model {
 
 	public function getCategories()
 	{
-		return $this->db->get('category')->result();
+		// $return = $this->db->get('category')->result();
+		
+		 return $this->db->get('category')->result();
 	}
 	public function Delete_Kategori($id){
 		$where = array(
@@ -36,6 +38,12 @@ class Category_model extends CI_Model {
 		}else{
 			return false;
 		}
+	}
+	public function getWhereCategory($id){
+		$where =array(
+			'id'=>$id
+		);
+		return $this->db->get_where('category',$where)->row();
 	}
 
 }

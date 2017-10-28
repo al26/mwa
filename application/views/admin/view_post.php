@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Data Tables</title>
+  <title>Admin View Post</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -39,8 +39,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Data Tables Post MWA
+        
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -51,12 +51,17 @@
 
     <!-- Main content -->
     <section class="content">
+    <?php 
+    if (!empty($this->session->flashdata('err_msg'))) {
+      echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+    } elseif (!empty($this->session->flashdata('scss_msg'))) {
+      echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+    } 
+    ?>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
-            </div>
+            
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -71,6 +76,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                  <?php if(isset($data)){ ?>
                 <?php foreach ($data as $k => $post ) {?>
                 <?php //die(print_r($post)); ?>
                 <tr>
@@ -85,7 +91,7 @@
                   &nbsp;&nbsp;&nbsp;
                   <a href="<?php echo base_url('detail-post/').$post->id;?>" class="btn btn-info" data-toggle="tooltip" title="Detail Post"><i class="fa fa-info-circle bigicon"></i></a></td>
                 </tr>
-                <?php } ?>
+                <?php }} ?>
                 </tbody>
                 <tfoot>
                 <tr>
@@ -105,13 +111,6 @@
         </div>
         <!-- /.col -->
       </div>
-      <?php if(isset($message)){
-            echo "<div class='row'>";
-                echo "<div class='col-md-12'>";
-                  echo "<div class='box'>";              
-                echo "<div class='alert alert-danger'> ".$message. "</div>";
-                  echo "</div></div></div>";
-      }?>
     </section>
     <!-- /.content -->
   </div>

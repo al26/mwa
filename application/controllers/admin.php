@@ -100,8 +100,8 @@ class Admin extends CI_Controller {
 
     public function get_edit_post($id=null){
         $data['sidebar']="admin/sidebar";
-        $data['data_post']=$this->admin_model->get_post_update($id);
-        $data['data']=$this->admin_model->get_category();
+        $data['data_post']=$this->post_model->postUpdate($id);
+        $data['categories']=$this->category_model->getCategories();
         $this->load->view('admin/edit_post',$data);
     }
     public function verif_edit_post($id){
@@ -175,33 +175,30 @@ class Admin extends CI_Controller {
     }
     public function get_detail_post($id=null){
         $data['sidebar']="admin/sidebar";
-        $data['data_post']=$this->admin_model->get_post_update($id);
-        $data['data']=$this->admin_model->get_category();
+        $data['data_post']=$this->post_model->getDetail($id);
         $this->load->view('admin/detail_post',$data);
     }
     public function delete_post($id){
-        $query = $this->admin_model->delete_post($id);
+        $query = $this->post_model->deletePost($id);
         if($query==true){
-            $data['sidebar']="admin/sidebar";
-            $data['message']="post Berhasil dihapus";
-            $data['data']=$this->admin_model->get_post();
-            $this->load->view('admin/view_post',$data);
+            $msg['scss_msg'] = "Your Data Already Delete, Well Done..";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
         }else{
-            $data['sidebar']="admin/sidebar";
-            $data['message']="post Gagal dihapus";
-            $data['data']=$this->admin_model->get_post();
-            $this->load->view('admin/view_post',$data);
+            $msg['err_msg'] = "Sorry your Data Failed t Update,..";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
         }
     }
 ##################################################End OF Post######################################################################
 ##################################################Begin Category###################################################################
     public function view_Category(){
         $data['sidebar']="admin/sidebar";
-        $data['data']=$this->Category_model->getCategories();
+        $data['data']=$this->category_model->getCategories();
         $this->load->view('admin/view_category',$data);
     }
     public function Delete_Kategori($id){
-        $delete = $this->Category_model->Delete_Kategori($id);
+        $delete = $this->category_model->Delete_Kategori($id);
         if ($delete == true) {
             $msg['scss_msg'] = "Your Data Already Delete, Well Done..";
             $this->session->set_flashdata($msg);
