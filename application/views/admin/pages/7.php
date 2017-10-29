@@ -70,7 +70,7 @@
                   <div class="form-group" style="margin: 0">
                     <label class="control-label">Jenis Kegiatan<span class="text-danger">*</span></label>
                     <div class="">
-                      <textarea class="textarea" rows="6" name="aspirasi" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                      <textarea class="textarea" rows="6" name="jenis_kegiatan" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                     </div>
                   </div>
                   <br>
