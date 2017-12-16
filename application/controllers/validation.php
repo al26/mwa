@@ -655,7 +655,7 @@ class Validation extends CI_Controller {
             $inserted = ($aksi === 'add') ? $this->proker_model->addProker($data) : $this->proker_model->updateProker($id, $data);
 
             if ($inserted === TRUE) {
-                $msg['scss_msg'] = "Success update page $kategori";
+                $msg['scss_msg'] = "Success update page";
             } else {                
                 $msg['err_msg'] = "An error occurred. Please try again.";
             }
