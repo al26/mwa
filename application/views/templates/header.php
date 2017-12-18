@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=ucwords($page->title);?></title>
+  <title><?=(!empty($page->title)) ? ucwords($page->title) : "";?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="<?=base_url()?>/assets/images/undip.png" type="image/png">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/bootstrap.min.css')?>">
-  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/font-awesome.min.css')?>">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.carousel.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/owl.theme.default.min.css')?>">
   <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/front.css')?>">

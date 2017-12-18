@@ -9,12 +9,11 @@
 	<!-- <div class="container"> -->
 	<form class="form-horizontal form-aspirasi" enctype="multipart/form-data" method="post" action="<?=base_url('kirim-pesan');?>">
 	  <?php 
-		if (!empty($this->session->flashdata('err_msg'))) {
-			echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
-		} elseif (!empty($this->session->flashdata('scss_msg'))) {
-			echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-		} 
-	  ?>
+  if (!empty($this->session->flashdata('err_msg'))) {
+    echo '<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+  } elseif (!empty($this->session->flashdata('scss_msg'))) {
+    echo '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+  } ?>
 	  <div class="form-group">
 	    <label class="control-label col-sm-3 col-md-2 color-aqua" for="name">Nama <span class="text-danger">*</span></label>
 	    <div class="col-sm-8 col-md-9"> 

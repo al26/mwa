@@ -1,5 +1,5 @@
-<h2><?= $single_post->title ?></h2>
-<h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($single_post->created_at), 'l, j F Y g:i A'); ?> in <?php $categories = explode(",",$single_post->category); 
+<h2><?= ucwords($single_post->title) ?></h2>
+<h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by ".$this->session->username." on ".date_format(date_create($single_post->created_at), 'l, j F Y g:i A'); ?> in <?php $categories = explode(",",$single_post->category); 
   if (!empty($categories)) { 
     foreach ($categories as $c) : ?>
           <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').$c;?>"><?=$c; ?></a>
@@ -20,12 +20,11 @@
 <div class="row">
 <div class="container comment-box col-sm-12">
    <?php 
-    if (!empty($this->session->flashdata('err_msg'))) {
-      echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
-    } elseif (!empty($this->session->flashdata('scss_msg'))) {
-      echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-    } 
-    ?>
+  if (!empty($this->session->flashdata('err_msg'))) {
+    echo '<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+  } elseif (!empty($this->session->flashdata('scss_msg'))) {
+    echo '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+  } ?>
   <h2>Add Comments</h2>
   <?=form_open('new_comment/'.$single_post->slug.'/'.$single_post->hash); ?>
 	  <div class="form-group">
@@ -51,7 +50,7 @@
   <div class="media">
   <div class="media-left">
     
-      <img src="<?= base_url('assets/images/post/noimage.png');?>" class="media-object" style="width:45px">
+      <img src="<?= base_url('assets/images/post/ava.jpg');?>" class="media-object" style="width:45px">
     </div>
     <div class="media-body">
       <h4 class="media-heading"><?=$comment['nama']?> <small><i>Posted on <?= date('Y-m-d',strtotime($comment['time_publish']))?></i></small></h4>
@@ -64,7 +63,7 @@
           foreach($reply as $datas) {?>
         <div class="media">
           <div class="media-left">
-            <img src="<?= base_url('assets/images/post/noimage.png');?>" class="media-object" style="width:45px">
+            <img src="<?= base_url('assets/images/post/ava.jpg');?>" class="media-object" style="width:45px">
           </div>
           <div class="media-body">
             <h4 class="media-heading">Admin<small><i> Posted on <?=date('Y-m-d',strtotime($datas['timestamp']))?></i></small></h4>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Add Post</title>
+  <title>Edit Post</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -84,7 +84,7 @@
   <div class="form-group">
     <label class="control-label col-sm-3 col-md-2 color-aqua" for="exampleInputFile">Upload File(s)</label>
   <div class="col-sm-8 col-md-9">
-      <input class="form-control" type="file" required name="user_file[]" id="exampleInputFile" multiple="">
+      <input class="form-control" type="file" name="user_file[]" id="exampleInputFile" multiple="">
   </div>
   </div>
   <div class="form-group"> 

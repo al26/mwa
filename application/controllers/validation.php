@@ -145,14 +145,25 @@ class Validation extends CI_Controller {
 				}
             }
 
-            $data = array(
-                'title' => $title,
-                'slug' => $slug,
-                'body' => $body,
-                'category' => implode(",",$post_category),
-                'image' => implode(",",$images),
-                'hash' => $hash
-            );
+            if (!empty($post_category)) {
+                $data = array(
+                    'title' => $title,
+                    'slug' => $slug,
+                    'body' => $body,
+                    'category' => implode(",",$post_category),
+                    'image' => implode(",",$images),
+                    'hash' => $hash
+                );
+            } else {
+                $data = array(
+                    'title' => $title,
+                    'slug' => $slug,
+                    'body' => $body,
+                    'image' => implode(",",$images),
+                    'hash' => $hash
+                );
+            } 
+            
             $inserted = $this->post_model->createPost($data);
 
             if ($inserted === TRUE) {
@@ -176,7 +187,7 @@ class Validation extends CI_Controller {
 
         $title = $this->input->post('title');
         $body = $this->input->post('body');
-        $post_category = $this->input->post('category');
+        $post_category = $this->input->post('category');    
         $post_images = $this->input->post('user_file');
 
         if($this->form_validation->run() === FALSE) 
@@ -222,14 +233,38 @@ class Validation extends CI_Controller {
                 }
             }
 
-            $data = array(
-                'title' => $title,
-                'slug' => $slug,
-                'body' => $body,
-                'category' => implode(",",$post_category),
-                'image' => implode(",",$images),
-                'hash' => $hash
-            );
+            if (!empty($post_category) && !empty($images)) {
+                $data = array(
+                    'title' => $title,
+                    'slug' => $slug,
+                    'body' => $body,
+                    'category' => implode(",",$post_category),
+                    'image' => implode(",",$images),
+                    'hash' => $hash
+                );
+            } else if (!empty($post_category) && empty($images)) {
+                $data = array(
+                    'title' => $title,
+                    'slug' => $slug,
+                    'body' => $body,
+                    'category' => implode(",",$post_category),
+                );
+            } else if (!empty($images) && empty($post_category)) {
+                $data = array(
+                    'title' => $title,
+                    'slug' => $slug,
+                    'body' => $body,
+                    'image' => implode(",",$images)
+                );
+            } else{
+                $data = array(
+                    'title' => $title,
+                    'slug' => $slug,
+                    'body' => $body
+                );
+            }
+            
+            
             $inserted = $this->post_model->doUpdatePost($id,$data);
 
             if ($inserted === TRUE) {
