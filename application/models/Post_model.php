@@ -15,7 +15,7 @@ class Post_model extends CI_Model {
 
 	public function getPostCount($category)
 	{
-		if ($category !== 'semua-berita') {	
+		if ($category !== 'semua berita') {	
 			$this->db->where('category.name', $category);
 			
 		} 
@@ -35,7 +35,7 @@ class Post_model extends CI_Model {
 	      $offset = 0;
 	    }
 
-	    if ($category !== 'semua-berita') {	
+	    if ($category !== 'semua berita') {	
 			$this->db->where('category.name', $category);
 			
 		} 
@@ -70,7 +70,25 @@ class Post_model extends CI_Model {
 		$this->db->order_by('created_at', 'desc');
 		return $this->db->get('post')->row();
 	}
-
+	public function doUpdatePost($id,$data){
+		$where = array(
+			'id'=>$id
+		);
+		$query = $this->db->update('post',$data,$where);
+		return $query;
+	}
+	public function postUpdate($id){
+		$where = array(
+			'id'=>$id
+		);
+		return $this->db->get_where('post',$where)->row();
+	}
+	public function getDetail($id){
+		$where = array(
+			'id'=>$id
+		);
+		return $this->db->get_where('post',$where)->row();
+	}
 	public function deletePost($id)
 	{	
 		$this->db->where('post.id', $id);

@@ -123,37 +123,51 @@
                       </div>
                     </div>
                   </form>
-            </div>
-            <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              </div>
+              <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive">
-          <table id="example1" class="table table-bordered table-striped">
+          <table id="tb_personaliamwa" class="table table-bordered table-striped">
             <thead>
-            <tr>
-              <th>Nama</th>
-              <th>Jabatan</th>
-              <th>Unsur</th>
-              <th>Foto</th>
-              <th>Opsi</th>
-            </tr>
+              <tr>
+                <th>#</th>
+                <th>Nama</th>
+                <th>Jabatan</th>
+                <th>Unsur</th>
+                <th>Email</th>
+                <th>Telp.</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Instagram</th>
+                <th>Foto</th>
+                <th>Opsi</th>
+              </tr>
             </thead>
             <tbody>
             <?php $no = 1; foreach ($personalia as $k => $p ) { ?>
             <tr>
-              <td><?=(strlen($p->nama) > 20) ? substr($p->nama,0,20).'...' : $p->nama;?></td>
-              <td><?=(strlen($p->jabatan) > 20) ? substr($p->jabatan,0,20).'...' : $p->jabatan;?></td>
-              <td><?=(strlen($p->unsur) > 20) ? substr($p->unsur,0,100).'...' : $p->unsur;?></td>
-              <td><a href="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : '#'?>" target="_blank"><img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" class="media-object" style="width:60px"></a></td>
+              <td><?=$no;?></td>
+              <td><?=(strlen($p->nama) > 20) ? wordwrap($p->nama,20,"<br>\n") : $p->nama;?></td>
+              <td><?=(strlen($p->jabatan) > 20) ? wordwrap($p->jabatan,20,"<br>\n") : $p->jabatan;?></td>
+              <td><?=(strlen($p->unsur) > 20) ? wordwrap($p->unsur,20,"<br>\n") : $p->unsur;?></td>
+              <td><?=(strlen($p->email) > 20) ? wordwrap($p->email,20,"<br>\n") : $p->email;?></td>
+              <td><?=(strlen($p->telp) > 20) ? wordwrap($p->telp,20,"<br>\n") : $p->telp;?></td>
+              <td><?=(strlen($p->facebook) > 20) ? wordwrap($p->facebook,20,"<br>\n") : $p->facebook;?></td>
+              <td><?=(strlen($p->twitter) > 20) ? wordwrap($p->twitter,20,"<br>\n") : $p->twitter;?></td>
+              <td><?=(strlen($p->instagram) > 20) ? wordwrap($p->instagram,20,"<br>\n") : $p->instagram;?></td>
+              <td><a href="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : '#'?>" target="_blank"><img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" class="media-object" style="width:60px"></a>
+              </td>
               <td><span data-toggle="tooltip" title="Hapus Data"><a href="#delete<?=$p->id;?>" class="btn btn-danger" data-toggle="modal" role="button"><i class="fa fa-trash bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editprs<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
-            <tr>
+              </td>
+            </tr>
             <!-- Modal -->
             <div class="modal fade" id="editprs<?=$p->id;?>" role="dialog">
               <div class="modal-dialog">
@@ -248,25 +262,32 @@
                     </div>
                     <div class="modal-body col-xs-12">
                       <p>Are You Sure Want To Delete <?=$p->nama;?> from Personalia ?</p>
-                  </div>
-                  <div class="modal-footer">
+                    </div>
                     <div class="modal-footer">
-                      <a href="<?php echo base_url('delete-personalia/').$p->id;?>" class="btn btn-danger"><i class="fa fa-trash bigicon"></i> Delete Data</a>
+                      <div class="modal-footer">
+                        <a href="<?php echo base_url('delete-personalia/').$p->id;?>" class="btn btn-danger"><i class="fa fa-trash bigicon"></i> Delete Data</a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
 
             <?php $no++;} ?>
             </tbody>
             <tfoot>
-            <tr>
-              <th>#</th>
-              <th>Judul Program</th>
-              <th>Jenis Kegiatan</th>
-              <th>Opsi</th>
-            </tr>
+              <tr>
+                <th>#</th>
+                <th>Nama</th>
+                <th>Jabatan</th>
+                <th>Unsur</th>
+                <th>Email</th>
+                <th>Telp.</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Instagram</th>
+                <th>Foto</th>
+                <th>Opsi</th>
+              </tr>
             </tfoot>
           </table>
         </div>

@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'mwa',
+	'hostname' => '182.255.0.200',
+	'username' => 'mwaundip_mwa',
+	'password' => 'ZAQ!XSW@CDE#',
+	'database' => 'mwaundip_mwadb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

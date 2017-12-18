@@ -9,7 +9,7 @@
 			$config['base_url'] = $url;
 	        $config['per_page'] = $per_page;
 	        $config['total_rows'] = $total;
-	        $config['uri_segment'] = 2;
+	        $config['uri_segment'] = 4;
 	        $config['num_links'] = 3;
 	        $config['use_page_numbers'] = TRUE;
 	        $config['full_tag_open'] = "<div class=\"ct-pagination\"><ul class=\"pagination\">";
@@ -37,17 +37,18 @@
 		public function index($category, $page = NULL)
 		{
 			// for pagination
+			//$category_url = url_title($category,'dash',true);
 			$url = base_url('berita/kategori/').$category;
 			$per_page = 5;
-			$total = $this->post_model->getPostCount($category);
+			$total = $this->post_model->getPostCount(str_replace("-", " ", $category));
 
 	        $data['pagination'] = $this->makePagination($url, $per_page, $total);
-	        $data['recent_posts'] = $this->post_model->getPostPagination($per_page, $page, $category);
+	        $data['recent_posts'] = $this->post_model->getPostPagination($per_page, $page, str_replace("-", " ", $category));
 	        $data['body'] = 'berita';
-			$page['title'] = 'Berita | '.$category;
-			$data['page'] = (object)$page;
+			//$page['title'] = "Berita | ".ucwords(str_replace("-", " ", $category));
+			$data['page'] = (object)array("title"=> "Berita | ".ucwords(str_replace("-", " ", $category)));
 			$data['view'] = 'blog_all';
-			$data['categories'] = $this->Category_model->getCategories();
+			$data['categories'] = $this->category_model->getCategories();
 			$this->load->view('templates/header', $data);	
 			$this->load->view('frontend/blog/blog_layout', $data);	
 			$this->load->view('templates/footer', $data);	
@@ -55,7 +56,7 @@
 
 		public function view($slug)
 		{
-			$data['categories'] = $this->Category_model->getCategories();
+			$data['categories'] = $this->category_model->getCategories();
 			$data['single_post'] = $this->post_model->getPost($slug);
 			$data['view'] = 'blog_single';
 	  		$page['title'] = ucwords(preg_replace("/-/"," ", $slug));
