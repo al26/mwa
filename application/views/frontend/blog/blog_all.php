@@ -1,8 +1,8 @@
 <div class="section-title text-title text-upper color-aqua">
-	<p class="no-margin"><?=($this->uri->segment(3) == 'semua-berita') ? 'Semua Berita' : $this->uri->segment(3) ?></p>
+	<p class="no-margin"><?=($this->uri->segment(3) == 'semua-berita') ? 'Semua Berita' : str_replace("-"," ",$this->uri->segment(3)) ?></p>
 </div>
 <?php if (empty($recent_posts[0]->category)): ?>
-	<h3>Tidak ada berita untuk kategori <?=$this->uri->segment(3);?></h3>
+	<h3>Tidak ada berita untuk kategori <?=ucwords(str_replace("-"," ",$this->uri->segment(3)));?></h3>
 <?php else : ?>
 <?php foreach ($recent_posts as $post) : ?>
 <div class="post-container">
@@ -10,7 +10,7 @@
 <h5><span class="glyphicon glyphicon-time"></span> <?= "Posted by User on ".date_format(date_create($post->created_at), 'l, j F Y g:i A'); ?> in<?php $categories = explode(",",$post->category); 
   if (!empty($categories)) { 
     foreach ($categories as $c) : ?>
-          <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').$c;?>"><?=$c; ?></a>
+          <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').url_title($c, 'dash', true);?>"><?=ucwords($c); ?></a>
 <?php  endforeach; } ?></h5>
 <br>
 <!-- <div class="media"> -->

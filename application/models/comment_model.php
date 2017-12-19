@@ -16,6 +16,7 @@ class Comment_model extends CI_Model {
 		$where = array(
 			'hapus'=>0
 		);
+		$this->db->order_by('time_publish', 'DESC');
 		return $this->db->get_where('comment',$where,10)->result();
 	}
 	public function getAllComment_read($id){

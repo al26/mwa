@@ -37,8 +37,8 @@
 			<div class="posthumb-container">
 				<img class="posthumb" src="<?= (!empty($recent_post->image)) ? base_url('assets/images/post/').$thumb[0] : base_url('assets/images/post/noimage.png') ;?>">
 			</div>
-			<div class="title-container text-justify">
-				<a href="<?=base_url('berita/'.$recent_post->slug);?>" class="btn btn-link no-margin" style="padding: 0 5px;"><?=$recent_post->title?></a>
+			<div class="title-container">
+				<a href="<?=base_url('berita/'.$recent_post->slug);?>" class="btn btn-link no-margin" style="padding: 0 5px; text-align: left;"><?=(strlen($recent_post->title) > 70) ? substr(ucwords(wordwrap($recent_post->title,36, "<br />\n")),0,70)."..." : ucwords(wordwrap($recent_post->title,36, "<br />\n")) ?></a>
 			</div>
 		</div>
 		<?php endforeach; ?>

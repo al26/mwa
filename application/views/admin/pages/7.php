@@ -70,7 +70,7 @@
                   <div class="form-group" style="margin: 0">
                     <label class="control-label">Jenis Kegiatan<span class="text-danger">*</span></label>
                     <div class="">
-                      <textarea class="textarea" rows="6" name="aspirasi" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                      <textarea class="textarea" rows="6" name="jenis_kegiatan" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                     </div>
                   </div>
                   <br>
@@ -102,8 +102,8 @@
             <?php $no = 1; foreach ($proker as $k => $p ) { ?>
             <tr>
               <td><?=$no;?></td>
-              <td><?=$p->judul_program;?></td>
-              <td><?=$p->jenis_kegiatan;?></td>
+              <td><?=(strlen($p->judul_program) > 100) ? substr($p->jenis_kegiatan,0,100).'...' : $p->judul_program;?></td>
+              <td><?=(strlen($p->jenis_kegiatan) > 100) ? substr($p->jenis_kegiatan,0,100).'...' :  $p->jenis_kegiatan;?></td>
               <td>
               <span data-toggle="tooltip" title="Hapus Data"><a role="button" href="#hapuspk<?=$p->id;?>" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;

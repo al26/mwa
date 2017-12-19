@@ -83,6 +83,7 @@
                   <label class="control-label">Upload File</label>
                 <div class="">
                     <input class="form-control" type="file" name="fileskp">
+                    <span class="text-danger"><h6>*File Format PDF</h6></span>
                 </div>
                 </div>
                 <br>
@@ -150,7 +151,7 @@
                       <div class="form-group">
                         <label class="control-label">Tanggal <span class="text-danger">*</span></label>
                         <div class="">
-                          <input type="text" class="form-control" name="tanggal" id="datepicker">
+                          <input type="text" class="form-control" required name="tanggal" id="datepicker">
                         </div>
                       </div>
                       <div class="form-group">
@@ -163,6 +164,7 @@
                         <label class="control-label">Upload File</label>
                       <div class="">
                           <input class="form-control" type="file" name="fileskp">
+                          <span class="text-danger"><h6>*File Format PDF</h6></span>
                       </div>
                       </div>
                       <div class="form-group"> 
@@ -264,6 +266,7 @@
                   <label class="control-label">Upload File</label>
                 <div class="">
                     <input class="form-control" type="file" name="fileskp">
+                    <span class="text-danger"><h6>*File Format PDF</h6></span>
                 </div>
                 </div>
                 <br>
@@ -330,7 +333,7 @@
                       <div class="form-group">
                         <label class="control-label">Tanggal <span class="text-danger">*</span></label>
                         <div class="">
-                          <input type="text" class="form-control" name="tanggal" id="datepicker" value="<?=date("d/m/Y",strtotime($p->tanggal));?>">
+                          <input type="text" class="form-control" name="tanggal" id="datepicker" required value="<?=date("d/m/Y",strtotime($p->tanggal));?>">
                         </div>
                       </div>
                       <div class="form-group">
@@ -343,6 +346,7 @@
                         <label class="control-label">Upload File</label>
                       <div class="">
                           <input class="form-control" type="file" name="fileskp">
+                          <span class="text-danger"><h6>*File Format PDF</h6></span>
                       </div>
                       </div>
                       <div class="form-group"> 
