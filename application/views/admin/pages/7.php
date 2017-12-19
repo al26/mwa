@@ -89,7 +89,7 @@
       </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive">
-          <table id="example1" class="table table-bordered table-striped">
+          <table id="tb_proker" class="table table-bordered table-striped">
             <thead>
             <tr>
               <th>#</th>
@@ -102,14 +102,15 @@
             <?php $no = 1; foreach ($proker as $k => $p ) { ?>
             <tr>
               <td><?=$no;?></td>
-              <td><?=(strlen($p->judul_program) > 100) ? substr($p->judul_program,0,100).'...' : $p->judul_program;?></td>
-              <td><?=(strlen($p->jenis_kegiatan) > 100) ? substr($p->jenis_kegiatan,0,100).'...' : $p->jenis_kegiatan;?></td>
+              <td><?=$p->judul_program;?></td>
+              <td><?=$p->jenis_kegiatan;?></td>
               <td>
               <span data-toggle="tooltip" title="Hapus Data"><a role="button" href="#hapuspk<?=$p->id;?>" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editpk<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
               &nbsp;&nbsp;&nbsp;
-            <tr>
+              </td>
+            </tr>
               <!-- Modal -->
             <div class="modal fade" id="hapuspk<?=$p->id;?>" role="dialog">
               <div class="modal-dialog">

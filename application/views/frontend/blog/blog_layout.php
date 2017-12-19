@@ -18,6 +18,7 @@
       </div>
       <ul class="category_list hidden-xs">
         <li><a class="btn btn-link btn-md color-aqua <?=($this->uri->segment(3) === 'semua-berita') ? 'active' : '';?>" href="<?=base_url('berita/kategori/semua-berita');?>">Semua Berita</a></li>
+        <li><a class="btn btn-link btn-md color-aqua <?=($this->uri->segment(3) === 'tanpa-kategori') ? 'active' : '';?>" href="<?=base_url('berita/kategori/tanpa-kategori');?>">Tanpa Kategori</a></li>
       	<?php foreach ($categories as $category) : ?>
 	      	<li><a class="btn btn-link btn-md color-aqua <?=($this->uri->segment(3) === $category->name) ? 'active' : '';?>" href="<?=base_url('berita/kategori/').$category->name;?>"><?= $category->name; ?></a></li>
 		    <?php endforeach; ?>	

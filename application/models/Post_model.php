@@ -16,7 +16,11 @@ class Post_model extends CI_Model {
 	public function getPostCount($category)
 	{
 		if ($category !== 'semua-berita') {	
-			$this->db->where('category.name', $category);
+			if ($category == 'tanpa-kategori') {			
+				$this->db->where('category.name', null);
+			} else {
+				$this->db->where('category.name', $category);
+			}
 			
 		} 
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
@@ -36,7 +40,11 @@ class Post_model extends CI_Model {
 	    }
 
 	    if ($category !== 'semua-berita') {	
-			$this->db->where('category.name', $category);
+			if ($category == 'tanpa-kategori') {			
+				$this->db->where('category.name', null);
+			} else {
+				$this->db->where('category.name', $category);
+			}
 			
 		} 
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');

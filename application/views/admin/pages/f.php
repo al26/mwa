@@ -74,6 +74,9 @@
   	$('.select2').select2()
     $('#tb_sk').DataTable()
     $('#tb_peraturan').DataTable()
+    $('#tb_personaliamwa').DataTable()
+    $('#tb_personaliaka').DataTable()
+    $('#tb_proker').DataTable()
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
