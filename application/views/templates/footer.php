@@ -92,10 +92,10 @@
   if (isset($recent_posts)) {
     $owl_items = count($recent_posts);
     if ($owl_items > 4) {
-      $owl_items = 4;
+      $owl_items = 1;
     }   
   } else {
-    $owl_items = 4;
+    $owl_items = 1;
   }
 ?>
 
@@ -139,18 +139,20 @@ $(document).ready(function(){
   var owl = $("#owl-demo");
   var owl_items = <?php echo json_encode($owl_items); ?>;
   owl.owlCarousel({
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        400:{
-            items:2
-        },
-        1000:{
-            items:owl_items
-        }
-    }
+    // responsiveClass:true,
+    // responsive:{
+    //     0:{
+    //         items:1
+    //     },
+    //     400:{
+    //         items:1
+    //     },
+    //     1000:{
+    //         items:1
+    //     }
+    // }
+    loop: true,
+    items: 1
   });
  
   // Custom Navigation Events owl carousel
@@ -177,10 +179,20 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $(window).scroll(function(){
-        if($(this).scrollTop() > 100){
+        if($(this).scrollTop() >= 100){
             $('#scroll').fadeIn();
+            $('#global-nav').addClass('scrolled-nav');
+            $('#global-nav').css('height', '50px');
+            $('#global-nav').css('padding', '0px');
+            $('#global-nav').css('transition', 'all .5s');
+            $('#global-nav').css('-webkit-transition', 'all .5s');
         }else{
             $('#scroll').fadeOut();
+            $('#global-nav').removeClass('scrolled-nav');
+            $('#global-nav').css('height', '150px');
+            $('#global-nav').css('padding', '35px');
+            $('#global-nav').css('transition', 'all .5s');
+            $('#global-nav').css('-webkit-transition', 'all .5s');
         }
     });
     $('#scroll').click(function(){

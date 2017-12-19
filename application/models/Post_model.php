@@ -35,7 +35,7 @@ class Post_model extends CI_Model {
 	      $offset = 0;
 	    }
 
-	    if ($category !== 'semua berita') {	
+	    if ($category !== 'semua-berita') {	
 			$this->db->where('category.name', $category);
 			
 		} 

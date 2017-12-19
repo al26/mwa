@@ -1,4 +1,4 @@
-<div class="row hidden-sm hidden-xs">
+<!-- <div class="row hidden-sm hidden-xs">
     <nav class="col-sm-12" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#desc" data-toggle="tooltip" data-placement="right" title="Deskripsi"><i class="fa fa-eercast" aria-hidden="true"></i></a></li>
@@ -20,8 +20,6 @@
 	</div>
 </div>
 <?php endif; ?>
-<!-- <div class="no-content bg-silver"></div> -->
-<!-- <div class="no-content bg-aqua"></div> -->
 <div id="recent" class="bgimg2"></div>
 <div class="section-title text-center text-title text-upper color-aqua">
 	<p>berita terbaru</p>
@@ -56,6 +54,51 @@
 	<?php endif; ?>
 	<br>
 </div>
+<div id="suggestion" class="bgimg3"></div>
+<div class="suggestion text-center">
+	<br>
+	<a href="<?=base_url('kotak-saran')?>" class="btn btn-md btn-aspirasi text-upper"><i class="fa fa-paper-plane" aria-hidden="true"></i> sampaikan aspirasimu</a>
+</div>
+<div class="bgimg3"></div> -->
+<div class="bg-aqua" style="height: 150px;"></div>
+<div id="berita" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner" role="listbox">
+	  <!-- img dari db -->
+	  <?php $i=0; foreach ($recent_posts as $recent_post) { $thumb = explode(",",$recent_post->image); ?>
+	    <div class="item <?php if($i==0) {echo "active";} ?>">
+	        <img class="carousel-img" src="<?= (!empty($recent_post->image)) ? base_url('assets/images/post/').$thumb[0] : base_url('assets/images/post/noimage.png') ;?>" alt="<?=$recent_post->title;?>">
+	        <div class="carousel-caption">
+	          <a href="<?=base_url('berita/'.$recent_post->slug);?>"><?=$recent_post->title;?></a>
+	        </div>
+	      <!-- </a> -->
+	    </div>
+	  <?php $i++;} ?>
+	</div>
+
+	<!-- carousel indicators -->
+	<ol class="carousel-indicators">
+		<?php $i=0; foreach ($recent_posts as $recent_post) { ?>
+	  	<li data-target="#berita" data-slide-to="<?php echo $i?>" class="active"></li>
+		<?php $i++;} ?>
+	</ol>
+
+	<!-- Left and right controls -->
+	<a class="carousel-control left" href="#berita" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control right" href="#berita" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+<?php if (!empty($page->description)) : ?>
+<div class="desc bg-aqua">
+	<div class="container text text-justify">
+		<?=$page->description;?>
+	</div>
+</div>
+<?php endif; ?>
 <div id="suggestion" class="bgimg3"></div>
 <div class="suggestion text-center">
 	<br>

@@ -16,8 +16,14 @@
 
 </head>
 <body id="<?=(isset($body)) ? strtolower($body) : '';?>" data-spy="scroll" data-target=".navbar" data-offset="0">
-
-<nav class="navbar navbar-fixed-top">
+<!-- <header class="header bg-aqua">
+  <div class="container">
+    <a class="" href="<?=base_url()?>">
+      <img class="img-responsive" src="<?=base_url('assets/images/logo.png');?>" width="400">
+    </a>
+  </div>
+</header> -->
+<nav class="navbar bg-aqua" id="global-nav">
   <div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -26,7 +32,7 @@
           <span class="icon-bar"></span>                        
         </button>
         <a class="navbar-brand" href="<?=base_url()?>">
-        	<img class="img-responsive" src="<?=base_url('assets/images/logo.png');?>" width="210">
+        	<img class="img-responsive" src="<?=base_url('assets/images/logo.png');?>">
         </a>
     </div>
     <div class="hidden-sm">
