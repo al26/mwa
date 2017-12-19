@@ -370,8 +370,8 @@ public function DeleteReply($id){
     }
 }
 public function UpdateReply($id){
-    $data['sidebar']="admin/sidebar";
     $data['sidebar_comment']="admin/sidebar-comment";
+    $data['sidebar']="admin/sidebar";
     $data['tabel']="admin/comment/update-reply-comment";
     $data['data']=$this->comment_model->getDataReplyUpdate($id);
     $this->load->view('admin/comment',$data); 
@@ -430,6 +430,27 @@ public function edit_page($id)
             redirect($this->input->server('HTTP_REFERER'));  
         }
         
+    }
+########################Begin User Control########################################
+    public function UsersView(){
+        $data['sidebar']="admin/sidebar";
+        $data['sidebar_comment']="admin/sidebar_users";
+        $data['tabel'] = "admin/users/view_users";
+        $data['data'] = $this->users_model->getUsers(); 
+        $this->load->view('admin/view_users',$data);
+    }
+    public function HapusUser($id){
+        $data = $this->users_model->hapusUser($id);
+        if($data == false){
+            $msg['err_msg'] = "An error occurred. Please try again.";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER'));     
+        }else{
+            $msg['err_msg'] = "Success Delete User";
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER'));     
+
+        }
     }
 
 

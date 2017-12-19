@@ -12,7 +12,8 @@ class Admin_model extends CI_Model {
             
             $data = array(
                     'user_id' => $query->row(0)->id,
-                    'username'=>  $query->row(0)->username                   
+                    'username'=>  $query->row(0)->username,
+                    'role'=> $query->row(0)->role                  
             );
             
             $this->session->set_userdata($data);
