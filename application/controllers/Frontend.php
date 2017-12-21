@@ -6,7 +6,7 @@ class Frontend extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = $this->pages_model->getPage(1);
-		$data['recent_posts'] = $this->post_model->getPostPagination(10, 0, 'semua-berita');
+		$data['recent_posts'] = $this->post_model->getPostPagination(10, 0, 'semua berita');
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/beranda', $data);

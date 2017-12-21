@@ -60,7 +60,7 @@
 	<a href="<?=base_url('kotak-saran')?>" class="btn btn-md btn-aspirasi text-upper"><i class="fa fa-paper-plane" aria-hidden="true"></i> sampaikan aspirasimu</a>
 </div>
 <div class="bgimg3"></div> -->
-<div class="bg-aqua" style="height: 150px;"></div>
+
 <div id="berita" class="carousel slide" data-ride="carousel">
 	<div class="carousel-inner" role="listbox">
 	  <!-- img dari db -->
@@ -92,16 +92,36 @@
 		<span class="sr-only">Next</span>
 	</a>
 </div>
-<?php if (!empty($page->description)) : ?>
-<div class="desc bg-aqua">
-	<div class="container text text-justify">
-		<?=$page->description;?>
+
+<div class="bgimg1">
+
+<div class="container-fluid no-padding">
+	<div class="desc col-sm-6 bg-aqua-transparent text text-justify color-silver">
+		<div class="section-title text-center text-title text-upper color-silver">
+			<p>#kenalan</p>
+		</div>
+		<hr class="line line-silver">
+		<?php if (!empty($page->description)) : ?>
+			<?=$page->description;?>
+		<?php endif; ?>
+		<br>
+		<div class="text-right">
+		<a href="<?=base_url('profil/penjelasan-umum')?>" class="btn btn-md btn-border-silver text-upper" style="margin-right: 0"><i class="fa fa-external-link" aria-hidden="true"></i> selengkapnya</a>
+		</div>
+	</div>
+<!-- </div> -->
+<!-- <div class="container-fluid no-padding"> -->
+	<div class="col-sm-6 desc bg-silver-transparent text text-justify color-aqua">
+		<div class="section-title text-center text-title text-upper color-aqua">
+			<p>#ayosampaikan</p>
+		</div>
+		<hr class="line line-aqua">
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		<br>
+		<div class="text-right">
+		<a href="<?=base_url('kotak-saran')?>" class="btn btn-md btn-border-aqua text-upper"><i class="fa fa-paper-plane" aria-hidden="true"></i> sampaikan sekarang</a>
+		</div>
 	</div>
 </div>
-<?php endif; ?>
-<div id="suggestion" class="bgimg3"></div>
-<div class="suggestion text-center">
-	<br>
-	<a href="<?=base_url('kotak-saran')?>" class="btn btn-md btn-aspirasi text-upper"><i class="fa fa-paper-plane" aria-hidden="true"></i> sampaikan aspirasimu</a>
+
 </div>
-<div class="bgimg3"></div>

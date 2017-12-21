@@ -23,7 +23,7 @@
     </a>
   </div>
 </header> -->
-<nav class="navbar bg-aqua" id="global-nav">
+<nav class="navbar bg-aqua navbar-fixed-top" id="global-nav">
   <div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -70,12 +70,12 @@
             </ul>
           </li>
           <li class="text-upper"><a href="<?=base_url('berita')?>">berita</a></li>
-          <li class="text-upper"><a href="<?=base_url('kotak-saran')?>">form aspirasi</a></li>
           <li class="dropdown text-upper">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">lainnya <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li class="text-upper"><a href="<?=base_url('sk-peraturan')?>">sk &amp; peraturan</a></li>
                 <li class="text-upper"><a href="<?=base_url('program-kerja')?>">program kerja</a></li>
+                <li class="text-upper"><a href="<?=base_url('kotak-saran')?>">form aspirasi</a></li>
             </ul>
           </li>
         </ul>
@@ -83,3 +83,4 @@
     </div>
   </div>
 </nav>
+<div class="bg-aqua" style="height: 150px;"></div>

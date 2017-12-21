@@ -1,7 +1,8 @@
 <!-- <div id="bgsaran1" class="bg-aqua"></div> -->
 <!-- <div id="bgsaran2" class="bg-silver"></div> -->
-<br><br>
+<!-- <br><br> -->
 <div class="form-aspirasi-container">
+	<br><br>
 	<div class="section-title text-center text-title text-upper color-aqua">
 		<p>form aspirasi</p>
 	</div>
@@ -46,7 +47,7 @@
 	  </div>
 	  <div class="form-group"> 
 	    <div class="col-sm-offset-3 col-md-offset-2 col-sm-10">
-	      <button type="submit" name="fileSubmit" class="btn bg-aqua color-silver">Kirim</button>
+	      <button type="submit" name="fileSubmit" class="btn btn-border-aqua">Kirim</button>
 	    </div>
 	  </div>
 	</form>

@@ -7,7 +7,7 @@
     <!-- <hr class="line line-silver"> -->
     <div class="row contact">
       <div class="col-md-4 col-sm-6 col-xs-12">
-        <table class="table">
+        <!-- <table class="table">
           <thead>
             <tr>
               <th colspan="2"><p class="text-title color-silver no-margin">Media Sosial</p></th>
@@ -23,7 +23,7 @@
               <td style="padding:0"><p class="text-left no-margin no-padding"><a class="color-silver btn btn-link btn-md" href="#">OA Line MWA UM Undip</a></p></td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
         <table class="table">
           <thead>
             <tr>
@@ -179,22 +179,24 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $(window).scroll(function(){
-        if($(this).scrollTop() >= 100){
-            $('#scroll').fadeIn();
-            $('#global-nav').addClass('scrolled-nav');
-            $('#global-nav').css('height', '50px');
-            $('#global-nav').css('padding', '0px');
-            $('#global-nav').css('transition', 'all .5s');
-            $('#global-nav').css('-webkit-transition', 'all .5s');
-        }else{
-            $('#scroll').fadeOut();
-            $('#global-nav').removeClass('scrolled-nav');
-            $('#global-nav').css('height', '150px');
-            $('#global-nav').css('padding', '35px');
-            $('#global-nav').css('transition', 'all .5s');
-            $('#global-nav').css('-webkit-transition', 'all .5s');
-        }
+      if($(this).scrollTop() >= 100){
+          $('#scroll').fadeIn();
+          
+          $('#global-nav').css('transition', 'all .5s');
+          $('#global-nav').css('-webkit-transition', 'all .5s');
+          $('#global-nav').addClass('scrolled-nav');
+          $('#global-nav').css('height', '50px');
+          $('#global-nav').css('padding', '0px');
+      }else{
+          $('#scroll').fadeOut();
+          $('#global-nav').removeClass('scrolled-nav');
+          $('#global-nav').css('transition', 'all .5s');
+          $('#global-nav').css('-webkit-transition', 'all .5s');
+          $('#global-nav').css('height', '150px');
+          $('#global-nav').css('padding', '35px 0');
+      }
     });
+
     $('#scroll').click(function(){
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
