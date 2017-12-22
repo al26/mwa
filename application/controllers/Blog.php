@@ -69,10 +69,36 @@
 			 $this->load->view('templates/footer', $data);
 		}
 		
-		public function inCategory($category)
+		public function showSearchResult($key, $page=NULL)
 		{
+			// for pagination
+			// $category = 'semua-berita';
+			$url = base_url('berita/cari/').$key;
+			$per_page = 5;
+			$total = $this->post_model->getPostCountCari(str_replace("-", " ", $key));
 
+	        $data['pagination'] = $this->makePagination($url, $per_page, $total);
+	        $data['recent_posts'] = $this->post_model->getPostPaginationCari($per_page, $page, str_replace("-", " ", $key));
+	        $data['body'] = 'berita';
+			//$page['title'] = "Berita | ".ucwords(str_replace("-", " ", $category));
+			$data['page'] = (object)array("title"=> "Berita | Cari Berita");
+			$data['view'] = 'blog_all';
+			$data['categories'] = $this->category_model->getCategories();
+			$this->load->view('templates/header', $data);	
+			$this->load->view('frontend/blog/blog_layout', $data);	
+			$this->load->view('templates/footer', $data);
 		}
+
+		public function proses_cari()
+		{
+			$key = $this->input->post('cari');
+			$key = url_title($key,'dash',TRUE);
+			if(empty($key)){
+				redirect('berita/kategori/semua-berita');
+			}
+			redirect('berita/cari/'.$key);
+		}
+
 	}
 	
 	/* End of file Blog.php */

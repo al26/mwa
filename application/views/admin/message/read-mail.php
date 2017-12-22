@@ -43,9 +43,9 @@
                     <a target="_blank" href="<?=base_url('assets/uploaded_files/attachments/').$i;  ?>" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
                     </span>
                   <?php } }else{?>
-                    <a href="#" class="mailbox-attachment-name">App Description.docx</a>
+                    <!-- <a href="#" class="mailbox-attachment-name">App Description.docx</a>
                     <span class="mailbox-attachment-size">1,245 KB
-                    <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
+                    <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a> -->
                     </span>
                   <?php } ?>
                   
