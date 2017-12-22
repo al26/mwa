@@ -737,4 +737,80 @@ class Validation extends CI_Controller {
         $this->session->set_flashdata($msg);
         redirect($this->input->server('HTTP_REFERER'));
     }
+    public function ValidationUser(){
+        $this->form_validation->set_rules('username','Username','xss_clean|trim|is_unique[user.username]');
+        $this->form_validation->set_rules('password','Password','xss_clean|trim');
+        $this->form_validation->set_rules('password2','Re-Type Password','xss_clean|trim|matches[password]');
+        $this->form_validation->set_rules('role','Role','xss_clean|trim');
+
+
+        if($this->form_validation->run() == false)
+        {
+            $msg['err_msg'] = validation_errors();
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
+        }
+        else
+        {   
+            $return = $this->users_model->AddUser();
+            if($return == true){
+                $msg['err_msg'] = "Success Add New User";
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER')); 
+            }else{
+                $msg['err_msg'] = "An error occurred. Please try again.";
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER')); 
+            }
+            
+        }
+    }
+    public function VUserUpdate($id){
+        $this->form_validation->set_rules('username1','Old Username','xss_clean|trim');
+        $this->form_validation->set_rules('username2','New Username','xss_clean|trim|is_unique[user.username]');
+        $this->form_validation->set_rules('password','Password','xss_clean|trim');
+
+        if($this->form_validation->run() == false)
+        {
+            $msg['err_msg'] = validation_errors();
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
+        }
+        else
+        {   
+            $return = $this->users_model->UserUpdate($id);
+            if($return == true){
+                $msg['err_msg'] = "Success Update User";
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER')); 
+            }else{
+                $msg['err_msg'] = "An error occurred. Please try again.";
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER')); 
+            }
+            
+        }
+    }
+    public function VpassUpdate($id){
+        $this->form_validation->set_rules('password1','Old Username','xss_clean|trim');
+        $this->form_validation->set_rules('password2','New Username','xss_clean|trim|matches[password1]');
+        
+        if($this->form_validation->run()==false){
+            $msg['err_msg'] = validation_errors();
+            $this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER')); 
+        }else{
+            $return = $this->users_model->passUpdate($id);
+            if($return == true){
+                $msg['err_msg'] = "Success Update Password";
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER')); 
+            }else{
+                $msg['err_msg'] = "An error occurred. Please try again.";
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER')); 
+            }
+        }
+
+    }
 }

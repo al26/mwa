@@ -6,11 +6,15 @@ class Admin extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('form_validation','upload');
-        $this->load->model('admin_model');
+        //$this->load->model('admin_model');
         $this->load->helper('text','form');
-        if($this->session->user_id == false){
-            redirect('login');
+
+        if($this->session->userdata('role')==false){
+            redirect ('login');
+        }elseif($this->session->userdata('role')!="admin"){
+            redirect ('user');
         }
+
     }
     public function index(){
         $data['sidebar']="admin/sidebar";
@@ -451,6 +455,26 @@ public function edit_page($id)
             redirect($this->input->server('HTTP_REFERER'));     
 
         }
+    }
+    public function AddUser(){
+        $data['sidebar']="admin/sidebar";
+        $data['sidebar_comment']="admin/sidebar_users";
+        $data['tabel'] = "admin/users/add_user";
+        $this->load->view('admin/view_users',$data);   
+    }
+    public function UpdateUsername($id){
+        $data['sidebar']="admin/sidebar";
+        $data['sidebar_comment']="admin/sidebar_users";
+        $data['tabel'] = "admin/users/edit_user";
+        $data['data'] = $this->users_model->get_username($id);
+        $this->load->view('admin/view_users',$data);   
+    }
+    public function UpdatePassword($id){
+        $data['sidebar']="admin/sidebar";
+        $data['sidebar_comment']="admin/sidebar_users";
+        $data['tabel'] = "admin/users/edit_password";
+        $data['data'] = $this->users_model->get_username($id);
+        $this->load->view('admin/view_users',$data);   
     }
 
 

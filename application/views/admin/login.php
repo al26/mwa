@@ -68,11 +68,8 @@
         <!-- /.col -->
       </div>
     <?php echo form_close(); ?>
-
-    <!-- <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a> -->
-
   </div>
+</div>
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->

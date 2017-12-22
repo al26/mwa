@@ -25,6 +25,13 @@ class Admin_model extends CI_Model {
     public function is_logged_in(){
         return $this->session->userdata('user_id') != False;
     }
+    public function is_admin(){
+        return $this->session->userdata('role') == "admin";       
+    }
+    public function is_user(){
+        return $this->session->userdata('role') == "user";       
+    }
+    
     public function get_post(){
         $this->db->select('*');
         $this->db->from('post');
