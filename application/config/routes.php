@@ -29,6 +29,15 @@ $route['HapusPK/(:num)'] = 'admin/Hapus_PK/$1';
 
 $route['UsersView'] = 'admin/UsersView';
 $route['hapus-user/(:num)'] = 'admin/HapusUser/$1';
+$route['AddUser'] = 'admin/AddUser';
+$route['ValidationUser'] = 'validation/ValidationUser';
+$route['UpdateUsername/(:num)'] = 'admin/UpdateUsername/$1';
+$route['VUserUpdate/(:num)'] = 'validation/VUserUpdate/$1';
+$route['UpdatePassword/(:num)'] = 'admin/UpdatePassword/$1';
+$route['VpassUpdate/(:num)'] = 'validation/VpassUpdate/$1';
+$route['user'] = 'User';
+$route['post-user']='user/view_post';
+$route['new-post-user'] = 'user/add_post';
 
 
 

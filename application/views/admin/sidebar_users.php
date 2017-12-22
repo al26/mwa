@@ -10,11 +10,10 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="<?php echo base_url('inbox-comment'); ?>"><i class="fa fa-inbox"></i> Inbox Comments
+                <li><a href="<?php echo base_url('UsersView'); ?>"><i class="fa fa-inbox"></i> Lihat Semua User
                   <span class="label label-primary pull-right"></span></a></li>
-                <li><a href="<?php echo base_url('AllReply'); ?>"><i class="fa fa-file-text-o"></i> All Reply Comment</a></li>
-                <li><a href="<?php echo base_url('TrashComment'); ?>"><i class="fa fa-trash-o"></i> Trash Comment</a></li>
-              </ul>
+                <li><a href="<?php echo base_url('AddUser'); ?>"><i class="fa fa-file-text-o"></i> Add User Baru</a></li>
+                </ul>
             </div>
             <!-- /.box-body -->
           </div>

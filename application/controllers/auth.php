@@ -8,12 +8,15 @@ class Auth extends CI_Controller {
         $this->load->library('form_validation','image_lib');
         $this->load->model('admin_model');
         $this->load->helper('captcha');     
-        // if($this->session->user_id == true){
-        //     $this->admin->dashboard();
-        // }
+
     }
 
     public function index(){
+        if($this->session->role=="admin"){
+            redirect('admin');
+        }elseif($this->session->role=="user"){
+            redirect('user');
+        }
         $data = $this->create_captcha();
         $this->load->view('admin/login',$data);
     }
@@ -29,22 +32,24 @@ class Auth extends CI_Controller {
             $this->load->view('admin/login',$data);
         }else{
             $query = $this->admin_model->get_user();
-            if($query==false){
+            if($query == false){
                 redirect('auth');
             }else{
-                // var_dump($this->session);
-               redirect('admin');
+                redirect('admin');
             }
         }
     }
+    
     public function destroy(){
         $this->session->unset_userdata('user_id');
 		$this->session->unset_userdata('username');
+        $this->session->unset_userdata('role');
 		$this->session->sess_destroy();
 
         redirect('login');
     }
     public function create_captcha(){
+
         $data = array(
         
         'img_path'=>'./assets/captcha/',
@@ -52,7 +57,7 @@ class Auth extends CI_Controller {
         'img_width'=>320,
         'img_height'=>80,
         'expiration'=>7200,
-        'word_length'=>6,
+        'word_length'=>3,
         'font_size'=>30
         );
         

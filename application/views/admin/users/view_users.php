@@ -58,7 +58,8 @@
                       <a  href="<?= base_url('hapus-user/').$datas->id;?>" <?php if($this->session->user_id == $datas->id){echo "onclick='return false'";} ?>>
                         <button type="" data-toggle="tooltip" title="Delete User" data-placement="top" class="btn btn-default" <?php if($this->session->user_id == $datas->id){echo "disabled";} ?>><i class="fa fa-trash-o"></i>
                           </button></a>
-                        <a href="<?= base_url('UpdateReply/');?>" type="button" data-toggle="tooltip" data-placement="top" title="Update Replay"  class="btn btn-default"><i class="fa fa-upload"></i> </a>
+                        <a href="<?= base_url('UpdateUsername/').$datas->id;?>" type="button" data-toggle="tooltip" data-placement="top" title="Update Username"  class="btn btn-default"><i class="fa fa-upload"></i> </a>
+                        <a href="<?= base_url('UpdatePassword/').$datas->id;?>" type="button" data-toggle="tooltip" data-placement="top" title="Update Password"  class="btn btn-default"><i class="fa fa-upload"></i> </a>
                     </td>
                   </tr>
                   <?php $no++;} ?>
