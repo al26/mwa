@@ -36,6 +36,8 @@
 	
 		public function index($category, $page = NULL)
 		{
+			$data['profil'] = $this->personalia_model->getCurrentUM();
+
 			// for pagination
 			//$category_url = url_title($category,'dash',true);
 			$url = base_url('berita/kategori/').$category;
@@ -56,6 +58,8 @@
 
 		public function view($slug)
 		{
+			$data['profil'] = $this->personalia_model->getCurrentUM();
+
 			$data['categories'] = $this->category_model->getCategories();
 			$data['single_post'] = $this->post_model->getPost($slug);
 			$data['view'] = 'blog_single';
@@ -71,6 +75,8 @@
 		
 		public function showSearchResult($key, $page=NULL)
 		{
+			$data['profil'] = $this->personalia_model->getCurrentUM();
+
 			// for pagination
 			// $category = 'semua-berita';
 			$url = base_url('berita/cari/').$key;
@@ -91,6 +97,8 @@
 
 		public function proses_cari()
 		{
+			$data['profil'] = $this->personalia_model->getCurrentUM();
+			
 			$key = $this->input->post('cari');
 			$key = url_title($key,'dash',TRUE);
 			if(empty($key)){

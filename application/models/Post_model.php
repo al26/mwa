@@ -158,6 +158,35 @@ class Post_model extends CI_Model {
 		$this->db->where("(title LIKE '%$key%')");
 		return $this->db->get('post', $num, $offset)->result();
 	}
+
+	public function getPostCountByAuthor($author)
+	{ 
+		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->join('user', 'post.author = user.id', 'left');
+		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->order_by('created_at', 'desc');
+		$this->db->from('post');
+		$this->db->where("personalia.nama", $author);
+		return $this->db->count_all_results();
+	}
+
+	public function getPostByAuthor($author, $page, $num){
+		if($page > 1){
+	      $offset = ($page-1)*$num;
+	    } else{
+	      $offset = 0;
+	    }
+
+		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->join('user', 'post.author = user.id', 'left');
+		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, personalia.nama AS author');
+		$this->db->group_by('post.id');
+		$this->db->order_by('created_at', 'desc');
+		$this->db->where("personalia.nama", $author);
+		return $this->db->get('post', $num, $offset)->result();
+	}
 }
 
 /* End of file Post.php */
