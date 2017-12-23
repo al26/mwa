@@ -152,7 +152,8 @@ class Validation extends CI_Controller {
                     'body' => $body,
                     'category' => implode(",",$post_category),
                     'image' => implode(",",$images),
-                    'hash' => $hash
+                    'hash' => $hash,
+                    'id_user' =>$this->session->userdata('user_id')
                 );
             } else {
                 $data = array(
@@ -160,7 +161,8 @@ class Validation extends CI_Controller {
                     'slug' => $slug,
                     'body' => $body,
                     'image' => implode(",",$images),
-                    'hash' => $hash
+                    'hash' => $hash,
+                    'id_user' =>$this->session->userdata('user_id')
                 );
             } 
             
@@ -240,7 +242,8 @@ class Validation extends CI_Controller {
                     'body' => $body,
                     'category' => implode(",",$post_category),
                     'image' => implode(",",$images),
-                    'hash' => $hash
+                    'hash' => $hash,
+                    'id_user' =>$this->session->userdata('user_id')
                 );
             } else if (!empty($post_category) && empty($images)) {
                 $data = array(
@@ -248,19 +251,22 @@ class Validation extends CI_Controller {
                     'slug' => $slug,
                     'body' => $body,
                     'category' => implode(",",$post_category),
+                    'id_user' =>$this->session->userdata('user_id')
                 );
             } else if (!empty($images) && empty($post_category)) {
                 $data = array(
                     'title' => $title,
                     'slug' => $slug,
                     'body' => $body,
-                    'image' => implode(",",$images)
+                    'image' => implode(",",$images),
+                    'id_user' =>$this->session->userdata('user_id')
                 );
             } else{
                 $data = array(
                     'title' => $title,
                     'slug' => $slug,
-                    'body' => $body
+                    'body' => $body,
+                    'id_user' =>$this->session->userdata('user_id')
                 );
             }
             
@@ -280,7 +286,11 @@ class Validation extends CI_Controller {
         }
         
         $this->session->set_flashdata($msg);
-        redirect('post');
+        if($this->session->userdata('user_id') == 'admin'){
+            redirect('post');
+        }else{
+            redirect('post-user');
+        }
     }
     public function new_comment($slug,$id){
     	$this->form_validation->set_rules('nama','Nama','xss_clean|trim');

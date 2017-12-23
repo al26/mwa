@@ -19,7 +19,7 @@
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Old Username</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" required name="username1" id="inputEmail3" placeholder="Old Usename" value="<?= $key->username; ?>">
+                    <input type="text" class="form-control" readonly name="username1" id="inputEmail3" placeholder="Old Usename" value="<?= $key->username; ?>">
                   </div>
                 </div>
                 <div class="form-group">
