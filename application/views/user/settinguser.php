@@ -67,8 +67,8 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <?=  empty($user[0]->jabatan) ? 'kelola-personalia/add/1' : 'kelola-personalia/update/1' ?>
-            <form enctype="multipart/form-data" method="post" action="<?=base_url($a);?>">
+            <form enctype="multipart/form-data" method="post" action="<?= base_url('kelola-personalia/update/1');?>">
+              <input type="hidden" name="id" value="<?= $this->session->userdata('id_personalia');?>">
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama<span class="text-danger">*</span></label>
@@ -100,19 +100,16 @@
           </div>
 
         </div>
-        <!--/.col (left) -->
-        <!-- right column -->
         <div class="col-md-6">
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title"></h3>
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Alamat<span class="text-danger">*</span></label>
-                  <textarea class="form-control" name="alamat" id="exampleInputEmail1" value="<?= $user[0]->facebook ?>" required></textarea>
+                  <textarea class="form-control" name="alamat" id="exampleInputEmail1"required><?= $user[0]->alamat?>
+                  </textarea>
                 </div>
                 
                 <div class="form-group">
