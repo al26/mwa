@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Edit Post</title>
+  <title>Detail Post</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="icon" href="<?=base_url()?>/assets/images/undip.png" type="image/png">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -17,6 +18,7 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/')?>/bower_components/select2/dist/css/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/dist/css/AdminLTE.min.css">
+
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url('assets'); ?>/dist/css/skins/_all-skins.min.css">
@@ -54,33 +56,38 @@
     echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
   } 
   ?>
-  
-<form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('doUpdatePost/').$data_post->id?>">
+<form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('create-post');?>">
   <div class="form-group">
     <label class="control-label col-sm-3 col-md-2 color-aqua" for="title">Title <span class="text-danger">*</span></label>
     <div class="col-sm-8 col-md-9"> 
-      <input type="text" class="form-control" name="title" placeholder="Post Title" value="<?=$data_post->title ?>" required>
+      <input type="text" class="form-control" name="title" placeholder="Post Title" value="<?=$data_post->title?>" readonly>
     </div>
   </div>
   <div class="form-group">
   <label class="control-label col-sm-3 col-md-2 color-aqua" for="body">Post Body <span class="text-danger">*</span></label>
   <div class="col-sm-8 col-md-9">
-    <textarea id="editor1" class="form-control" rows="10" cols="80" name="body" required><?=$data_post->body ?></textarea>
+    <textarea id="editor1" class="form-control" rows="10" cols="80" name="body" readonly><?=$data_post->body?></textarea>
   </div>
   </div>
-  <div class="form-group">
-    <label class="control-label col-sm-3 col-md-2 color-aqua" for="exampleInputFile">Upload File(s)</label>
-  <div class="col-sm-8 col-md-9">
-      <input class="form-control" type="file" name="user_file[]" id="exampleInputFile" multiple="">
-  </div>
-  </div>
-  <div class="form-group"> 
-    <div class="col-sm-offset-3 col-md-offset-2 col-sm-10">
-      <button type="submit" class="btn bg-aqua color-silver">Update</button>
-    </div>
-  </div>
+ <div class="form-group">
+  <label class="control-label col-sm-3 col-md-2 color-aqua" for="title">Files <span class="text-danger">*</span></label>
+  <ul class="mailbox-attachments clearfix">
+    <?php $attch = explode(",",$data_post->image);?>
+    <?php if (!empty($attch)) { ?>
+      <div class="col-sm-8 col-md-9">
+      <?php foreach ($attch as $i){ ?>
+      
+        <img src="<?=base_url('assets/images/post/').$i;  ?>" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> 
+      
+    <?php } }else{?>
+     </div>
+     <a href="#" class="mailbox-attachment-name">App Description.docx</a>
+    <span class="mailbox-attachment-size">1,245 KB
+     <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
+    </span>
+   <?php } ?>
+</div>
 </form>
-
 </section>
 </div>
   <!-- /.content-wrapper -->

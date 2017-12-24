@@ -45,7 +45,7 @@ class User extends CI_Controller {
     public function get_detail_post($id=null){
         $data['sidebar']="admin/sidebar_user";
         $data['data_post']=$this->post_model->getDetail($id);
-        $this->load->view('admin/detail_post',$data);
+        $this->load->view('user/detail_post',$data);
     }
     public function get_edit_post($id=null){
         $data['sidebar']="admin/sidebar_user";
@@ -55,6 +55,7 @@ class User extends CI_Controller {
     }
     public function SettingUser(){
         $data['sidebar'] = "admin/sidebar_user";
+        $data['user'] = $this->user_model->getPersonalia();
         $this->load->view('user/settinguser',$data);   
     }
 }

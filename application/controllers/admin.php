@@ -460,7 +460,7 @@ public function edit_page($id)
         $data['sidebar']="admin/sidebar";
         $data['sidebar_comment']="admin/sidebar_users";
         $data['tabel'] = "admin/users/add_user";
-        $data['personalia'] = $this->personalia_model->getAllPersonaliaMWA();
+        $data['personalia']=$this->users_model->getPersonalia();
         $this->load->view('admin/view_users',$data);   
     }
     public function UpdateUsername($id){

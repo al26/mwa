@@ -14,12 +14,29 @@ class Users_Model extends CI_Model {
 		return $return ? TRUE : FALSE;
 	}
 	public function AddUser(){
-		$data =array(
+		if($this->input->post('personalia') != NUll){
+        	$data =array(
 			'username'=>$this->input->post('username'),
 			'password'=>md5(md5($this->input->post('password'))),
-			'role'=>$this->input->post('role')
-		);
-		$query = $this->db->insert('user', $data);
+			'role'=>$this->input->post('role'),
+			'id_personalia'=>$this->input->post('personalia')
+			);
+        }else{
+        	$data2 = array(
+			'nama'=>$this->input->post('nama')
+			);
+			$this->db->insert('personalia', $data2);
+			$insert_id = $this->db->insert_id();
+
+        	$data =array(
+			'username'=>$this->input->post('username'),
+			'password'=>md5(md5($this->input->post('password'))),
+			'role'=>$this->input->post('role'),
+			'id_personalia'=>$insert_id
+			);
+			
+        }
+        $query = $this->db->insert('user', $data);
 		return $query ? TRUE : FALSE;
 	}
 	public function get_username($id){
@@ -50,6 +67,9 @@ class Users_Model extends CI_Model {
 		//die(var_dump($data));
 		$query = $this->db->update('user',$data,$where);
 		return $query ? TRUE : FALSE;
+	}
+	public function getPersonalia(){
+		return $this->db->query('SELECT A.* FROM personalia A where !EXISTS (SELECT id_personalia FROM user B WHERE B.id_personalia=A.id) AND lower(A.unsur)=lower("MaHasISwa")')->result();
 	}
 
 }

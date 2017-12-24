@@ -71,11 +71,11 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama">
+                  <input type="text" class="form-control" value="<?= $user[0]->nama ?>" id="exampleInputEmail1" placeholder="Nama">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Jabatan<span class="text-danger">*</span></label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Jabatan">
+                  <input type="text" class="form-control" value="<?= $user[0]->jabatan ?>" id="exampleInputPassword1" placeholder="Jabatan">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Unsur<span class="text-danger">*</span></label>
@@ -83,11 +83,11 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                  <input type="email" class="form-control" value="<?= $user[0]->email ?>" id="exampleInputEmail1" placeholder="Email">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">No.telp</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="08xxxx">
+                  <input type="text" class="form-control" value="<?= $user[0]->telp ?>" id="exampleInputPassword1" placeholder="08xxxx">
                 </div>
               </div>
               <!-- /.box-body -->
@@ -107,19 +107,19 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Facebook</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Facebook">
+                  <input type="text" class="form-control" id="exampleInputEmail1" value="<?= $user[0]->facebook ?>" placeholder="Facebook">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Twitter</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Twitter">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="<?= $user[0]->twitter ?>" placeholder="Twitter">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Instagram</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Instagram">
+                  <input type="text" class="form-control" value="<?= $user[0]->instagram ?>" id="exampleInputEmail1" placeholder="Instagram">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
+                  <input type="file" value="<?=  ?>" id="exampleInputFile">
                 </div>
               </div>
               <!-- /.box-body -->
