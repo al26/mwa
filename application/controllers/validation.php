@@ -497,6 +497,8 @@ class Validation extends CI_Controller {
 		$this->form_validation->set_rules('jabatan','Jabatan','xss_clean|trim');
 		$this->form_validation->set_rules('unsur','Unsur','xss_clean|trim');
 		$this->form_validation->set_rules('email','Email','xss_clean|trim');
+        $this->form_validation->set_rules('tahun','Tahun','xss_clean|trim');
+        $this->form_validation->set_rules('alamat','Alamat','xss_clean|trim');
 		$this->form_validation->set_rules('telp','No. Telp','xss_clean|trim');
 		$this->form_validation->set_rules('fb','Akun Facebook','xss_clean|trim');
 		$this->form_validation->set_rules('twit','Akun Twitter','xss_clean|trim');
@@ -509,6 +511,8 @@ class Validation extends CI_Controller {
         $email = $this->input->post('email');
         $telp = $this->input->post('telp');
         $fb = $this->input->post('fb');
+        $tahun = $this->input->post('tahun');
+        $alamat = $this->input->post('alamat');
         $twit = $this->input->post('twit');
         $ig = $this->input->post('ig');
         $is_ka = ($ka == 1) ? 'yes' : 'no';
@@ -562,6 +566,8 @@ class Validation extends CI_Controller {
                 'telp' => $telp,
                 'facebook' => $fb,
                 'twitter' => $twit,
+                'tahun'=>$tahun,
+                'alamat'=>$alamat,
                 'instagram' => $ig,
                 'is_ka' => $is_ka,
                 'foto' => $foto
@@ -572,6 +578,8 @@ class Validation extends CI_Controller {
                 'jabatan' => $jabatan,
                 'unsur' => $unsur,
                 'email' => $email,
+                'tahun'=>$tahun,
+                'alamat'=>$alamat,
                 'telp' => $telp,
                 'facebook' => $fb,
                 'twitter' => $twit,
