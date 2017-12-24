@@ -6,8 +6,8 @@ class Frontend extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = $this->pages_model->getPage(1);
-		$data['recent_posts'] = $this->post_model->getPostPagination(10, 0, 'semua berita');
-
+		$data['recent_posts'] = $this->post_model->getPostPagination(5, 0, 'semua berita', 'admin');
+		$data['profil'] = $this->personalia_model->getCurrentUM();
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/beranda', $data);
 		$this->load->view('templates/footer', $data);
@@ -15,6 +15,7 @@ class Frontend extends CI_Controller {
 
 	public function penjelasan_umum()
 	{
+		$data['profil'] = $this->personalia_model->getCurrentUM();
 		$data['page'] = $this->pages_model->getPage(2);
 		$data['body'] = 'profil';
 	    $data['fk'] = $this->fk_model->get();
@@ -25,6 +26,7 @@ class Frontend extends CI_Controller {
 
 	public function personalia()
 	{
+		$data['profil'] = $this->personalia_model->getCurrentUM();
 		$data['page'] = $this->pages_model->getPage(3);
 		$data['body'] = 'profil';
 		$data['personalia'] = $this->personalia_model->getAllPersonaliaMWA();
@@ -35,6 +37,7 @@ class Frontend extends CI_Controller {
 
 	public function komite_audit()
 	{
+		$data['profil'] = $this->personalia_model->getCurrentUM();
 		$data['page'] = $this->pages_model->getPage(4);
 		$data['body'] = 'profil';
 		$data['ka'] = $this->personalia_model->getAllPersonaliaKA();
@@ -43,9 +46,11 @@ class Frontend extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	public function mwa_um()
+	public function mwa_um($tahun=NULL)
 	{
 		$data['page'] = $this->pages_model->getPage(5);
+		$data['profil'] = $this->personalia_model->getCurrentUM();
+		$data['mwaum'] = $this->personalia_model->getAllPersonaliaUM();
 		$data['body'] = 'profil';
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/mwaum', $data);
@@ -54,6 +59,7 @@ class Frontend extends CI_Controller {
 
 	public function skp()
 	{
+		$data['profil'] = $this->personalia_model->getCurrentUM();
 		$data['page'] = $this->pages_model->getPage(6);
 		$data['body'] = 'skp';
 		$data['sk'] = $this->skp_model->getSKYear();
@@ -65,6 +71,7 @@ class Frontend extends CI_Controller {
 
 	public function proker()
 	{
+		$data['profil'] = $this->personalia_model->getCurrentUM();
 		$data['page'] = $this->pages_model->getPage(7);
 		$data['body'] = 'pk';
 		$data['proker'] = $this->proker_model->getAllProker();
@@ -75,7 +82,7 @@ class Frontend extends CI_Controller {
 
 	public function saran()
 	{
-
+		$data['profil'] = $this->personalia_model->getCurrentUM();
 		$data['page'] = (object)array('title' => 'Kotak Saran');
 		$data['body'] = 'aspirasi';
 		$this->load->view('templates/header', $data);
@@ -83,6 +90,23 @@ class Frontend extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	
+	public function read_article($slug)
+	{
+		$data['categories'] = $this->category_model->getCategories();
+		$data['single_post'] = $this->post_model->getPost($slug, 'user');
+  		$page['title'] = ucwords(preg_replace("/-/"," ", $slug));
+  		$data['page'] = (object)$page;
+  		$data['body'] = 'berita';
+		$data['profil'] = $this->personalia_model->getCurrentUM();
+		$data['mwaum'] = $this->personalia_model->getAllPersonaliaUM();
+		$this->load->view('templates/header', $data);
+		$this->load->view('frontend/read', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	public function cari($key)
+	{
+		
+	}
 
 }

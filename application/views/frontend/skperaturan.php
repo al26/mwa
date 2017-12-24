@@ -1,24 +1,24 @@
-<br><br><br>
+<br>
 <div class="container">
     <!-- <div class="row"> -->
         <div class="heading-title text-center">
-            <div class="section-title text-center text-title text-upper color-aqua">
+            <div class="section-title text-center text-title text-upper color-black">
 				<p><?=$page->title;?></p>
 			</div>
-			<hr class="line line-aqua">
+			<hr class="line line-black">
             <?php if (!empty($page->description)) : ?>
-            <div class="p-top-30 text color-aqua text-justify"><?=$page->description;?></div>
+            <div class="p-top-30 text color-black text-justify"><?=$page->description;?></div>
             <?php endif; ?>
         </div>
         <?php if (!empty($sk)): ?>
-        <div class="text-subtitle text-upper color-aqua">
+        <div class="text-subtitle text-upper color-black">
             <p>surat keputusan mwa undip</p>
         </div>
         <div class="panel-group" id="accordionsk" role="tablist" aria-multiselectable="true">
         <?php foreach($sk as $s): ?>
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title color-aqua">
+                <h4 class="panel-title color-black">
                     <a role="button" data-toggle="collapse" data-parent="#accordionsk<?=$s->year;?>" href="<?='#collapsesk'.$s->year;?>" aria-expanded="true" aria-controls="<?='collapsesk'.$s->year;?>">
                         <i class="more-less glyphicon glyphicon-plus"></i>
                         Surat Keputusan MWA Tahun <?=$s->year?>
@@ -58,14 +58,14 @@
         <?php endif ?>
 
         <?php if (!empty($peraturan)) { ?>
-        <div class="text-subtitle text-upper color-aqua">
+        <div class="text-subtitle text-upper color-black">
             <p>peraturan mwa undip</p>
         </div>
         <div class="panel-group" id="accordionp" role="tablist" aria-multiselectable="true">
         <?php foreach ($peraturan as $p) : ?>
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title color-aqua">
+                <h4 class="panel-title color-black">
                     <a role="button" data-toggle="collapse" data-parent="#<?='accordionp'.$p->year?>" href="#collapse<?='accordionp'.$p->year?>" aria-expanded="true" aria-controls="collapse<?='accordionp'.$p->year?>">
                         <i class="more-less glyphicon glyphicon-plus"></i>
                         Peraturan MWA Tahun <?=$p->year;?>

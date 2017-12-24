@@ -1,5 +1,5 @@
 <h2><?= ucwords($single_post->title) ?></h2>
-<h5><span class="glyphicon glyphicon-time"></span> <?= "Dipublikasikan pada ".date_format(date_create($single_post->created_at), 'j/m/Y'); ?> | kategori :<?php $categories = explode(",",$single_post->category); 
+<h5><span class="glyphicon glyphicon-time"></span> <?= "Dipublikasikan oleh ".ucwords($single_post->nama)." pada ".date_format(date_create($single_post->created_at), 'j/m/Y'); ?> | kategori :<?php $categories = explode(",",$single_post->category); 
   if (!empty($categories)) { 
     foreach ($categories as $c) : ?>
           <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').$c;?>"><?=$c; ?></a>
@@ -14,7 +14,7 @@
         <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left">
 <?php }?>
   <br>
-  <p class="container text-justify"><?=$single_post->body; ?></p>
+  <p><?=$single_post->body; ?></p>
 </div>
 <hr>
 <!-- comment -->

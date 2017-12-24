@@ -11,13 +11,21 @@ class Personalia_model extends CI_Model {
 
 	public function getAllPersonaliaMWA()
 	{
-		$this->db->where('is_ka', 'no');
+		$where = array(
+			'is_ka' => 'no',
+			'status' => 'aktif'
+		);
+		$this->db->where($where);
 		return $this->db->get('personalia')->result();
 	}
 
 	public function getAllPersonaliaKA()
 	{
-		$this->db->where('is_ka', 'yes');
+		$where = array(
+			'is_ka' => 'yes',
+			'status' => 'aktif'
+		);
+		$this->db->where($where);
 		return $this->db->get('personalia')->result();
 	}
 
@@ -34,6 +42,31 @@ class Personalia_model extends CI_Model {
 		return $query ? TRUE : FALSE;
 	}
 
+	public function getAllPersonaliaUM()
+	{
+		$where = array(
+			"LOWER(unsur)" => "LOWER('mahasiswa')"
+		);
+		$this->db->where($where, NULL, FALSE);
+		return $this->db->get('personalia')->result();
+	}
+
+	public function getPersonaliaUMbyYear($tahun)
+	{
+		$this->db->where("LOWER(unsur) = LOWER('mahasiswa') AND tahun = '$tahun'");
+		return $this->db->get('personalia')->row();
+	}
+
+	public function getCurrentUM()
+	{
+		$where = array(
+			"LOWER(unsur)" => "LOWER('mahasiswa')",
+			"status" => "'aktif'"
+		);
+		$this->db->where($where, NULL, FALSE);
+		$this->db->select('tahun');
+		return $this->db->get('personalia')->row();
+	}
 }
 
 /* End of file Personalia_model.php */

@@ -3,10 +3,10 @@
 <!-- <br><br> -->
 <div class="form-aspirasi-container">
 	<br><br>
-	<div class="section-title text-center text-title text-upper color-aqua">
+	<div class="section-title text-center text-title text-upper color-black">
 		<p>form aspirasi</p>
 	</div>
-	<hr class="line line-aqua"><br>
+	<hr class="line line-black"><br>
 	<!-- <div class="container"> -->
 	<form class="form-horizontal form-aspirasi" enctype="multipart/form-data" method="post" action="<?=base_url('kirim-pesan');?>">
 	  <?php 
@@ -16,31 +16,31 @@
     echo '<div class="alert alert-success alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
   } ?>
 	  <div class="form-group">
-	    <label class="control-label col-sm-3 col-md-2 color-aqua" for="name">Nama <span class="text-danger">*</span></label>
+	    <label class="control-label col-sm-3 col-md-2 color-black" for="name">Nama <span class="text-danger">*</span></label>
 	    <div class="col-sm-8 col-md-9"> 
 	      <input type="text" class="form-control" name="name" placeholder="Nama Kamu" value="<?=$this->session->flashdata('name');?>" required>
 	    </div>
 	  </div>
 	  <div class="form-group">
-	    <label class="control-label col-sm-3 col-md-2 color-aqua" for="email">Email <span class="text-danger">*</span></label>
+	    <label class="control-label col-sm-3 col-md-2 color-black" for="email">Email <span class="text-danger">*</span></label>
 	    <div class="col-sm-8 col-md-9">
 	      <input type="email" class="form-control" name="email" placeholder="Email Aktif Kamu" value="<?=$this->session->flashdata('email');?>" required>
 	    </div>
 	  </div>
 	  <div class="form-group">
-	    <label class="control-label col-sm-3 col-md-2 color-aqua" for="subject">Topik <span class="text-danger">*</span></label>
+	    <label class="control-label col-sm-3 col-md-2 color-black" for="subject">Topik <span class="text-danger">*</span></label>
 	    <div class="col-sm-8 col-md-9">
 	      <input type="text" class="form-control" name="subject" placeholder="Topik Bahasan" value="<?=$this->session->flashdata('subject');?>" required>
 	    </div>
 	  </div>
 	  <div class="form-group">
-		<label class="control-label col-sm-3 col-md-2 color-aqua" for="message">Aspirasi <span class="text-danger">*</span></label>
+		<label class="control-label col-sm-3 col-md-2 color-black" for="message">Aspirasi <span class="text-danger">*</span></label>
 		<div class="col-sm-8 col-md-9">
 		  <textarea class="textarea" rows="6" name="message" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required><?=$this->session->flashdata('message');?></textarea>
 		</div>
 	  </div>
 	  <div class="form-group">
-	    <label class="control-label col-sm-3 col-md-2 color-aqua" for="exampleInputFile">Upload File</label>
+	    <label class="control-label col-sm-3 col-md-2 color-black" for="exampleInputFile">Upload File</label>
 		<div class="col-sm-8 col-md-9">
 	      <input class="form-control" type="file" name="attachment[]" id="exampleInputFile" multiple>
 		</div>
