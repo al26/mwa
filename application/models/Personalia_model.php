@@ -11,13 +11,21 @@ class Personalia_model extends CI_Model {
 
 	public function getAllPersonaliaMWA()
 	{
-		$this->db->where('is_ka', 'no');
+		$where = array(
+			'is_ka' => 'no',
+			'status' => 'aktif'
+		);
+		$this->db->where($where);
 		return $this->db->get('personalia')->result();
 	}
 
 	public function getAllPersonaliaKA()
 	{
-		$this->db->where('is_ka', 'yes');
+		$where = array(
+			'is_ka' => 'yes',
+			'status' => 'aktif'
+		);
+		$this->db->where($where);
 		return $this->db->get('personalia')->result();
 	}
 

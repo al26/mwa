@@ -12,6 +12,7 @@ $route['berita/kategori/(:any)'] = 'blog/index/$1';
 $route['berita/kategori/(:any)/(:num)'] = 'blog/index/$1/$2';
 $route['berita/(:any)'] = 'blog/view/$1';
 $route['berita/cari/(:any)'] = 'blog/showSearchResult/$1';
+$route['profil/mwa-um/(:any)/read/(:any)'] = 'frontend/read_article/$2';
 $route['cari-berita'] = 'blog/proses_cari';
 $route['kotak-saran'] = 'frontend/saran';
 $route['kirim-pesan'] = 'validation/send_message';

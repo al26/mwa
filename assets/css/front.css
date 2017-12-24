@@ -22,11 +22,13 @@ body{overflow-x:hidden;margin:0;background:#ecf0f1;}
 .line-long{display:block;height:1px;width:100%;border:0;border-radius:5px;margin:1em 0;padding:0;}
 .line-silver{border-top:5px solid #ecf0f1;}
 .line-aqua{border-top:5px solid /*#07575b*/ #2b6698;}
+.line-black{border-top:5px solid #000;}
 .centered {margin:0 auto;}
 .no-margin{margin:0}
 .no-padding{padding:0}
 .color-silver{color:#ecf0f1;}
 .color-aqua{color:#2b6698;}
+.color-black{color:#000;}
 .btn-link:hover{text-decoration:none;}
 /*header*/
 .header{min-height:100px}
@@ -147,8 +149,28 @@ ul.nav-pills{top:30%;position:fixed;z-index:1000;left:.1%;}
 ul.nav-pills li a{color:#000;font-size:25px;background:transparent;opacity:.8;}
 ul.nav-pills li a:hover, ul.nav-pills li a:focus, ul.nav-pills li a:hover:focus{background:transparent;opacity:1;font-weight:bolder;color:#000;}
 .suggestion{min-height:85px;background:#CFB53B;}
-/*.carousel{margin-top: 150px}*/
+.carousel-caption{
+	bottom: 20%;
+	text-shadow: none;
+}
+.carousel-caption h3{
+	background:rgba(43,102,152, .5);
+	padding: 3rem 0;
+	border-top: 5px solid #fff;
+	border-bottom: 5px solid #fff;
+}
+.carousel-caption a{
+	color: rgba(43,102,152, 1);
+}
 img.carousel-img{max-height:500px;width:100%;}
+.carousel-indicators li {
+	background-color: #2b6698 !important;
+	border-color: #2b6698;
+}
+.carousel-indicators li.active {
+	background-color: #ecf0f1 !important;
+	border-color: #2b6698;
+}
 /*saran*/
 body#aspirasi{background: #fff;
     background: -webkit-linear-gradient(#2b6698, #fff); 
@@ -166,7 +188,7 @@ body#berita{background:#fff}
 .category_list a:hover{color:#ecf0f1;text-decoration:none;padding-left:10px;}
 .category_list a.btn-link.active{color:#ecf0f1;text-decoration:none;padding-left:10px;background:#2b6698;}
 ul.category_list li:hover{background:#2b6698;}
-.post_thumb{width:250px;justify-content:center;overflow:hidden;margin:5px auto;}
+.post_thumb{max-width:25%;justify-content:center;overflow:hidden;margin:5px auto;}
 .post_image{max-width:100%;justify-content:center;overflow:hidden;margin:5px auto;}
 .row.content{height:auto;}
 .main-content{min-height:560px;}
@@ -176,7 +198,7 @@ ul.category_list li:hover{background:#2b6698;}
 /*profil*/
 body#profil{background:#fff;}
 .profil{font-weight:400;font-size:16px;line-height:1.5;color:#07575b;}
-a.list-group-item, a.list-group-item:hover{background: inherit;color:inherit;}
+a.list-group-item, a.list-group-item:hover{background: inherit;color:#000}
 .list-group .list-group-item{
 	border: none;
 	padding-top: 0;
@@ -215,14 +237,14 @@ ol.myol li {padding-left: 10px;}
 .team-member:hover .team-hover .desk{top:35%;}
 .team-member:hover .team-hover, .team-member:hover .team-hover .desk, .team-member:hover .team-hover .s-link{opacity:1;}
 .team-hover .desk{position:absolute;top:0%;width:100%;opacity:0;-webkit-transform:translateY(-55%);-ms-transform:translateY(-55%);transform:translateY(-55%);-webkit-transition:all 0.3s 0.2s;transition:all 0.3s 0.2s;padding:0 20px;}
-.desk, .desk h4, .team-hover .s-link a{text-align:center;color:#07575b;}
+.desk, .desk h4, .team-hover .s-link a{text-align:center;color:#000;}
 .team-member:hover .team-hover .s-link{bottom:10%;}
 .team-member:hover .team-hover, .team-member:hover .team-hover .desk, .team-member:hover .team-hover .s-link{opacity:1;}
 .team-hover .s-link{position:absolute;bottom:0;width:100%;opacity:0;text-align:center;-webkit-transform:translateY(45%);-ms-transform:translateY(45%);transform:translateY(45%);-webkit-transition:all 0.3s 0.2s;transition:all 0.3s 0.2s;font-size:35px;}
-.team-member .s-link a{margin:0 10px;color:#07575b;font-size:16px;}
+.team-member .s-link a{margin:0 10px;color:#000;font-size:16px;}
 .team-title{position:static;padding:20px 0;display:inline-block;letter-spacing:2px;width:100%;}
-.team-title h4{margin-bottom:0px;display:block;text-transform:uppercase;}
-.team-title span{font-size:12px;text-transform:uppercase;color:#CFB53B;letter-spacing:1px;}
+.team-title h4{margin-bottom:0px;display:block;text-transform:uppercase;color:#000}
+.team-title span{font-size:12px;text-transform:uppercase;color:#000;letter-spacing:1px;}
 
 /*sk&peraturan*/
 body#skp{background:#fff}
@@ -230,7 +252,7 @@ body#skp{background:#fff}
 .panel-default > .panel-heading{padding:0;border-radius:0;color:#07575b;background-color:#ecf0f1;border-color:#ecf0f1;}
 .panel-title{font-size:14px;}
 .panel-title > a{display:block;padding:15px;text-decoration:none;}
-.more-less{float:right;color:#07575b;}
+.more-less{float:right;color:#000;}
 .panel-default > .panel-heading + .panel-collapse > .panel-body{border-top-color:#ecf0f1;}
 /*program kerja*/
 body#pk{background:#fff}

@@ -69,7 +69,7 @@
                 <li class="text-upper"><a href="<?=base_url('profil/mwa-um/').str_replace("/", "-", $profil->tahun);?>">mwa unsur mahasiswa</a></li>
             </ul>
           </li>
-          <li class="text-upper"><a href="<?=base_url('berita')?>">berita</a></li>
+          <li class="text-upper"><a href="<?=base_url('berita/kategori/semua-berita')?>">berita</a></li>
           <li class="dropdown text-upper">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">lainnya <b class="caret"></b></a>
             <ul class="dropdown-menu">

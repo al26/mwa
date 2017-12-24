@@ -3,31 +3,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Post_model extends CI_Model {
 
-	public function getPost($slug = FALSE)
+	public function getPost($slug = FALSE, $author)
 	{	
-		$this->db->where('post.slug', $slug);
+		$where = array(
+			'post.slug' => $slug,
+			'user.role' => $author
+		);
+		$this->db->where($where);
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
-		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->join('user', 'post.author = user.id', 'inner');
+		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, user.role, personalia.nama');
 		$this->db->group_by('post.id');
 		$this->db->order_by('created_at', 'desc');
 		return $this->db->get('post')->row();
 	}
 
-	public function getPostCount($category)
+	public function getPostCount($category, $author)
 	{
+		$where = array(
+			'category.name' => $category,
+			'user.role' => $author
+		);
+
 		if ($category !== 'semua berita') {	
-			$this->db->where('category.name', $category);
-			
-		} 
+			$this->db->where($where);
+		} else {
+			$this->db->where('user.role', $author);
+		}
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
-		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->join('user', 'post.author = user.id', 'inner');
+		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, user.role, personalia.nama');
 		$this->db->order_by('created_at', 'desc');
 		$this->db->from('post');
 
 		return $this->db->count_all_results();
 	}
 
-	public function getPostPagination($num, $page, $category) 
+	public function getPostPagination($num, $page, $category, $author) 
 	{
 		if($page > 1){
 	      $offset = ($page-1)*$num;
@@ -35,12 +49,20 @@ class Post_model extends CI_Model {
 	      $offset = 0;
 	    }
 
-	    if ($category !== 'semua berita') {	
-			$this->db->where('category.name', $category);
-			
-		} 
+	    $where = array(
+			'category.name' => $category,
+			'user.role' => $author
+		);
+
+		if ($category !== 'semua berita') {	
+			$this->db->where($where);
+		} else {
+			$this->db->where('user.role', $author);
+		}
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
-		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->join('user', 'post.author = user.id', 'inner');
+		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, user.role, personalia.nama');
 		$this->db->group_by('post.id');
 		$this->db->order_by('created_at', 'desc');
 		return $this->db->get('post', $num, $offset)->result();
@@ -133,17 +155,19 @@ class Post_model extends CI_Model {
 		return $this->db->get_where('reply', $where)->result_array();
 	} 
 
-	public function getPostCountCari($key)
+	public function getPostCountCari($key, $role)
 	{ 
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
-		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
+		$this->db->join('user', 'post.author = user.id', 'inner');
+		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, user.role, personalia.nama');
 		$this->db->order_by('created_at', 'desc');
 		$this->db->from('post');
-		$this->db->where("(title LIKE '%$key%')");
+		$this->db->where("(user.role = '$role' AND title LIKE '%$key%')");
 		return $this->db->count_all_results();
 	}
 
-	public function getPostPaginationCari($num, $page, $key) 
+	public function getPostPaginationCari($num, $page, $key, $role) 
 	{
 		if($page > 1){
 	      $offset = ($page-1)*$num;
@@ -151,11 +175,12 @@ class Post_model extends CI_Model {
 	      $offset = 0;
 	    }
 
-		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
-		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at');
-		$this->db->group_by('post.id');
+	    $this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->join('user', 'post.author = user.id', 'inner');
+		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, user.role, personalia.nama');
 		$this->db->order_by('created_at', 'desc');
-		$this->db->where("(title LIKE '%$key%')");
+		$this->db->where("(user.role = '$role' AND title LIKE '%$key%')");
 		return $this->db->get('post', $num, $offset)->result();
 	}
 

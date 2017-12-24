@@ -68,7 +68,8 @@
 	    <div class="item <?php if($i==0) {echo "active";} ?>">
 	        <img class="carousel-img" src="<?= (!empty($recent_post->image)) ? base_url('assets/images/post/').$thumb[0] : base_url('assets/images/post/noimage.png') ;?>" alt="<?=$recent_post->title;?>">
 	        <div class="carousel-caption">
-	          <a href="<?=base_url('berita/'.$recent_post->slug);?>"><?=$recent_post->title;?></a>
+	          <h3><?=$recent_post->title;?></h3>
+	          <a class="btn btn-border-aqua" href="<?=base_url('berita/'.$recent_post->slug);?>">Read More</a>
 	        </div>
 	      <!-- </a> -->
 	    </div>

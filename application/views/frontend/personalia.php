@@ -1,13 +1,13 @@
-<br><br><br>
+<br>
 <div class="container profil">
     <!-- <div class="row"> -->
         <div class="heading-title text-center">
-            <div class="section-title text-center text-title text-upper color-aqua">
+            <div class="section-title text-center text-title text-upper color-black">
 				<p><?=$page->title;?></p>
 			</div>
-			<hr class="line line-aqua">
+			<hr class="line line-black">
             <?php if (!empty($page->description)) : ?>
-            <div class="p-top-30 half-txt color-aqua text-justify"><?=$page->description;?></div>
+            <div class="p-top-30 half-txt color-black text-justify"><?=$page->description;?></div>
         <?php endif; ?>
         </div>
 

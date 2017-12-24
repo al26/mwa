@@ -6,7 +6,7 @@ class Frontend extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = $this->pages_model->getPage(1);
-		$data['recent_posts'] = $this->post_model->getPostPagination(10, 0, 'semua berita');
+		$data['recent_posts'] = $this->post_model->getPostPagination(5, 0, 'semua berita', 'admin');
 		$data['profil'] = $this->personalia_model->getCurrentUM();
 		$this->load->view('templates/header', $data);
 		$this->load->view('frontend/beranda', $data);
@@ -90,6 +90,23 @@ class Frontend extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
-	
+	public function read_article($slug)
+	{
+		$data['categories'] = $this->category_model->getCategories();
+		$data['single_post'] = $this->post_model->getPost($slug, 'user');
+  		$page['title'] = ucwords(preg_replace("/-/"," ", $slug));
+  		$data['page'] = (object)$page;
+  		$data['body'] = 'berita';
+		$data['profil'] = $this->personalia_model->getCurrentUM();
+		$data['mwaum'] = $this->personalia_model->getAllPersonaliaUM();
+		$this->load->view('templates/header', $data);
+		$this->load->view('frontend/read', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	public function cari($key)
+	{
+		
+	}
 
 }

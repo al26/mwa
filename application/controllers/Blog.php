@@ -42,10 +42,10 @@
 			//$category_url = url_title($category,'dash',true);
 			$url = base_url('berita/kategori/').$category;
 			$per_page = 5;
-			$total = $this->post_model->getPostCount(str_replace("-", " ", $category));
+			$total = $this->post_model->getPostCount(str_replace("-", " ", $category), 'admin');
 
 	        $data['pagination'] = $this->makePagination($url, $per_page, $total);
-	        $data['recent_posts'] = $this->post_model->getPostPagination($per_page, $page, str_replace("-", " ", $category));
+	        $data['recent_posts'] = $this->post_model->getPostPagination($per_page, $page, str_replace("-", " ", $category), 'admin');
 	        $data['body'] = 'berita';
 			//$page['title'] = "Berita | ".ucwords(str_replace("-", " ", $category));
 			$data['page'] = (object)array("title"=> "Berita | ".ucwords(str_replace("-", " ", $category)));
@@ -61,7 +61,7 @@
 			$data['profil'] = $this->personalia_model->getCurrentUM();
 
 			$data['categories'] = $this->category_model->getCategories();
-			$data['single_post'] = $this->post_model->getPost($slug);
+			$data['single_post'] = $this->post_model->getPost($slug, 'admin');
 			$data['view'] = 'blog_single';
 	  		$page['title'] = ucwords(preg_replace("/-/"," ", $slug));
 	  		$data['page'] = (object)$page;
@@ -81,10 +81,10 @@
 			// $category = 'semua-berita';
 			$url = base_url('berita/cari/').$key;
 			$per_page = 5;
-			$total = $this->post_model->getPostCountCari(str_replace("-", " ", $key));
+			$total = $this->post_model->getPostCountCari(str_replace("-", " ", $key), 'admin');
 
 	        $data['pagination'] = $this->makePagination($url, $per_page, $total);
-	        $data['recent_posts'] = $this->post_model->getPostPaginationCari($per_page, $page, str_replace("-", " ", $key));
+	        $data['recent_posts'] = $this->post_model->getPostPaginationCari($per_page, $page, str_replace("-", " ", $key), 'admin');
 	        $data['body'] = 'berita';
 			//$page['title'] = "Berita | ".ucwords(str_replace("-", " ", $category));
 			$data['page'] = (object)array("title"=> "Berita | Cari Berita");
