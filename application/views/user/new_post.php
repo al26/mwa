@@ -69,17 +69,6 @@
 	</div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-3 col-md-2 color-aqua">Category</label>
-	<div class="col-sm-8 col-md-9">
-        <select name="category[]" class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Category" style="width: 100%;" tabindex="-1" aria-hidden="true">
-          <?php foreach($categories as $c): ?>
-          	<option value="<?=$c->id?>"><?=$c->name;?></option>
-          <?php endforeach; ?>
-        </select><span class="dropdown-wrapper" aria-hidden="true"></span>
-    </div>
-
-  </div>
-  <div class="form-group">
     <label class="control-label col-sm-3 col-md-2 color-aqua" for="exampleInputFile">Upload File(s)</label>
 	<div class="col-sm-8 col-md-9">
       <input class="form-control" type="file" name="user_file[]" id="exampleInputFile" multiple="">

@@ -152,7 +152,8 @@ class Validation extends CI_Controller {
                     'body' => $body,
                     'category' => implode(",",$post_category),
                     'image' => implode(",",$images),
-                    'hash' => $hash
+                    'hash' => $hash,
+                    'author' =>$this->session->userdata('user_id')
                 );
             } else {
                 $data = array(
@@ -160,7 +161,8 @@ class Validation extends CI_Controller {
                     'slug' => $slug,
                     'body' => $body,
                     'image' => implode(",",$images),
-                    'hash' => $hash
+                    'hash' => $hash,
+                    'author' =>$this->session->userdata('user_id')
                 );
             } 
             
@@ -240,7 +242,8 @@ class Validation extends CI_Controller {
                     'body' => $body,
                     'category' => implode(",",$post_category),
                     'image' => implode(",",$images),
-                    'hash' => $hash
+                    'hash' => $hash,
+                    'author' =>$this->session->userdata('user_id')
                 );
             } else if (!empty($post_category) && empty($images)) {
                 $data = array(
@@ -248,19 +251,22 @@ class Validation extends CI_Controller {
                     'slug' => $slug,
                     'body' => $body,
                     'category' => implode(",",$post_category),
+                    'author' =>$this->session->userdata('user_id')
                 );
             } else if (!empty($images) && empty($post_category)) {
                 $data = array(
                     'title' => $title,
                     'slug' => $slug,
                     'body' => $body,
-                    'image' => implode(",",$images)
+                    'image' => implode(",",$images),
+                    'author' =>$this->session->userdata('user_id')
                 );
             } else{
                 $data = array(
                     'title' => $title,
                     'slug' => $slug,
-                    'body' => $body
+                    'body' => $body,
+                    'author' =>$this->session->userdata('user_id')
                 );
             }
             
@@ -280,7 +286,11 @@ class Validation extends CI_Controller {
         }
         
         $this->session->set_flashdata($msg);
-        redirect('post');
+        if($this->session->userdata('user_id') == 'admin'){
+            redirect('post');
+        }else{
+            redirect('post-user');
+        }
     }
     public function new_comment($slug,$id){
     	$this->form_validation->set_rules('nama','Nama','xss_clean|trim');
@@ -739,11 +749,10 @@ class Validation extends CI_Controller {
     }
     public function ValidationUser(){
         $this->form_validation->set_rules('username','Username','xss_clean|trim|is_unique[user.username]');
-        $this->form_validation->set_rules('password','Password','xss_clean|trim');
+        $this->form_validation->set_rules('password','Password','xss_clean|trim|min_length[5]|alpha_numeric');
         $this->form_validation->set_rules('password2','Re-Type Password','xss_clean|trim|matches[password]');
         $this->form_validation->set_rules('role','Role','xss_clean|trim');
-
-
+       
         if($this->form_validation->run() == false)
         {
             $msg['err_msg'] = validation_errors();
@@ -752,6 +761,7 @@ class Validation extends CI_Controller {
         }
         else
         {   
+
             $return = $this->users_model->AddUser();
             if($return == true){
                 $msg['err_msg'] = "Success Add New User";

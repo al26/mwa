@@ -39,9 +39,12 @@ $route['VUserUpdate/(:num)'] = 'validation/VUserUpdate/$1';
 $route['UpdatePassword/(:num)'] = 'admin/UpdatePassword/$1';
 $route['VpassUpdate/(:num)'] = 'validation/VpassUpdate/$1';
 $route['user'] = 'User';
+$route['SettingUser'] = 'user/SettingUser';
 $route['post-user']='user/view_post';
 $route['new-post-user'] = 'user/add_post';
-
+$route['delete-post/(:num)'] = 'user/delete_post/$1';
+$route['detail-post-user/(:num)']='user/get_detail_post/$1';
+$route['update-post-user/(:num)']='user/get_edit_post/$1';
 
 
 

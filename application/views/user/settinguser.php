@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>View Post</title>
+  <title>Setting User</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="icon" href="<?=base_url()?>/assets/images/undip.png" type="image/png">
@@ -40,7 +40,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables Post MWA-UM
+        Setting User MWA-UM
         
       </h1>
       <ol class="breadcrumb">
@@ -49,9 +49,6 @@
         <li class="active">Data tables</li>
       </ol>
     </section>
-
-    <!-- Main content -->
-    <section class="content">
     <?php 
     if (!empty($this->session->flashdata('err_msg'))) {
       echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
@@ -59,59 +56,92 @@
       echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
     } 
     ?>
+     <section class="content">
       <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Judul</th>
-                  <th>Isi</th>
-                  <th>Kategori</th>
-                  <th>Image</th>
-                  <th>Created at</th>
-                  <th>Opsi</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <?php if(isset($data)){ ?>
-                <?php foreach ($data as $k => $post ) {?>
-                <?php //die(print_r($post)); ?>
-                <tr>
-                  <td><?=(strlen($post->title) > 20) ? substr($post->title,0,20).'...' : $post->title;?></td>
-                  <td><?=word_limiter($post->body,5);?></td>
-                  <td><?=(strlen($post->category) > 20) ? substr($post->category,0,20).'...' : $post->category;?></td>
-                  <td><?=(strlen($post->image) > 20) ? substr($post->image,0,20).'...' : $post->image;?></td>
-                  <td><?=$post->created_at;?></td>
-                  <td><a href="<?php echo base_url('delete-post/').$post->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Post"><i class="fa fa-trash bigicon"></i></a>
-                  &nbsp;&nbsp;&nbsp;
-                  <a href="<?php echo base_url('update-post-user/').$post->id;?>" class="btn btn-primary" data-toggle="tooltip" title="Update Post"><i class="fa fa-upload bigicon"></i></a>
-                  &nbsp;&nbsp;&nbsp;
-                  <a href="<?php echo base_url('detail-post-user/').$post->id;?>" class="btn btn-info" data-toggle="tooltip" title="Detail Post"><i class="fa fa-info-circle bigicon"></i></a></td>
-                </tr>
-                <?php }} ?>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Judul</th>
-                  <th>Isi</th>
-                  <th>Kategori</th>
-                  <th>Image</th>
-                  <th>Created at</th>
-                  <th>Opsi</th>
-                </tr>
-                </tfoot>
-              </table>
+        <!-- left column -->
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"></h3>
             </div>
-            <!-- /.box-body -->
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form enctype="multipart/form-data" method="post" action="<?=base_url('kelola-personalia/add/1');?>">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Nama<span class="text-danger">*</span></label>
+                  <input required type="text" class="form-control" name="nama" value="<?= $user[0]->nama ?>" id="exampleInputEmail1" placeholder="Nama">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Jabatan<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" required name="jabatan" value="<?= $user[0]->jabatan ?>" id="exampleInputPassword1" placeholder="Jabatan">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Unsur<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="unsur" value="Mahasiswa" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Tahun<span class="text-danger">*</span></label>
+                  <input type="text" required class="form-control" value="<?= $user[0]->email ?>" id="exampleInputEmail1" placeholder="Tahun">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" class="form-control" value="<?= $user[0]->email ?>" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">No.telp</label>
+                  <input type="text" class="form-control" value="<?= $user[0]->telp ?>" id="exampleInputPassword1" placeholder="08xxxx">
+                </div>
+              </div>
+              <!-- /.box-body -->
+            
           </div>
-          <!-- /.box -->
+
         </div>
-        <!-- /.col -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Alamat<span class="text-danger">*</span></label>
+                  <textarea class="form-control" id="exampleInputEmail1" value="<?= $user[0]->facebook ?>" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Facebook</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" value="<?= $user[0]->facebook ?>" placeholder="Facebook">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Twitter</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="<?= $user[0]->twitter ?>" placeholder="Twitter">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Instagram</label>
+                  <input type="text" class="form-control" value="<?= $user[0]->instagram ?>" id="exampleInputEmail1" placeholder="Instagram">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile">
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--/.col (right) -->
       </div>
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
