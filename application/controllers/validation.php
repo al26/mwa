@@ -314,10 +314,8 @@ class Validation extends CI_Controller {
 				
 			}
 		$this->session->set_flashdata($msg);
-		redirect('berita/'.$slug);
+		redirect($this->input->server('HTTP_REFERER'));
     }
-
-
 
     public function update_page($id)
     {

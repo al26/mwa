@@ -317,7 +317,7 @@ public function inbox_comment(){
     $data['sidebar']="admin/sidebar";
     $data['sidebar_comment']="admin/sidebar-comment";
     $data['tabel']="admin/comment/inbox-comment";
-    $data['data']=$this->comment_model->get_comment();
+    $data['data']=$this->comment_model->get_comment('admin');
     $this->load->view('admin/comment',$data);
 }
 public function read_comment($id){
@@ -338,7 +338,7 @@ public function AllReply(){
     $data['sidebar']="admin/sidebar";
     $data['sidebar_comment']="admin/sidebar-comment";
     $data['tabel']="admin/comment/All-Reply-comment";
-    $data['data']=$this->comment_model->getCommentReply();
+    $data['data']=$this->comment_model->getCommentReply('admin');
     // var_dump($data['data']);
     // die();
     $this->load->view('admin/comment',$data);   

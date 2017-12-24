@@ -34,10 +34,11 @@
                 <table class="table table-hover ">
                   <tbody>
                   <tr>
-                    <th>Sender</th>
-                    <th>Subject</th>
-                    <th>Date Reply</th>
-                    <th>Action Reply</th>
+                    <th>Komenter</th>
+                    <th>Judul Post</th>
+                    <th>Komen Balasan</th>
+                    <th>Tanggal Balas</th>
+                    <th>Opsi</th>
                   </tr>
                    <?php foreach ($data as $datas) {?>
 
@@ -45,6 +46,7 @@
 
                     
                     <td class="mailbox-name"><a href="<?php echo base_url('ViewReply/').$datas->id_reply; ?>"><?php echo $datas->nama; ?></a></td>
+                    <td class="mailbox-subject"><a href="<?=base_url('berita/').$datas->slug?>" target="_blank"><?=ucwords($datas->title);?></a></td>
                     <td class="mailbox-subject"><?php echo strip_tags(word_limiter($datas->reply,4));  ?>
                     </td>
                     <td class="mailbox-date"><?= $datas->timestamp;?></td>
