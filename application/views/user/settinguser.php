@@ -71,15 +71,19 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" value="<?= $user[0]->nama ?>" id="exampleInputEmail1" placeholder="Nama">
+                  <input required type="text" class="form-control" name="nama" value="<?= $user[0]->nama ?>" id="exampleInputEmail1" placeholder="Nama">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Jabatan<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" value="<?= $user[0]->jabatan ?>" id="exampleInputPassword1" placeholder="Jabatan">
+                  <input type="text" class="form-control" required name="jabatan" value="<?= $user[0]->jabatan ?>" id="exampleInputPassword1" placeholder="Jabatan">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Unsur<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" value="Mahasiswa" readonly>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="unsur" value="Mahasiswa" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Tahun<span class="text-danger">*</span></label>
+                  <input type="text" required class="form-control" value="<?= $user[0]->email ?>" id="exampleInputEmail1" placeholder="Tahun">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email</label>
@@ -106,6 +110,11 @@
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
+                  <label for="exampleInputEmail1">Alamat<span class="text-danger">*</span></label>
+                  <textarea class="form-control" id="exampleInputEmail1" value="<?= $user[0]->facebook ?>" required></textarea>
+                </div>
+                
+                <div class="form-group">
                   <label for="exampleInputEmail1">Facebook</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" value="<?= $user[0]->facebook ?>" placeholder="Facebook">
                 </div>
@@ -119,7 +128,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" value="<?=  ?>" id="exampleInputFile">
+                  <input type="file" id="exampleInputFile">
                 </div>
               </div>
               <!-- /.box-body -->
