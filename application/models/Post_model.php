@@ -13,7 +13,7 @@ class Post_model extends CI_Model {
 		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
 		$this->db->join('user', 'post.author = user.id', 'inner');
 		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
-		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, user.role, personalia.nama');
+		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, post.author,user.role, personalia.nama');
 		$this->db->group_by('post.id');
 		$this->db->order_by('created_at', 'desc');
 		return $this->db->get('post')->row();

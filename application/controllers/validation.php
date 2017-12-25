@@ -306,6 +306,7 @@ class Validation extends CI_Controller {
 					'email'=>$this->input->post('email'),
 					'comment'=>$this->input->post('comment'),
 					'hash'=>$hash,
+                    'belong_to'=>$this->input->post('id_author'),
 					'hash_post'=>$id,
 					'hapus'=>0
 					);
@@ -313,8 +314,11 @@ class Validation extends CI_Controller {
 				$msg['scss_msg'] = "Success add new comment";
 				
 			}
-		$this->session->set_flashdata($msg);
-		redirect('berita/'.$slug);
+		// $this->session->set_flashdata($msg);
+		// redirect('berita/'.$slug);
+        //$msg['err_msg'] = "Success Status";
+        $this->session->set_flashdata($msg);
+        redirect($this->input->server('HTTP_REFERER')); 
     }
 
 
@@ -462,6 +466,26 @@ class Validation extends CI_Controller {
           $this->session->set_flashdata($msg);
           redirect($this->input->server('HTTP_REFERER')); 
     }
+    public function StatusUpdate($id){
+        $this->form_validation->set_rules('status','Status','trim|xss_clean');
+
+        if($this->form_validation->run()==false){
+               $msg['err_msg'] = validation_errors();
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER'));
+        }else{
+            $return = $this->users_model->UpdateStatus($id);
+            if($return == true){
+                $msg['err_msg'] = "Success Update Status";
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER')); 
+            }else{
+                $msg['err_msg'] = "An error occurred. Please try again.";
+                $this->session->set_flashdata($msg);
+                redirect($this->input->server('HTTP_REFERER')); 
+            }
+        }
+    }
 
 
 
@@ -499,6 +523,7 @@ class Validation extends CI_Controller {
 		$this->form_validation->set_rules('email','Email','xss_clean|trim');
         $this->form_validation->set_rules('tahun','Tahun','xss_clean|trim');
         $this->form_validation->set_rules('alamat','Alamat','xss_clean|trim');
+        $this->form_validation->set_rules('bio','Bio','xss_clean|trim');
 		$this->form_validation->set_rules('telp','No. Telp','xss_clean|trim');
 		$this->form_validation->set_rules('fb','Akun Facebook','xss_clean|trim');
 		$this->form_validation->set_rules('twit','Akun Twitter','xss_clean|trim');
@@ -510,6 +535,7 @@ class Validation extends CI_Controller {
         $unsur = $this->input->post('unsur');
         $email = $this->input->post('email');
         $telp = $this->input->post('telp');
+        $bio = $this->input->post('bio');
         $fb = $this->input->post('fb');
         $tahun = $this->input->post('tahun');
         $alamat = $this->input->post('alamat');
@@ -568,6 +594,7 @@ class Validation extends CI_Controller {
                 'twitter' => $twit,
                 'tahun'=>$tahun,
                 'alamat'=>$alamat,
+                'bio'=>$bio,
                 'instagram' => $ig,
                 'is_ka' => $is_ka,
                 'foto' => $foto
@@ -581,6 +608,7 @@ class Validation extends CI_Controller {
                 'tahun'=>$tahun,
                 'alamat'=>$alamat,
                 'telp' => $telp,
+                'bio'=>$bio,
                 'facebook' => $fb,
                 'twitter' => $twit,
                 'instagram' => $ig,

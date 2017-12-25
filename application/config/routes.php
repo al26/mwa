@@ -33,6 +33,8 @@ $route['HapusPK/(:num)'] = 'admin/Hapus_PK/$1';
 $route['UsersView'] = 'admin/UsersView';
 $route['hapus-user/(:num)'] = 'admin/HapusUser/$1';
 $route['AddUser'] = 'admin/AddUser';
+$route['StatusUpdate/(:num)'] = 'validation/StatusUpdate/$1';
+$route['UpdateStatus/(:num)'] = 'admin/UpdateStatus/$1';
 $route['ValidationUser'] = 'validation/ValidationUser';
 $route['UpdateUsername/(:num)'] = 'admin/UpdateUsername/$1';
 $route['VUserUpdate/(:num)'] = 'validation/VUserUpdate/$1';
@@ -45,6 +47,10 @@ $route['new-post-user'] = 'user/add_post';
 $route['delete-post/(:num)'] = 'user/delete_post/$1';
 $route['detail-post-user/(:num)']='user/get_detail_post/$1';
 $route['update-post-user/(:num)']='user/get_edit_post/$1';
+$route['PreviewUser']='user/getPreview';
+$route['comment-user']='user/commentUser';
+$route['AllReply_user']='user/AllReply';
+
 
 
 
@@ -89,12 +95,15 @@ $route['new_comment/(:any)/(:any)']='validation/new_comment/$1/$2';
 $route['comment']='admin/inbox_comment';
 $route['inbox-comment']='admin/inbox_comment';
 $route['read_comment/(:any)']='admin/read_comment/$1';
+$route['read_comment_user/(:any)']='user/read_comment/$1';
 $route['reply/(:any)']='admin/reply_comment/$1';
+$route['replyUser/(:any)']='user/reply_comment/$1';
 $route['do_reply/(:any)']='validation/reply_comment/$1';
 $route['ViewReply/(:num)']='admin/ViewReply/$1';
 $route['AllReply']='admin/AllReply';
 $route['Deletecomment/(:any)']='admin/Delete_comment/$1';
 $route['TrashComment']='admin/Trash_Comment';
+$route['TrashComment_user']='user/Trash_Comment';
 $route['DeleteReply/(:any)']='admin/DeleteReply/$1';
 $route['UpdateReply/(:any)']='admin/UpdateReply/$1';
 $route['doUpdateReply/(:num)']='validation/doUpdate_Reply/$1';

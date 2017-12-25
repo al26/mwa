@@ -477,6 +477,13 @@ public function edit_page($id)
         $data['data'] = $this->users_model->get_username($id);
         $this->load->view('admin/view_users',$data);   
     }
+    public function UpdateStatus($id){
+        $data['sidebar']="admin/sidebar";
+        $data['sidebar_comment']="admin/sidebar_users";
+        $data['tabel'] = "admin/users/edit_status";
+        $data['data'] = $this->users_model->get_update($id);
+        $this->load->view('admin/view_users',$data);      
+    }
 
 
 

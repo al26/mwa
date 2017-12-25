@@ -58,4 +58,44 @@ class User extends CI_Controller {
         $data['user'] = $this->user_model->getPersonalia();
         $this->load->view('user/settinguser',$data);   
     }
+    public function getPreview(){
+        $data['sidebar'] = "admin/sidebar_user";
+        $data['user'] = $this->user_model->GetUserPreview();
+        $this->load->view('user/PreviewUser',$data);      
+    }
+    public function commentUser(){
+        $data['sidebar']="admin/sidebar_user";
+        $data['sidebar_comment']="user/sidebar_commentUser";
+        $data['tabel']="user/inbox-comment";
+        $data['data']=$this->comment_model->get_comment_user();
+        $this->load->view('user/comment',$data);
+    }
+    public function read_comment($id){
+        $data['sidebar']="admin/sidebar_user";
+        $data['sidebar_comment']="user/sidebar_commentUser";
+        $data['tabel']="user/read-comment-user";
+        $data['data']=$this->comment_model->getAllComment_read($id);
+        $this->load->view('user/comment',$data); 
+    }
+    public function Trash_Comment(){
+        $data['sidebar']="admin/sidebar_user";
+        $data['sidebar_comment']="user/sidebar_commentUser";
+        $data['tabel']="admin/comment/All-Trash-comment";
+        $data['data']=$this->comment_model->getCommentTrash_user();
+        $this->load->view('user/comment',$data); 
+    }
+    public function reply_comment($hash){
+    $data['sidebar']="admin/sidebar_user";
+    $data['sidebar_comment']="user/sidebar_commentUser";
+    $data['tabel']="admin/comment/reply-comment";
+    $data['data']=$this->comment_model->getDataComment_reply($hash);
+    $this->load->view('user/comment',$data); 
+}
+    public function AllReply(){
+    $data['sidebar']="admin/sidebar_user";
+    $data['sidebar_comment']="user/sidebar_commentUser";
+    $data['tabel']="admin/comment/All-Reply-comment";
+    $data['data']=$this->comment_model->getCommentReply();
+    $this->load->view('user/comment',$data);   
+}
 }

@@ -24,6 +24,12 @@ class User_model extends CI_Model {
 		);
 		return $this->db->get_where('personalia',$where)->result();
 	}
+	public function GetUserPreview(){
+		$where = array(
+			'id'=>$this->session->userdata('id_personalia')
+		);
+		return $this->db->get_where('personalia',$where)->result();	
+	}
 
 }
 
