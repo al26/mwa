@@ -28,6 +28,7 @@
   } ?>
   <h2>Add Comments</h2>
   <?=form_open('new_comment/'.$single_post->slug.'/'.$single_post->hash); ?>
+  <input type="hidden" name="id_author" value="<?= $single_post->author; ?>">
 	  <div class="form-group">
 	    <label for="email">Email address:</label>
 	    <input type="email" class="form-control comenters" name="email" id="email" required>

@@ -86,7 +86,7 @@
             </span>
           </a>
           <ul class="treeview-menu">          
-           <li><a href="<?php echo base_url('comment');?>"><i class="fa fa-circle-o"></i> View All Comment</a></li>  
+           <li><a href="<?php echo base_url('comment-user');?>"><i class="fa fa-circle-o"></i> View All Comment</a></li>  
           </ul>
         </li>
         <li class="treeview">
@@ -98,7 +98,7 @@
           </a>
           <ul class="treeview-menu">          
            <li><a href="<?php echo base_url('SettingUser');?>"><i class="fa fa-circle-o"></i> Pengaturan User</a></li> 
-           <li><a href="<?php echo base_url('SettingUser');?>"><i class="fa fa-circle-o"></i> Preview User</a></li>  
+           <li><a href="<?php echo base_url('PreviewUser');?>"><i class="fa fa-circle-o"></i> Preview User</a></li>  
           </ul>
         </li>
       </ul>

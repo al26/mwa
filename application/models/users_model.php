@@ -71,6 +71,22 @@ class Users_Model extends CI_Model {
 	public function getPersonalia(){
 		return $this->db->query('SELECT A.* FROM personalia A where !EXISTS (SELECT id_personalia FROM user B WHERE B.id_personalia=A.id) AND lower(A.unsur)=lower("MaHasISwa")')->result();
 	}
+	public function get_update($id){
+		$where = array(
+			'id'=>$id
+		);
+		return $this->db->get_where('personalia',$where)->result();
+	}
+	public function UpdateStatus($id){
+		$where = array(
+			'id'=>$id
+		);
+		$data = array(
+			'status'=>$this->input->post('status')
+		);
+		$query = $this->db->update('personalia',$data,$where);	
+		return $query ? True : false;
+	}
 
 }
 

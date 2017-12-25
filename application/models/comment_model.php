@@ -145,6 +145,21 @@ class Comment_model extends CI_Model {
 			return false;
 		}
 	}
+	public function get_comment_user(){
+		$where = array(
+			'hapus'=>0,
+			'belong_to'=>$this->session->userdata('user_id')
+		);
+		$this->db->order_by('time_publish', 'DESC');
+		return $this->db->get_where('comment',$where,10)->result();
+	}
+	public function getCommentTrash_user(){
+		$where = array(
+			'hapus'=>1,
+			'belong_to'=>$this->session->userdata('user_id')
+		);
+		return $this->db->get_where('comment',$where, 10)->result();
+	}
 }
 
 

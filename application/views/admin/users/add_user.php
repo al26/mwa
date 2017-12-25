@@ -12,13 +12,13 @@
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Nama</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" required name="nama" id="inputEmail3" placeholder="Usename">
+                    <input type="text" class="form-control" required name="nama" id="inputEmail3" placeholder="Nama">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" required name="username" id="inputEmail3" placeholder="Usename">
+                    <input type="text" class="form-control" required name="username" id="inputEmail3" placeholder="Username">
                   </div>
                 </div>
                 <div class="form-group">
@@ -121,3 +121,4 @@
             } 
             ?>
 </div>
+

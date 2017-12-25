@@ -49,13 +49,6 @@
         <li class="active">Data tables</li>
       </ol>
     </section>
-    <?php 
-    if (!empty($this->session->flashdata('err_msg'))) {
-      echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
-    } elseif (!empty($this->session->flashdata('scss_msg'))) {
-      echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-    } 
-    ?>
      <section class="content">
       <div class="row">
         <!-- left column -->
@@ -67,32 +60,31 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form enctype="multipart/form-data" method="post" action="<?= base_url('kelola-personalia/update/1');?>">
-              <input type="hidden" name="id" value="<?= $this->session->userdata('id_personalia');?>">
+            <form enctype="multipart/form-data" method="post">
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama<span class="text-danger">*</span></label>
-                  <input required type="text" class="form-control" name="nama" value="<?= $user[0]->nama ?>" id="exampleInputEmail1" placeholder="Nama">
+                  <input readonly type="text" class="form-control" name="nama" value="<?= $user[0]->nama ?>" id="exampleInputEmail1" placeholder="Nama">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Jabatan<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" required name="jabatan" value="<?= $user[0]->jabatan ?>" id="exampleInputPassword1" placeholder="Jabatan">
+                  <input readonly type="text" class="form-control" required name="jabatan" value="<?= $user[0]->jabatan ?>" id="exampleInputPassword1" placeholder="Jabatan">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Unsur<span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="unsur" value="Mahasiswa" readonly>
+                  <input readonly type="text" class="form-control" id="exampleInputEmail1" name="unsur" value="Mahasiswa" readonly>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Tahun<span class="text-danger">*</span></label>
-                  <input type="text" required class="form-control" name="tahun" value="<?= $user[0]->tahun ?>" id="exampleInputEmail1" placeholder="Tahun">
+                  <input readonly type="text" required class="form-control" name="tahun" value="<?= $user[0]->tahun ?>" id="exampleInputEmail1" placeholder="Tahun">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email</label>
-                  <input type="email" class="form-control" name="email" value="<?= $user[0]->email ?>" id="exampleInputEmail1" placeholder="Email">
+                  <input readonly type="email" class="form-control" name="email" value="<?= $user[0]->email ?>" id="exampleInputEmail1" placeholder="Email">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">No.telp</label>
-                  <input type="text" class="form-control" name="telp" value="<?= $user[0]->telp ?>" id="exampleInputPassword1" placeholder="08xxxx">
+                  <input readonly type="text" class="form-control" name="telp" value="<?= $user[0]->telp ?>" id="exampleInputPassword1" placeholder="08xxxx">
                 </div>
               </div>
               <!-- /.box-body -->
@@ -108,38 +100,33 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Alamat<span class="text-danger">*</span></label>
-                  <textarea class="form-control" name="alamat" id="exampleInputEmail1" required><?= $user[0]->alamat?>
+                  <textarea readonly class="form-control" name="alamat" id="exampleInputEmail1"required><?= $user[0]->alamat?>
                   </textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Bio<span class="text-danger">*</span></label>
-                  <textarea class="form-control" name="bio" id="exampleInputEmail1" required><?= $user[0]->bio ?>
+                  <textarea readonly class="form-control" name="alamat" id="exampleInputEmail1"required><?= $user[0]->bio?>
                   </textarea>
                 </div>
-                
                 <div class="form-group">
                   <label for="exampleInputEmail1">Facebook</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="fb" value="<?= $user[0]->facebook ?>" placeholder="Facebook">
+                  <input readonly type="text" class="form-control" id="exampleInputEmail1" name="fb" value="<?= $user[0]->facebook ?>" placeholder="Facebook">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Twitter</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" name="twit" value="<?= $user[0]->twitter ?>" placeholder="Twitter">
+                  <input readonly type="text" class="form-control" id="exampleInputPassword1" name="twit" value="<?= $user[0]->twitter ?>" placeholder="Twitter">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Instagram</label>
-                  <input type="text" class="form-control" value="<?= $user[0]->instagram ?>" name="ig" id="exampleInputEmail1" placeholder="Instagram">
+                  <input readonly type="text" class="form-control" value="<?= $user[0]->instagram ?>" name="ig" id="exampleInputEmail1" placeholder="Instagram">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" name="fotopersonalia" id="imgInp">
-                  <img id="blah" src="#" alt="your image" width="200px"/>
+                  <label for="exampleInputFile">image</label>
+                  <br>
+                  <img id="" src="<?= base_url('/assets/images/personalia/').$user[0]->foto; ?>" alt="<?= $user[0]->nama ?>" width="200px"/>
                 </div>
               </div>
               <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
             </form>
           </div>
         </div>
@@ -193,23 +180,6 @@
       'autoWidth'   : false
     })
   })
-</script>
-<script>
-      function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#blah').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    $("#imgInp").change(function(){
-        readURL(this);
-    });
 </script>
 </body>
 </html>

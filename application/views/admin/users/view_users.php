@@ -60,6 +60,7 @@
                           </button></a>
                         <a href="<?= base_url('UpdateUsername/').$datas->id;?>" type="button" data-toggle="tooltip" data-placement="top" title="Update Username"  class="btn btn-default"><i class="fa fa-upload"></i> </a>
                         <a href="<?= base_url('UpdatePassword/').$datas->id;?>" type="button" data-toggle="tooltip" data-placement="top" title="Update Password"  class="btn btn-default"><i class="fa fa-upload"></i> </a>
+                        <!-- <a <?php if($datas->role == "admin"){echo "onclick='return false' disabled";} ?> href="<?= base_url('UpdateStatus/').$datas->id_personalia;?>" type="button"  data-toggle="tooltip" data-placement="top" title="Update Status"  class="btn btn-default"><i class="fa fa-user"></i> </a> -->
                     </td>
                   </tr>
                   <?php $no++;} ?>

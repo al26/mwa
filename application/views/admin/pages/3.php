@@ -80,6 +80,25 @@
                       </div>
                     </div>
                     <div class="form-group" style="margin: 0">
+                      <label class="control-label">Tahun</label>
+                      <div class="">
+                        <input type="text" class="form-control" name="tahun" placeholder="Tahun">
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Alamat</label>
+                      <div class="">
+                        <textarea name="alamat" class="form-control" placeholder="Alamat"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Bio</label>
+                      <div class="">
+                        <textarea name="bio" class="form-control" placeholder="Bio"></textarea>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin: 0">
                       <label class="control-label">Email</label>
                       <div class="">
                         <input type="email" class="form-control" name="email" placeholder="Email">
@@ -199,6 +218,25 @@
                             <input type="text" class="form-control" name="unsur" value="<?=$p->unsur?>" required>
                           </div>
                         </div>
+                        <div class="form-group" style="margin: 0">
+                      <label class="control-label">Tahun</label>
+                      <div class="">
+                        <input type="text" class="form-control" name="tahun" value="<?=$p->tahun?>" placeholder="Tahun">
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Alamat</label>
+                      <div class="">
+                        <textarea name="alamat" class="form-control" placeholder="Alamat"><?=$p->alamat?></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Bio</label>
+                      <div class="">
+                        <textarea name="bio" class="form-control" placeholder="Bio"><?=$p->bio?></textarea>
+                      </div>
+                    </div>
+                    
                         <div class="form-group" style="margin: 0">
                           <label class="control-label">Email</label>
                           <div class="">
