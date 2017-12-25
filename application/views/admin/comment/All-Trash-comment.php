@@ -35,10 +35,10 @@
                   <tbody>
                   <tr>
                     <th>No</th>
-                    <th>Name</th>
-                    <th>Subject</th>
-                    <th>Email</th>
-                    <th>Date publish</th>
+                    <th>Komenter</th>
+                    <th>Judul Post</th>
+                    <th>Isi Komen</th>
+                    <th>Tanggal</th>
                     <th>Action</th>
                   </tr>
 
@@ -47,8 +47,8 @@
                   <tr>
                     <td class="mailbox"><?php echo $no; ?></td>  
                     <td class="mailbox-name"><?php echo $datas->nama; ?></td>  
-                    <td class="mailbox-subject"><?php echo strip_tags(word_limiter($datas->comment,4));  ?></td>
-                    <td class="mailbox-date"><?= $datas->email;?></td> 
+                    <td class="mailbox-subject"><?=$datas->title?></td>
+                    <td class="mailbox-subject"><?php echo strip_tags(word_limiter($datas->comment,5));  ?></td> 
                     <td class="mailbox-date"><?= $datas->time_publish;?> </td> 
                     <td>
                       <a href="<?= base_url('DeletePermanently/').$datas->hash;?>" type="button" data-toggle="tooltip" data-placement="top" title="Delete Permanently" class="btn btn-danger"><i class="fa fa-trash-o"></i> </a>

@@ -86,6 +86,7 @@ $route['read_message_hapus/(:num)']='admin/read_message_hapus/$1';
 $route['Delete-Permanent/(:num)']='admin/permanetDelete/$1';
 
 $route['new_comment/(:any)/(:any)']='validation/new_comment/$1/$2';
+$route['user-comment/(:any)/(:any)']='validation/user_comment/$1/$2';
 $route['comment']='admin/inbox_comment';
 $route['inbox-comment']='admin/inbox_comment';
 $route['read_comment/(:any)']='admin/read_comment/$1';

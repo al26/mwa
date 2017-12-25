@@ -34,13 +34,15 @@
                 <table class="table table-hover ">
                   <tbody>
                     <tr>
-                    <th>Sender</th>
-                    <th>Subject</th>
-                    <th>Date Comment</th>
+                    <th>Komenter</th>
+                    <th>Judul Post</th>
+                    <th>Isi Komen</th>
+                    <th>Tanggal</th>
                   </tr>
                    <?php foreach ($data as $datas) {?>
                   <tr>
                     <td class="mailbox-name"><a href="<?php echo base_url('read_comment/').$datas->hash; ?>"><?php echo $datas->nama; ?></a></td>
+                    <td class="mailbox-subject"><a href="<?=base_url('berita/').$datas->slug?>" target="_blank"><?=ucwords($datas->title);?></a></td>
                     <td class="mailbox-subject"> - <?php echo strip_tags(word_limiter($datas->comment,4));  ?>
                     </td>
                     <td class="mailbox-date"><?= $datas->time_publish;?></td>

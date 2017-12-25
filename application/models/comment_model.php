@@ -12,24 +12,32 @@ class Comment_model extends CI_Model {
 		}
 		
 	}
-	public function get_comment(){
+	public function get_comment($role){
 		$where = array(
-			'hapus'=>0
+			'comment.hapus'=>0,
+			'user.role' => $role
 		);
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
+		$this->db->join('user', 'post.author = user.id', 'left');
 		$this->db->order_by('time_publish', 'DESC');
+		$this->db->select('post.title,post.slug, comment.*');
 		return $this->db->get_where('comment',$where,10)->result();
 	}
 	public function getAllComment_read($id){
 		$where =array(
-			'hash'=>$id
+			'comment.hash'=>$id
 		);
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
+		$this->db->select('post.title,post.slug, comment.*');
 		return $this->db->get_where('comment',$where)->result_array();
 
 	}
 	public function getDataComment_reply($hash){
 		$where =array(
-			'hash'=>$hash
+			'comment.hash'=>$hash
 		);
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
+		$this->db->select('post.title,post.slug, comment.*');
 		return $this->db->get_where('comment',$where)->result_array();
 	}
 	public function ReplyComment($data){
@@ -41,10 +49,14 @@ class Comment_model extends CI_Model {
 		}
 
 	}
-	public function getCommentReply(){
+	public function getCommentReply($role){
 		$this->db->select('*');
 		$this->db->from('reply');
 		$this->db->join('comment', 'reply.id_comment = comment.hash', 'inner');
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
+		$this->db->join('user', 'post.author = user.id', 'left');
+		$this->db->where('user.role', $role);
+		$this->db->where('comment.hapus', 0);
 		return $this->db->get()->result();
 	}
 	public function goTrash($hash){
@@ -62,11 +74,15 @@ class Comment_model extends CI_Model {
 		}
 			
 	}
-	public function getCommentTrash(){
+	public function getCommentTrash($role){
 
 		$where = array(
-			'hapus'=>1
+			'hapus'=>1,
+			'user.role'=>$role
 		);
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
+		$this->db->join('user', 'post.author = user.id', 'left');
+		$this->db->select('post.title,post.slug, comment.*');
 		return $this->db->get_where('comment',$where, 10)->result();
 	}
 	public function goDeleteReply($id){
@@ -84,7 +100,9 @@ class Comment_model extends CI_Model {
 		$where = array(
 			'id_reply'=>$id
 		);
+		$this->db->select('post.title,post.slug, comment.*, reply.*');
 		$this->db->join('comment', 'comment.hash = reply.id_comment', 'inner');
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
 		return $this->db->get_where('reply',$where)->result();
 	}
 	public function getDataReplyUpdate($id){
