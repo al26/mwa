@@ -56,6 +56,7 @@ class Comment_model extends CI_Model {
 		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
 		$this->db->join('user', 'post.author = user.id', 'left');
 		$this->db->where('user.role', $role);
+		$this->db->where('comment.hapus', 0);
 		return $this->db->get()->result();
 	}
 	public function goTrash($hash){
@@ -73,11 +74,15 @@ class Comment_model extends CI_Model {
 		}
 			
 	}
-	public function getCommentTrash(){
+	public function getCommentTrash($role){
 
 		$where = array(
-			'hapus'=>1
+			'hapus'=>1,
+			'user.role'=>$role
 		);
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
+		$this->db->join('user', 'post.author = user.id', 'left');
+		$this->db->select('post.title,post.slug, comment.*');
 		return $this->db->get_where('comment',$where, 10)->result();
 	}
 	public function goDeleteReply($id){

@@ -362,7 +362,7 @@ public function Trash_Comment(){
     $data['sidebar']="admin/sidebar";
     $data['sidebar_comment']="admin/sidebar-comment";
     $data['tabel']="admin/comment/All-Trash-comment";
-    $data['data']=$this->comment_model->getCommentTrash();
+    $data['data']=$this->comment_model->getCommentTrash('admin');
     $this->load->view('admin/comment',$data); 
 }
 public function DeleteReply($id){
