@@ -8,32 +8,11 @@
               <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <div class="mailbox-controls">
-                <!-- Check all button -->
-                
-                <div class="btn-group">
-                  
-                  
-                </div>
-                <!-- /.btn-group -->
-                
-                <button class="btn btn-default btn-sm" onClick="history.go(0)" VALUE="Refresh"><i class="fa fa-refresh"></i></input></button>
-                
-                <div class="pull-right">
-                  
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-                  <!-- /.btn-group -->
-                </div>
-                <!-- /.pull-right -->
-              </div>
+            <div class="box-body">
               <div class="table-responsive mailbox-messages">
-                <table class="table table-hover ">
-                  <tbody>
-                  <tr>
+                <table id="tb_comment_trash" class="table table-bordered">
+                  <thead>
+                    <tr>
                     <th>No</th>
                     <th>Komenter</th>
                     <th>Judul Post</th>
@@ -41,7 +20,8 @@
                     <th>Tanggal</th>
                     <th>Action</th>
                   </tr>
-
+                  </thead>
+                  <tbody>
                   <?php $no=0; foreach ($data as $datas) {?>
                   <?php $no++; ?> 
                   <tr>

@@ -7,38 +7,18 @@
               </div>
               <!-- /.box-tools -->
             </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <div class="mailbox-controls">
-                <!-- Check all button -->
-                
-                <div class="btn-group">
-                  
-                  
-                </div>
-                <!-- /.btn-group -->
-                
-                <button class="btn btn-default btn-sm" onClick="history.go(0)" VALUE="Refresh"><i class="fa fa-refresh"></i></input></button>
-                
-                <div class="pull-right">
-                  
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-                  <!-- /.btn-group -->
-                </div>
-                <!-- /.pull-right -->
-              </div>
-              <div class="table-responsive mailbox-messages">
-                <table class="table table-hover ">
-                  <tbody>
+            <div class="box-body table-responsive">
+              <!-- <div class="table-responsive mailbox-messages"> -->
+                <table id="tb_comment_in" class="table table-bordered">
+                  <thead>
                     <tr>
-                    <th>Komenter</th>
-                    <th>Judul Post</th>
-                    <th>Isi Komen</th>
-                    <th>Tanggal</th>
-                  </tr>
+                      <th>Komenter</th>
+                      <th>Judul Post</th>
+                      <th>Isi Komen</th>
+                      <th>Tanggal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
                    <?php foreach ($data as $datas) {?>
                   <tr>
                     <td class="mailbox-name"><a href="<?php echo base_url('read_comment/').$datas->hash; ?>"><?php echo $datas->nama; ?></a></td>
@@ -51,7 +31,7 @@
                   </tbody>
                 </table>
                 <!-- /.table -->
-              </div>
+              <!-- </div> -->
               <!-- /.mail-box-messages -->
             </div>
             <!-- /.box-body -->

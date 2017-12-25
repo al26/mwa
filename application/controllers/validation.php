@@ -854,4 +854,109 @@ class Validation extends CI_Controller {
         }
 
     }
+
+    public function reply_message()
+    {
+        $this->form_validation->set_rules('email','Email','xss_clean|trim|valid_email');
+        $this->form_validation->set_rules('msgReply','Pesan Balasan','xss_clean|trim|required');
+        $id         = $this->input->post('msgId'); 
+        $nama         = $this->input->post('msgTarget'); 
+        $email      = $this->input->post('email');
+        $message    = $this->input->post('msgReply');
+        $attachment = $this->input->post('replyMsgAttch');
+        
+        if($this->form_validation->run() === FALSE) 
+        {
+            $msg['err_msg'] = validation_errors();
+            $repopulate = array(
+                'email' => $email,
+                'msgReply' => $message
+            );
+            $this->session->set_flashdata($repopulate);
+        } 
+        else
+        {
+            $hash = preg_replace('/[^0-9]+/', '', md5(uniqid(time(), true)), 10);
+            $filename = url_title(date('dmy').'-'.$name, 'dash', TRUE);
+            $file = array();
+            if (!empty($_FILES['replyMsgAttch']['name'])) {
+                $files = $_FILES['replyMsgAttch'];
+                foreach($files['name'] as $k => $v) {
+                    $_FILES['replyMsgAttch']['name']     = $files['name'][$k];
+                    $_FILES['replyMsgAttch']['type']     = $files['type'][$k];
+                    $_FILES['replyMsgAttch']['tmp_name'] = $files['tmp_name'][$k];
+                    $_FILES['replyMsgAttch']['error']    = $files['error'][$k];
+                    $_FILES['replyMsgAttch']['size']     = $files['size'][$k];
+                    // chmod($path = ,0755);
+                    $config['upload_path']      = './assets/uploaded_files/attachments';
+                    $config['allowed_types']    = 'jpg|jpeg|pdf|png|doc|docx|xls|xlsx|ppt|pptx|txt|rtf|rar|zip';
+                    $config['max_size']         = 2048;
+                    $config['overwrite']        = FALSE;
+                    $config['file_name']        = $filename;
+                    $config['max_filename_increment'] = 50;
+
+                    $this->upload->initialize($config);
+                    if ($this->upload->do_upload('replyMsgAttch')) {
+                        $data = $this->upload->data();
+                        chmod($data['full_path'], 0755);
+                        $file[$k] =  $data['file_name'];
+                    } else {
+                        $msg['err_msg'] = $this->upload->display_errors();
+                    }
+                }
+            }
+
+            $data = array(
+                'name' => $nama,
+                'email' => $email,
+                'subject' => 'Reply Message id'.$id,
+                'message' => $message,
+                'attachments' => implode(",", $file),
+                'hash' => $hash,
+                'status' => 'not read yet',
+                'is_reply' => 'yes'
+            );
+            $inserted = $this->messages_model->makeMessage($data);
+            if ($inserted === TRUE) {
+                
+                $config = Array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.googlemail.com',
+                    'smtp_port' => 465,
+                    'smtp_user' => 'amriluthfi26@gmail.com',
+                    'smtp_pass' => 'google26',
+                    'mailtype'  => 'html', 
+                    'charset'   => 'iso-8859-1'
+                );
+                $this->load->library('email', $config);
+                $this->email->set_newline("\r\n");
+                $this->email->from('amriluthfi26@gmail.com', 'Amri');
+                $this->email->to($email);
+                $this->email->subject('Tanggapan Aspirasi/Kritik');
+                // $link_email = site_url('kelola-toko');
+                // $konten_email = "Hai, $data[username]<br>Toko Anda Berhasil Ditambahkan <br>Silahkan login dengan data berikut ini : <br><b>Username : $data[username]</b><br><b>Password : $password</b><br>Anda dapat login pada $link_email";
+
+                $this->email->message($message);
+
+                if ($this->email->send()) {
+                    $msg['scss_msg'] = "Pesan balasan terkirim ke $email";            
+                } else {
+                    // $msg['err_msg'] = "Gagal mengirim pesan balasan. Pesan disimpan ke dalam database.";
+                    $msg['err_msg'] = $this->email->print_debugger();
+                }
+            } else {
+                foreach ($file as $f) {
+                    $myfile = $f;
+                    unlink('./assets/uploaded_files/attachments/'.$myfile);
+                }
+                
+                $msg['err_msg'] = "An error occurred. Please try again. If error still occurs, please contact us";
+            }
+        }
+        
+        $this->session->set_flashdata($msg);
+        redirect($this->input->server('HTTP_REFERER'));
+            
+    }
+
 }

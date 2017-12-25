@@ -8,26 +8,17 @@
               <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <div class="mailbox-controls">
-                <!-- Check all button -->
-                
-                <!-- /.btn-group -->
-                
-                <button class="btn btn-default btn-sm" onClick="history.go(0)" VALUE="Refresh"><i class="fa fa-refresh"></i></input></button>
-                
-                <div class="pull-right">
-                  
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-                  <!-- /.btn-group -->
-                </div>
-                <!-- /.pull-right -->
-              </div>
+            <div class="box-body">
               <div class="table-responsive mailbox-messages">
-                <table class="table table-hover table-striped">
+                <table id="tb_msg_trash" class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </thead>
                   <tbody>
                   <?php foreach ($data as $datas) {?>
                   <tr>
