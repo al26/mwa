@@ -15,22 +15,18 @@
             <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').url_title($c, 'dash', true);?>"><?=ucwords($c); ?></a>
   <?php  endforeach; } ?></h5>
     <br>
-  <!-- <div class="media"> -->
     <div class="text text-justify">
-    	<?php $images = explode(",",$post->image); 
-  	  if (!empty($images)) { 
-  	     foreach ($images as $i) : ?>
-  	        <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_thumb">
-  	<?php   endforeach; } else { ?>
-  	        <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_thumb">
-  	<?php }?>
-    </div>
-    <br>
-    <div class="no-padding">
-      <?= word_limiter($post->body, 50); ?>
+      <?php $images = explode(",",$post->image); 
+      if (!empty($images)) { 
+         foreach ($images as $i) : ?>
+            <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_thumb">
+    <?php   endforeach; } else { ?>
+            <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_thumb">
+    <?php }?>
+      <br>
+      <p><?= word_limiter($post->body, 50); ?></p>
       <a href="<?=base_url('berita/'.$post->slug);?>" class="btn btn-border-aqua">Read More</a>
     </div>
-    <!-- </div> -->
   </div>
   <hr>
 <?php endforeach; ?>

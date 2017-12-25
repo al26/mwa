@@ -11,14 +11,14 @@
             <?php foreach ($data as $datas) { ?>
             <div class="box-body no-padding">
               <div class="mailbox-read-info">
-                <h3><?php echo $datas['nama']; ?></h3>
-                <h5>From: <?php echo $datas['email']?>
-                <span class="mailbox-read-time pull-right"><?php echo $datas['time_publish']; ?></span></h5>
+                <h5><span class="mailbox-read-time pull-right"><?php echo $datas['time_publish']; ?></span></h5><br>
+                <h3>From&nbsp;: <?php echo $datas['nama'].' ('.$datas['email'].')'; ?></h3>
+                <h3>In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $datas['title'] ?></h3>
               </div>
               <!-- /.mailbox-read-info -->
-              <div class="mailbox-controls with-border text-center">
+              <!-- <div class="mailbox-controls with-border text-center">
                 <div class="btn-group"></div>
-              </div>
+              </div> -->
               <div class="mailbox-read-message">
                 <?php echo $datas['comment']; ?>
               </div>

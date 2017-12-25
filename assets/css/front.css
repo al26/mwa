@@ -4,7 +4,7 @@
 body{overflow-x:hidden;margin:0;background:#ecf0f1;}
 .text{font-size:1.25em;}
 .text-upper{text-transform:uppercase;}
-.text-justify{text-align:justify-all;}
+.text-justify{text-align:justify-all;word-wrap: break-word;}
 .text-middle{vertical-align:middle;}
 .text-indent{text-indent:50px;}
 .text-title{font-size:1.3em;font-weight:bolder;}
@@ -279,7 +279,7 @@ div.caption{position:absolute;top:20%;width:100%;text-align:center;}
 /*header*/
 .navbar>.container .navbar-brand{margin-left:3%;padding: 10px 0;}
 ul.nav{margin-right:0;}
-ul.nav li a:focus,.nav .open>a,.nav .open>a:focus{background:transparent;color:#CFB53B;font-weight:bolder;}
+ul.nav li a:focus,.nav .open>a,.nav .open>a:focus{background:#ecf0f1;color:#2b6698;font-weight:bolder;}
 /*saran*/
 .form-saran-container{top:10%}
 /*profil*/

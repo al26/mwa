@@ -314,14 +314,9 @@ class Validation extends CI_Controller {
 				$msg['scss_msg'] = "Success add new comment";
 				
 			}
-		// $this->session->set_flashdata($msg);
-		// redirect('berita/'.$slug);
-        //$msg['err_msg'] = "Success Status";
-        $this->session->set_flashdata($msg);
-        redirect($this->input->server('HTTP_REFERER')); 
+		$this->session->set_flashdata($msg);
+		redirect($this->input->server('HTTP_REFERER'));
     }
-
-
 
     public function update_page($id)
     {

@@ -122,7 +122,7 @@
                   <li><a href="<?=base_url('page/edit/2');?>"><i class="fa fa-circle-o"></i> Penjelasan Umum</a></li>
                   <li><a href="<?=base_url('page/edit/3');?>"><i class="fa fa-circle-o"></i> Personalia</a></li>
                   <li><a href="<?=base_url('page/edit/4');?>"><i class="fa fa-circle-o"></i> Komite Audit</a></li>
-                  <li><a href="<?=base_url('page/edit/5');?>"><i class="fa fa-circle-o"></i> MWA UM</a></li>
+                  <!-- <li><a href="<?=base_url('page/edit/5');?>"><i class="fa fa-circle-o"></i> MWA UM</a></li> -->
                 </ul>
             </li>
             <li><a href="<?=base_url('page/edit/6');?>"><i class="fa fa-circle-o"></i> SK &amp; Peraturan</a></li>
