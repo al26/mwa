@@ -371,7 +371,8 @@ class Validation extends CI_Controller {
 			if ($inserted === TRUE) {$msg['scss_msg'] = "Success Reply Comment";} 
 			else {$msg['err_msg'] = "An error occurred. Please try again.";}
 		}
-			$this->session->set_flashdata($msg);redirect('reply/'.$hash);
+			$this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER'));
     }
   
     public function doUpdate_Reply($id){
@@ -388,7 +389,13 @@ class Validation extends CI_Controller {
           $msg['err_msg'] = "An error occurred. Please try again.";
         }
       }
-      $this->session->set_flashdata($msg);redirect('AllReply/');
+      $this->session->set_flashdata($msg);
+          if($this->session->userdata('role') == "admin"){
+            redirect('AllReply/');
+          }else{
+            redirect('AllReply_user/');
+          }
+      
     }
     public function add_category(){
         

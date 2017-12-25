@@ -30,7 +30,7 @@
               <div class="pull-right">
                 <a href="<?= base_url('replyUser/').$datas['hash'];?>" type="button" class="btn btn-default"><i class="fa fa-reply"></i> Reply</a>
               </div>
-              <a href="<?= base_url('Deletecomment/').$datas['hash'];?>" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</a>
+              <a href="<?= base_url('DeletecommentUser/').$datas['hash'];?>" type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</a>
                <?php }} ?>
             </div>
             
