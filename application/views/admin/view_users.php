@@ -30,6 +30,7 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/admin.css')?>">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -40,13 +41,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Comments
+        Pengaturan User
         <small></small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Comment</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -79,6 +76,9 @@
 <script src="<?php echo base_url('assets');?>/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url('assets');?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url('assets'); ?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- Slimscroll -->
 <script src="<?php echo base_url('assets');?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -139,8 +139,9 @@
     });
   });
   $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
+    $('[data-toggle="tooltip"]').tooltip();
+    $('#tb_user').DataTable();   
+  });
 </script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>

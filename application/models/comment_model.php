@@ -21,7 +21,7 @@ class Comment_model extends CI_Model {
 		$this->db->join('user', 'post.author = user.id', 'left');
 		$this->db->order_by('time_publish', 'DESC');
 		$this->db->select('post.title,post.slug, comment.*');
-		return $this->db->get_where('comment',$where,10)->result();
+		return $this->db->get_where('comment',$where)->result();
 	}
 	public function getAllComment_read($id){
 		$where =array(

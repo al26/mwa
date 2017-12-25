@@ -8,44 +8,25 @@
               <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <div class="mailbox-controls">
-                <!-- Check all button -->
-                
-                <div class="btn-group">
-                  
-                  
-                </div>
-                <!-- /.btn-group -->
-    <?php 
-    if (!empty($this->session->flashdata('err_msg'))) {
-      echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
-    } elseif (!empty($this->session->flashdata('scss_msg'))) {
-      echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
-    } 
-    ?>
-                <button class="btn btn-default btn-sm" onClick="history.go(0)" VALUE="Refresh"><i class="fa fa-refresh"></i></input></button>
-                
-                <div class="pull-right">
-                  
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-                  <!-- /.btn-group -->
-                </div>
-                <!-- /.pull-right -->
-              </div>
+            <div class="box-body">
+              <?php 
+              if (!empty($this->session->flashdata('err_msg'))) {
+                echo '<div class="alert alert-danger alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'.$this->session->flashdata('err_msg').'</li></ul></div>';
+              } elseif (!empty($this->session->flashdata('scss_msg'))) {
+                echo '<div class="alert alert-success alert-dismissable" style="width:80%;margin-left:10%;"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><ul style="list-style-type:none;"><li>'. $this->session->flashdata('scss_msg').'</li></ul></div>';
+              } 
+              ?>
               <div class="table-responsive mailbox-messages">
-
-                <table class="table table-hover ">
-                  <tbody>
-                  <tr>
+                <table id="tb_user" class="table table-hover ">
+                  <thead>
+                    <tr>
                     <th>No</th>
                     <th>Username</th>
                     <th>Role</th>
                     <th>Options</th>
                   </tr>
+                  </thead>
+                  <tbody>
                    <?php $no=1; foreach ($data as $datas) {?>
                   <tr>
                     <td><?=$no?></td>

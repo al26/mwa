@@ -90,6 +90,7 @@ $route['Save/(:num)']='admin/Save/$1';
 $route['Delete/(:num)']='admin/sendTrash/$1';
 $route['read_message_hapus/(:num)']='admin/read_message_hapus/$1';
 $route['Delete-Permanent/(:num)']='admin/permanetDelete/$1';
+$route['reply-message'] = 'validation/reply_message';
 
 $route['new_comment/(:any)/(:any)']='validation/new_comment/$1/$2';
 $route['user-comment/(:any)/(:any)']='validation/user_comment/$1/$2';
