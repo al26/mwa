@@ -15,7 +15,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('edit-page').$data->id;?>">
+          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('edit-page/').$data->id;?>">
             <input type="hidden" name="id" value="<?=$data->id;?>" required>
             <div class="form-group">
               <label class="control-label col-sm-3 col-md-2 color-aqua" for="title">Title <span class="text-danger">*</span></label>
@@ -77,6 +77,18 @@
                       <label class="control-label">Unsur <span class="text-danger">*</span></label>
                       <div class="">
                         <input type="text" class="form-control" name="unsur" placeholder="Unsur" required>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Tahun <span class="text-danger">*</span></label>
+                      <div class="">
+                        <input type="text" class="form-control" name="tahun" placeholder="Tahun" required>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin: 0">
+                      <label class="control-label">Alamat <span class="text-danger">*</span></label>
+                      <div class="">
+                        <textarea type="text" class="form-control" name="alamat" placeholder="Alamat" required></textarea>
                       </div>
                     </div>
                     <div class="form-group" style="margin: 0">

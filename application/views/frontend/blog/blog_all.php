@@ -3,7 +3,7 @@
 </div>
 <hr class="line-long line-black">
 <?php if (empty($recent_posts[0]->category)): ?>
-	<h3>Tidak ada berita untuk kategori/kode pencarian <?=ucwords(str_replace("-"," ",$this->uri->segment(3)));?></h3>
+	<h3>Tidak ada berita untuk kategori/judul dengan kode pencarian <?=ucwords(str_replace("-"," ",$this->uri->segment(3)));?></h3>
 <?php else : ?>
 <?php foreach ($recent_posts as $post) : ?>
   <div class="post-container">

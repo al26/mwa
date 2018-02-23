@@ -45,7 +45,7 @@
       			  	<li class="text-upper"><a href="<?=base_url('profil/penjelasan-umum')?>">penjelasan umum</a></li>
       			    <li class="text-upper"><a href="<?=base_url('profil/personalia')?>">personalia</a></li>
       			    <li class="text-upper"><a href="<?=base_url('profil/komite-audit')?>">komite audit</a></li>
-      			    <li class="text-upper"><a href="<?=base_url('profil/mwa-um/').str_replace("/", "-", $profil->tahun);?>">mwa unsur mahasiswa</a></li>
+      			    <li class="text-upper"><a href="<?= !empty($profil->tahun) ? base_url('profil/mwa-um/').str_replace("/", "-", $profil->tahun) : '#';?>">mwa unsur mahasiswa</a></li>
       			</ul>
     		  </li>
           <li class="text-upper"><a href="<?=base_url('sk-peraturan')?>">sk &amp; peraturan</a></li>
@@ -66,7 +66,7 @@
                 <li class="text-upper"><a href="<?=base_url('profil/penjelasan-umum')?>">penjelasan umum</a></li>
                 <li class="text-upper"><a href="<?=base_url('profil/personalia')?>">personalia</a></li>
                 <li class="text-upper"><a href="<?=base_url('profil/komite-audit')?>">komite audit</a></li>
-                <li class="text-upper"><a href="<?=base_url('profil/mwa-um/').str_replace("/", "-", $profil->tahun);?>">mwa unsur mahasiswa</a></li>
+                <li class="text-upper"><a href="<?= !empty($profil->tahun) ?  base_url('profil/mwa-um/').str_replace("/", "-", $profil->tahun) : '';?>">mwa unsur mahasiswa</a></li>
             </ul>
           </li>
           <li class="text-upper"><a href="<?=base_url('berita/kategori/semua-berita')?>">berita</a></li>

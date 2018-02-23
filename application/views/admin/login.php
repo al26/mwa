@@ -28,15 +28,15 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page" style="overflow: hidden;">
-<div class="login-box">
+<body class="hold-transition login-page" style="overflow-x: hidden;">
+<div class="login-box" style="max-width: 340px;">
   <!-- <div class="login-logo"> -->
     <!-- <a href=""><b>Admin</b>Login</a> -->
   <!-- </div> -->
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <img src="<?=base_url('assets/images/logo.png')?>" style="width:320px;"><hr>
-    <p class="login-box-msg">Administrator Login</p>
+    <img src="<?=base_url('assets/images/logo.png')?>" class="img-responsive"><hr>
+    <p class="login-box-msg">Silahkan Login !</p>
 
     <?php echo form_open('auth/auth_user'); ?>
       <div class="form-group has-feedback">
@@ -62,7 +62,7 @@
           </div>
         </div> -->
         <!-- /.col -->
-        <div class="col-xs-6">
+        <div class="col-xs-6 pull-right">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
         <!-- /.col -->

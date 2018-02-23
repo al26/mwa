@@ -15,7 +15,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('edit-page').$data->id;?>">
+          <form class="form-horizontal" enctype="multipart/form-data" method="post" action="<?=base_url('edit-page/').$data->id;?>">
             <input type="hidden" name="id" value="<?=$data->id;?>" required>
             <div class="form-group">
               <label class="control-label col-sm-3 col-md-2 color-aqua" for="title">Title <span class="text-danger">*</span></label>
