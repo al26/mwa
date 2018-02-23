@@ -52,14 +52,20 @@ class Auth extends CI_Controller {
     public function create_captcha(){
 
         $data = array(
-        
+
         'img_path'=>'./assets/captcha/',
         'img_url'=> base_url('/assets/captcha/'),
-        'img_width'=>320,
-        'img_height'=>80,
+        'img_width'=>248,
+        'img_height'=>50,
         'expiration'=>7200,
         'word_length'=>3,
-        'font_size'=>30
+        'font_size'=>100,
+        'colors' => array(
+                'background' => array(255, 255, 255),
+                'border' => array(204, 204, 204),
+                'text' => array(150, 150, 150),
+                'grid' => array(198, 198, 198)
+        )
         );
         
         $data_captcha = create_captcha($data);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2017 at 12:06 PM
+-- Generation Time: Dec 30, 2017 at 09:53 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.5.38
 
@@ -62,7 +62,8 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `nama`, `email`, `comment`, `hash`, `hash_post`, `hapus`, `time_publish`, `belong_to`) VALUES
-(15, 'amienkurniawan', 'amienthescene@yahoo.co.id', 'amien lipsum lipsum', '5cedaf0f43675acb6d6e33f43d2d0fd3', 'eac82a444f8b186a2c1697a19b968bc1', 0, '2017-12-25 09:14:39', 4);
+(16, 'amien', 'amienthescene@yahoo.co.id', 'amien', '57512da8419d0efc760fe957366fb451', 'eac82a444f8b186a2c1697a19b968bc1', 0, '2017-12-25 13:46:57', 4),
+(20, 'amien', 'amei@gmail.com', 'amin', '224128731be30a46b3680fd59f1ca14e', 'bf2032fbb8b978ab5f34260b8ab3be38', 0, '2017-12-25 15:01:01', 2);
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `name`, `email`, `subject`, `message`, `attachments`, `received_at`, `hash`, `save`, `hapus`, `status`) VALUES
-(5, 'AAA', 'aa@jmail.vv', 'aasasas', '<p>asahkgkgkgagsdad</p>', '', '2017-11-22 12:18:41', '2003766639895588277527099', 0, 0, 'read'),
+(5, 'AAA', 'aa@jmail.vv', 'aasasas', '<p>asahkgkgkgagsdad</p>', '', '2017-12-30 08:26:18', '2003766639895588277527099', 1, 1, 'read'),
 (6, 'lala', 'lala@mail.l', 'ada lah pokoknya', '<p>\r\n\r\n</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat eget ipsum nec consectetur. Vestibulum eget fringilla quam, quis dignissim ex. Cras a mi eu eros sodales scelerisque. Donec sodales blandit turpis, ac laoreet velit tempus sed. Nullam lacus lacus, volutpat in scelerisque non, dictum eget mi. Etiam faucibus est in quam feugiat dignissim. Phasellus faucibus mi et diam accumsan posuere. Proin accumsan arcu a mi rutrum semper. Donec non finibus tortor, at ultricies lacus.</p><p>Morbi ac facilisis dolor, ut tincidunt lectus. Ut malesuada nec sem quis iaculis. Sed fringilla, eros quis posuere interdum, elit magna commodo arcu, id aliquam nisl nulla cursus massa. Quisque volutpat cursus nulla, quis laoreet lectus ultricies et. Vestibulum finibus consectetur ligula et viverra. Donec fermentum massa vitae erat sollicitudin, et condimentum est porta. Cras ipsum nisl, auctor ac mi viverra, aliquet convallis quam. Phasellus ultrices eu sapien a dignissim. Phasellus id nisi ex.</p><p>Pellentesque et felis libero. Nam sit amet fringilla orci. In hac habitasse platea dictumst. Morbi malesuada tempus lacus, quis interdum est mattis a. Phasellus ac ex scelerisque, eleifend urna pellentesque, pharetra risus. Donec ac laoreet lectus. Cras rhoncus vehicula arcu, quis fermentum nunc fringilla volutpat. Aliquam porta ex in nibh viverra lobortis. Etiam aliquam ullamcorper odio, non consequat libero laoreet quis. Suspendisse pharetra ultrices eros, sit amet tincidunt mauris consequat a. Sed rhoncus posuere felis, a sodales nibh feugiat feugiat. Fusce augue metus, condimentum ac pretium gravida, facilisis a arcu. Nam vitae consequat nisi, a pellentesque risus. Sed vitae leo sodales, scelerisque velit in, semper enim.</p><p>Mauris egestas erat ut nunc fringilla, nec mattis augue sollicitudin. In hac habitasse platea dictumst. Vestibulum dictum, diam vitae posuere tempus, lectus eros facilisis neque, non consectetur elit odio ac eros. Donec tristique tristique bibendum. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere dolor non pharetra blandit. Maecenas non leo lacus. Integer malesuada ipsum ac nunc tincidunt, in efficitur turpis finibus. Etiam nec enim hendrerit est faucibus luctus at a massa. In fermentum, mi sit amet posuere porttitor, lectus tellus maximus sapien, in malesuada urna magna at elit.</p><p>Integer tincidunt metus vitae tempor cursus. Integer pretium odio in felis rutrum, id porta orci consectetur. Proin vitae mauris sem. Vivamus mattis leo ac arcu scelerisque, ac euismod nunc placerat. Aenean lobortis, massa at aliquet ultricies, lorem nulla posuere dui, in efficitur est dui fringilla elit. Nulla at erat urna. Aenean dignissim massa in sem faucibus scelerisque. Curabitur vel blandit justo, in tristique erat. Nunc sed mi non erat rutrum ultricies. Ut cursus, arcu id vulputate efficitur, enim sapien molestie urna, sed congue tortor risus at lacus. Quisque sed purus eleifend, pellentesque lacus ut, maximus diam. Donec pharetra, ligula nec congue finibus, magna erat euismod ligula, ac bibendum lectus libero in dui. Aenean a ultrices nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam aliquet placerat diam a facilisis. Cras semper facilisis justo sit amet volutpat.</p>\r\n\r\n<br><p></p>', '', '2017-12-21 11:53:07', '107476266151415905', 0, 0, 'read');
 
 -- --------------------------------------------------------
@@ -229,7 +230,14 @@ CREATE TABLE `reply` (
 --
 
 INSERT INTO `reply` (`id_reply`, `reply`, `id_comment`, `timestamp`) VALUES
-(13, '<p>wes dibales</p>', '73371d67ed87c2337eb80d18ef4e4fab', '2017-12-25 10:32:09');
+(13, '<p>wes dibales</p>', '73371d67ed87c2337eb80d18ef4e4fab', '2017-12-25 10:32:09'),
+(14, '<p>amien</p>', '57512da8419d0efc760fe957366fb451', '2017-12-25 13:38:01'),
+(15, '<p>yyeyyy</p>', '57512da8419d0efc760fe957366fb451', '2017-12-25 13:39:25'),
+(16, '<p>reply?</p>', '57512da8419d0efc760fe957366fb451', '2017-12-25 14:10:54'),
+(17, '<p>iya tak bales ki</p>', '444dfb926fcc8812b57b5218e66edd7a', '2017-12-25 14:14:15'),
+(18, '<p>wes yo des tak bales</p>', '444dfb926fcc8812b57b5218e66edd7a', '2017-12-25 14:15:24'),
+(21, '<p>ping o</p>', '5ca9b822c10865eef2728e7df9fb4fca', '2017-12-25 14:31:55'),
+(22, '<p>komennya dibales</p>', '763e25a04cb1b81c21a98c7223eb7b42', '2017-12-25 14:52:47');
 
 -- --------------------------------------------------------
 
@@ -278,7 +286,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `role`, `id_personalia`) VALUES
 (1, 'admin', '16998f20fc488ca3cdbd2399e0b10ca8', 'admin', 8),
-(2, 'amri', 'amri', 'user', 6),
+(2, 'amri', '41f11ab4cf007ddd7117f90af3711461', 'user', 6),
 (4, 'amienk', '9148b3c7f7f44e9dab82ae132d6d1317', 'user', 9);
 
 --
@@ -366,7 +374,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `fungsi_kewenangan`
 --
@@ -401,7 +409,7 @@ ALTER TABLE `proker`
 -- AUTO_INCREMENT for table `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `id_reply` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_reply` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `sk_peraturan`
 --

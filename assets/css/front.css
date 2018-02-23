@@ -133,13 +133,13 @@ ul.dropdown-menu{background:#2b6698;}
 .customNavigation a{-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 
 /*beranda*/
-.bgimg1{min-height:200px;background:url(../images/bg.jpg);background-repeat:no-repeat;background-position:center;background-attachment:fixed;background-size:cover;}
+.bgimg1{background:url(../images/bg.jpg);background-repeat:no-repeat;background-position:center;background-attachment:fixed;background-size:cover;}
 .bgimg2{height:100px;background:url(../images/bg2.jpg);background-repeat:no-repeat;background-position:center;background-attachment:fixed;background-size:cover;opacity:.8;}
 .bgimg3{height:50px;background:url(../images/bg.jpg);background-repeat:no-repeat;background-position:center;background-attachment:fixed;background-size:cover;opacity:.7;}
 div.caption{position:absolute;top:25%;width:100%;text-align:center;}
 div.caption img{margin-bottom:3%;}
 div.caption span.border{color:#000;font-size:1.3em;letter-spacing:2px;font-weight:bolder;}
-.desc{padding:2rem;height:100%;}
+.desc{padding:2rem;min-height:300px;}
 .section-title{background:transparent;padding-top:10px;margin:0;}
 .latest-news{position:relative;margin:0;}
 .posthumb-container{background: #2c7873;border-radius: 5px 5px 0 0;height:250px;box-shadow: 3px 3px 5px #2c7873;}

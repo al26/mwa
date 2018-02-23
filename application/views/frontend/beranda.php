@@ -103,9 +103,9 @@
 		</div>
 		<hr class="line line-silver">
 		<?php if (!empty($page->description)) : ?>
-			<?=$page->description;?>
+			<?=word_limiter($page->description, 21);?>
 		<?php endif; ?>
-		<br>
+		<br><br>
 		<div class="text-right">
 		<a href="<?=base_url('profil/penjelasan-umum')?>" class="btn btn-md btn-border-silver text-upper" style="margin-right: 0"><i class="fa fa-external-link" aria-hidden="true"></i> selengkapnya</a>
 		</div>
@@ -117,8 +117,8 @@
 			<p>#ayosampaikan</p>
 		</div>
 		<hr class="line line-aqua">
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-		<br>
+		    Suarakan kritik, saran, dan pendapat terbaikmu terhadap kinerja kami atau tentang apapun mengenai Undip. Ayo sampaikan untuk Undip yang lebih baik.
+		<br><br>
 		<div class="text-right">
 		<a href="<?=base_url('kotak-saran')?>" class="btn btn-md btn-border-aqua text-upper"><i class="fa fa-paper-plane" aria-hidden="true"></i> sampaikan sekarang</a>
 		</div>
