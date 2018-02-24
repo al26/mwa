@@ -76,7 +76,7 @@
                 <?php //die(print_r($post)); ?>
                 <tr>
                   <td><?=(strlen($post->title) > 20) ? substr($post->title,0,20).'...' : $post->title;?></td>
-                  <td><?=word_limiter($post->body,5);?></td>
+                  <td><?=strip_tags(word_limiter($post->body,5), 'iframe');?></td>
                   <td><?=(strlen($post->category) > 20) ? substr($post->category,0,20).'...' : $post->category;?></td>
                   <td><?=(strlen($post->image) > 20) ? substr($post->image,0,20).'...' : $post->image;?></td>
                   <td><?=$post->created_at;?></td>

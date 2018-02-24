@@ -18,11 +18,12 @@ class Messages_model extends CI_Model {
 	{
 		
 		$where = array(
-			'hapus'=>0
+			'hapus'=>0,
+			'tipe' => 'msg'
 		);
 		$this->db->order_by('status','DESC');
 		$this->db->order_by('received_at', 'DESC');
-		return $this->db->get_where('messages',$where,10)->result();
+		return $this->db->get_where('messages',$where)->result();
 	}	
 	public function getAllMessage_read($id)
 	{
@@ -39,7 +40,8 @@ class Messages_model extends CI_Model {
 	}
 	public function countMessage(){
 		 $where = array(
-            'status'=> "not read yet"
+            'status'=> "not read yet",
+            'tipe' => 'msg'
         );
         $this->db->where($where);
         $this->db->from('messages');
@@ -102,10 +104,6 @@ class Messages_model extends CI_Model {
 		$where = array(
 			'id'=>$id
 			);
-			//$get = $this->db->get_where('messages',$where)->row();
-			// $myfile = $get->attachments;
-			// chmod(base_url('/assets/uploaded_files/attachments/'), 0755);
-			// unlink(base_url('/assets/uploaded_files/attachments/').$myfile);
 		$query = $this->db->delete('messages',$where);
 		if($query){
 			return true;
@@ -117,14 +115,12 @@ class Messages_model extends CI_Model {
 	{
 		return $this->db->get_where('messages', array('hash' => $hash))->row();
 	}
-
 	public function updateMessage($hash)
 	{
 		$this->db->set('status', 'read');
 		$this->db->where('hash', $hash);
 		$this->db->update('messages'); 
 	}
-
 	public function deleteMessage($hash)
 	{
 		$this->db->where('hash', $hash);

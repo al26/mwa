@@ -158,7 +158,19 @@ class Comment_model extends CI_Model {
 			'hapus'=>1,
 			'belong_to'=>$this->session->userdata('user_id')
 		);
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
+		$this->db->select('post.title,post.slug, comment.*');
 		return $this->db->get_where('comment',$where, 10)->result();
+	}
+	public function getCommentReply_user(){
+		$where = array(
+			'hapus'=>0,
+			'belong_to'=>$this->session->userdata('user_id')
+		);
+		$this->db->join('reply', ' comment.hash=reply.id_comment', 'inner');
+		$this->db->join('post', 'comment.hash_post = post.hash', 'inner');
+		$this->db->select('reply.id_reply,reply,reply.timestamp,post.title,post.slug, comment.*');
+		return $this->db->get_where('comment',$where, 10)->result();	
 	}
 }
 

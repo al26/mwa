@@ -85,13 +85,13 @@
                   <label class="control-label">Message <span class="text-danger">*</span></label>
                   <textarea class="textarea" rows="6" name="msgReply" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required autofocus></textarea>
                 </div>
-                <div class="form-group">
-                  <label class="control-label">Upload File</label>
-                  <div class="">
-                      <input class="form-control" type="file" name="replyMsgAttch[]">
+                <!--<div class="form-group">-->
+                <!--  <label class="control-label">Upload File</label>-->
+                <!--  <div class="">-->
+                <!--      <input class="form-control" type="file" name="replyMsgAttch[]">-->
                       <!-- <span class="text-danger"><h6>*File Format PDF</h6></span> -->
-                  </div>
-                </div>
+                <!--  </div>-->
+                <!--</div>-->
               </div>
               <!-- /.box-body -->
 

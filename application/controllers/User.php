@@ -80,22 +80,67 @@ class User extends CI_Controller {
     public function Trash_Comment(){
         $data['sidebar']="admin/sidebar_user";
         $data['sidebar_comment']="user/sidebar_commentUser";
-        $data['tabel']="admin/comment/All-Trash-comment";
+        $data['tabel']="user/all-trash-comment";
         $data['data']=$this->comment_model->getCommentTrash_user();
         $this->load->view('user/comment',$data); 
     }
     public function reply_comment($hash){
-    $data['sidebar']="admin/sidebar_user";
-    $data['sidebar_comment']="user/sidebar_commentUser";
-    $data['tabel']="admin/comment/reply-comment";
-    $data['data']=$this->comment_model->getDataComment_reply($hash);
-    $this->load->view('user/comment',$data); 
-}
+        $data['sidebar']="admin/sidebar_user";
+        $data['sidebar_comment']="user/sidebar_commentUser";
+        $data['tabel']="admin/comment/reply-comment";
+        $data['data']=$this->comment_model->getDataComment_reply($hash);
+        $this->load->view('user/comment',$data); 
+    }
     public function AllReply(){
-    $data['sidebar']="admin/sidebar_user";
-    $data['sidebar_comment']="user/sidebar_commentUser";
-    $data['tabel']="admin/comment/All-Reply-comment";
-    $data['data']=$this->comment_model->getCommentReply();
-    $this->load->view('user/comment',$data);   
+        $data['sidebar']="admin/sidebar_user";
+        $data['sidebar_comment']="user/sidebar_commentUser";
+        $data['tabel']="user/All-Reply-comment";
+
+        $data['data']=$this->comment_model->getCommentReply_user();
+        $this->load->view('user/comment',$data);   
+    }
+    public function Delete_comment($hash){
+        $query = $this->comment_model->goTrash($hash);
+        if($query==true){
+            redirect('TrashComment_user');  
+        }else{
+            redirect('TrashComment_user');
+        }  
+    }
+    public function Delete_Permanently($hash){
+    $query = $this->comment_model->goDeleteComment($hash);
+    if($query==true){
+        redirect('TrashComment_user');  
+    }else{
+        redirect('TrashComment_user');
+    }
 }
+    public function Restorage_Comment($hash){
+    $data = array(
+        'hapus'=>0
+    );
+    $query = $this->comment_model->goRestorageComment($data,$hash);
+    if($query==true){
+        redirect('comment-user');  
+    }else{
+        redirect('comment-user');
+    }
+}
+public function DeleteReply($id){
+    $query = $this->comment_model->goDeleteReply($id);
+    if($query==true){
+        redirect('AllReply_user');  
+    }else{
+        redirect('AllReply_user');
+    }
+}
+public function UpdateReply($id){
+    $data['sidebar_comment']="user/sidebar_commentUser";
+    $data['sidebar']="admin/sidebar_user";
+    $data['tabel']="admin/comment/update-reply-comment";
+    $data['data']=$this->comment_model->getDataReplyUpdate($id);
+    $this->load->view('admin/comment',$data); 
+}
+
+
 }

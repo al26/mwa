@@ -50,6 +50,8 @@
 			//$page['title'] = "Berita | ".ucwords(str_replace("-", " ", $category));
 			$data['page'] = (object)array("title"=> "Berita | ".ucwords(str_replace("-", " ", $category)));
 			$data['view'] = 'blog_all';
+			// die(var_dump($data['recent_posts']));
+
 			$data['categories'] = $this->category_model->getCategories();
 			$this->load->view('templates/header', $data);	
 			$this->load->view('frontend/blog/blog_layout', $data);	
@@ -90,6 +92,7 @@
 			$data['page'] = (object)array("title"=> "Berita | Cari Berita");
 			$data['view'] = 'blog_all';
 			$data['categories'] = $this->category_model->getCategories();
+			// die(var_dump($data['recent_posts']));
 			$this->load->view('templates/header', $data);	
 			$this->load->view('frontend/blog/blog_layout', $data);	
 			$this->load->view('templates/footer', $data);

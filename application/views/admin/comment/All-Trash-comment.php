@@ -27,7 +27,7 @@
                   <tr>
                     <td class="mailbox"><?php echo $no; ?></td>  
                     <td class="mailbox-name"><?php echo $datas->nama; ?></td>  
-                    <td class="mailbox-subject"><?=$datas->title?></td>
+                    <td class="mailbox-subject"><?= $datas->title ?></td>
                     <td class="mailbox-subject"><?php echo strip_tags(word_limiter($datas->comment,5));  ?></td> 
                     <td class="mailbox-date"><?= $datas->time_publish;?> </td> 
                     <td>

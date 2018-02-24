@@ -6,7 +6,7 @@
 		</div>
 		<hr class="line line-black">
         <?php if (!empty($page->description)) : ?>
-        <div class="p-top-30 color-black text-indent text-justify"><?=$page->description;?></div>
+        <div class="p-top-30 color-black text-justify"><?=$page->description;?></div>
         <?php endif; ?>
     </div>
 <?php if(!empty($fk)) : ?>

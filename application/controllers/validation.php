@@ -73,7 +73,8 @@ class Validation extends CI_Controller {
 				'message' => $message,
 				'attachments' => implode(",", $file),
 				'hash' => $hash,
-				'status' => 'not read yet'
+				'status' => 'not read yet',
+				'tipe' => 'msg'
 			);
 			$inserted = $this->messages_model->makeMessage($data);
 			if ($inserted === TRUE) {
@@ -371,7 +372,8 @@ class Validation extends CI_Controller {
 			if ($inserted === TRUE) {$msg['scss_msg'] = "Success Reply Comment";} 
 			else {$msg['err_msg'] = "An error occurred. Please try again.";}
 		}
-			$this->session->set_flashdata($msg);redirect('reply/'.$hash);
+			$this->session->set_flashdata($msg);
+            redirect($this->input->server('HTTP_REFERER'));
     }
   
     public function doUpdate_Reply($id){
@@ -388,7 +390,13 @@ class Validation extends CI_Controller {
           $msg['err_msg'] = "An error occurred. Please try again.";
         }
       }
-      $this->session->set_flashdata($msg);redirect('AllReply/');
+      $this->session->set_flashdata($msg);
+          if($this->session->userdata('role') == "admin"){
+            redirect('AllReply/');
+          }else{
+            redirect('AllReply_user/');
+          }
+      
     }
     public function add_category(){
         
@@ -481,34 +489,6 @@ class Validation extends CI_Controller {
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function kelolaPersonalia($aksi,$ka)
     {
@@ -857,10 +837,12 @@ class Validation extends CI_Controller {
 
     public function reply_message()
     {
+
         $this->form_validation->set_rules('email','Email','xss_clean|trim|valid_email');
         $this->form_validation->set_rules('msgReply','Pesan Balasan','xss_clean|trim|required');
+
         $id         = $this->input->post('msgId'); 
-        $nama         = $this->input->post('msgTarget'); 
+        $nama       = $this->input->post('msgTarget'); 
         $email      = $this->input->post('email');
         $message    = $this->input->post('msgReply');
         $attachment = $this->input->post('replyMsgAttch');
@@ -877,8 +859,9 @@ class Validation extends CI_Controller {
         else
         {
             $hash = preg_replace('/[^0-9]+/', '', md5(uniqid(time(), true)), 10);
-            $filename = url_title(date('dmy').'-'.$name, 'dash', TRUE);
+            $filename = url_title(date('dmy').'-'.$nama, 'dash', TRUE);
             $file = array();
+            
             if (!empty($_FILES['replyMsgAttch']['name'])) {
                 $files = $_FILES['replyMsgAttch'];
                 foreach($files['name'] as $k => $v) {
@@ -887,19 +870,25 @@ class Validation extends CI_Controller {
                     $_FILES['replyMsgAttch']['tmp_name'] = $files['tmp_name'][$k];
                     $_FILES['replyMsgAttch']['error']    = $files['error'][$k];
                     $_FILES['replyMsgAttch']['size']     = $files['size'][$k];
-                    // chmod($path = ,0755);
+                    
                     $config['upload_path']      = './assets/uploaded_files/attachments';
                     $config['allowed_types']    = 'jpg|jpeg|pdf|png|doc|docx|xls|xlsx|ppt|pptx|txt|rtf|rar|zip';
                     $config['max_size']         = 2048;
                     $config['overwrite']        = FALSE;
                     $config['file_name']        = $filename;
                     $config['max_filename_increment'] = 50;
-
+                    
+                    $file_to_attach = $_FILES['replyMsgAttch']['tmp_name'];
+                    $filename = $_FILES['replyMsgAttch']['name'];
+                    //die(var_dump($filename));
+                    
                     $this->upload->initialize($config);
                     if ($this->upload->do_upload('replyMsgAttch')) {
                         $data = $this->upload->data();
                         chmod($data['full_path'], 0755);
                         $file[$k] =  $data['file_name'];
+                        
+                        
                     } else {
                         $msg['err_msg'] = $this->upload->display_errors();
                     }
@@ -914,31 +903,34 @@ class Validation extends CI_Controller {
                 'attachments' => implode(",", $file),
                 'hash' => $hash,
                 'status' => 'not read yet',
-                'is_reply' => 'yes'
+                'tipe' => 'reply'
             );
+            
+            
+
             $inserted = $this->messages_model->makeMessage($data);
+            
             if ($inserted === TRUE) {
                 
-                $config = Array(
-                    'protocol' => 'smtp',
-                    'smtp_host' => 'ssl://smtp.googlemail.com',
-                    'smtp_port' => 465,
-                    'smtp_user' => 'amriluthfi26@gmail.com',
-                    'smtp_pass' => 'google26',
-                    'mailtype'  => 'html', 
-                    'charset'   => 'iso-8859-1'
-                );
-                $this->load->library('email', $config);
-                $this->email->set_newline("\r\n");
-                $this->email->from('amriluthfi26@gmail.com', 'Amri');
-                $this->email->to($email);
-                $this->email->subject('Tanggapan Aspirasi/Kritik');
-                // $link_email = site_url('kelola-toko');
-                // $konten_email = "Hai, $data[username]<br>Toko Anda Berhasil Ditambahkan <br>Silahkan login dengan data berikut ini : <br><b>Username : $data[username]</b><br><b>Password : $password</b><br>Anda dapat login pada $link_email";
-
-                $this->email->message($message);
-
-                if ($this->email->send()) {
+            include "classes/class.phpmailer.php";
+            $mail = new PHPMailer;
+            $mail->SMTPSecure = 'ssl'; 
+            $mail->Host = "smtp.gmail.com"; //host masing2 provider email
+            $mail->SMTPDebug = 2;
+            $mail->Port = 465;
+            $mail->SMTPAuth = true;
+            $mail->Username = "theoafnt@gmail.com"; //user email
+            $mail->Password = "passwordbuatminiatur"; //password email 
+            $mail->SetFrom("admin@mwa.undip.ac.id","Balasan Email Aspirasi Dari MWA"); //set email pengirim
+            $mail->Subject = "Balasan Email Aspirasi"; //subyek email
+            $mail->AddAddress($email);  //tujuan email
+            $mail->MsgHTML($message,'non Reply');
+            
+            //     $file_to_attach = $_FILES['replyMsgAttch']['tmp_name'] ;
+            //     $filename=$_FILES['replyMsgAttch']['name'];      
+            //      $mail->AddAttachment( $file_to_attach , $filename );
+            
+                if ($mail->Send()) {
                     $msg['scss_msg'] = "Pesan balasan terkirim ke $email";            
                 } else {
                     // $msg['err_msg'] = "Gagal mengirim pesan balasan. Pesan disimpan ke dalam database.";

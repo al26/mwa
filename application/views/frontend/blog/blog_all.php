@@ -3,7 +3,7 @@
 </div>
 <hr class="line-long line-black">
 <?php if (empty($recent_posts[0]->category)): ?>
-	<h3>Tidak ada berita untuk kategori/kode pencarian <?=ucwords(str_replace("-"," ",$this->uri->segment(3)));?></h3>
+	<h3>Tidak ada berita untuk kategori/judul dengan kode pencarian <?=ucwords(str_replace("-"," ",$this->uri->segment(3)));?></h3>
 <?php else : ?>
 <?php foreach ($recent_posts as $post) : ?>
   <div class="post-container">
@@ -12,7 +12,7 @@
     if (!empty($categories)) { 
       echo "| kategori : ";
       foreach ($categories as $c) : ?>
-            <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').url_title($c, 'dash', true);?>"><?=ucwords($c); ?></a>
+            <a class="btn btn-link btn-sm" href="<?=base_url('berita/kategori/').url_title($c, 'dash', true);?>"><?=ucwords($c);?></a>
   <?php  endforeach; } ?></h5>
     <br>
     <div class="text text-justify">
@@ -24,7 +24,9 @@
             <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_thumb">
     <?php }?>
       <br>
-      <p><?= word_limiter($post->body, 50); ?></p>
+      <?= word_limiter($post->body, 50); ?>
+    </div><br>
+    <div class="clearfix">
       <a href="<?=base_url('berita/'.$post->slug);?>" class="btn btn-border-aqua">Read More</a>
     </div>
   </div>

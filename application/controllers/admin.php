@@ -411,6 +411,7 @@ public function edit_page($id)
     $data['sidebar']="admin/sidebar";
     $data['data'] = $this->pages_model->getPage($id); 
     $data['personalia'] = $this->personalia_model->getAllPersonaliaMWA();
+    
     $data['ka'] = $this->personalia_model->getAllPersonaliaKA();
     $data['sk'] = $this->skp_model->getAllSK();
     $data['peraturan'] = $this->skp_model->getAllPeraturan();
