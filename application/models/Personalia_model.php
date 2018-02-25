@@ -67,6 +67,12 @@ class Personalia_model extends CI_Model {
 		$this->db->select('tahun');
 		return $this->db->get('personalia')->row();
 	}
+
+	public function getPersonaliaById($id)
+	{
+		return $this->db->get_where('personalia', array('id' => $id))->row();	
+	}
+
 }
 
 /* End of file Personalia_model.php */
