@@ -102,6 +102,10 @@ class Validation extends CI_Controller {
         $body = $this->input->post('body');
         $post_category = $this->input->post('category');
         $post_images = $this->input->post('user_file');
+        
+        if($post_category == null){
+            $post_category = 0;
+        }
 
         if($this->form_validation->run() === FALSE) 
         {
@@ -130,7 +134,7 @@ class Validation extends CI_Controller {
 					
 					$config['upload_path']      = './assets/images/post';
 	                $config['allowed_types']    = 'jpg|jpeg|png';
-	                $config['max_size']         = 2048;
+	                $config['max_size']         = 5120;
 	                $config['overwrite']        = FALSE;
 	                $config['file_name']        = $filename;
 	                $config['max_filename_increment'] = 50;
@@ -161,6 +165,7 @@ class Validation extends CI_Controller {
                     'title' => $title,
                     'slug' => $slug,
                     'body' => $body,
+                    'category' =>$post_category,
                     'image' => implode(",",$images),
                     'hash' => $hash,
                     'author' =>$this->session->userdata('user_id')
@@ -220,7 +225,7 @@ class Validation extends CI_Controller {
                     
                     $config['upload_path']      = './assets/images/post';
                     $config['allowed_types']    = 'jpg|jpeg|png';
-                    $config['max_size']         = 2048;
+                    $config['max_size']         = 5120;
                     $config['overwrite']        = FALSE;
                     $config['file_name']        = $filename;
                     $config['max_filename_increment'] = 50;

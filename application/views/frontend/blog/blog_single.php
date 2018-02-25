@@ -6,11 +6,13 @@
 <?php  endforeach; } ?></h5>
 <br>
 <div class="text text-justify">
-  <?php $images = explode(",",$single_post->image); 
+  <!-- $images = explode(",",$single_post->image);  -->
+  <?php 
   if (!empty($images)) { 
-     foreach ($images as $i) : ?>
+     foreach ($images as $i) { ?>
+     
         <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image" align="left">
-<?php   endforeach; } else { ?>
+        <?php } } else { ?>
         <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left">
 <?php }?>
   <br>
