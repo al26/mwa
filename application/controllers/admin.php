@@ -489,7 +489,7 @@ public function edit_page($id)
         $data['sidebar']="admin/sidebar";
         $data['sidebar_comment']="admin/sidebar_users";
         $data['tabel'] = "admin/users/setting_admin";
-        $data['data'] = $this->admin_model->GetAdmin();
+        $data['data'] = $this->personalia_model->getPersonaliaById($this->session->id_personalia);
         $this->load->view('admin/view_users',$data);   
     }
 

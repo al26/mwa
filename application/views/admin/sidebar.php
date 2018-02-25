@@ -23,13 +23,13 @@
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?= !empty($profil->foto) ? base_url('assets/images/').$profil->foto : base_url('assets/images/').'undip.png'; ?>" class="user-image" alt="User Image">
+              <img src="<?= !empty($profil->foto) ? base_url('assets/images/personalia/').$profil->foto : base_url('assets/images/').'undip.png'; ?>" class="user-image" alt="User Image">
               <span class="hidden-xs"><?= !empty($profil->nama) ? $profil->nama : $this->session->username; ?></span>    
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?= !empty($profil->foto) ? base_url('assets/images/').$profil->foto : base_url('assets/images/').'undip.png'; ?>" class="image-circle" alt="User Image">
+                <img src="<?= !empty($profil->foto) ? base_url('assets/images/personalia/').$profil->foto : base_url('assets/images/').'undip.png'; ?>"  alt="User Image">
                 <p><?= !empty($profil->nama) ? $profil->nama : $this->session->username; ?></p>
               </li>
               <!-- Menu Body -->
@@ -59,11 +59,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?= !empty($profil->foto) ? base_url('assets/images/').$profil->foto : base_url('assets/images/').'undip.png'; ?>" class="user-image" alt="User Image">
+          <img src="<?= !empty($profil->foto) ? base_url('assets/images/personalia/').$profil->foto : base_url('assets/images/').'undip.png'; ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?= !empty($profil->nama) ? $profil->nama : $this->session->username; ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
