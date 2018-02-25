@@ -16,19 +16,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-
+      <?php 
+        $profil = $this->personalia_model->getPersonaliaById($this->session->id_personalia);
+      ?>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo base_url('assets'); ?>/images/undip.png" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?=$this->session->username; ?></span>
+              <img src="<?= !empty($profil->foto) ? base_url('assets/images/').$profil->foto : base_url('assets/images/').'undip.png'; ?>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?= !empty($profil->nama) ? $profil->nama : $this->session->username; ?></span>    
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url('assets'); ?>/images/undip.png" class="img-circle" alt="User Image">
-                <p><?=$this->session->username; ?></p>
+                <img src="<?= !empty($profil->foto) ? base_url('assets/images/').$profil->foto : base_url('assets/images/').'undip.png'; ?>" class="image-circle" alt="User Image">
+                <p><?= !empty($profil->nama) ? $profil->nama : $this->session->username; ?></p>
               </li>
               <!-- Menu Body -->
               <li class="user-body">
@@ -57,10 +59,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url('assets/')?>/images/undip.png" class="img-circle" alt="User Image">
+          <img src="<?= !empty($profil->foto) ? base_url('assets/images/').$profil->foto : base_url('assets/images/').'undip.png'; ?>" class="user-image" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?=$this->session->username; ?></p>
+          <p><?= !empty($profil->nama) ? $profil->nama : $this->session->username; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
