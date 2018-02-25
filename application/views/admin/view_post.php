@@ -73,8 +73,12 @@
                 <tbody>
                   <?php if(isset($data)){ ?>
                 <?php foreach ($data as $k => $post ) {?>
-                <?php //die(print_r($post)); ?>
+                <?php //die(print_r($post)); 
+
+                ?>
+
                 <tr>
+
                   <td><?=(strlen($post->title) > 50) ? substr($post->title,0,50).'...' : $post->title;?></td>
                   <td><?=strip_tags(word_limiter($post->body,5), 'iframe');?></td>
                   <td><?=(strlen($post->category) > 20) ? substr($post->category,0,20).'...' : $post->category;?></td>
