@@ -7,8 +7,10 @@
 <?php else : ?>
 <?php foreach ($recent_posts as $post) : ?>
   <div class="post-container">
-    <h2 class="no-margin"><?= ucwords($post->title) ?></h2>
-    <h5><span class="glyphicon glyphicon-time"></span> <?= "Dipublikasikan oleh ".ucwords($post->nama)." pada ".date_format(date_create($post->created_at), 'j/m/Y'); ?><?php $categories = explode(",",$post->category); 
+    <h2 class="no-margin"><?= ucwords($post->title); ?></h2>
+    <h5><span class="glyphicon glyphicon-time"></span> <?= "Dipublikasikan oleh ".ucwords($post->nama);?>
+      <!-- <?=($this->uri->segment(2) == 'cari') ? highlight_phrase(ucwords($post->nama), $this->uri->segment(3), '<span style="background: yellow; font-weight: bolder;">', '</span>') : ucwords($post->nama)?> -->
+      <?=" pada ".date_format(date_create($post->created_at), 'j/m/Y'); ?><?php $categories = explode(",",$post->category); 
     if (!empty($categories)) { 
       echo "| kategori : ";
       foreach ($categories as $c) : ?>
@@ -24,7 +26,22 @@
             <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_thumb">
     <?php }?>
       <br>
-      <?= word_limiter($post->body, 50); ?>
+      <?php 
+        // if($this->uri->segment(2) == 'cari' && stripos($post->body, str_replace("-"," ",$this->uri->segment(3))) !== false ) : 
+        //   $strpos = stripos($post->body, str_replace("-"," ",$this->uri->segment(3)));
+        //   $start = $strpos - 5;
+        //   if ( $start <= 0) {
+        //     $show = substr($post->body, 0, $strpos + 300).' ...';
+        //   } else {
+        //     $show = '... '.substr($post->body, $start, $strpos + 300).' ...';
+        //   }
+
+        //   echo highlight_phrase( $show, $this->uri->segment(3), '<span style="background: yellow; font-weight: bolder;">', '</span>');
+
+        // else : echo word_limiter($post->body, 50);
+        // endif; 
+        echo word_limiter($post->body, 50);
+      ?>
     </div><br>
     <div class="clearfix">
       <a href="<?=base_url('berita/'.$post->slug);?>" class="btn btn-border-aqua">Read More</a>

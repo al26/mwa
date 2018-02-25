@@ -8,7 +8,7 @@
       <hr class="line-long line-black">
       <form method="post" action="<?=base_url('cari-berita');?>">
       <div class="input-group">
-        <input type="text" class="form-control" name="cari" placeholder="Cari judul">
+        <input type="text" class="form-control" name="cari" placeholder="Cari ... ">
         <span class="input-group-btn">
           <button class="btn bg-aqua color-silver" type="submit">
             <span class="glyphicon glyphicon-search"></span>

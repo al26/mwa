@@ -124,9 +124,7 @@
               <td><a href="<?=base_url('assets/uploaded_files/skp/'.$p->file);?>" target="_blank"><img src="<?=base_url('assets/images/pdf.png');?>" style="width:35px"></a></td>
               <td>
               <span data-toggle="tooltip" title="Delete Data"><a role="button" href="#delete<?=$p->id;?>" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash bigicon"></i></a></span>
-              &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editsk<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
-              &nbsp;&nbsp;&nbsp;
             </tr>
 
             <!-- Modal -->

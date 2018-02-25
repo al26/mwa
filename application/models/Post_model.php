@@ -31,7 +31,7 @@ class Post_model extends CI_Model {
 		} else {
 			$this->db->where('user.role', $author);
 		}
-		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->join('category', 'FIND_IN_SET(category.id, post.category) != 0', 'left');
 		$this->db->join('user', 'post.author = user.id', 'inner');
 		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
 		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, user.role, personalia.nama');
@@ -59,7 +59,7 @@ class Post_model extends CI_Model {
 		} else {
 			$this->db->where('user.role', $author);
 		}
-		$this->db->join('category', 'FIND_IN_SET(category.id, category) != 0', 'left');
+		$this->db->join('category', 'FIND_IN_SET(category.id, post.category) != 0', 'left');
 		$this->db->join('user', 'post.author = user.id', 'inner');
 		$this->db->join('personalia', 'user.id_personalia = personalia.id', 'left');
 		$this->db->select('post.hash, post.title, post.slug, post.body, GROUP_CONCAT(category.name) AS category, post.image, post.created_at, user.role, personalia.nama');
@@ -165,6 +165,8 @@ class Post_model extends CI_Model {
 		$this->db->from('post');
 		$this->db->where('user.role', $role);
 		$this->db->like('post.title', $key, 'BOTH');
+		$this->db->or_like('post.body', $key, 'BOTH');
+		$this->db->or_like('personalia.nama', $key, 'BOTH');
 		return $this->db->count_all_results();
 	}
 
@@ -184,6 +186,8 @@ class Post_model extends CI_Model {
 		$this->db->order_by('created_at', 'desc');
 		$this->db->where('user.role', $role);
 		$this->db->like('post.title', $key, 'BOTH');
+		$this->db->or_like('post.body', $key, 'BOTH');
+		$this->db->or_like('personalia.nama', $key, 'BOTH');
 		return $this->db->get('post', $num, $offset)->result();
 	}
 
