@@ -10,7 +10,7 @@
 	        $config['per_page'] = $per_page;
 	        $config['total_rows'] = $total;
 	        $config['uri_segment'] = 4;
-	        $config['num_links'] = 3;
+	        $config['num_links'] = 2;
 	        $config['use_page_numbers'] = TRUE;
 	        $config['full_tag_open'] = "<div class=\"ct-pagination\"><ul class=\"pagination\">";
 	        $config['full_tag_close'] = '</ul></div>';
@@ -40,7 +40,7 @@
 
 			// for pagination
 			//$category_url = url_title($category,'dash',true);
-			$url = base_url('berita/kategori/').$category;
+			$url = site_url('berita/kategori/').$category;
 			$per_page = 5;
 			$total = $this->post_model->getPostCount(str_replace("-", " ", $category), 'admin');
 
@@ -50,6 +50,8 @@
 			//$page['title'] = "Berita | ".ucwords(str_replace("-", " ", $category));
 			$data['page'] = (object)array("title"=> "Berita | ".ucwords(str_replace("-", " ", $category)));
 			$data['view'] = 'blog_all';
+			// die(var_dump($data['recent_posts']));
+
 			$data['categories'] = $this->category_model->getCategories();
 			$this->load->view('templates/header', $data);	
 			$this->load->view('frontend/blog/blog_layout', $data);	
@@ -79,10 +81,10 @@
 
 			// for pagination
 			// $category = 'semua-berita';
-			$url = base_url('berita/cari/').$key;
+			$url = site_url('berita/cari/').$key;
 			$per_page = 5;
 			$total = $this->post_model->getPostCountCari(str_replace("-", " ", $key), 'admin');
-
+			// die(var_dump($total));
 	        $data['pagination'] = $this->makePagination($url, $per_page, $total);
 	        $data['recent_posts'] = $this->post_model->getPostPaginationCari($per_page, $page, str_replace("-", " ", $key), 'admin');
 	        $data['body'] = 'berita';
@@ -90,6 +92,7 @@
 			$data['page'] = (object)array("title"=> "Berita | Cari Berita");
 			$data['view'] = 'blog_all';
 			$data['categories'] = $this->category_model->getCategories();
+			// die(var_dump($data['recent_posts']));
 			$this->load->view('templates/header', $data);	
 			$this->load->view('frontend/blog/blog_layout', $data);	
 			$this->load->view('templates/footer', $data);

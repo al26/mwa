@@ -176,9 +176,7 @@
               <td><a href="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : '#'?>" target="_blank"><img src="<?=(!empty($p->foto)) ? base_url('assets/images/personalia/').$p->foto : base_url('assets/images/personalia/noimage.jpg');?>" class="media-object" style="width:60px"></a>
               </td>
               <td><span data-toggle="tooltip" title="Hapus Data"><a href="#delete<?=$p->id;?>" class="btn btn-danger" data-toggle="modal" role="button"><i class="fa fa-trash bigicon"></i></a></span>
-              &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editprs<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
-              &nbsp;&nbsp;&nbsp;
               </td>
             </tr>
             <!-- Modal -->

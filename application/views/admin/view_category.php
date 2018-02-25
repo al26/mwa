@@ -77,7 +77,6 @@
                   <td><?=word_limiter($post->name,5);?></td>
                   <td>
                     <a href="<?=base_url('DeleteKategori/').$post->id; ?>" class="btn btn-danger" data-toggle="modal" title="Hapus Post" role="button"><i class="fa fa-trash bigicon"></i></a>
-                      &nbsp;&nbsp;&nbsp;
                     <a href="#update<?=$post->id?>" class="btn btn-primary" data-toggle="modal" title="Update Post" role="button"><i class="fa fa-upload bigicon"></i></a>
                 </tr>
 

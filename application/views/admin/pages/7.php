@@ -106,9 +106,7 @@
               <td><?=(strlen($p->jenis_kegiatan) > 100) ? substr($p->jenis_kegiatan,0,100).'...' :  $p->jenis_kegiatan;?></td>
               <td>
               <span data-toggle="tooltip" title="Hapus Data"><a role="button" href="#hapuspk<?=$p->id;?>" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash bigicon"></i></a></span>
-              &nbsp;&nbsp;&nbsp;
               <span data-toggle="tooltip" title="Update Data"><a role="button" href="#editpk<?=$p->id;?>" class="btn btn-success" data-toggle="modal"><i class="fa fa-upload bigicon"></i></a></span>
-              &nbsp;&nbsp;&nbsp;
               </td>
             </tr>
               <!-- Modal -->

@@ -58,7 +58,7 @@
           <div class="box">
             
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body table-responsive">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -78,15 +78,14 @@
                 ?>
 
                 <tr>
-                  <td><?=(strlen($post->title) > 20) ? substr($post->title,0,20).'...' : $post->title;?></td>
-                  <td><?=strip_tags(word_limiter($post->body,5), "iframe"); ?></td>
+
+                  <td><?=(strlen($post->title) > 50) ? substr($post->title,0,50).'...' : $post->title;?></td>
+                  <td><?=strip_tags(word_limiter($post->body,5), 'iframe');?></td>
                   <td><?=(strlen($post->category) > 20) ? substr($post->category,0,20).'...' : $post->category;?></td>
                   <td><?=(strlen($post->image) > 20) ? substr($post->image,0,20).'...' : $post->image;?></td>
                   <td><?=$post->created_at;?></td>
                   <td><a href="<?php echo base_url('hapus-post/').$post->id;?>" class="btn btn-danger" data-toggle="tooltip" title="Hapus Post"><i class="fa fa-trash bigicon"></i></a>
-                  &nbsp;&nbsp;&nbsp;
                   <a href="<?php echo base_url('update-post/').$post->id;?>" class="btn btn-primary" data-toggle="tooltip" title="Update Post"><i class="fa fa-upload bigicon"></i></a>
-                  &nbsp;&nbsp;&nbsp;
                   <a href="<?php echo base_url('detail-post/').$post->id;?>" class="btn btn-info" data-toggle="tooltip" title="Detail Post"><i class="fa fa-info-circle bigicon"></i></a></td>
                 </tr>
                 <?php }} ?>
