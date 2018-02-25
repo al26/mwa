@@ -65,7 +65,7 @@
   <div class="form-group">
   <label class="control-label col-sm-3 col-md-2 color-aqua" for="body">Post Body <span class="text-danger">*</span></label>
   <div class="col-sm-8 col-md-9">
-    <textarea id="" class="form-control" rows="10" cols="80" name="body" required><?=$data_post->body ?></textarea>
+    <textarea id="editor1" class="form-control" rows="10" cols="80" name="body" required><?=$data_post->body ?></textarea>
   </div>
   </div>
   <div class="form-group">

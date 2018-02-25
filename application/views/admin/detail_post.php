@@ -83,13 +83,20 @@
   <label class="control-label col-sm-3 col-md-2 color-aqua" for="title">Files <span class="text-danger">*</span></label>
   <ul class="mailbox-attachments clearfix">
     <?php $attch = explode(",",$data_post->image);?>
+
     <?php if (!empty($attch)) { ?>
       <div class="col-sm-8 col-md-9">
-      <?php foreach ($attch as $i){ ?>
-      
-        <img src="<?=base_url('assets/images/post/').$i;  ?>" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> 
-      
-    <?php } }else{?>
+      <?php foreach ($attch as $i){
+          $allowed =  array('gif','png' ,'jpg');
+          $ext = pathinfo($i, PATHINFO_EXTENSION);
+          if(in_array($ext,$allowed) ){ ?>
+            <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image" align="left">
+            <?php }
+             else { ?>
+            <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left">
+          <?php }}
+             
+    }else{?>
      </div>
      <a href="#" class="mailbox-attachment-name">App Description.docx</a>
     <span class="mailbox-attachment-size">1,245 KB
