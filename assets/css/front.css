@@ -188,7 +188,7 @@ body#berita{background:#fff}
 .category_list a:hover{color:#ecf0f1;text-decoration:none;padding-left:10px;}
 .category_list a.btn-link.active{color:#ecf0f1;text-decoration:none;padding-left:10px;background:#2b6698;}
 ul.category_list li:hover{background:#2b6698;}
-.post_thumb{max-width:25%;justify-content:center;overflow:hidden;margin:5px auto;}
+.post_thumb{max-width:32%;justify-content:center;overflow:hidden;margin:5px auto;}
 .post_image{max-width:100%;justify-content:center;overflow:hidden;margin:5px auto;}
 .row.content{height:auto;}
 .main-content{min-height:560px;}

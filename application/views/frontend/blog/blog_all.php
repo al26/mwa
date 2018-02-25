@@ -18,15 +18,18 @@
   <?php  endforeach; } ?></h5>
     <br>
     <div class="text text-justify">
-      <?php $images = explode(",",$post->image); 
-      if (!empty($images)) { 
-         foreach ($images as $i) : ?>
-            <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_thumb">
-    <?php   endforeach; } else { ?>
-            <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_thumb">
-    <?php }?>
+      <div id="photos">
+          <?php $images = explode(",",$post->image); 
+          if (!empty($images)) { 
+             foreach ($images as $i) : ?>
+                <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_thumb">
+        <?php   endforeach; } else { ?>
+                <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_thumb">
+        <?php }?>
+      </div>
       <br>
-      <?php 
+      <div id="post-body" class="clearfix">
+        <?php 
         // if($this->uri->segment(2) == 'cari' && stripos($post->body, str_replace("-"," ",$this->uri->segment(3))) !== false ) : 
         //   $strpos = stripos($post->body, str_replace("-"," ",$this->uri->segment(3)));
         //   $start = $strpos - 5;
@@ -42,6 +45,7 @@
         // endif; 
         echo word_limiter($post->body, 50);
       ?>
+      </div>
     </div><br>
     <div class="clearfix">
       <a href="<?=base_url('berita/'.$post->slug);?>" class="btn btn-border-aqua">Read More</a>
