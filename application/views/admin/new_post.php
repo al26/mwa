@@ -82,14 +82,17 @@
   <div class="form-group">
     <label class="control-label col-sm-3 col-md-2 color-aqua" for="exampleInputFile">Upload File(s)</label>
 	<div class="col-sm-8 col-md-9">
-      <input class="form-control" type="file" name="user_file[]" id="exampleInputFile" multiple="">
+      <input class="form-control" type="file" name="user_file[]" id="gallery-photo-add" multiple="">
+      </div>
 	</div>
-  </div>
+  
   <div class="form-group"> 
     <div class="col-sm-offset-3 col-md-offset-2 col-sm-10">
       <button type="submit" class="btn bg-aqua color-silver">Create</button>
     </div>
   </div>
+  </div>
+  
 </form>
 </section>
 </div>
@@ -142,7 +145,7 @@
       'info'        : true,
       'autoWidth'   : false
     })
-  })
+  });
 </script>
 </body>
 </html>

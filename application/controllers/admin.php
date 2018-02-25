@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('form_validation','upload');
-        //$this->load->model('admin_model');
+        //$this->load->model('Admin_model');
         $this->load->helper('text','form');
 
         if($this->session->userdata('role')==false){
@@ -484,6 +484,13 @@ public function edit_page($id)
         $data['tabel'] = "admin/users/edit_status";
         $data['data'] = $this->users_model->get_update($id);
         $this->load->view('admin/view_users',$data);      
+    }
+    public function SettingAdmin(){
+        $data['sidebar']="admin/sidebar";
+        $data['sidebar_comment']="admin/sidebar_users";
+        $data['tabel'] = "admin/users/setting_admin";
+        $data['data'] = $this->admin_model->GetAdmin();
+        $this->load->view('admin/view_users',$data);   
     }
 
 

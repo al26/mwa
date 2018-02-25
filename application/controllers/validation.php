@@ -134,7 +134,7 @@ class Validation extends CI_Controller {
 					
 					$config['upload_path']      = './assets/images/post';
 	                $config['allowed_types']    = 'jpg|jpeg|png';
-	                $config['max_size']         = 5120;
+	                $config['max_size']         = 50120;
 	                $config['overwrite']        = FALSE;
 	                $config['file_name']        = $filename;
 	                $config['max_filename_increment'] = 50;
@@ -225,7 +225,7 @@ class Validation extends CI_Controller {
                     
                     $config['upload_path']      = './assets/images/post';
                     $config['allowed_types']    = 'jpg|jpeg|png';
-                    $config['max_size']         = 5120;
+                    $config['max_size']         = 50120;
                     $config['overwrite']        = FALSE;
                     $config['file_name']        = $filename;
                     $config['max_filename_increment'] = 50;
@@ -641,7 +641,7 @@ class Validation extends CI_Controller {
 				// chmod($path = ,0755);
 				$config['upload_path'] 		= './assets/uploaded_files/skp';
 				$config['allowed_types'] 	= 'pdf';
-				$config['max_size'] 		= 1024 * 5;
+				$config['max_size'] 		= 5120 * 5;
 				$config['overwrite']		= FALSE;
                 $config['file_name'] 		= $filename;
                 $config['max_filename_increment'] = 50;

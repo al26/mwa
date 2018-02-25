@@ -30,6 +30,7 @@ $route['kelola-proker/(:any)'] = 'validation/kelolaProker/$1';
 $route['kelola-fk'] = 'validation/kelolaFK';
 $route['delete-personalia/(:num)'] = 'admin/delete_personalia/$1';
 $route['HapusPK/(:num)'] = 'admin/Hapus_PK/$1';
+$route['SettingAdmin']='admin/SettingAdmin';
 
 $route['UsersView'] = 'admin/UsersView';
 $route['hapus-user/(:num)'] = 'admin/HapusUser/$1';
