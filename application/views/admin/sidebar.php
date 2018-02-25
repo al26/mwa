@@ -150,7 +150,8 @@
             </span>
           </a>
           <ul class="treeview-menu">          
-           <li><a href="<?php echo base_url('UsersView');?>"><i class="fa fa-circle-o"></i> View All Users</a></li>  
+           <li><a href="<?php echo base_url('UsersView');?>"><i class="fa fa-circle-o"></i> View All Users</a></li>
+           <li><a href="<?php echo base_url('SettingAdmin');?>"><i class="fa fa-circle-o"></i>Setting Admin</a></li>  
           </ul>
         </li>
            

@@ -90,8 +90,26 @@
   <div class="form-group"> 
     <div class="col-sm-offset-3 col-md-offset-2 col-sm-10">
       <button type="submit" class="btn bg-aqua color-silver">Update</button>
+      <br><br>
+      <?php $attch = explode(",",$data_post->image);?>
+        <?php if (!empty($attch)) { ?>
+        <?php foreach ($attch as $i){
+              $allowed =  array('gif','png' ,'jpg');
+              $ext = pathinfo($i, PATHINFO_EXTENSION);
+              if(in_array($ext,$allowed) ){ ?>
+                <img src="<?=base_url('assets/images/post/').$i; ?>" height="100px" class="post_image" align="left">
+                <?php }
+                 else { ?>
+                <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left">
+              <?php }}
+        }else{?>
+        <a href="#" class="mailbox-attachment-name">App Description.docx</a>
+        <span class="mailbox-attachment-size">1,245 KB
+         <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
+        </span>
+       <?php } ?>
     </div>
-  </div>
+</div>
 </form>
 
 </section>

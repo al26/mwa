@@ -87,10 +87,10 @@
     <?php if (!empty($attch)) { ?>
       <div class="col-sm-8 col-md-9">
       <?php foreach ($attch as $i){
-          $allowed =  array('gif','png' ,'jpg');
+          $allowed =  array('gif','png' ,'jpg','JPEG');
           $ext = pathinfo($i, PATHINFO_EXTENSION);
           if(in_array($ext,$allowed) ){ ?>
-            <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image" align="left">
+            <img src="<?=base_url('assets/images/post/').$i; ?>" height="100px" class="post_image" align="left">
             <?php }
              else { ?>
             <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left">
