@@ -11,9 +11,9 @@
   $images = explode(",",$single_post->image); 
   if (!empty($images)) { 
      foreach ($images as $i) { ?>
-        <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image" align="left">
+        <img src="<?=base_url('assets/images/post/').$i; ?>" class="post_image">
         <?php } } else { ?>
-        <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image" align="left">
+        <img src="<?=base_url('assets/images/post/noimage.png'); ?>" class="post_image">
 <?php }?>
   <br>
   <p><?=$single_post->body; ?></p>
